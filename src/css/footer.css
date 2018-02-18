@@ -1,0 +1,33 @@
+footer#pageFooter{
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+footer p {
+    color: gray;
+    text-align: left;
+    margin: 0 10px;
+    /*
+    margin-bottom: 10px;
+    */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.pageContent {
+    padding: 0;
+    min-height: 100%;
+    margin: 0 auto -1.5em;
+}
+
+footer,
+div.pageContent::after {
+    height: 1.5em;
+}
+
+footer {
+    background-color: white;
+}
