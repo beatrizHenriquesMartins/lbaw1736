@@ -1,6 +1,5 @@
 footer#pageFooter{
     padding-top: .5em;
-    padding-bottom: .5em;
 }
 
 footer p {
@@ -13,7 +12,7 @@ footer p {
 }
 
 html, body {
-    height: 100%;
+    height: 99%;
     margin: 0;
 }
 
