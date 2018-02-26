@@ -30,3 +30,19 @@ body {
 footer {
     margin: 50px 0;
 }
+
+.nav{
+	color:white;
+}
+
+.nav a{
+    color: white;
+    font-size: 0.8rem;
+    }
+.nav li{
+    padding-right:2px;
+   }
+
+.nav col-md-2 img{
+	background-size: contain;
+}
