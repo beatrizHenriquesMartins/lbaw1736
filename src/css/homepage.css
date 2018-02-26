@@ -53,3 +53,5 @@ i.fa.fa-shopping-cart::before {
 i {
   padding: 12px 0 0 0;
 }
+
+#navBarSearchForm input[type=text]{width:320px !important;}
