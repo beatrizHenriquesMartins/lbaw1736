@@ -22,11 +22,6 @@ html, body {
     margin: 0 auto -1.5em;
 }
 
-footer,
-div.pageContent::after {
-    height: 1.5em;
-}
-
 footer {
     background-color: white;
 }

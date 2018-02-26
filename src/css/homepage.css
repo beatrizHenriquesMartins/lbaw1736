@@ -1,0 +1,55 @@
+body, html {
+    height: 99%;
+    background-repeat: no-repeat;
+    background-color: #d3d3d3;
+    font-family: 'Oxygen', sans-serif;
+}
+
+.main {
+    margin-top: 40px;
+}
+
+.mb-4 {
+    font-size: 50px;
+    font-family: 'Passion One', cursive;
+    font-weight: 400;
+}
+
+hr {
+    width: 10%;
+    color: #fff;
+}
+
+.topbar {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  margin: 0;
+}
+
+.search {
+  padding-top: 15px;
+  padding-right: 40px;
+}
+
+.sign {
+  padding-top: 22px;
+}
+
+.shop-cart::before {
+  content:'';
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+
+i.fa.fa-shopping-cart::before {
+    color: white;
+    font-size:24px;
+}
+
+
+i {
+  padding: 12px 0 0 0;
+}
