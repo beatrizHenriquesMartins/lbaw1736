@@ -28,13 +28,20 @@ hr {
   margin: 0;
 }
 
+.logo {
+
+}
+
 .search {
   padding-top: 15px;
   padding-right: 40px;
+  width: auto;
+  display: flex;
 }
 
 .sign {
   padding-top: 22px;
+  width: auto;
 }
 
 .shop-cart::before {
@@ -50,12 +57,14 @@ i.fa.fa-shopping-cart::before {
     font-size:24px;
 }
 
-
 i {
   padding: 12px 0 0 0;
 }
 
-#navBarSearchForm input[type=text]{width:320px !important;}
+#navBarSearchForm input[type=text]{
+  width: 515px !important;
+  height: 34px !important;
+}
 
 #brand-container {
   padding-top: 30px;
@@ -70,4 +79,16 @@ i {
 .img-center{
 	margin-left:auto;
 	margin-right:auto;
+}
+
+.top {
+  display: flex;
+  -webkit-flex-direction: row;  /* Safari */
+  flex-direction:  row;
+  -webkit-justify-content: between; /* Safari */
+  justify-content: between;
+}
+
+.flex-item {
+  flex: auto;
 }
