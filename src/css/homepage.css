@@ -1,7 +1,7 @@
 body, html {
     height: 99%;
     background-repeat: no-repeat;
-    background-color: #d3d3d3;
+    background-color: white;
     font-family: 'Oxygen', sans-serif;
     padding: 0 10px 0 10px;
 }
@@ -24,8 +24,7 @@ hr {
 .topbar {
   display: inline-block;
   width: 100%;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 10px 0;
   margin: 0;
 }
 
@@ -57,3 +56,18 @@ i {
 }
 
 #navBarSearchForm input[type=text]{width:320px !important;}
+
+#brand-container {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+
+.brand-banner-box {
+  margin-bottom: 30px;
+}
+
+.img-center{
+	margin-left:auto;
+	margin-right:auto;
+}
