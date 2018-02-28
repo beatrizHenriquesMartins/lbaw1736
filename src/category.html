@@ -19,8 +19,11 @@
         <!-- Website Font style-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
-        <!-- Custom CSS -->
-        <link href="css/homepage.css" rel="stylesheet">
+        <!-- TopBar CSS -->
+        <link href="css/topbar.css" rel="stylesheet">
+
+        <!-- Homepage CSS -->
+        <link href="css/category.css" rel="stylesheet">
 
         <!-- footer style -->
         <link rel="stylesheet" href="./css/footer.css" type="text/css">
@@ -107,18 +110,35 @@
             </nav>
           </div>
 
-          <div class ="category-products">
-            <h3>Category 1</h3>
-            <div class="btn-group">
-              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Order by
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+          <div class="container category-section">
+            <div class="category-topbar row">
+              <div class="col-md-2 category">
+                <h3>Category 1</h3>
+              </div>
+              <div class="col-md-8">
+              </div>
+              <div class="col-md-2 dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Order by
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="category-products row">
+              <div class="products">
+                <p>PRODUTO</p>
+              </div>
+              <div class="products">
+                <p>PRODUTO</p>
+              </div>
+              <div class="products">
+                <p>PRODUTO</p>
+              </div>
+              <div class="products">
+                <p>PRODUTO</p>
               </div>
             </div>
           </div>
