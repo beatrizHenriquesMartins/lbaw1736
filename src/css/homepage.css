@@ -29,19 +29,25 @@ hr {
 }
 
 .logo {
-
+  width: 80%;
+  height: 80%;
 }
 
 .search {
-  padding-top: 15px;
-  padding-right: 40px;
   width: auto;
   display: flex;
+  flex-direction:  row;
+  justify-content: center;
+
 }
 
 .sign {
   padding-top: 22px;
   width: auto;
+  display: flex;
+  flex-direction:  row;
+  justify-content: center;
+
 }
 
 .shop-cart::before {
@@ -62,13 +68,22 @@ i {
 }
 
 #navBarSearchForm input[type=text]{
-  width: 515px !important;
+  width: 250px !important;
   height: 34px !important;
 }
 
 #brand-container {
-  padding-top: 30px;
-  padding-bottom: 20px;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction:  column;
+}
+
+#inner-brand-container {
+  display: flex;
+  justify-content: center;
+  flex-direction:  row;
 }
 
 .brand-box {
@@ -94,4 +109,24 @@ i {
 
 .flex-item {
   flex: auto;
+}
+
+.card-columns {
+  display: flex;
+  flex-direction:  row;
+  justify-content: center;
+  align-content: stretch;
+  width: 80%;
+  height: 80%;
+}
+
+.stretch {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 30px;
+}
+
+.stretch img {
+  width: 100%;
+  height: 100%;
 }
