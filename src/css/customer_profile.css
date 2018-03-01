@@ -6,6 +6,26 @@ body {
 
 .Profile {
 	width: 285px;
+	padding-right: 0px;
+}
+
+.Profile > p {
+	margin: 0px;
+	padding: 10px;
+	background-color: #E8E8E8;
+}
+
+.Profile > p:before{
+  content:"";
+  width:0px;
+  height:0px;
+  border-top:20px solid transparent;
+  border-left:10px solid #E8E8E8;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid transparent;
+  position:absolute;
+  left:100%;
+  top:0px;
 }
 
 .Lists {
@@ -15,6 +35,10 @@ body {
 
 .Lists>div{
 	padding-left: 20px;
+}
+
+.Lists a {
+	color: black;
 }
 
 .Information>div div:first-child>p{
