@@ -1,0 +1,53 @@
+
+
+body {
+  padding: 80px;
+}
+
+.Profile {
+	width: 285px;
+}
+
+.Lists {
+	border:2px solid #000;
+	
+}
+
+.Lists>div{
+	padding-left: 20px;
+}
+
+.Information>div div:first-child>p{
+	font-weight: bold;
+}
+
+.Addresses>p {
+	font-weight: bold;
+}
+
+
+ul {
+	
+  overflow-y: scroll;
+  height: 250px;
+  
+  margin: 0;
+  padding: 0;
+  border: 2px solid #ccc;
+  
+}
+
+li {
+  padding: 10px 20px;
+  
+  border-bottom: 1px solid #ccc;
+  
+}
+
+li:last-child{
+	border-bottom: none;
+}
+
+li:nth-child(even) {
+	background: #f8f8f8;
+}
