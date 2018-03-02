@@ -1,0 +1,48 @@
+
+.spinner {
+  width: 100%;
+  padding-bottom: 0.7143em;
+  display: flex;
+  -webkit-flex-direction: row;  /* Safari */
+  flex-direction:  row;
+
+}
+
+.spinner input {
+  text-align: right;
+}
+
+.spinner input[type=text]{
+  height: 3em !important;
+}
+
+
+.input-group-btn-vertical {
+  width: 15%;
+}
+
+.input-group-btn-vertical > .btn {
+  display: block;
+  padding: 0 0 0.03em 0;
+  margin-left: -0.1em;
+  border-radius: 0;
+  flex: auto;
+}
+
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 0.4em;
+}
+
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -0.2em;
+  border-bottom-right-radius: 0.4em;
+}
+
+.input-group-btn-vertical .btn .fa {
+  padding: 0;
+  width: 1em;
+}
+
+.product .product-class .btns {
+  flex: auto;
+}
