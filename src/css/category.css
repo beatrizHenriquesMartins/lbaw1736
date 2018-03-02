@@ -44,7 +44,8 @@
   border-width:  0.0714em 0 0 0.0714em;
   width: auto;
   height: auto;
-  margin: 1.4286em 5.7143em 0 0;
+  margin: 1.3em 1.3em 1.3em 0;
+  padding-bottom: 1.3em;
   display: flex;
   -webkit-flex-direction: column;  /* Safari */
   flex-direction:  column;
@@ -55,7 +56,7 @@
   border-width: 0.0714em 0.0714em 0.0714em 0.0714em;
   width: auto;
   height: auto;
-  margin: 1.0714em 0 1.0714em 0.7143em;
+  margin: 1.3em 1.3em 0 1.3em;
   display: flex;
   -webkit-flex-direction: row;  /* Safari */
   flex-direction:  row;
@@ -64,12 +65,12 @@
 }
 
 .category-section .category-products .product .product-image {
-  padding: 2.1429em 3.5714em 2.1429em 2.1429em;
+  padding: 1.3em;
   flex: 1;
 }
 
 .category-section .category-products .product .product-name {
-  padding: 2.1429em 3.5714em 2.1429em 2.1429em;
+  padding: 1.3em;
   display: flex;
   -webkit-flex-direction: column;  /* Safari */
   flex-direction:  column;
@@ -78,11 +79,11 @@
 }
 
 .category-section .category-products .product .product-name h3 {
-  margin: 0 0 2.1429em 0;
+  margin: 0 0 1.3em 0;
 }
 
 .category-section .category-products .product .product-class {
-  padding: 2.1429em 3.5714em 2.1429em 2.1429em;
+  padding: 1.3em;
   width: auto;
   height: auto;
   display: flex;
@@ -93,21 +94,21 @@
 }
 
 .category-section .category-products .product .product-class h3 {
-  margin: 0 0 0.7143em 0;
+  margin: 0 0 -0.2em 0;
   text-align: center;
   vertical-align: middle;
 }
 
 .category-section .category-products .product .product-class .rating {
-  margin: 0 0 0.7143em 0;
+  margin: 0 0 0.5143em 0;
 }
 
 .category-section .category-products .product .product-class .rating .rating-addon:first-of-type {
-  padding: 0 0 0 1.2143em;
+  padding: 0 0 0 0.6143em;
 }
 
 .category-section .category-products .product .product-class .rating .rating-addon {
-  padding: 0 0 0 0.5em;
+  padding: 0 0 0 0.3em;
 }
 
 .category-section .category-products .product .product-class .rating .grey {
@@ -115,19 +116,19 @@
 }
 
 .category-section .category-products .product .product-class .btns {
-  padding: 0 0 0.7143em 0;
+  padding: 0 0 0.5143em 0;
   display: flex;
   -webkit-flex-direction: column;  /* Safari */
   flex-direction:  column;
 }
 
 .category-section .category-products .product .product-class .btns .cart-btn {
-  padding: 0 0 0.7143em 0;
+  padding: 0 0 0.5143em 0;
   width:100%;
 }
 
 .category-section .category-products .product .product-class .btns .fav-btn {
-  padding: 0 0 0.7143em 0;
+  padding: 0 0 0.5143em 0;
   width:100%;
 }
 
