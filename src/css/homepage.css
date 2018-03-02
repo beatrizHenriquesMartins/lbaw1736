@@ -1,5 +1,5 @@
 body, html {
-    overflow: hidden; /* para não existirem scroll*/
+    overflow-x: hidden;  /*para não existirem scroll*/
     background-repeat: no-repeat;
     background-color: white;
     font-family: 'Karma', serif;
