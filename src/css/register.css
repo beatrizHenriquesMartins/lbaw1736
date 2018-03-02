@@ -6,63 +6,63 @@ body, html {
 }
 
 .main {
-    margin-top: 40px;
+    margin-top: 2.8571em;
 }
 
 .panel-heading {
-    margin-bottom: 40px;
+    margin-bottom: 2.8571em;
 }
 
 .mb-4 {
-    font-size: 50px;
+    font-size: 3.5714em;
     font-family: 'Passion One', cursive;
     font-weight: 400;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 1.0714em;
 }
 
 label {
-    margin-bottom: 15px;
+    margin-bottom: 1.0714em;
 }
 
 input,
 input::-webkit-input-placeholder {
-    font-size: 11px;
-    padding-top: 3px;
-    max-width: 250px;
+    font-size: 0.7857em;
+    padding-top: 0.2143em;
+    max-width: 17.8571em;
 }
 
 .main-login {
     background-color: #fff;
 
     /* shadows and rounded borders */
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3)
+    -moz-border-radius: 0.1429em;
+    -webkit-border-radius: 0.1429em;
+    border-radius: 0.1429em;
+    -moz-box-shadow: 0em 0.1429em 0.1429em rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0em 0.1429em 0.1429em rgba(0, 0, 0, 0.3);
+    box-shadow: 0em  0.1429em 0.1429em rgba(0, 0, 0, 0.3)
 }
 
 .main-center {
-    margin-top: 30px;
-    margin-bottom: 60px;
-    margin-top: 20px;
+    margin-top: 2.1429em;
+    margin-bottom: 4.2857em;
+    margin-top: 1.4286em;
     margin-right: auto;
     margin-left: auto;
-    max-width: 330px;
-    padding: 15px 35px;
+    max-width: 23.5714em;
+    padding: 1.0714em 2.5em;
 }
 
 .login-button {
-    margin-top: 5px;
+    margin-top: 0.3571em;
 }
 
 .back-btn {
     width: 99%;
-    padding: 0 0 35px 0;
+    padding: 0 0 2.5em 0;
 }
 
 .back-btn .btn {

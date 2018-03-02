@@ -1,9 +1,8 @@
 body, html {
-    height: 99%;
+    overflow: hidden; /* para não existirem scroll*/
     background-repeat: no-repeat;
     background-color: white;
-    font-family: 'Oxygen', sans-serif;
-    padding: 0 0.7142em 0 0.7142em;
+    font-family: 'Karma', serif;
 }
 
 .main {
@@ -64,10 +63,14 @@ hr {
 .stretch {
   width: 100%;
   height: 100%;
-  padding-bottom: 2.1429em;
 }
 
 .stretch img {
   width: 100%;
   height: 100%;
+}
+
+span {
+    padding-left: 0.3571em;
+    padding-right: 0.3571em;
 }
