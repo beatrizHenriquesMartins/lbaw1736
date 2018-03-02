@@ -1,77 +1,157 @@
 
 
-body {
-  padding: 80px;
+body, html {
+    height: 99%;
+    background-repeat: no-repeat;
+    background-color: white;
+    font-family: 'Karma', sans-serif;
+    padding: 0 10px 0 10px;
 }
 
-.Profile {
-	width: 285px;
+/*Main Section*/
+
+.main{
+	margin-top: 1.5em;
+	margin-left: 0em;
+	margin-right: 0em;
+}
+
+.main>div:nth-child(2){
+	padding-left: 2em;
+	margin-left: 10em;
+	padding-top: 1em;
+	border-top: solid 0.01em #D3D3D3;
+	border-left: solid 0.01em #D3D3D3;
+}
+
+/*SideLinks*/
+.sidelinks {
+	width: 15.357142857142858em;
 	padding-right: 0px;
 }
 
-.Profile > p {
-	margin: 0px;
-	padding: 10px;
-	background-color: #E8E8E8;
+.lists{
+	width: 14.285714285714286em;
+
 }
 
-.Profile > p:before{
+.lists>div{
+	margin: 0em;
+	padding-top: 0.7142857142857143em;
+	padding-bottom: 0.7142857142857143em;
+	padding-left: 0.7142857142857143em;
+	padding-right: 0em;
+	width: 14.285714285714286em;
+	border-left: 0.07142857142857142em solid #D3D3D3; 
+}
+
+.lists>div:first-child {
+	margin: 0em;
+	padding: 0.7142857142857143em;
+	background-color: #E8E8E8;
+	border-top: solid 0.07142857142857142em #D3D3D3
+	border-bottom: solid 0.07142857142857142em #D3D3D3
+}
+
+.sidelinks div:first-child>a:before{
   content:"";
-  width:0px;
-  height:0px;
-  border-top:20px solid transparent;
-  border-left:10px solid #E8E8E8;
-  border-right: 10px solid transparent;
-  border-bottom: 20px solid transparent;
+  width:0em;
+  height:0em;
+  border-top:1.4285714285714286em solid transparent;
+  border-left:2.142857142857143em solid #E8E8E8;
+  border-right: 2.142857142857143em solid transparent;
+  border-bottom: 1.4285714285714286em solid transparent;
   position:absolute;
   left:100%;
   top:0px;
 }
 
-.Lists {
-	border:2px solid #000;
-	
+
+
+.lists div~div{
+	border-right: 0.07142857142857142em solid #D3D3D3
 }
 
-.Lists>div{
-	padding-left: 20px;
+.lists div:last-child{
+	border-bottom: 0.07142857142857142em solid #D3D3D3
 }
 
-.Lists a {
+
+
+.lists a {
 	color: black;
 }
 
-.Information>div div:first-child>p{
+/*User Information*/
+
+.information>div>div:first-child {
+	padding-right: 0em;
+}
+
+.information>div>div div:first-child>p{
 	font-weight: bold;
 }
 
-.Addresses>p {
+/*Addresses List*/
+
+.addresses>p {
 	font-weight: bold;
 }
 
 
-ul {
+.addresses ul {
 	
   overflow-y: scroll;
-  height: 250px;
+  height: 12em;
   
   margin: 0;
   padding: 0;
-  border: 2px solid #ccc;
+  border: 0.14285714285714285em solid #ccc;
   
 }
 
-li {
-  padding: 10px 20px;
+.addresses li {
+  padding: 0.7142857142857143em 1.4285714285714286em;
   
-  border-bottom: 1px solid #ccc;
+  border-bottom: 0.07142857142857142em solid #ccc;
   
 }
 
-li:last-child{
+.addresses li:last-child{
 	border-bottom: none;
 }
 
-li:nth-child(even) {
+.addresses li:nth-child(even) {
 	background: #f8f8f8;
 }
+
+/*Profile Photo*/
+
+.photo {
+	padding-left: 0em;
+}
+
+.photo>img {
+	height: 10em;
+	width: 10em;
+}
+
+/*Navigation*/
+
+/*.mb-4 {
+    font-size: 50px;
+    font-family: 'Passion One', cursive;
+    font-weight: 400;
+}
+
+hr {
+    width: 10%;
+    color: #fff;
+}
+
+
+.flex-item {
+  flex: auto;
+}*/
+
+

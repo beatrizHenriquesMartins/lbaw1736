@@ -1,0 +1,12 @@
+.company_links{
+	border-bottom: solid 0.01em #D3D3D3;
+	border-top: solid 0.01em #D3D3D3;
+	margin-top: 2.5em;
+	margin-bottom: 1em;
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+}
+
+.company_links>div{
+		padding-left: 0em;
+}

@@ -76,3 +76,23 @@ div.col-lg-3.flex-item.sign{
 .navbar-inverse .navbar-nav>li>a{
   color: white;
 }
+
+.mb-4 {
+    font-size: 3.5714em;
+    font-family: 'Passion One', cursive;
+    font-weight: 400;
+}
+
+hr {
+    width: 10%;
+    color: #fff;
+}
+
+.top .flex-item {
+  flex: auto;
+}
+
+.top span {
+	padding-left: 0.3571em;
+    padding-right: 0.3571em;
+}
