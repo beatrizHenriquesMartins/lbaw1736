@@ -34,12 +34,20 @@ hr {
   flex-direction:  row;
 }
 
+.card-columns {
+  padding-bottom: 1.1em;
+}
+
 .brand-box {
   padding: 0 1.4286em 1.0714em 2.1429em;
 }
 
 .brand-banner-box {
   margin-bottom: 2.1429em;
+}
+
+.brand-banner-box:last-of-type {
+  margin-bottom: 0em;
 }
 
 .img-center{
