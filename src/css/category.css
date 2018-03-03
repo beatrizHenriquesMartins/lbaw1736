@@ -1,4 +1,7 @@
 body, html {
+    overflow-x: hidden;  /* para não existirem scroll horizontal */
+    background-repeat: no-repeat;
+    background-color: white;
     font-family: 'Karma', serif;
 }
 
@@ -140,4 +143,38 @@ body, html {
 
 .category-section .category-products .product .product-class .btns .btn {
     width:100%;
+}
+
+/*.product-class {
+	position: relative;
+}
+
+.product-class h3 {
+	position: relative;
+	left: 0%;
+}
+
+.rating {
+	position: relative;
+	left: 13.5%;
+}*/
+
+/*Responsive*/
+
+@media (max-width: 1400px) and (min-width: 1150px) {
+	.information div:nth-child(2)>p{
+		padding-left: 1em;
+	}
+}
+
+@media (max-width: 1150px) and (min-width: 950px) {
+	.information div:nth-child(2)>p{
+		padding-left: 2em;
+	}
+}
+
+@media (max-width: 950px) and (min-width: 768px) {
+	.information div:nth-child(2)>p{
+		padding-left: 4em;
+	}
 }
