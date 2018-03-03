@@ -18,10 +18,13 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
         <!-- TopBar CSS -->
         <link href="css/topbar.css" rel="stylesheet">
-        <!-- Category CSS -->
-        <link href="css/category.css" rel="stylesheet">
         <!-- Cart CSS -->
         <link href="css/cart.css" rel="stylesheet">
+        <!-- Category CSS -->
+        <link href="css/category.css" rel="stylesheet">
+
+        <link href="css/cart_payment.css" rel="stylesheet">
+
         <!-- footer style -->
         <link rel="stylesheet" href="./css/footer.css" type="text/css">
 
@@ -116,100 +119,129 @@
               </nav>
           </div>
         </div>
-        <div class="container category-section">
-            <div class="category-topbar row">
-                <div class="col-md-2 category">
-                    <h3>Cart</h3>
+
+        <div class="order-section">
+            <div class="order-topbar row">
+                <div class="col-md-2 payment">
+                    <h3>Payment</h3>
                 </div>
 
                 <div class="col-md-8">
                 </div>
 
             </div>
-
-            <div class="category-products row">
-              <div class="product">
-                  <div class="product-image">
-                      <img src="http://placehold.it/300x150" alt="Product Image">
+            <div class="order-information row">
+              <div class="information">
+                  <div class="order">
+                    <h3>Order By</h3>
                   </div>
 
-                  <div class="product-name">
-                      <h3>Name of Product</h3>
-                      <h3>€€</h3>
-                  </div>
-
-                  <div class="product-class">
-                    <div class="quantity">
-                      <div class="input-group spinner">
-                        <input type="text" class="form-control" value="1">
-                        <div class="input-group-btn-vertical">
-                          <button class="btn btn-default plus" type="button"><i class="fa fa-caret-up"></i></button>
-                          <button class="btn btn-default minus" type="button"><i class="fa fa-caret-down"></i></button>
-                        </div>
-                      </div>
+                  <div class="customer-information-1">
+                    <div clas="customer-name">
+                      <h3>Name </h3>
+                      <h5 class="name">Cristiano Ronaldo dos Santos Aveiro</h5>
                     </div>
-                    <div class="btns">
-                        <div class="cart-btn">
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </div>
+                    <div class="customer-contact">
+                      <h3>Contact </h3>
+                      <h5 class="contact">YYY YYY YYY</h5>
+                    </div>
+                    <div class="customer-address">
+                      <h3>Address </h3>
+                      <h5 class="address">Address 1</h5>
                     </div>
                   </div>
-              </div>
-              <div class="product">
-                  <div class="product-image">
-                      <img src="http://placehold.it/300x150" alt="Product Image">
-                  </div>
-
-                  <div class="product-name">
-                      <h3>Name of Product</h3>
-                      <h3>€€</h3>
-                  </div>
-
-                  <div class="product-class">
-                    <div class="quantity">
-                      <div class="input-group spinner">
-                        <input type="text" class="form-control" value="1">
-                        <div class="input-group-btn-vertical">
-                          <button class="btn btn-default plus" type="button"><i class="fa fa-caret-up"></i></button>
-                          <button class="btn btn-default minus" type="button"><i class="fa fa-caret-down"></i></button>
-                        </div>
-                      </div>
+                  <div class="customer-information-2">
+                    <div clas="customer-email">
+                      <h3>Email </h3>
+                      <h5 class="email">cr7@gmail.com</h5>
                     </div>
-                    <div class="btns">
-                        <div class="cart-btn">
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </div>
+                    <div class="customer-contact">
+                      <h3>NIF </h3>
+                      <h5 class="nif">XXXXXXXXX</h5>
+                    </div>
+                    <div class="customer-blank">
                     </div>
                   </div>
               </div>
-              <div class="final">
-                  <div class="delete-cart">
-                    <div class="blankspace">
+            </div>
+        </div>
+
+        <div class="container category-section">
+          <div class="category-topbar row">
+              <div class="col-md-2 category">
+                  <h3>Cart</h3>
+              </div>
+
+              <div class="col-md-8">
+              </div>
+
+          </div>
+            <div class="category-products row flex">
+              <div class="section">
+                <div class="product">
+                    <div class="product-image">
+                        <img src="http://placehold.it/300x150" alt="Product Image">
                     </div>
-                    <div class="delete-cart-btn">
-                      <button type="button" class="btn btn-danger">Delete Cart</button>
-                    </div>
-                  </div>
 
-                  <div class="blankspace">
-
-                  </div>
-
-                  <div class="total-order">
-                    <div class="pull-right">
-                      <div class="total">
-                        <h3>Total</h3>
+                    <div class="product-name">
+                        <h3>Name of Product</h3>
                         <h3>€€</h3>
-                      </div>
-                      <div class="order">
-                          <div class="order-btn">
-                              <button type="button" class="btn btn-success pull-right">Order</button>
-                          </div>
+                    </div>
+
+                    <div class="product-class">
+                      <div class="quantity">
+                        <div class="input-group spinner">
+                          <h3>Quant.:</h3>
+                          <h3 class="quantity">1</h3>
+                        </div>
                       </div>
                     </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="http://placehold.it/300x150" alt="Product Image">
+                    </div>
+
+                    <div class="product-name">
+                        <h3>Name of Product</h3>
+                        <h3>€€</h3>
+                    </div>
+
+                    <div class="product-class">
+                      <div class="quantity">
+                        <div class="input-group spinner">
+                          <h3>Quant.:</h3>
+                          <h3 class="quantity">1</h3>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="final">
+                    <div class="delete-cart">
+                    </div>
+
+                    <div class="blankspace">
+
+                    </div>
+
+                    <div class="total-order">
+                      <div class="pull-right">
+                        <div class="total">
+                          <h3>Total</h3>
+                          <h3>€€</h3>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="payment">
+                  <div class="MasterCart-btn">
+                      <button type="button" class="btn btn-success">Pay MasterCart</button>
+                  </div>
+                  <div class="PayPal-btn">
+                      <button type="button" class="btn btn-success">PayPal</button>
                   </div>
               </div>
-
             </div>
         </div>
 

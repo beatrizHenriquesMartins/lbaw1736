@@ -50,7 +50,7 @@
 .category-section .category-products .final {
   width: auto;
   height: auto;
-  margin: 1.0714em 0 1.0714em 0.7143em;
+  margin: 1.0714em 1.8em 1.0714em 0.7143em;
   display: flex;
   -webkit-flex-direction: row;  /* Safari */
   flex-direction:  row;
