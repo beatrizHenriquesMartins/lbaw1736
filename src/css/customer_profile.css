@@ -1,15 +1,12 @@
 
-
 body, html {
-    height: 99%;
+	height: 99%;
     background-repeat: no-repeat;
     background-color: white;
     font-family: 'Karma', sans-serif;
-    padding: 0 10px 0 10px;
 }
 
 /*Main Section*/
-
 .main{
 	margin-top: 1.5em;
 	margin-left: 0em;
@@ -32,7 +29,6 @@ body, html {
 
 .lists{
 	/*width: 14.285714285714286em;*/
-
 }
 
 .lists>div{
@@ -101,21 +97,18 @@ body, html {
 
 
 .addresses ul {
-	
   overflow-y: scroll;
   height: 12em;
   
   margin: 0;
   padding: 0;
   border: 0.14285714285714285em solid #ccc;
-  
 }
 
 .addresses li {
   padding: 0.7142857142857143em 1.4285714285714286em;
   
   border-bottom: 0.07142857142857142em solid #ccc;
-  
 }
 
 .addresses li:last-child{
@@ -133,7 +126,7 @@ body, html {
 }
 
 .photo>img {
-	height: 10em;
+	height: 12em;
 	width: 10em;
 }
 
