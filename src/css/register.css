@@ -69,3 +69,7 @@ input::-webkit-input-placeholder {
     background-color: #ffffff;
     color: black;
 }
+
+.register-container {
+	padding-bottom: 1em;
+}
