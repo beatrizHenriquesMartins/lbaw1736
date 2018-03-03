@@ -57,7 +57,7 @@ i.fa.fa-shopping-cart::before {
     font-size:24px;
 }
 
-i {
+.shop-cart i {
   padding: 0.8571em 0 0 0;
 }
 
@@ -101,4 +101,11 @@ hr {
 
 div#bs-example-navbar-collapse-1.collapse.navbar-collapse {
   padding-left: 0em;
+}
+
+/*Responsive*/
+@media (max-width: 1000px) {
+	.shop-cart i{
+		display: none;
+	}
 }
