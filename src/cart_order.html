@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Cart</title>
+        <title>Order</title>
 
         <!-- CSS -->
         <!-- Bootstrap Core CSS -->
@@ -20,15 +20,15 @@
         <link href="css/topbar.css" rel="stylesheet">
         <!-- Category CSS -->
         <link href="css/category.css" rel="stylesheet">
-
         <link href="css/customer_profile.css" rel="stylesheet">
         <!-- Cart CSS -->
         <link href="css/cart.css" rel="stylesheet">
         <link href="css/cart_payment.css" rel="stylesheet">
         <link href="css/cart_order.css" rel="stylesheet">
-
         <!-- footer style -->
         <link rel="stylesheet" href="./css/footer.css" type="text/css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
 
         <script language="JavaScript" type="text/javascript" src="./js/jquery.js"></script>
         <script language="JavaScript" type="text/javascript" src="./js/bootstrap.min.js"></script>
@@ -40,230 +40,253 @@
     </head>
 
     <body>
+        <!-- cabeçalho -->
         <div>
-          <!-- TOP BAR -->
-          <div class="container-fluid topbar">
-              <div class="row top">
-                  <div class="col-lg-2 flex-item">
-                      <img class="mb-4 logo" src="./images/logo_1.png" alt="logo"  width="70%" height="70%">
-                  </div>
+            <!-- TOP BAR -->
+            <div class="container-fluid topbar">
+                <div class="row top">
+                    <div class="col-lg-2 flex-item">
+                        <img class="mb-4 logo" src="./images/logo_1.png" alt="logo"  width="70%" height="70%">
+                    </div>
 
-                  <div class="col-lg-3 flex-item search">
-                      <form class="navbar-form navbar-right" role="search" id="navBarSearchForm" action="/action_page.php">
-                          <input type="text" placeholder="Search..." name="search">
-                          <button type="button" class="btn btn-dark" type="submit">Go!</button>
-                      </form>
-                  </div>
+                    <div class="col-lg-3 flex-item search">
+                        <form class="navbar-form navbar-right" role="search" id="navBarSearchForm" action="/action_page.php">
+                            <input type="text" placeholder="Search..." name="search">
+                            <button type="button" class="btn btn-dark" type="submit">Go!</button>
+                        </form>
+                    </div>
 
-                  <div class="col-lg-3 flex-item sign">
-                      <a href="signin.html">Sign in</a>
-                      <span> or </span>
-                      <a href="register.html">Sign up</a>
-                  </div>
-              </div>
-          </div>
+                    <div class="col-lg-3 flex-item sign">
+                        <a href="signin.html">Sign in</a>
+                        <span> or </span>
+                        <a href="register.html">Sign up</a>
+                    </div>
+                </div>
+            </div>
 
-          <!-- Navigation -->
-          <div class="row justify-content-md-center">
-              <nav class="navbar navbar-inverse" role="navigation">
-                  <div class="col-md-3">
-                  </div>
+            <!-- Navigation -->
+            <div class="row justify-content-md-center">
+                <nav class="navbar navbar-inverse" role="navigation">
+                    <div class="col-md-7 d-flex justify-content">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="category.html"> Fashion </a>
+                                </li>
 
-                  <div class="col-md-7 d-flex justify-content-between">
-                      <!-- Collect the nav links, forms, and other content for toggling -->
-                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                          <ul class="nav navbar-nav">
-                              <li>
-                                  <a href="category.html"> Fashion </a>
-                              </li>
+                                <li>
+                                    <a href="category.html"> Beauty </a>
+                                </li>
 
-                              <li>
-                                  <a href="category.html"> Beauty </a>
-                              </li>
+                                <li>
+                                    <a href="category.html"> Tecnology </a>
+                                </li>
 
-                              <li>
-                                  <a href="category.html"> Tecnology </a>
-                              </li>
+                                <li>
+                                    <a href="category.html"> Food </a>
+                                </li>
 
-                              <li>
-                                  <a href="category.html"> Food </a>
-                              </li>
+                                <li>
+                                    <a href="category.html"> Culture </a>
+                                </li>
 
-                              <li>
-                                  <a href="category.html"> Culture </a>
-                              </li>
+                                <li>
+                                    <a href="category.html"> Home </a>
+                                </li>
 
-                              <li>
-                                  <a href="category.html"> Home </a>
-                              </li>
+                                <li>
+                                    <a href="category.html"> Sports </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-                              <li>
-                                  <a href="category.html"> Sports </a>
-                              </li>
+                    <div class="col-md-3">
+                    </div>
 
-                              <!--
-                              <li>
-                                  <a href="category.html">Category 8</a>
-                              </li>
-                              -->
-                          </ul>
-                      </div>
-                  </div>
+                    <div class="col-md-1">
+                    </div>
 
-                  <div class="col-md-1">
-                  </div>
-
-                  <div class="col-md-1">
-                      <div class="shop-cart">
-                          <span class="shop-cart-addon align-content-center"><i class="fa fa-shopping-cart"></i></span>
-                      </div>
-                  </div>
-              </nav>
-          </div>
+                    <div class="col-md-1">
+                        <div class="shop-cart">
+                            <span class="shop-cart-addon align-content-center"><i class="fa fa-shopping-cart"></i></span>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         </div>
+
         <div class="order-section">
-          <div class="order-topbar row">
-            <div class="col-md-2 payment">
-                <h3>Order</h3>
-            </div>
-            <div class="col-md-8">
+            <div class="order-topbar row">
+                <div class="col-md-2 payment">
+                    <h3>Order</h3>
+                </div>
+
+                <div class="col-md-8">
+                </div>
             </div>
 
-          </div>
-          <div class="order-information row">
-            <div clas="customer-name">
-              <h3>Name </h3>
-              <h5 class="name">Cristiano Ronaldo dos Santos Aveiro</h5>
-            </div>
-            <div class="customer-contact">
-              <h3>Contact </h3>
-              <h5 class="contact">YYY YYY YYY</h5>
-            </div>
-            <div clas="customer-email">
-              <h3>Email </h3>
-              <h5 class="email">cr7@gmail.com</h5>
-            </div>
-            <div class="customer-contact">
-              <h3>NIF </h3>
-              <h5 class="nif">XXXXXXXXX</h5>
-            </div>
-            <div class = "row addresses">
-              <p>Select one Address:</p>
-              <ul>
-               <li>
-                <div class="col-sm-11">
-                 Address 1
+            <div class="order-information row">
+                <div clas="customer-name">
+                    <h3>Name </h3>
+                    <h5 class="name">Cristiano Ronaldo dos Santos Aveiro</h5>
                 </div>
-                <div class="col-sm-1">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  </div>
-                </div>
-               </li>
-               <li>
-                <div class="col-sm-11">
-                 Address 2
-                </div>
-                <div class="col-sm-1">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  </div>
-                </div>
-               </li>
-               <li>
-                <div class="col-sm-11">
-                 Address 3
-                </div>
-                <div class="col-sm-1">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  </div>
-                </div>
-               </li>
-               <li>
-                <div class="col-sm-11">
-                 Address 4
-                </div>
-                <div class="col-sm-1">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  </div>
-                </div>
-               </li>
-               <li>
-                <div class="col-sm-11">
-                 Address 5
-                </div>
-                <div class="col-sm-1">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  </div>
-                </div>
-               </li>
-               <li>
-                <div class="col-sm-11">
-                 Address 6
-                </div>
-                <div class="col-sm-1">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  </div>
-                </div>
-               </li>
-               <li>
-                <div class="col-sm-11">
-                 Address 7
-                </div>
-                <div class="col-sm-1">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  </div>
-                </div>
-               </li>
-               <li>
-                <div class="col-sm-11">
-                 Address 8
-                </div>
-                <div class="col-sm-1">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  </div>
-                </div>
-               </li>
-               <li>
-                <div class="col-sm-11">
-                 Address 9
-                </div>
-                <div class="col-sm-1">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  </div>
-                </div>
-               </li>
-               <li>
-                <div class="col-sm-11">
-                 Address 10
-                </div>
-                <div class="col-sm-1">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  </div>
-                </div>
-               </li>
-              </ul>
-            </div>
-            <div class="btns">
-              <div class="col-sm-1">
-                <button type="button" class="btn btn-danger">Cancel</button>
-              </div>
-              <div class="col-sm-10">
-              </div>
-              <div class="col-sm-1">
-                <button type="button" class="btn btn-success pull-right">Payment</button>
-              </div>
-            </div>
-          </div>
 
+                <div class="customer-contact">
+                    <h3>Contact </h3>
+                    <h5 class="contact">YYY YYY YYY</h5>
+                </div>
+
+                <div clas="customer-email">
+                    <h3>Email </h3>
+                    <h5 class="email">cr7@gmail.com</h5>
+                </div>
+
+                <div class="customer-contact">
+                    <h3>NIF </h3>
+                    <h5 class="nif">XXXXXXXXX</h5>
+                </div>
+
+                <div class = "row addresses">
+                    <p>Select one Address:</p>
+
+                    <ul>
+                        <li>
+                            <div class="col-sm-11">
+                                Address 1
+                            </div>
+
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="col-sm-11">
+                                Address 2
+                            </div>
+
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="col-sm-11">
+                                Address 3
+                            </div>
+
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="col-sm-11">
+                                Address 4
+                            </div>
+
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="col-sm-11">
+                                Address 5
+                            </div>
+
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="col-sm-11">
+                                Address 6
+                            </div>
+
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="col-sm-11">
+                                Address 7
+                            </div>
+
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="col-sm-11">
+                                Address 8
+                            </div>
+
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="col-sm-11">
+                                Address 9
+                            </div>
+
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="col-sm-11">
+                                Address 10
+                            </div>
+
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="btns">
+                    <div class="col-sm-1">
+                        <button type="button" class="btn btn-danger">Cancel</button>
+                    </div>
+
+                    <div class="col-sm-10">
+                    </div>
+
+                    <div class="col-sm-1">
+                        <button type="button" class="btn btn-success pull-right">Payment</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <footer id="pageFooter">
