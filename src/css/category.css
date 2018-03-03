@@ -246,5 +246,9 @@ body, html {
 		width: 7.1em;
 	}
 	
+	.product-image img{
+		max-width: 250px;
+	}
+	
 }
 

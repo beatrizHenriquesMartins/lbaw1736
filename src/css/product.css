@@ -87,3 +87,121 @@ body, html{
     border-width: 0.0714em 0.0714em 0.0714em 0.0714em;
     text-align: left;
 }
+
+/*Responsive*/
+
+@media (max-width: 1200px) and (min-width: 900px) {
+	.product-section {
+		margin-right: 0em;
+	}
+	
+	.product-section>div:nth-child(2){
+		position: relative;
+		left: 2em;
+	}
+	
+	.product-section>div:last-child{
+		position: relative;
+		left: 2em;
+	}
+	
+	.product-name h3{
+		font-size: 1.5em;
+	}
+	
+	.product-class h3{
+		font-size: 1.3em;
+	}
+	
+	.rating {
+		width: 10em;
+	}
+	
+	.review>div:nth-child(2){
+		padding-left: 3em;
+	}
+}
+
+@media (max-width: 900px) and (min-width: 850px) {
+	
+	.product-section {
+		margin-right: 0em;
+	}
+	
+	.product-section>div:nth-child(2){
+		position: relative;
+		left: 4em;
+	}
+	
+	.product-section>div:last-child{
+		position: relative;
+		left: 3em;
+	}
+	
+	.product-name h3{
+		font-size: 1.45em;
+	}
+	
+	.product-class h3{
+		font-size: 1.2em;
+	}
+	
+	.rating {
+		width: 10em;
+		position: relative;
+		left: -2em;
+	}
+	
+	.review>div:nth-child(2){
+		padding-left: 3em;
+	}
+}
+
+@media (max-width: 850px) {
+	.product-section {
+		margin-right: 0em;
+	}
+	
+	.product-section>div:nth-child(2){
+		position: relative;
+		left: 5em;
+	}
+	
+	.product-section>div:last-child{
+		position: relative;
+		left: 3em;
+	}
+	
+	.product-name h3{
+		font-size: 1.3em;
+	}
+	
+	.product-class h3{
+		font-size: 1.05em;
+	}
+	
+	.rating {
+		width: 10em;
+		position: relative;
+		left: -2em;
+	}
+	
+	.product-image img{
+		max-width: 250px;
+	}
+	
+	.description {
+		width: 13em;
+	}
+	
+	.review>div:nth-child(2){
+		padding-left: 3em;
+	}
+	
+	
+}
+
+
+	
+	
+}
