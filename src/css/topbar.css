@@ -1,3 +1,4 @@
+/* 1º rectangulo */
 .top {
   display: flex;
   -webkit-flex-direction: row;  /* Safari */
@@ -38,6 +39,11 @@
 
 }
 
+.sign a, .sign span{
+  text-align: right;
+}
+
+/* 2º rectangulo */
 .shop-cart::before {
   content:'';
   height: 100%;
@@ -62,10 +68,6 @@ i {
 
 div.col-lg-3.flex-item.sign{
   padding-right: 0em;
-}
-
-.sign a, .sign span{
-  text-align: right;
 }
 
 .navbar-inverse{
@@ -95,4 +97,8 @@ hr {
 .top span {
 	padding-left: 0.3571em;
     padding-right: 0.3571em;
+}
+
+div#bs-example-navbar-collapse-1.collapse.navbar-collapse {
+  padding-left: 0em;
 }
