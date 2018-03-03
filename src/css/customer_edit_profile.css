@@ -1,5 +1,3 @@
-
-
 body, html {
     height: 99%;
     background-repeat: no-repeat;
@@ -143,16 +141,28 @@ body, html {
 	.information div:nth-child(2)>p{
 		padding-left: 1em;
 	}
+	
+	.information label~div {
+		padding-left: 1em;
+	}
 }
 
 @media (max-width: 1150px) and (min-width: 951px) {
 	.information div:nth-child(2)>p{
 		padding-left: 2em;
 	}
+	
+	.information label~div {
+		padding-left: 2em;
+	}
 }
 
 @media (max-width: 950px) and (min-width: 768px) {
 	.information div:nth-child(2)>p{
+		padding-left: 4em;
+	}
+	
+	.information label~div {
 		padding-left: 4em;
 	}
 }
@@ -169,5 +179,24 @@ body, html {
 	}
 }
 
+/*Edit Profile*/
 
+.photo a {
+	position: relative;
+	top: 0.2em;
+	left: 2.8em;
+	
+}
 
+.addresses button{
+	position: relative;
+	float: right;
+	bottom: 0.4em;
+	/*margin-bottom: 0.1em;
+	padding-bottom: 0.2em; */
+}
+
+.confirm_buttons>div{
+	padding-left: 0em;
+	padding-top: 1em;
+}
