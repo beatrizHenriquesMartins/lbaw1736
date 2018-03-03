@@ -22,3 +22,13 @@
 .order-section .order-information .btns .col-sm-1:last-child {
   padding-right: 0;
 }
+
+.order-topbar h3{
+	font-weight: bold;
+}
+
+.order-information h3{
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
