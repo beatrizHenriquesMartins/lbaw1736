@@ -1,11 +1,8 @@
 body, html {
-    height: 99%;
     background-repeat: no-repeat;
     background-color: white;
     font-family: 'Karma', sans-serif;
-    /*
-    padding: 0 10px 0 10px;
-     */
+    overflow-x: hidden;  
 }
 
 /*Main Section*/
@@ -18,7 +15,6 @@ body, html {
 
 .user_area{
 	padding-left: 4em;
-	/*margin-left: 0em;*/
 	padding-top: 2em;
 	border-top: solid 0.01em #D3D3D3;
 	border-left: solid 0.01em #D3D3D3;
@@ -26,13 +22,10 @@ body, html {
 
 /*SideLinks*/
 .sidelinks {
-	/*width: 15.357142857142858em;*/
 	padding-right: 0em;
 }
 
-.lists{
-	/*width: 14.285714285714286em;*/
-}
+
 
 .lists>div{
 	margin: 0em;
@@ -41,9 +34,6 @@ body, html {
 	padding-left: 0.7142857142857143em;
 	padding-right: 0em;
 	margin-right: 0em;
-	/*
-	width: 14.285714285714286em;
-	*/
 	border-left: 0.07142857142857142em solid #D3D3D3; 
 }
 
@@ -133,6 +123,12 @@ body, html {
 
 /*Responsive*/
 
+@media(min-width: 1400px){
+	.information  div:first-child>p{
+		padding-left: 1em;
+	}
+}
+
 @media (max-width: 1400px) and (min-width: 1151px) {
 	.information div:nth-child(2)>p{
 		padding-left: 1em;
@@ -190,6 +186,11 @@ body, html {
 	padding-left: 0em;
 }
 
+.information > div:first-child>div{
+	padding-left: 0em;
+}
+
+
 .photo a {
 	position: relative;
 	top: 0.2em;
@@ -200,10 +201,6 @@ body, html {
 	position: relative;
 	float: right;
 	bottom: 0.4em;
-	/*
-	margin-bottom: 0.1em;
-	padding-bottom: 0.2em;
-	*/
 }
 
 .confirm_buttons>div{

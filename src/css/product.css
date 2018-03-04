@@ -1,4 +1,7 @@
 body, html{
+   overflow-x: hidden;  /* para não existirem scroll horizontal */
+    background-repeat: no-repeat;
+    background-color: white;
     font-family: 'Karma', serif;
 }
 .product-section {
