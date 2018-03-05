@@ -1,0 +1,115 @@
+/* 1º rectangulo */
+
+.top {
+    display: flex;
+    -webkit-flex-direction: row;  /* Safari */
+    flex-direction:  row;
+    -webkit-justify-content: between; /* Safari */
+    justify-content: between;
+}
+
+.topbar {
+    display: inline-block;
+    width: 99%;
+    padding: 0.7143em 0;
+    margin: 0;
+}
+
+.logo {
+    width: 80%;
+    height: 80%;
+    padding-left: 0.25em;
+}
+
+.search {
+    width: auto;
+    display: flex;
+    flex-direction:  row;
+    justify-content: center;
+}
+
+.sign {
+    text-align: right;
+    padding-top: 1.5714em;
+    padding-bottom: 1.5714em;
+    width: auto;
+    display: flex;
+    flex-direction:  row;
+    justify-content: center;
+}
+
+.sign a, .sign span{
+    text-align: right;
+}
+
+/* 2º rectangulo */
+
+.shop-cart::before {
+    content:'';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+i.fa.fa-shopping-cart::before {
+    color: white;
+    font-size:24px;
+}
+
+
+.shop-cart i {
+  padding: 0.8571em 0 0 0;
+
+}
+
+#navBarSearchForm input[type=text]{
+    width: 17.8571em !important;
+    height: 2.4285em !important;
+}
+
+div.col-lg-3.flex-item.sign{
+    padding-right: 0em;
+}
+
+.navbar-inverse{
+    background-color: #a0d6af;
+    border-color: #a0d6af;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+    color: white;
+}
+
+.mb-4 {
+    font-size: 3.5714em;
+    font-family: 'Passion One', cursive;
+    font-weight: 400;
+}
+
+hr {
+    width: 10%;
+    color: #fff;
+}
+
+.top .flex-item {
+    flex: auto;
+}
+
+.top span {
+    padding-left: 0.3571em;
+    padding-right: 0.3571em;
+}
+
+div#bs-example-navbar-collapse-1.collapse.navbar-collapse {
+  padding-left: 0em;
+}
+
+/*Responsive*/
+@media (max-width: 1000px) {
+	.shop-cart i{
+		display: none;
+	}
+
+    padding-left: 0em;
+}

@@ -1,0 +1,25 @@
+footer#pageFooter{
+    padding-top: .5em;
+}
+
+footer p {
+    color: gray;
+    text-align: left;
+    margin: 0 0.7143em;
+}
+
+html, body {
+    height: 99%;
+    margin: 0;
+}
+
+.pageContent {
+    padding: 0;
+    min-height: 99%;
+    margin: 0 auto -1.5em;
+}
+
+footer {
+    background-color: white;
+    bottom: 0;
+}
