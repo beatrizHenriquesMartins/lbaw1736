@@ -75,6 +75,7 @@ div.col-lg-3.flex-item.sign{
 .navbar-inverse{
     background-color: #a0d6af;
     border-color: #a0d6af;
+	margin: 0;
 }
 
 .navbar-inverse .navbar-nav>li>a{
@@ -99,6 +100,10 @@ hr {
 .top span {
     padding-left: 0.3571em;
     padding-right: 0.3571em;
+}
+
+.bread-crumb nav ol {
+	background-color: white;
 }
 
 div#bs-example-navbar-collapse-1.collapse.navbar-collapse {
