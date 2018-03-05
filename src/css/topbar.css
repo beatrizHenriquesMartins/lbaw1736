@@ -1,4 +1,9 @@
 /* 1º rectangulo */
+/*
+body {
+    font-size: 16px;
+}
+ */
 
 .top {
     display: flex;
@@ -73,8 +78,8 @@ div.col-lg-3.flex-item.sign{
 }
 
 .navbar-inverse{
-    background-color: #a0d6af;
-    border-color: #a0d6af;
+    background-color: #836262;
+    border-color: #836262;
 	margin: 0;
 }
 
@@ -83,8 +88,8 @@ div.col-lg-3.flex-item.sign{
 }
 
 .mb-4 {
-    font-size: 3.5714em;
-    font-family: 'Passion One', cursive;
+    font-size: 18px;
+    font-family: 'Roboto Slab', serif;
     font-weight: 400;
 }
 
@@ -120,5 +125,13 @@ div#bs-example-navbar-collapse-1.collapse.navbar-collapse {
 }
 
 img.mb-4{
-    padding-left: 0.37em;
+    padding-left: 0.35em;
+}
+
+div.container-fluid.topbar{
+    padding-left: 0.7em;
+}
+
+#cat{
+    font-size: 16px;
 }
