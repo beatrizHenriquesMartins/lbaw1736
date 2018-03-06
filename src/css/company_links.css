@@ -18,3 +18,11 @@
 h4{
 	margin-bottom: 0.2357em;
 }
+
+@media (max-width:767px) {
+
+  .company_links {
+    margin-top: 0;
+  }
+
+}
