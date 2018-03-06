@@ -1,0 +1,18 @@
+#dropdownLogin {
+  background-color: white;
+  padding-top: 0;
+  padding-left: 0.4em;
+}
+
+.topbar .top .sign {
+  padding-top: 2em;
+}
+
+.topbar .top .sign .hi {
+  padding-top: 0.1em;
+}
+
+#navBarSearchForm .btn-dark {
+    background-color: 	#C0C0C0;
+    padding: 0.55em 0.75em 0.35em 0.75em;
+}

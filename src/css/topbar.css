@@ -35,7 +35,7 @@ body {
 
 .sign {
     text-align: right;
-    padding-top: 1.5714em;
+    padding-top: 2em;
     padding-bottom: 1.5714em;
     width: auto;
     display: flex;
@@ -49,28 +49,18 @@ body {
 
 /* 2º rectangulo */
 
-.shop-cart::before {
-    content:'';
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-}
-
-i.fa.fa-shopping-cart::before {
-    color: white;
-    font-size:24px;
-}
-
-
-.shop-cart i {
-  padding: 0.8571em 0 0 0;
-
+#navBarSearchForm {
+    margin-top: 1.5em;
 }
 
 #navBarSearchForm input[type=text]{
     width: 17.8571em !important;
     height: 2.4285em !important;
+}
+
+#navBarSearchForm .btn-dark {
+    background-color: #C0C0C0;
+    padding: 0.55em 0.75em 0.35em 0.75em;
 }
 
 div.col-lg-3.flex-item.sign{
@@ -115,17 +105,10 @@ div#bs-example-navbar-collapse-1.collapse.navbar-collapse {
   padding-left: 0em;
 }
 
-/*Responsive*/
-@media (max-width: 1000px) {
-	.shop-cart i{
-		display: none;
-	}
-
-    padding-left: 0em;
-}
-
 img.mb-4{
     padding-left: 0.35em;
+    width: 100%;
+    height: 100%;
 }
 
 div.container-fluid.topbar{
@@ -134,4 +117,57 @@ div.container-fluid.topbar{
 
 #cat{
     font-size: 16px;
+}
+
+.custom-navbar .fa {
+  font-size:25px
+}
+
+.custom-navbar .navBar-container {
+  margin-left: 0;
+  margin-right: 1.1em;
+}
+
+@media (max-width:1000px) {
+  #navBarSearchForm input[type=text]{
+      width: 10em !important;
+      height: 2.4285em !important;
+  }
+  .search {
+      width: auto ;
+      height: auto;
+  }
+}
+
+@media (max-width:767px) {
+  img.mb-4{
+      padding-right: 0.8em;
+  }
+
+  .topbar .top {
+    -webkit-flex-direction: column;  /* Safari */
+    flex-direction:  column;
+  }
+
+	.custom-navbar .navbar-right {
+	    float: right;
+	    padding-right: 15px;
+	}
+	.custom-navbar .nav.navbar-nav.navbar-right li {
+	    float: right;
+	}
+  	.custom-navbar .nav.navbar-nav.navbar-right li > a {
+	    padding: 8px 5px;
+	}
+	.custom-navbar .navbar-toggle {
+	    float: left
+	}
+	.custom-navbar .navbar-header {
+	    float: left;
+	    width: auto!important;
+	}
+	.custom-navbar .navbar-collapse {
+	    clear: both;
+	    float: none;
+	}
 }
