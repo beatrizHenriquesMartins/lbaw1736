@@ -1,18 +1,36 @@
 #dropdownLogin {
-  background-color: white;
-  padding-top: 0;
-  padding-left: 0.4em;
+    background-color: white;
+    padding-top: 0;
+    padding-left: 0.4em;
 }
 
 .topbar .top .sign {
-  padding-top: 2em;
+    padding-top: 2em;
 }
 
 .topbar .top .sign .hi {
-  padding-top: 0.1em;
+    padding-top: 0.1em;
+}
+
+.topbar .top .sign .dropdown .dropdown-menu {
+    z-index: 999;
+}
+
+.topbar .top .sign .dropdown .dropdown-menu .dropdown-divider {
+    background-color: #C0C0C0;
+    height: 0.05em;
+    margin: 0.2em 0.2em 0.2em 0.2em;
+}
+
+.topbar .top .sign .dropdown .dropdown-menu a {
+    padding: 0.3em 0.3em 0.3em 0.3em;
 }
 
 #navBarSearchForm .btn-dark {
-    background-color: 	#C0C0C0;
+    background-color:	#C0C0C0;
     padding: 0.55em 0.75em 0.35em 0.75em;
+}
+
+.custom-navbar {
+    z-index: 1;
 }
