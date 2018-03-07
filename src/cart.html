@@ -24,10 +24,13 @@
         <link href="css/cart.css" rel="stylesheet">
         <!-- footer style -->
         <link rel="stylesheet" href="./css/footer.css" type="text/css">
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
         <!-- Company Links -->
         <link href="css/company_links.css" rel="stylesheet">
+        <!-- login style -->
+        <link rel="stylesheet" href="./css/login.css" type="text/css">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
 
         <script language="JavaScript" type="text/javascript" src="./js/jquery.js"></script>
         <script language="JavaScript" type="text/javascript" src="./js/bootstrap.min.js"></script>
@@ -56,7 +59,18 @@
                     </div>
 
                     <div class="col-sm-3 flex-item sign">
-                        <a href="signout.html">Sign Out</a>
+                      <span class="hi"> Hi, </span>
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle align-text-top" type="button" id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          cr7
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="customer_profile.html">Profile</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="homepage.html">Sign Out</a>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>

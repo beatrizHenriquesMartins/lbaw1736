@@ -2,7 +2,7 @@ body, html {
     background-repeat: no-repeat;
     background-color: white;
     font-family: 'Karma', sans-serif;
-    overflow-x: hidden;  
+    overflow-x: hidden;
 }
 
 /*Main Section*/
@@ -15,9 +15,9 @@ body, html {
 
 .user_area{
 	padding-left: 4em;
-	padding-top: 2em;
+	padding-top: 2em;/*
 	border-top: solid 0.01em #D3D3D3;
-	border-left: solid 0.01em #D3D3D3;
+	border-left: solid 0.01em #D3D3D3;*/
 }
 
 /*SideLinks*/
@@ -34,7 +34,7 @@ body, html {
 	padding-left: 0.7142857142857143em;
 	padding-right: 0em;
 	margin-right: 0em;
-	border-left: 0.07142857142857142em solid #D3D3D3; 
+	border-left: 0.07142857142857142em solid #D3D3D3;
 }
 
 .lists>div:first-child {
@@ -90,7 +90,7 @@ body, html {
 .addresses ul {
 	overflow-y: scroll;
 	height: 12em;
-  
+
   	margin: 0;
   	padding: 0;
   	border: 0.14285714285714285em solid #ccc;
@@ -98,7 +98,7 @@ body, html {
 
 .addresses li {
 	padding: 0.7142857142857143em 1.4285714285714286em;
-  
+
 	border-bottom: 0.07142857142857142em solid #ccc;
 }
 
@@ -133,7 +133,7 @@ body, html {
 	.information div:nth-child(2)>p{
 		padding-left: 1em;
 	}
-	
+
 	.information label~div {
 		padding-left: 1em;
 		width: 20em;
@@ -144,7 +144,7 @@ body, html {
 	.information div:nth-child(2)>p{
 		padding-left: 2em;
 	}
-	
+
 	.information label~div {
 		padding-left: 2em;
 		width: 15em;
@@ -155,13 +155,13 @@ body, html {
 	.information div:nth-child(2)>p{
 		padding-left: 4em;
 	}
-	
+
 	.information label~div {
 		padding-left: 4em;
 		position: relative;
 		left: 2em;
 	}
-	
+
 	.information label~div {
 		padding-left: 2em;
 		width: 12em;
