@@ -27,14 +27,16 @@ body, html {
     flex: auto;
 }
 
-.category-section .category-topbar .category .dropdown {
-    display: flex;
-    -webkit-flex-direction: row;  /* Safari */
-    flex-direction:  row;
-    -webkit-justify-content: between; /* Safari */
-    justify-content: between;
-    align-items: center;
-    width: auto;
+.category-section .category-topbar {
+    margin-right: 4.2em;
+}
+
+.category-section .category-topbar .dropdown {
+    padding: 0;
+}
+
+.category-section .category-topbar .dropdown .dropdown-menu {
+    margin-right: 0;
 }
 
 .category-section .category-topbar .category {
@@ -77,6 +79,10 @@ body, html {
     -webkit-flex-direction: column;  /* Safari */
     flex-direction:  column;
     flex: auto;
+}
+
+.category-section .category-products .product-row .product:last-child {
+    margin-right: 0;
 }
 
 .category-section .category-products .product-row .product .product-img {

@@ -1,0 +1,19 @@
+
+body, html {
+    background-repeat: no-repeat;
+    background-color: white;
+    font-family: 'Karma', sans-serif;
+	overflow-x: hidden;  /* para não existirem scroll horizontal */
+}
+
+/*Main Section*/
+.main{
+	margin-top: 1.5em;
+	margin-left: 0em;
+	margin-right: 0em;
+}
+
+/*SideLinks*/
+.sidelinks {
+	padding-right: 0em;
+}

@@ -50,7 +50,7 @@
                     <div class="col-sm-3 flex-item search">
                         <form class="navbar-form navbar-right" role="search" id="navBarSearchForm" action="/action_page.php">
                             <input type="text" placeholder="Search..." name="search">
-                            <button type="button" class="btn btn-dark" type="submit">Go!</button>
+                            <a class="btn btn-dark" href="search_result.html" role="button">GO!</a>
                         </form>
                     </div>
 
@@ -74,6 +74,9 @@
 
                 <!-- Non-collapsing right-side icons -->
                 <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <a href="list_favourites.html" class="fa fa-heart"></a>
+                  </li>
                   <li>
                     <a href="cart.html" class="fa fa-shopping-cart"></a>
                   </li>
@@ -109,21 +112,20 @@
 
         <div class="container category-section">
           <div class="category-topbar row">
-            <div class="col-sm-2 category">
+            <div class="col-sm-10 category">
                 <h3>Fashion</h3>
             </div>
 
-            <div class="col-sm-8">
-            </div>
-
             <div class="col-sm-2 dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Order by
-                    <span class="caret"></span></button>
+                <button class="btn btn-secondary dropdown-toggle pull-right" type="button" data-toggle="dropdown">Order by
+                    <span class="caret"></span>
+                </button>
 
-                <ul class="dropdown-menu">
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
+                <ul class="dropdown-menu pull-right">
+                    <li><a href="#">Preço Ascendente</a></li>
+                    <li><a href="#">Preço Descendente</a></li>
+                    <li><a href="#">Rating Ascendente</a></li>
+                    <li><a href="#">Rating Descendente</a></li>
                 </ul>
             </div>
           </div>

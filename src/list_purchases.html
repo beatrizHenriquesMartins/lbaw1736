@@ -22,7 +22,7 @@
         <link href="css/topbar.css" rel="stylesheet">
 
         <!-- Homepage CSS -->
-        <link href="css/list_purchases.css" rel="stylesheet">
+        <link href="css/lists.css" rel="stylesheet">
         <!-- login style -->
         <link rel="stylesheet" href="./css/cart.css" type="text/css">
 		    <!-- Company Links -->
@@ -91,6 +91,9 @@
           <!-- Non-collapsing right-side icons -->
           <ul class="nav navbar-nav navbar-right">
             <li>
+              <a href="list_favourites.html" class="fa fa-heart"></a>
+            </li>
+            <li>
               <a href="cart.html" class="fa fa-shopping-cart"></a>
             </li>
             <li>
@@ -117,7 +120,8 @@
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="homepage.html">Homepage</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Profile</li>
+          <li class="breadcrumb-item"><a href="customer_profile.html">Profile</a></li>
+					<li class="breadcrumb-item active" aria-current="page">List of Purchases</li>
 				  </ol>
 				</nav>
 			</div>
@@ -126,19 +130,11 @@
 		<div class="container-fluid main">
 			<div class="row-fluid category-section">
 				<div class = "sidelinks col-sm-2">
-					<div class = "lists">
-						<div class = "row-fluid">
-							<a href="customer_profile.html">Profile </a>
-						</div>
-
-						<div class = "row-fluid active">
-							<a href="list_purchases.html">List of Purchases</a>
-						</div>
-
-						<div class="row-fluid">
-							<a href="list_favourites.html">List of Favourites</a>
-						</div>
-					</div>
+          <div class="list-group">
+            <a href="customer_profile.html" class="list-group-item list-group-item-action">Profile</a>
+            <a href="list_purchases.html" class="list-group-item list-group-item-action active">List of Purchases</a>
+            <a href="list_favourites.html" class="list-group-item list-group-item-action">List of Favourites</a>
+          </div>
 				</div>
 
 				<div class = "category-products col-sm-8 col-sm-offset-1">
@@ -159,13 +155,13 @@
                           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+    <!--                       <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
                                 </div>
-                                <div class="modal-body">
+  -->                           <div class="modal-body">
                                   <form>
                                     <div class="form-group">
                                       <label for="message-text" class="col-form-label">Review:</label>
