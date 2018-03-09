@@ -1,10 +1,4 @@
 /* 1º rectangulo */
-/*
-body {
-    font-size: 16px;
-}
- */
-
 .top {
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
@@ -126,6 +120,10 @@ div.container-fluid.topbar{
 .custom-navbar .navBar-container {
   margin-left: 0;
   margin-right: 1.1em;
+}
+
+#category_font_size{
+    font-size: 17px;
 }
 
 @media (max-width:1000px) {
