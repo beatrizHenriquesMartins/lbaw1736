@@ -8,9 +8,10 @@ body, html {
 
 /*Main Section*/
 .main{
-	margin-top: 1.5em;
+	padding-top: 1.5em;
 	margin-left: 0em;
 	margin-right: 0em;
+
 }
 
 .user_area{
@@ -33,7 +34,20 @@ body, html {
 	font-weight: bold;
 }
 
+.main .row-fluid .row:first-child {
+	box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+	background-color: hsl(0, 0%, 95%);
+	border-radius: 5px;
+	border: 1px solid hsl(0, 0%, 95%);
+	padding: 0.5em 0.5em 0.5em 0.5em;
+
+}
+
+.main .row-fluid .addresses {
+	padding-top: 2.5em;
+}
 /*Addresses List*/
+
 
 .addresses>p {
 	font-weight: bold;
@@ -41,6 +55,7 @@ body, html {
 
 
 .addresses ul {
+  background-color: white;
   overflow-y: scroll;
   height: 12em;
 

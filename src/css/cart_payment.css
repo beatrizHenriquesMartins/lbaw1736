@@ -25,7 +25,6 @@
   border-width:  0.0714em 0 0 0.0714em;
   */width: auto;
   height: auto;
-  margin: 1.8em 4.2em 1.8em 4.2em;
   padding-bottom: 1.8em;
   display: flex;
   -webkit-flex-direction: column;  /* Safari */
@@ -33,8 +32,6 @@
 }
 
 .order-section .order-information .information {
-  border-style: solid;
-  border-width: 0.0714em 0.0714em 0.0714em 0.0714em;
   width: auto;
   height: auto;
   margin: 1.8em 1.8em 0 1.8em;
@@ -42,7 +39,17 @@
   -webkit-flex-direction: row;  /* Safari */
   flex-direction:  row;
   justify-content: between;
-
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 0.5em;
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid hsl(0, 0%, 95%);
+  padding: 0.5em;
+  background-color:  hsl(0, 0%, 95%);
 }
 
 .order-section .order-information .information .order {

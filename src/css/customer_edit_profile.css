@@ -35,6 +35,18 @@ body, html {
 	font-weight: bold;
 }
 
+.main .row-fluid .row:first-child {
+	box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+	background-color: white;
+	border-radius: 5px;
+	border: 5px solid;
+  border-left: 20px;
+  border-right: 20px;
+  border-color: hsl(0, 0%, 95%);
+	padding: 0.5em 0.5em 0.5em 0.5em;
+
+}
+
 /*Addresses List*/
 
 .addresses>p {
@@ -43,6 +55,7 @@ body, html {
 
 
 .addresses ul {
+  background-color: white;
 	overflow-y: scroll;
 	height: 12em;
 

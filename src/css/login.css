@@ -1,7 +1,7 @@
 #dropdownLogin {
-    background-color: white;
     padding-top: 0;
     padding-left: 0.4em;
+    background-color: white;
 }
 
 .topbar .top .sign {
@@ -24,11 +24,6 @@
 
 .topbar .top .sign .dropdown .dropdown-menu a {
     padding: 0.3em 0.3em 0.3em 0.3em;
-}
-
-#navBarSearchForm .btn-dark {
-    background-color:	#C0C0C0;
-    padding: 0.55em 0.75em 0.35em 0.75em;
 }
 
 .custom-navbar {

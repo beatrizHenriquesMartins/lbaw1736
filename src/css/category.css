@@ -5,6 +5,20 @@ body, html {
     font-family: 'Karma', serif;
 }
 
+.category-section .category-topbar .dropdown .dropdown-menu {
+  box-shadow: inset 0 2px 4px 0 hsla(0, 0%, 0%, 0.08);
+  padding: 0 0.5em 0.5em 0.5em;
+
+}
+
+.category-section .category-topbar .dropdown .dropdown-menu li {
+  padding: 0.5em 0 0 0;
+}
+
+.category-section .category-topbar .dropdown .dropdown-menu li:last-child {
+  padding: 0.5em 0 0 0.5em;
+}
+
 .category-section .category-topbar {
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
@@ -33,6 +47,10 @@ body, html {
 
 .category-section .category-topbar .dropdown {
     padding: 0;
+}
+
+.category-section .category-topbar .dropdown .btn {
+    background-color: hsl(0, 0%, 95%);
 }
 
 .category-section .category-topbar .dropdown .dropdown-menu {
@@ -79,6 +97,12 @@ body, html {
     -webkit-flex-direction: column;  /* Safari */
     flex-direction:  column;
     flex: auto;
+    box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid hsl(0, 0%, 95%);
+    padding: 0.5em;
+    background-color:  hsl(0, 0%, 95%);
 }
 
 .category-section .category-products .product-row .product:last-child {
