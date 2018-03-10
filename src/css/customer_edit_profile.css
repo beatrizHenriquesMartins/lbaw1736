@@ -2,7 +2,7 @@ body, html {
     background-repeat: no-repeat;
     background-color: white;
     font-family: 'Karma', sans-serif;
-    overflow-x: hidden;  
+    overflow-x: hidden;
 }
 
 /*Main Section*/
@@ -15,59 +15,14 @@ body, html {
 
 .user_area{
 	padding-left: 4em;
-	padding-top: 2em;
+	padding-top: 2em;/*
 	border-top: solid 0.01em #D3D3D3;
-	border-left: solid 0.01em #D3D3D3;
+	border-left: solid 0.01em #D3D3D3;*/
 }
 
 /*SideLinks*/
 .sidelinks {
 	padding-right: 0em;
-}
-
-
-
-.lists>div{
-	margin: 0em;
-	padding-top: 0.7142857142857143em;
-	padding-bottom: 0.7142857142857143em;
-	padding-left: 0.7142857142857143em;
-	padding-right: 0em;
-	margin-right: 0em;
-	border-left: 0.07142857142857142em solid #D3D3D3; 
-}
-
-.lists>div:first-child {
-	margin: 0em;
-	padding: 0.7142857142857143em;
-	background-color: #E8E8E8;
-	border-top: solid 0.07142857142857142em #D3D3D3
-	border-bottom: solid 0.07142857142857142em #D3D3D3
-}
-
-.sidelinks div:first-child>a:before{
-	content:"";
-	width:0em;
-	height:0em;
-	border-top:1.4285714285714286em solid transparent;
-	border-left:2.142857142857143em solid #E8E8E8;
-  	border-right: 2.142857142857143em solid transparent;
-  	border-bottom: 1.4285714285714286em solid transparent;
-  	position:absolute;
-  	left:100%;
-	top:0px;
-}
-
-.lists div~div{
-	border-right: 0.07142857142857142em solid #D3D3D3
-}
-
-.lists div:last-child{
-	border-bottom: 0.07142857142857142em solid #D3D3D3
-}
-
-.lists a {
-	color: black;
 }
 
 /*User Information*/
@@ -80,7 +35,25 @@ body, html {
 	font-weight: bold;
 }
 
+.main .row-fluid .row:first-child {
+	box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+	background-color: white;
+	border-radius: 5px;
+	border: 5px solid;
+  border-left: 25px;
+  border-right: 25px;
+  border-color: hsl(0, 0%, 100%);
+	padding: 0.5em 0.5em 0.5em 1em;
+
+}
+
 /*Addresses List*/
+
+.main .user_area .addresses {
+  width: 90%;
+  margin: 0;
+  padding-bottom: 1.3em;
+}
 
 .addresses>p {
 	font-weight: bold;
@@ -88,9 +61,10 @@ body, html {
 
 
 .addresses ul {
+  background-color: white;
 	overflow-y: scroll;
 	height: 12em;
-  
+
   	margin: 0;
   	padding: 0;
   	border: 0.14285714285714285em solid #ccc;
@@ -98,7 +72,7 @@ body, html {
 
 .addresses li {
 	padding: 0.7142857142857143em 1.4285714285714286em;
-  
+
 	border-bottom: 0.07142857142857142em solid #ccc;
 }
 
@@ -121,6 +95,11 @@ body, html {
 	width: 10em;
 }
 
+.confirm_buttons {
+  padding-left: 1.3em;
+  padding-right: 1.3em;
+}
+
 /*Responsive*/
 
 @media(min-width: 1400px){
@@ -133,7 +112,7 @@ body, html {
 	.information div:nth-child(2)>p{
 		padding-left: 1em;
 	}
-	
+
 	.information label~div {
 		padding-left: 1em;
 		width: 20em;
@@ -144,7 +123,7 @@ body, html {
 	.information div:nth-child(2)>p{
 		padding-left: 2em;
 	}
-	
+
 	.information label~div {
 		padding-left: 2em;
 		width: 15em;
@@ -155,13 +134,13 @@ body, html {
 	.information div:nth-child(2)>p{
 		padding-left: 4em;
 	}
-	
+
 	.information label~div {
 		padding-left: 4em;
 		position: relative;
 		left: 2em;
 	}
-	
+
 	.information label~div {
 		padding-left: 2em;
 		width: 12em;

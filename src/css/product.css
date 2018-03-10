@@ -15,21 +15,37 @@ body, html{
     margin: 1.8em 4.2em 2em 4.2em;
 }
 
+.product-section .product-image {
+  padding-top: 1.3em;
+}
+
 .product-section .product-image img {
   width: 100%;
   height: 100%;
 }
 
+.product-section .product-name {
+  padding-top: 1.3em;
+}
+
 .product-section .product-name h3 {
-    margin: 0 0 0.65em 0;
+    margin: 0 0 1rem 0;
+}
+
+.product-section .product-name h4 {
+    margin: 0 0 1rem 0;
+}
+
+.product-section .product-name h5 {
+    margin: 0 0 1rem 0;
 }
 
 .product-section .product-name .description {
-    border-style: solid;
-    border-width: 0.0714em 0.0714em 0.0714em 0.0714em;
-    margin: 1.5em 0.5em 1em 0em;
-    padding: 0.5em;
+    padding: 1.5em 1.5em 0.5em 0;;
+}
 
+.product-section .product-class {
+    padding-top: 1.3em;
 }
 
 .product-section .product-class h3 {
@@ -46,11 +62,11 @@ body, html{
     padding: 0 0 0 2.2em;
 }
 
-.product-section .product-class .rating .rating-addon {
+.rating .rating-addon {
     padding: 0 0 0 0.3em;
 }
 
-.product-section .product-class .rating .grey {
+.rating .grey {
     color: #A9A9A9;
 }
 
@@ -83,12 +99,15 @@ body, html{
     height: auto;
     margin: 1.8em 7em 2em 5.1em;
     padding: 1.8em;
-    border-style: solid;
-    border-width: 0.0714em 0 0 0.0714em;
+    box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+    border-radius: 5px;
+    border: 1px solid hsl(0, 0%, 100%);
+    padding: 0.5em;
+    background-color:  hsl(0, 0%, 100%);
 }
 
 .reviews-section .review {
-    padding: 1.3em 0 0 0;
+    padding: 1.3em 0 1.3em 0;
     display: flex;
 }
 
@@ -102,10 +121,12 @@ body, html{
     height: 100%;
 }
 
+.reviews-section .review .review-information h3{
+    margin-top: 0;
+}
+
 .reviews-section .review .review-text {
-    border-style: solid;
-    border-width: 0.0714em 0.0714em 0.0714em 0.0714em;
-    padding: 0.5em;
+    padding: 0 0.5em 0.5em 0.5em;
     text-align: left;
     height: 100%;
     width: 100%;
