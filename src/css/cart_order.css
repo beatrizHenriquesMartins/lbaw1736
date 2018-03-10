@@ -11,6 +11,10 @@
     padding-top: 3em;
 }
 
+.addresses li:hover {
+  background-color:  hsl(0, 0%, 88%);
+}
+
 .order-section .order-information .btns {
     padding-top: 3em;
 }
@@ -31,4 +35,3 @@
     font-size: 1.4em;
     font-weight: bold;
 }
-

@@ -76,12 +76,21 @@ body, html {
 	border-bottom: 0.07142857142857142em solid #ccc;
 }
 
-.addresses li:last-child{
-	border-bottom: none;
+.addresses li:hover {
+  background-color:  hsl(0, 0%, 88%);
 }
 
 .addresses li:nth-child(even) {
 	background: #f8f8f8;
+}
+
+.addresses li:nth-child(even):hover {
+  background-color:  hsl(0, 0%, 88%);
+}
+
+.main .addresses li:last-child{
+	border-bottom: none;
+  background-color: white;
 }
 
 /*Profile Photo*/
