@@ -40,14 +40,20 @@ body, html {
 	background-color: white;
 	border-radius: 5px;
 	border: 5px solid;
-  border-left: 20px;
-  border-right: 20px;
-  border-color: hsl(0, 0%, 95%);
-	padding: 0.5em 0.5em 0.5em 0.5em;
+  border-left: 25px;
+  border-right: 25px;
+  border-color: hsl(0, 0%, 100%);
+	padding: 0.5em 0.5em 0.5em 1em;
 
 }
 
 /*Addresses List*/
+
+.main .user_area .addresses {
+  width: 90%;
+  margin: 0;
+  padding-bottom: 1.3em;
+}
 
 .addresses>p {
 	font-weight: bold;
@@ -87,6 +93,11 @@ body, html {
 .photo>img {
 	height: 10em;
 	width: 10em;
+}
+
+.confirm_buttons {
+  padding-left: 1.3em;
+  padding-right: 1.3em;
 }
 
 /*Responsive*/

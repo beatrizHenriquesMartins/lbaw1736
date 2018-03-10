@@ -29,6 +29,8 @@
   display: flex;
   -webkit-flex-direction: column;  /* Safari */
   flex-direction:  column;
+  margin-left: 4.2em;
+  margin-right: 4.2em;
 }
 
 .order-section .order-information .information {
@@ -53,7 +55,7 @@
 }
 
 .order-section .order-information .information .order {
-  padding: 1.8em;
+  padding: 1.3em;
   flex: 1;
 }
 
