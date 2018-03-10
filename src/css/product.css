@@ -132,16 +132,53 @@ body, html{
     width: 100%;
 }
 
-.btn-success {
-    color: #fff;
-    background-color: #55ca76;
-    border-color: #55ca76;
+.btn-info {
+    color: #874e5a !important;
+    background-color: #ffe7e7 !important;
+    border-color: #ffe7e7 !important;
 }
 
-.btn-info {
-    color: #874e5a;
-    background-color: #ffd8d8;
-    border-color: #ffe7e7;
+.btn-info:active {
+    color: #874e5a !important;
+    background-color: #ffe7e7 !important;
+    border-color: #ffe7e7 !important;
+}
+
+.btn-info:hover {
+    color: #874e5a !important;
+    background-color: #ffe7e7 !important;
+    border-color: #ffe7e7 !important;
+}
+
+.btn-info:visited {
+    color: #874e5a !important;
+    background-color: #ffe7e7 !important;
+    border-color: #ffe7e7 !important;
+}
+
+
+.btn-success {
+    color: #fff !important;
+    background-color: #a0d6af !important;
+    border-color: #a0d6af !important;
+}
+
+.btn-success:active {
+    color: #fff !important;
+    background-color: #a0d6af !important;
+    border-color: #a0d6af !important;
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #a0d6af !important;
+    border-color: #a0d6af !important;
+}
+
+.btn-success:visited {
+    color: #fff;
+    background-color: #a0d6af !important;
+    border-color: #a0d6af !important;
 }
 
 h2 {
