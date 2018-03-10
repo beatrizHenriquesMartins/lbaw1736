@@ -100,3 +100,28 @@ span {
   }
 
 }
+
+@media (max-width:500px) {
+
+  #myCarousel .carousel-inner img {
+    width: 100%;
+    height: 18em;
+  }
+
+  #brand-container {
+    height: auto;
+    padding-top: 1.5em;
+    padding-bottom: 0.5em;
+  }
+
+  .company_links {
+    margin-top: 0;
+  }
+
+  #brand-container #inner-brand-container .card-columns {
+    flex-direction: column;
+  }
+
+
+
+}
