@@ -177,6 +177,40 @@ div.container-fluid.topbar{
   }
 }
 
+@media (max-width:500px) {
+  .topbar .top .search {
+    flex-direction: row;
+    align-self: center;
+  }
+
+  .topbar .top .search >* {
+    flex: auto;
+  }
+
+  .topbar .top .search #navBarSearchForm {
+    flex-direction: row;
+  }
+
+  .topbar .top .search #navBarSearchForm >* {
+    flex: auto;
+  }
+
+  .topbar .top .search #navBarSearchForm .form-control {
+    margin-right: 0 !important;
+    display: inline;
+  }
+
+  #navBarSearchForm input[type=text]{
+      width: 17.8571em !important;
+      height: 2.4285em !important;
+  }
+
+  .custom-navbar .navBar-container .collapsed {
+    margin-left: 1em !important;
+    border-color: #836262;
+  }
+}
+
 .profile_image img {
   width: 20%;
   height: 100%;

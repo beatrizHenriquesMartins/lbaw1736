@@ -158,27 +158,52 @@ html {
 }
 
 .btn-info {
-    color: #874e5a;
-    background-color: #ffe7e7;
-    border-color: #ffe7e7;
+    color: #874e5a !important;
+    background-color: #ffe7e7 !important;
+    border-color: #ffe7e7 !important;
+}
+
+.btn-info:active {
+    color: #874e5a !important;
+    background-color: #ffe7e7 !important;
+    border-color: #ffe7e7 !important;
 }
 
 .btn-info:hover {
-    color: #874e5a;
-    background-color: #ffe7e7;
-    border-color: #ffe7e7;
+    color: #874e5a !important;
+    background-color: #ffe7e7 !important;
+    border-color: #ffe7e7 !important;
 }
 
+.btn-info:visited {
+    color: #874e5a !important;
+    background-color: #ffe7e7 !important;
+    border-color: #ffe7e7 !important;
+}
+
+
 .btn-success {
-    color: #fff;
-    background-color: #a0d6af;
-    border-color: #a0d6af;
+    color: #fff !important;
+    background-color: #a0d6af !important;
+    border-color: #a0d6af !important;
+}
+
+.btn-success:active {
+    color: #fff !important;
+    background-color: #a0d6af !important;
+    border-color: #a0d6af !important;
 }
 
 .btn-success:hover {
     color: #fff;
-    background-color: #a0d6af;
-    border-color: #a0d6af;
+    background-color: #a0d6af !important;
+    border-color: #a0d6af !important;
+}
+
+.btn-success:visited {
+    color: #fff;
+    background-color: #a0d6af !important;
+    border-color: #a0d6af !important;
 }
 
 a#product_name,
@@ -289,4 +314,45 @@ h3.product_name{
 	.product-image img{
 		max-width: 250px;
 	}
+}
+
+@media (max-width:500px) {
+
+  .category-section .category-topbar {
+      margin: 1.3em 0 0 0;
+  }
+
+  .category-section .category-topbar  .category{
+      margin: 0 1.8em 0 0;
+  }
+
+  .category-section .category-topbar .category h2 {
+      margin: 0;
+  }
+
+  .category-section .category-topbar .dropdown {
+      margin-left: 0 0 0 1.8em;
+      flex: 1;
+  }
+
+  .category-section .category-products {
+      padding-right: 0;
+      flex-direction: column;
+      margin-left: 0;
+      margin-right: 0;
+  }
+
+  .category-section .category-products .product-row {
+      padding-right: 0;
+      flex-direction: column;
+  }
+
+  .category-section .category-products .product {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .category-section .category-products .product .product-body .rating {
+    left: 0;
+  }
 }
