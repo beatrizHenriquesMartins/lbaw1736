@@ -39,6 +39,11 @@ body, html {
 
 .brand-banner-box {
   margin-bottom: 2.1429em;
+  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
+  border-radius: 2px;
+  border: 1px solid white;
+  padding: 0.5em;
+  background-color: white;
 
 }
 
