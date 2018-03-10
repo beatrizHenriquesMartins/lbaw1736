@@ -133,3 +133,47 @@
 .category-section .category-products .payment .PayPal-btn .btn {
   width: 65%;
 }
+
+@media (max-width:500px) {
+
+  .order-section .order-topbar {
+    margin: 0;
+  }
+
+  .order-section .order-information {
+    margin: 0;
+  }
+
+  .order-section .order-information .information {
+    flex-direction: column;
+  }
+
+  .order-section .order-information .information .customer-information-1 {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .order-section .order-information .information div div:first-child {
+    padding-bottom: 1.3em;
+  }
+
+  .category-section .category-products {
+    flex-direction: column;
+  }
+
+  .category-section .category-products .payment{
+    flex-direction: row;
+    padding-top: 0;
+  }
+
+  .category-section .category-products .payment .PayPal-btn .btn {
+    width: 100%;
+  }
+  .category-section .category-products .payment .MasterCart-btn {
+    flex: 1;
+  }
+
+  .category-section .category-products .payment .PayPal-btn {
+    flex: 1;
+  }
+}
