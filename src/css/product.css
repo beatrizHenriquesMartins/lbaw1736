@@ -1,5 +1,5 @@
 body, html{
-   overflow-x: hidden;  /* para não existirem scroll horizontal */
+    overflow-x: hidden;  /* para não existirem scroll horizontal */
     background-repeat: no-repeat;
     background-color: white;
     font-family: 'Karma', serif;
@@ -16,16 +16,16 @@ body, html{
 }
 
 .product-section .product-image {
-  padding-top: 1.3em;
+    padding-top: 1.3em;
 }
 
 .product-section .product-image img {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .product-section .product-name {
-  padding-top: 1.3em;
+    padding-top: 1.3em;
 }
 
 .product-section .product-name h3 {
@@ -97,7 +97,7 @@ body, html{
     flex-direction:  column;
     width: auto;
     height: auto;
-    margin: 1.8em 7em 2em 5.1em;
+    margin: 3em 7em 2em 5.1em;
     padding: 1.8em;
     box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
     border-radius: 5px;
@@ -112,7 +112,7 @@ body, html{
 }
 
 .reviews-section .review .col-sm-10 {
-  display: flex;
+    display: flex;
 
 }
 
@@ -132,115 +132,132 @@ body, html{
     width: 100%;
 }
 
+.btn-success {
+    color: #fff;
+    background-color: #55ca76;
+    border-color: #55ca76;
+}
+
+.btn-info {
+    color: #874e5a;
+    background-color: #ffd8d8;
+    border-color: #ffe7e7;
+}
+
+h2 {
+    margin-top: 0.3333em;
+}
+
+
 /*Responsive*/
 
 @media (max-width: 1200px) and (min-width: 900px) {
-	.product-section {
-		margin-right: 0em;
-	}
+    .product-section {
+        margin-right: 0em;
+    }
 
-	.product-section>div:nth-child(2){
-		position: relative;
-		left: 2em;
-	}
+    .product-section>div:nth-child(2){
+        position: relative;
+        left: 2em;
+    }
 
-	.product-section>div:last-child{
-		position: relative;
-		left: 2em;
-	}
+    .product-section>div:last-child{
+        position: relative;
+        left: 2em;
+    }
 
-	.product-name h3{
-		font-size: 1.5em;
-	}
+    .product-name h3{
+        font-size: 1.5em;
+    }
 
-	.product-class h3{
-		font-size: 1.3em;
-	}
+    .product-class h3{
+        font-size: 1.3em;
+    }
 
-	.rating {
-		width: 10em;
-	}
+    .rating {
+        width: 10em;
+    }
 
-	.review>div:nth-child(2){
-		padding-left: 3em;
-	}
+    .review>div:nth-child(2){
+        padding-left: 3em;
+    }
 }
 
 @media (max-width: 900px) and (min-width: 850px) {
 
-	.product-section {
-		margin-right: 0em;
-	}
+    .product-section {
+        margin-right: 0em;
+    }
 
-	.product-section>div:nth-child(2){
-		position: relative;
-		left: 4em;
-	}
+    .product-section>div:nth-child(2){
+        position: relative;
+        left: 4em;
+    }
 
-	.product-section>div:last-child{
-		position: relative;
-		left: 3em;
-	}
+    .product-section>div:last-child{
+        position: relative;
+        left: 3em;
+    }
 
-	.product-name h3{
-		font-size: 1.45em;
-	}
+    .product-name h3{
+        font-size: 1.45em;
+    }
 
-	.product-class h3{
-		font-size: 1.2em;
-	}
+    .product-class h3{
+        font-size: 1.2em;
+    }
 
-	.rating {
-		width: 10em;
-		position: relative;
-		left: -2em;
-	}
+    .rating {
+        width: 10em;
+        position: relative;
+        left: -2em;
+    }
 
-	.review>div:nth-child(2){
-		padding-left: 3em;
-	}
+    .review>div:nth-child(2){
+        padding-left: 3em;
+    }
 }
 
 @media (max-width: 850px) {
-	.product-section {
-		margin-right: 0em;
-	}
+    .product-section {
+        margin-right: 0em;
+    }
 
-	.product-section>div:nth-child(2){
-		position: relative;
-		left: 5em;
-	}
+    .product-section>div:nth-child(2){
+        position: relative;
+        left: 5em;
+    }
 
-	.product-section>div:last-child{
-		position: relative;
-		left: 3em;
-	}
+    .product-section>div:last-child{
+        position: relative;
+        left: 3em;
+    }
 
-	.product-name h3{
-		font-size: 1.3em;
-	}
+    .product-name h3{
+        font-size: 1.3em;
+    }
 
-	.product-class h3{
-		font-size: 1.05em;
-	}
+    .product-class h3{
+        font-size: 1.05em;
+    }
 
-	.rating {
-		width: 10em;
-		position: relative;
-		left: -2em;
-	}
+    .rating {
+        width: 10em;
+        position: relative;
+        left: -2em;
+    }
 
-	.product-image img{
-		max-width: 250px;
-	}
+    .product-image img{
+        max-width: 250px;
+    }
 
-	.description {
-		width: 13em;
-	}
+    .description {
+        width: 13em;
+    }
 
-	.review>div:nth-child(2){
-		padding-left: 3em;
-	}
+    .review>div:nth-child(2){
+        padding-left: 3em;
+    }
 
 
 }
