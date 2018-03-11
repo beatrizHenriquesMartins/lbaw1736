@@ -181,6 +181,12 @@ body, html{
     border-color: #a0d6af !important;
 }
 
+.btn-info:hover {
+    color: #874e5a;
+    background-color: #ffe7e7;
+    border-color: #ffe7e7;
+}
+
 h2 {
     margin-top: 0.3333em;
 }
