@@ -21,10 +21,18 @@ html, body {
 }
 
 footer {
+	/*position: relative;*/
     background-color: white;
-    bottom: 0;
+    /*bottom: -800px;*/
 }
 
 #pageFooter{
     background-color: #836262;
+}
+
+@media (min-height:800px){
+	footer{
+		position: relative;
+		bottom: -15px;
+	}
 }
