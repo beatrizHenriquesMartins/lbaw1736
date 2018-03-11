@@ -34,7 +34,7 @@ body, html {
 	font-weight: bold;
 }
 
-.main .row-fluid .row:first-child {
+.main .user_area > .row:first-child {
 	box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
 	background-color: hsl(0, 0%, 95%);
 	border-radius: 5px;
@@ -43,7 +43,7 @@ body, html {
 
 }
 
-.main .row-fluid .addresses {
+.main .row .addresses {
 	padding-top: 2.5em;
 }
 /*Addresses List*/
@@ -119,4 +119,18 @@ body, html {
 	.information {
 		padding-left: 4em;
 	}
+}
+
+@media (max-width: 768px) {
+	
+	.information {
+		padding-top: 2em;
+	}
+	
+	.user_area>.row>div:last-child{
+		position: relative;
+		top: -10em;
+	}
+	
+	
 }
