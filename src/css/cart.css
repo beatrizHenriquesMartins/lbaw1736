@@ -96,6 +96,10 @@
     padding-left: 1.3em;
 }
 
+.category-section .category-products .product .product-class .quantity .spinner .number {
+    display: none;
+}
+
 .category-section .category-products .product .product-class .btns .cart-btn {
     padding-right: 1.2em;
 }
