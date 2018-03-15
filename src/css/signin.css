@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     height: 99%;
     background-repeat: no-repeat;
     background-color: #ffe7e7;
@@ -37,7 +38,6 @@ input::-webkit-input-placeholder {
 
 .main-login {
     background-color: #fff;
-
     /* shadows and rounded borders */
     -moz-border-radius: 0.1429em;
     -webkit-border-radius: 0.1429em;
@@ -67,5 +67,5 @@ input::-webkit-input-placeholder {
 }
 
 .login-container {
-	padding-bottom: 18.7em;
+    padding-bottom: 18.7em;
 }

@@ -1,70 +1,63 @@
-body, html {
+body,
+html {
     background-repeat: no-repeat;
     background-color: white;
     font-family: 'Karma', sans-serif;
     overflow-x: hidden;
 }
 
-/*Main Section*/
-
+/* Main Section */
 .main{
-	margin-top: 1.5em;
+    margin-top: 1.5em;
 	margin-left: 0em;
 	margin-right: 0em;
 }
 
 .user_area{
 	padding-left: 4em;
-	padding-top: 2em;/*
-	border-top: solid 0.01em #D3D3D3;
-	border-left: solid 0.01em #D3D3D3;*/
+	padding-top: 2em;
 }
 
-/*SideLinks*/
+/* SideLinks */
 .sidelinks {
-	padding-right: 0em;
+    padding-right: 0em;
 }
 
-/*User Information*/
-
+/* User Information */
 .information>div>div:first-child {
-	padding-right: 0em;
+    padding-right: 0em;
 }
 
 .information>div>div div:first-child>p{
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .main .user_area > .row:first-child {
-	box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+    box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
 	background-color: white;
 	border-radius: 5px;
 	border: 5px solid;
-  border-left: 25px;
-  border-right: 25px;
-  border-color: hsl(0, 0%, 100%);
+    border-left: 25px;
+    border-right: 25px;
+    border-color: hsl(0, 0%, 100%);
 	padding: 0.5em 0.5em 0.5em 1em;
-
 }
 
-/*Addresses List*/
-
+/* Addresses List */
 .main .user_area .addresses {
-  width: 90%;
-  margin: 0;
-  padding-bottom: 1.3em;
+    width: 90%;
+    margin: 0;
+    padding-bottom: 1.3em;
 }
 
 .addresses>p {
-	font-weight: bold;
+    font-weight: bold;
 }
 
-
 .addresses ul {
-  background-color: white;
+    background-color: white;
 	overflow-y: scroll;
 	height: 12em;
-
   	margin: 0;
   	padding: 0;
   	border: 0.14285714285714285em solid #ccc;
@@ -72,54 +65,51 @@ body, html {
 
 .addresses li {
 	padding: 0.7142857142857143em 1.4285714285714286em;
-
 	border-bottom: 0.07142857142857142em solid #ccc;
 }
 
 .addresses li:hover {
-  background-color:  hsl(0, 0%, 88%);
+    background-color:  hsl(0, 0%, 88%);
 }
 
 .addresses li:nth-child(even) {
-	background: #f8f8f8;
+    background: #f8f8f8;
 }
 
 .addresses li:nth-child(even):hover {
-  background-color:  hsl(0, 0%, 88%);
+    background-color:  hsl(0, 0%, 88%);
 }
 
 .main .addresses li:last-child{
 	border-bottom: none;
-  background-color: white;
+    background-color: white;
 }
 
-/*Profile Photo*/
-
+/* Profile Photo */
 .photo {
-	padding-left: 0em;
+    padding-left: 0em;
 }
 
 .photo>img {
-	height: 10em;
+    height: 10em;
 	width: 10em;
 }
 
 .confirm_buttons {
-  padding-left: 1.3em;
-  padding-right: 1.3em;
+    padding-left: 1.3em;
+    padding-right: 1.3em;
 }
 
-/*Responsive*/
-
+/* Responsive */
 @media(min-width: 1400px){
-	.information  div:first-child>p{
-		padding-left: 1em;
+    .information  div:first-child>p{
+        padding-left: 1em;
 	}
 }
 
 @media (max-width: 1400px) and (min-width: 1151px) {
-	.information div:nth-child(2)>p{
-		padding-left: 1em;
+    .information div:nth-child(2)>p{
+        padding-left: 1em;
 	}
 
 	.information label~div {
@@ -186,7 +176,7 @@ body, html {
 	}
 }
 
-/*Edit Profile*/
+/* Edit Profile */
 
 .information > div:first-child>div{
 	padding-left: 0em;
@@ -195,10 +185,9 @@ body, html {
 .information > div:first-child>div{
 	padding-left: 0em;
 }
-
 
 .photo a {
-	position: relative;
+    position: relative;
 	top: 0.2em;
 	left: 2.8em;
 }

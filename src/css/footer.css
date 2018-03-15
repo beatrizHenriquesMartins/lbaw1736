@@ -9,7 +9,8 @@ footer p {
     margin: 0 0.7143em;
 }
 
-html, body {
+html,
+body {
     height: 99%;
     margin: 0;
 }
@@ -21,9 +22,7 @@ html, body {
 }
 
 footer {
-	/*position: relative;*/
     background-color: white;
-    /*bottom: -800px;*/
 }
 
 #pageFooter{

@@ -31,8 +31,8 @@
 }
 
 @media (max-width:767px) {
-  .topbar .top .sign {
-    padding-top: 0.2em;
-    padding-bottom: 0.4em;
-  }
+    .topbar .top .sign {
+        padding-top: 0.2em;
+        padding-bottom: 0.4em;
+    }
 }

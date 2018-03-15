@@ -1,12 +1,9 @@
 .company_links{
 	border-bottom: solid 0.01em #D3D3D3;
 	border-top: solid 0.01em #D3D3D3;
-	/*
-	margin-bottom: 0.25em;
-	 */
 	padding-top: 0.4em;
 	padding-bottom: 0.4em;
-  background-color: hsl(0, 14%, 45%);
+    background-color: hsl(0, 14%, 45%);
 }
 
 .company_links>div{
@@ -28,16 +25,15 @@ h4{
 }
 
 @media (max-width:767px) {
-
-  .company_links {
-    margin-top: 0;
-  }
+    .company_links {
+        margin-top: 0;
+    }
 
 }
 
 @media (min-height:800px){
-	.company_links{
-		position: relative;
+    .company_links{
+        position: relative;
 		bottom: -15px;
 	}
 }
