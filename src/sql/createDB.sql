@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS productwishlist;
 DROP TABLE IF EXISTS wishlist;
 DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS productcategory;
-DROP TABLE IF EXISTS bans;
+DROP TABLE IF EXISTS ban;
 DROP TABLE IF EXISTS admin;
 DROP TABLE IF EXISTS brandManager;
 DROP TABLE IF EXISTS brand;
@@ -18,6 +18,7 @@ DROP TABLE IF EXISTS message;
 DROP TABLE IF EXISTS chat;
 DROP TABLE IF EXISTS chatSupport;
 DROP TABLE IF EXISTS users;
+DROP Table IF EXISTS brandBrandManager;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -69,14 +70,14 @@ CREATE TABLE brand (
 
 CREATE TABLE brandManager (
   id INTEGER PRIMARY KEY REFERENCES users,
-  id_brand INTEGER REFERENCES brand NOT NULL
+  id_brand INTEGER REFERENCES brand NOT NULL /*This is wrong*/
 );
 
 CREATE TABLE admin (
   id INTEGER PRIMARY KEY REFERENCES brandManager
 );
 
-CREATE TABLE bans (
+CREATE TABLE ban (
   id_client INTEGER PRIMARY KEY REFERENCES users,
   id_admin INTEGER REFERENCES admin NOT NULL,
   banDate TIMESTAMP DEFAULT now() NOT NULL
@@ -84,13 +85,13 @@ CREATE TABLE bans (
 
 CREATE TABLE productcategory (
   id SERIAL PRIMARY KEY,
-  category TEXT NOT NULL UNIQUE
+  categoryName TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE product (
   id SERIAL PRIMARY KEY,
   name TEXT UNIQUE NOT NULL,
-  quantityStock INTEGER NOT NULL DEFAULT 0,
+  quantityInStock INTEGER NOT NULL DEFAULT 0,
   dateCreated TIMESTAMP DEFAULT now() NOT NULL,
   modelNumber INTEGER NOT NULL,
   weight DECIMAL NOT NULL,
@@ -116,7 +117,7 @@ CREATE TABLE productwishlist (
 CREATE TABLE cartproduct (
   id_cart INTEGER REFERENCES cart,
   id_product INTEGER REFERENCES product,
-  quantity INTEGER NOT NULL,
+  quantity INTEGER NOT NULL CHECK quantity > 0,
   PRIMARY KEY(id_cart, id_product)
 );
 
@@ -140,19 +141,19 @@ CREATE TABLE purchase (
   id_client INTEGER REFERENCES client NOT NULL,
   id_address INTEGER REFERENCES address NOT NULL,
   purchaseDate TIMESTAMP DEFAULT now() NOT NULL,
-  state TEXT NOT NULL,
+  purchaseState TEXT NOT NULL,
   paymentType TEXT NOT NULL,
   cardNumber TEXT NOT NULL UNIQUE,
   cardName TEXT NOT NULL,
   cardExpirationDate TIMESTAMP NOT NULL,
-  paymentStatus TEXT NOT NULL
+  CHECK cardExpirationDate > purchaseDate
 );
 
 CREATE TABLE purchaseproduct (
   id_purchase INTEGER REFERENCES purchase,
   id_product INTEGER REFERENCES product,
-  quantity INTEGER NOT NULL,
-  cost INTEGER NOT NULL,
+  quantity INTEGER NOT NULL CHECK quantity > 0,
+  cost INTEGER NOT NULL CHECK cost > 0,
   PRIMARY KEY(id_purchase, id_product)
 );
 
@@ -165,3 +166,5 @@ CREATE TABLE productreview (
   textReview TEXT NOT NULL,
   rating INTEGER NOT NULL
 );
+
+
