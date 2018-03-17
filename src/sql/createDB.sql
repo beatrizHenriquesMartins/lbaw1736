@@ -70,7 +70,6 @@ CREATE TABLE brand (
 
 CREATE TABLE brandManager (
   id INTEGER PRIMARY KEY REFERENCES users,
-  id_brand INTEGER REFERENCES brand NOT NULL /*This is wrong*/
 );
 
 CREATE TABLE admin (
@@ -167,4 +166,8 @@ CREATE TABLE productreview (
   rating INTEGER NOT NULL
 );
 
-
+CREATE TABLE brandBrandManager ( 
+  idBrand INTEGER REFERENCES brand,
+  idBrandManager INTEGER REFERENCES brandManager,
+  PRIMARY KEY(idBrand, idBrandManager)
+);
