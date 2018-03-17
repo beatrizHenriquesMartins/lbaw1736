@@ -1,3 +1,4 @@
+DROP Table IF EXISTS brandBrandManager;
 DROP TABLE IF EXISTS productreview;
 DROP TABLE IF EXISTS purchaseproduct;
 DROP TABLE IF EXISTS purchase;
@@ -18,7 +19,6 @@ DROP TABLE IF EXISTS message;
 DROP TABLE IF EXISTS chat;
 DROP TABLE IF EXISTS chatSupport;
 DROP TABLE IF EXISTS users;
-DROP Table IF EXISTS brandBrandManager;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -51,7 +51,7 @@ CREATE TABLE message (
 );
 
 CREATE TABLE cart (
-  id SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY
 );
 
 CREATE TABLE client (
@@ -69,7 +69,7 @@ CREATE TABLE brand (
 );
 
 CREATE TABLE brandManager (
-  id INTEGER PRIMARY KEY REFERENCES users,
+  id INTEGER PRIMARY KEY REFERENCES users
 );
 
 CREATE TABLE admin (
@@ -116,7 +116,7 @@ CREATE TABLE productwishlist (
 CREATE TABLE cartproduct (
   id_cart INTEGER REFERENCES cart,
   id_product INTEGER REFERENCES product,
-  quantity INTEGER NOT NULL CHECK quantity > 0,
+  quantity INTEGER NOT NULL CHECK (quantity > 0),
   PRIMARY KEY(id_cart, id_product)
 );
 
@@ -145,14 +145,14 @@ CREATE TABLE purchase (
   cardNumber TEXT NOT NULL UNIQUE,
   cardName TEXT NOT NULL,
   cardExpirationDate TIMESTAMP NOT NULL,
-  CHECK cardExpirationDate > purchaseDate
+  CHECK (cardExpirationDate > purchaseDate)
 );
 
 CREATE TABLE purchaseproduct (
   id_purchase INTEGER REFERENCES purchase,
   id_product INTEGER REFERENCES product,
-  quantity INTEGER NOT NULL CHECK quantity > 0,
-  cost INTEGER NOT NULL CHECK cost > 0,
+  quantity INTEGER NOT NULL CHECK (quantity > 0),
+  cost INTEGER NOT NULL CHECK (cost > 0),
   PRIMARY KEY(id_purchase, id_product)
 );
 
@@ -166,7 +166,7 @@ CREATE TABLE productreview (
   rating INTEGER NOT NULL
 );
 
-CREATE TABLE brandBrandManager ( 
+CREATE TABLE brandBrandManager (
   idBrand INTEGER REFERENCES brand,
   idBrandManager INTEGER REFERENCES brandManager,
   PRIMARY KEY(idBrand, idBrandManager)
