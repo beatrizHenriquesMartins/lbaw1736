@@ -1,22 +1,23 @@
-DROP TABLE IF EXISTS message;
-DROP TABLE IF EXISTS admin;
-DROP TABLE IF EXISTS representing;
-DROP TABLE IF EXISTS brandManager;
-DROP TABLE IF EXISTS brand;
-DROP TABLE IF EXISTS cartproduct;
-DROP TABLE IF EXISTS cart;
-DROP TABLE IF EXISTS clientaddress;
+DROP TABLE IF EXISTS productreview;
 DROP TABLE IF EXISTS purchaseproduct;
 DROP TABLE IF EXISTS purchase;
-DROP TABLE IF EXISTS productreview;
+DROP TABLE IF EXISTS clientaddress;
+DROP TABLE IF EXISTS address;
+DROP TABLE IF EXISTS cartproduct;
+DROP TABLE IF EXISTS productwishlist;
+DROP TABLE IF EXISTS wishlist;
+DROP TABLE IF EXISTS product;
+DROP TABLE IF EXISTS productcategory;
+DROP TABLE IF EXISTS bans;
+DROP TABLE IF EXISTS admin;
+DROP TABLE IF EXISTS brandManager;
+DROP TABLE IF EXISTS brand;
 DROP TABLE IF EXISTS client;
+DROP TABLE IF EXISTS cart;
+DROP TABLE IF EXISTS message;
 DROP TABLE IF EXISTS chat;
 DROP TABLE IF EXISTS chatSupport;
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS productwishlist;
-DROP TABLE IF EXISTS product;
-DROP TABLE IF EXISTS wishlist;
-DROP TABLE IF EXISTS address;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -48,35 +49,47 @@ CREATE TABLE message (
   sender TEXT NOT NULL
 );
 
+CREATE TABLE cart (
+  id SERIAL PRIMARY KEY,
+);
+
 CREATE TABLE client (
   id INTEGER PRIMARY KEY REFERENCES users,
   nif INTEGER NOT NULL,
   cellphone INTEGER,
-  id_chat INTEGER UNIQUE REFERENCES chat
+  id_chat INTEGER REFERENCES chat,
+  id_cart INTEGER REFERENCES cart
+);
+
+CREATE TABLE brand (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL UNIQUE,
+  contact INTEGER NOT NULL
 );
 
 CREATE TABLE brandManager (
-  id INTEGER PRIMARY KEY REFERENCES users
+  id INTEGER PRIMARY KEY REFERENCES users,
+  id_brand INTEGER REFERENCES brand NOT NULL
 );
 
 CREATE TABLE admin (
   id INTEGER PRIMARY KEY REFERENCES brandManager
 );
 
-CREATE TABLE brand (
-  id SERIAL PRIMARY KEY,
-  contact INTEGER NOT NULL
+CREATE TABLE bans (
+  id_client INTEGER PRIMARY KEY REFERENCES users,
+  id_admin INTEGER REFERENCES admin NOT NULL,
+  banDate TIMESTAMP DEFAULT now() NOT NULL
 );
 
-CREATE TABLE representing (
-  id_brandManager INTEGER REFERENCES brandManager,
-  id_brand INTEGER REFERENCES brand,
-  PRIMARY KEY(id_brandManager, id_brand)
+CREATE TABLE productcategory (
+  id SERIAL PRIMARY KEY,
+  category TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE product (
   id SERIAL PRIMARY KEY,
-  name TEXT UNIQUE,
+  name TEXT UNIQUE NOT NULL,
   quantityStock INTEGER NOT NULL DEFAULT 0,
   dateCreated TIMESTAMP DEFAULT now() NOT NULL,
   modelNumber INTEGER NOT NULL,
@@ -84,8 +97,9 @@ CREATE TABLE product (
   price MONEY NOT NULL,
   imageURL TEXT NOT NULL UNIQUE,
   bigDescription TEXT NOT NULL,
-  shorDescription TEXT NOT NULL,
-  id_brand INTEGER NOT NULL
+  shortDescription TEXT NOT NULL,
+  id_brand INTEGER NOT NULL REFERENCES brand,
+  id_category INTEGER NOT NULL REFERENCES productcategory
 );
 
 CREATE TABLE wishlist (
@@ -97,12 +111,6 @@ CREATE TABLE productwishlist (
   id_product INTEGER REFERENCES product,
   id_wishlist INTEGER REFERENCES wishlist,
   PRIMARY KEY(id_product, id_wishlist)
-
-);
-
-CREATE TABLE cart (
-  id SERIAL PRIMARY KEY,
-  id_client INTEGER REFERENCES client UNIQUE NOT NULL
 );
 
 CREATE TABLE cartproduct (
@@ -115,10 +123,10 @@ CREATE TABLE cartproduct (
 CREATE TABLE address (
   id SERIAL PRIMARY KEY,
   address TEXT NOT NULL,
-  City TEXT NOT NULL,
-  Country TEXT NOT NULL,
-  State TEXT NOT NULL,
-  ZipCode TEXT NOT NULL
+  city TEXT NOT NULL,
+  country TEXT NOT NULL,
+  state TEXT NOT NULL,
+  zipcode TEXT NOT NULL
 );
 
 CREATE TABLE clientaddress (
@@ -129,7 +137,7 @@ CREATE TABLE clientaddress (
 
 CREATE TABLE purchase (
   id SERIAL PRIMARY KEY,
-  id_client INTEGER REFERENCES client UNIQUE NOT NULL,
+  id_client INTEGER REFERENCES client NOT NULL,
   id_address INTEGER REFERENCES address NOT NULL,
   purchaseDate TIMESTAMP DEFAULT now() NOT NULL,
   state TEXT NOT NULL,
@@ -143,7 +151,6 @@ CREATE TABLE purchase (
 CREATE TABLE purchaseproduct (
   id_purchase INTEGER REFERENCES purchase,
   id_product INTEGER REFERENCES product,
-  id_client INTEGER REFERENCES client,
   quantity INTEGER NOT NULL,
   cost INTEGER NOT NULL,
   PRIMARY KEY(id_purchase, id_product)
@@ -153,6 +160,7 @@ CREATE TABLE productreview (
   id SERIAL PRIMARY KEY,
   id_product INTEGER REFERENCES product,
   id_client INTEGER REFERENCES client,
+  id_purchase INTEGER REFERENCES purchase,
   reviewDate TIMESTAMP DEFAULT now() NOT NULL,
   textReview TEXT NOT NULL,
   rating INTEGER NOT NULL
