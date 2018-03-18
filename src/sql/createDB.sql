@@ -163,7 +163,7 @@ CREATE TABLE productreview (
   id_purchase INTEGER REFERENCES purchase,
   reviewDate TIMESTAMP DEFAULT now() NOT NULL,
   textReview TEXT NOT NULL,
-  rating INTEGER NOT NULL CHECK (((rating > 0) OR (rating <= 5)))
+  rating INTEGER NOT NULL CHECK (((rating >= 0) AND (rating <= 5)))
 );
 
 CREATE TABLE brandBrandManager (
