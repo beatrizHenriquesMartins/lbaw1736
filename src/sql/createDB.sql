@@ -47,7 +47,7 @@ CREATE TABLE message (
   message TEXT NOT NULL,
   dateSent TIMESTAMP DEFAULT now() NOT NULL,
   id_chat INTEGER NOT NULL REFERENCES chat,
-  sender TEXT NOT NULL
+  sender TEXT NOT NULL CHECK (((sender = 'chatSupport') OR (sender = 'client')))
 );
 
 CREATE TABLE cart (
@@ -163,7 +163,7 @@ CREATE TABLE productreview (
   id_purchase INTEGER REFERENCES purchase,
   reviewDate TIMESTAMP DEFAULT now() NOT NULL,
   textReview TEXT NOT NULL,
-  rating INTEGER NOT NULL
+  rating INTEGER NOT NULL CHECK (((rating > 0) OR (rating <= 5)))
 );
 
 CREATE TABLE brandBrandManager (
