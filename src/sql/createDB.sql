@@ -1,23 +1,23 @@
-DROP Table IF EXISTS brandBrandManager;
-DROP TABLE IF EXISTS productreview;
-DROP TABLE IF EXISTS purchaseproduct;
-DROP TABLE IF EXISTS purchase;
-DROP TABLE IF EXISTS clientaddress;
-DROP TABLE IF EXISTS country;
-DROP TABLE IF EXISTS city;
-DROP TABLE IF EXISTS address;
-DROP TABLE IF EXISTS cartproduct;
-DROP TABLE IF EXISTS productwishlist;
-DROP TABLE IF EXISTS product;
-DROP TABLE IF EXISTS productcategory;
-DROP TABLE IF EXISTS ban;
-DROP TABLE IF EXISTS admin;
-DROP TABLE IF EXISTS brandManager;
-DROP TABLE IF EXISTS brand;
-DROP TABLE IF EXISTS message;
-DROP TABLE IF EXISTS client;
-DROP TABLE IF EXISTS chatSupport;
-DROP TABLE IF EXISTS users;
+DROP Table IF EXISTS brandBrandManager CASCADE;
+DROP TABLE IF EXISTS productreview CASCADE;
+DROP TABLE IF EXISTS purchaseproduct CASCADE;
+DROP TABLE IF EXISTS purchase CASCADE;
+DROP TABLE IF EXISTS clientaddress CASCADE;
+DROP TABLE IF EXISTS country CASCADE;
+DROP TABLE IF EXISTS city CASCADE;
+DROP TABLE IF EXISTS address CASCADE;
+DROP TABLE IF EXISTS cartproduct CASCADE;
+DROP TABLE IF EXISTS productwishlist CASCADE;
+DROP TABLE IF EXISTS product CASCADE;
+DROP TABLE IF EXISTS productcategory CASCADE;
+DROP TABLE IF EXISTS ban CASCADE;
+DROP TABLE IF EXISTS admin CASCADE;
+DROP TABLE IF EXISTS brandManager CASCADE;
+DROP TABLE IF EXISTS brand CASCADE;
+DROP TABLE IF EXISTS message CASCADE;
+DROP TABLE IF EXISTS client CASCADE;
+DROP TABLE IF EXISTS chatSupport CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -163,14 +163,3 @@ CREATE TABLE brandBrandManager (
   idBrandManager INTEGER NOT NULL REFERENCES brandManager,
   PRIMARY KEY(idBrand, idBrandManager)
 );
-
-
-/*
-  separar paises, cidades, morada
-  remover client reference no productreview
-  remover chat, message liga se ao client e ao chatSupport
-  "remover" cart e wishlist
-  nif de client para purchase
-  ligacao 1 para ... not null
-  dependencias funcionais no productreview (purchase, product)
-*/
