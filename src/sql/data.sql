@@ -147,15 +147,54 @@ INSERT INTO cartproduct VALUES (17, 1, 2);
 INSERT INTO cartproduct VALUES (18, 4, 1);
 INSERT INTO cartproduct VALUES (19, 5, 3);
 
-/*
-INSERT INTO address VALUES (0, 'Rua Marco de Canaveses 19', 'Porto', 'Portugal', '', '4100-123');
-INSERT INTO address VALUES (0, 'Avenida 5 de Outubro 52', 'Lamego', 'Portugal', '', '4312-234');
-INSERT INTO address VALUES (0, 'Rua de Moçambique 138', 'Coimbra', 'Portugal', '', '4152-164');
-INSERT INTO address VALUES (0, 'Rua Ferreira Lapa 49', 'Lisboa', 'Portugal', '', '4291-134');
-INSERT INTO address VALUES (0, '', 'Faro', 'Portugal', '', '3125-343');
-INSERT INTO address VALUES (0, '', 'Bragança', 'Portugal', '', '3322-421');
-INSERT INTO address VALUES (0, '', 'Leiria', 'Portugal', '', '2314-432');
-INSERT INTO address VALUES (0, '', 'Viana do Castelo', 'Portugal', '', '2151-542');
-INSERT INTO address VALUES (0, '', 'Braga', 'Portugal', '', '1312-321');
-INSERT INTO address VALUES (0, '', 'Guarda', 'Portugal', '', '1532-253');
-*/
+
+INSERT INTO country VALUES (1, 'Portugal');
+INSERT INTO country VALUES (2, 'Finland');
+INSERT INTO country VALUES (3, 'Denmark');
+INSERT INTO country VALUES (4, 'Canada');
+INSERT INTO country VALUES (5, 'Brazil');
+INSERT INTO country VALUES (6, 'Australia');
+INSERT INTO country VALUES (7, 'Austria');
+INSERT INTO country VALUES (8, 'Poland');
+INSERT INTO country VALUES (9, 'Belgium');
+INSERT INTO country VALUES (10, 'Switzerland');
+INSERT INTO country VALUES (11, 'Italy');
+INSERT INTO country VALUES (12, 'Netherlands');
+INSERT INTO country VALUES (13, 'Germany');
+INSERT INTO country VALUES (14, 'France');
+INSERT INTO country VALUES (15, 'Spain');
+INSERT INTO country VALUES (16, 'United Kingdom');
+INSERT INTO country VALUES (17, 'USA');
+INSERT INTO country VALUES (18, 'Greece');
+INSERT INTO country VALUES (19, 'Norway');
+INSERT INTO country VALUES (20, 'Mozambique');
+INSERT INTO country VALUES (21, 'Angola');
+INSERT INTO country VALUES (22, 'Ireland');
+INSERT INTO country VALUES (23, 'Hungary');
+INSERT INTO country VALUES (24, 'Romania');
+INSERT INTO country VALUES (25, 'Sweden');
+INSERT INTO country VALUES (26, 'Slovenia');
+
+INSERT INTO city VALUES (1, 'Porto', 1);
+INSERT INTO city VALUES (2, 'Lamego', 1);
+INSERT INTO city VALUES (3, 'Lisboa', 1);
+INSERT INTO city VALUES (4, 'Coimbra', 1);
+INSERT INTO city VALUES (5, 'Faro', 1);
+INSERT INTO city VALUES (6, 'Bragança', 1);
+INSERT INTO city VALUES (7, 'Leiria', 1);
+INSERT INTO city VALUES (8, 'Viana do Castelo', 1);
+INSERT INTO city VALUES (9, 'Braga', 1);
+INSERT INTO city VALUES (10, 'Guarda', 1);
+
+
+
+INSERT INTO address VALUES (1, 'Rua Marco de Canaveses 19', '4100-123', 1);
+INSERT INTO address VALUES (2, 'Avenida 5 de Outubro 52', '4312-234', 2);
+INSERT INTO address VALUES (3, 'Rua de Moçambique 138', '4152-164', 4);
+INSERT INTO address VALUES (4, 'Rua Ferreira Lapa 49', '4291-134', 3);
+INSERT INTO address VALUES (5, 'Rua General Alberto Delgado 534', '3125-343', 5);
+INSERT INTO address VALUES (6, 'Rua Professor Egas Moniz 243', '3322-421', 6);
+INSERT INTO address VALUES (7, 'Rua Manuel Simões Maia 123', '2314-432', 7);
+INSERT INTO address VALUES (8, 'Rua dos Poveiros 77', '2151-542', 8);
+INSERT INTO address VALUES (9, 'Rua Damião de Góis 211', '1312-321', 9);
+INSERT INTO address VALUES (10, 'Rua Serpa Pinto 15', '1532-253', 10);

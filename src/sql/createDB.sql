@@ -115,7 +115,7 @@ CREATE TABLE city (
 
 CREATE TABLE address (
   id SERIAL PRIMARY KEY,
-  address TEXT NOT NULL UNIQUE,
+  address TEXT NOT NULL,
   zipcode TEXT NOT NULL,
   id_city INTEGER NOT NULL REFERENCES city
 );
