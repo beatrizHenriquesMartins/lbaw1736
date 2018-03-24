@@ -15,10 +15,10 @@ FROM product;
 
 ****************SEARCHbyCategory
 -lista de todos os produtos
-SELECT product.name, brand.name, product.quantityInStock, product.imageURL
+CREATE VIEW "ListProductsByCategory" AS
+SELECT *
 FROM product
-INNER JOIN brand ON (brand.id=product.id_brand)
-INNER JOIN productCategory ON (productCategory.id=product.id_category);
+WHERE id_category = (SELECT id FROM productcategory WHERE categoryName = 'Fashion');
 
 **************VIEW PRODUCT
 -info de 1 produto
