@@ -45,6 +45,7 @@ CREATE TABLE message (
   id SERIAL PRIMARY KEY,
   message TEXT NOT NULL,
   dateSent TIMESTAMP DEFAULT now() NOT NULL,
+  sender TEXT NOT NULL CHECK(sender = 'chatSupport' OR sender = 'client'),
   id_chatSupport INTEGER NOT NULL REFERENCES chatSupport,
   id_client INTEGER NOT NULL REFERENCES client
 );
