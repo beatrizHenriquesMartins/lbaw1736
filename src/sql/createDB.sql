@@ -33,11 +33,11 @@ CREATE TABLE users (
 );
 
 CREATE TABLE chatSupport (
-  id INTEGER PRIMARY KEY REFERENCES users
+  id_chatSupport INTEGER PRIMARY KEY REFERENCES users
 );
 
 CREATE TABLE client (
-  id INTEGER PRIMARY KEY REFERENCES users,
+  id_client INTEGER PRIMARY KEY REFERENCES users,
   cellphone INTEGER
 );
 
@@ -56,7 +56,7 @@ CREATE TABLE brand (
 );
 
 CREATE TABLE brandManager (
-  id INTEGER PRIMARY KEY REFERENCES users
+  id_brandManager INTEGER PRIMARY KEY REFERENCES users
 );
 
 CREATE TABLE admin (

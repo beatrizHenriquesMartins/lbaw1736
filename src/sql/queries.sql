@@ -8,8 +8,8 @@ FROM product;
 
 CREATE VIEW "ViewProduct" AS
 SELECT *
-FROM ListProducts
-WHERE id='productId';
+FROM product
+WHERE id = 1;
 
 
 CREATE VIEW "ListProductsByCategory" AS
@@ -18,25 +18,18 @@ FROM product
 WHERE id_category = (SELECT id FROM productcategory WHERE categoryName = 'Fashion');
 
 
-CREATE VIEW "ViewProductInCategory" AS
-SELECT *
-FROM ListProductsByCategory
-WHERE id='productId';
-
-
-
 /* REVIEWS */
 
 CREATE VIEW "ReviewsByProductId" AS
 SELECT *
 FROM productreview
-WHERE id_product='productId';
+WHERE id_product= 1;
 
 
 CREATE VIEW "ReviewsByPurchaseId" AS
 SELECT *
 FROM productreview
-WHERE id_purchase='purchaseId';
+WHERE id_purchase = 1;
 
 
 /* BRAND */
@@ -49,7 +42,7 @@ FROM brand;
 CREATE VIEW "BrandProducts" AS
 SELECT *
 FROM product
-WHERE id_brand=(SELECT id FROM brand WHERE name='brandName');
+WHERE id_brand=(SELECT id FROM brand WHERE name = 'Alameda Turquesa');
 
 
 
@@ -63,7 +56,7 @@ FROM users;
 CREATE VIEW "Profile" AS
 SELECT *
 FROM users
-WHERE id = 'userId';
+WHERE id = 1;
 
 
 
@@ -72,7 +65,8 @@ WHERE id = 'userId';
 CREATE VIEW "Supports" AS
 SELECT *
 FROM users
-WHERE id = (SELECT id FROM chatSupport);
+LEFT OUTER JOIN chatSupport
+ON users.id = chatSupport.id_chatSupport;
 
 
 
@@ -81,37 +75,37 @@ WHERE id = (SELECT id FROM chatSupport);
 CREATE VIEW "BrandManagers" AS
 SELECT *
 FROM users
-WHERE id = (SELECT id FROM brandManager);
+INNER JOIN brandManager
+ON users.id = brandManager.id_brandManager;
 
 
 CREATE VIEW "BrandManagersByBrand" AS
 SELECT *
-FROM BrandManagers
-WHERE idBrandManager = (SELECT idBrandManager FROM brandBrandManager WHERE idBrand = (SELECT id FROM brand WHERE name='brandName'));
+FROM brandManager
+WHERE id_brandManager = (SELECT idBrandManager FROM brandBrandManager WHERE idBrand = (SELECT id FROM brand WHERE name='Alameda Turquesa'));
 
 
 
 /* CLIENT */
 
 CREATE VIEW "WishlistByClientId" AS
-SELECT *
-FROM product 
-WHERE id = (SELECT id_product FROM productwishlist WHERE id_client ='clientId');
-
+SELECT product.name, product.price, product.imageURL, client.id_client
+FROM product, client, productwishlist
+WHERE client.id_client = productwishlist.id_client AND product.id = productwishlist.id_product AND client.id_client = 12;
 
 CREATE VIEW "PurchasesByClientId" AS
 SELECT *
 FROM purchase
-WHERE id_client = 'clientId';
+WHERE id_client = 11;
 
 
 CREATE VIEW "ProductsInPurchase" AS
-SELECT *
-FROM purchaseproduct 
-WHERE id_purchase = 'purchaseId';
+SELECT product.name, product.price, product.imageURL, purchase.id_client, purchaseproduct.quantity, purchaseproduct.cost
+FROM purchase, product, purchaseproduct
+WHERE purchase.id = purchaseproduct.id_purchase AND product.id = purchaseproduct.id_product AND purchase.id_client = 12;
 
 
-CREATE VIEW "CartByClientId" AS
-SELECT *
-FROM cartproduct 
-WHERE id_client = 'clientId';
+CREATE VIEW "ProductsInCart" AS
+SELECT product.name, product.price, product.imageURL, client.id_client
+FROM product, client, cartproduct
+WHERE client.id_client = cartproduct.id_client AND product.id = cartproduct.id_product AND client.id_client = 11;
