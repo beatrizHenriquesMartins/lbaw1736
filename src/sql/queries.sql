@@ -1,12 +1,21 @@
-****************SEARCH
--lista de todos os produtos
-SELECT product.name, brand.name, product.quantityInStock, product.imageURL
-FROM product
-INNER JOIN brand ON (brand.id=product.id_brand);
+/*os comentário sao com estas barras ou com estas*/
+
+/*SEARCH
+-lista de todos os produtos*/
+
+/*Tens de fazer create view com o nome da vista
+que represente aquilo que estas a fazer na query
+Nao podes ter duas variaveis com o mesmo nome
+mesmo que sejam de tabelas diferentes
+Por último nesta query não fazia o JOIN
+e fazia da maneira como está agora*/
+CREATE VIEW "ListProducts" AS
+SELECT *
+FROM product;
 
 ****************SEARCHbyCategory
 -lista de todos os produtos
-SELECT product.name, brand.name, product.quantityInStock, product.imageURL 
+SELECT product.name, brand.name, product.quantityInStock, product.imageURL
 FROM product
 INNER JOIN brand ON (brand.id=product.id_brand)
 INNER JOIN productCategory ON (productCategory.id=product.id_category);
@@ -66,5 +75,3 @@ FROM product
 INNER JOIN cartProduct ON (cartProduct.id_product = product.id)
 INNER JOIN cart ON (cart.id = cartProduct.id_cart)
 INNER JOIN client ON (client.id_cart = cart.id);
-
-

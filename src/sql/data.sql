@@ -198,3 +198,6 @@ INSERT INTO address VALUES (7, 'Rua Manuel Simões Maia 123', '2314-432', 7);
 INSERT INTO address VALUES (8, 'Rua dos Poveiros 77', '2151-542', 8);
 INSERT INTO address VALUES (9, 'Rua Damião de Góis 211', '1312-321', 9);
 INSERT INTO address VALUES (10, 'Rua Serpa Pinto 15', '1532-253', 10);
+
+
+INSERT INTo purchase VALUES (1, 11, 1, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482); 

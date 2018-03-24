@@ -150,12 +150,12 @@ CREATE TABLE purchaseproduct (
 );
 
 CREATE TABLE productreview (
-  id SERIAL PRIMARY KEY,
   id_product INTEGER NOT NULL REFERENCES product,
   id_purchase INTEGER NOT NULL REFERENCES purchase,
   reviewDate TIMESTAMP DEFAULT now() NOT NULL,
   textReview TEXT NOT NULL,
-  rating INTEGER NOT NULL CHECK (((rating >= 0) AND (rating <= 5)))
+  rating INTEGER NOT NULL CHECK (((rating >= 0) AND (rating <= 5))),
+  PRIMARY KEY(id_product, id_purchase)
 );
 
 CREATE TABLE brandBrandManager (
