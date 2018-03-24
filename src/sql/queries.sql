@@ -1,77 +1,111 @@
-/*os comentário sao com estas barras ou com estas*/
 
-/*SEARCH
--lista de todos os produtos*/
+/*SEARCH*/
 
-/*Tens de fazer create view com o nome da vista
-que represente aquilo que estas a fazer na query
-Nao podes ter duas variaveis com o mesmo nome
-mesmo que sejam de tabelas diferentes
-Por último nesta query não fazia o JOIN
-e fazia da maneira como está agora*/
 CREATE VIEW "ListProducts" AS
 SELECT *
 FROM product;
 
-****************SEARCHbyCategory
--lista de todos os produtos
+
+CREATE VIEW "ViewProduct" AS
+SELECT *
+FROM product
+WHERE id = 1;
+
+
 CREATE VIEW "ListProductsByCategory" AS
 SELECT *
 FROM product
 WHERE id_category = (SELECT id FROM productcategory WHERE categoryName = 'Fashion');
 
-**************VIEW PRODUCT
--info de 1 produto
-SELECT product.name, product.quantityInStock, brand.name, productCategory.categoryName
-FROM product
-INNER JOIN productCategory ON (productCategory.id=product.id_category)
-INNER JOIN productReview ON (productReview.id_product = product.id)
-INNER JOIN brand ON (brand.id = product.id_brand);
 
-*************REGISTER
--lista de todos ultilizadores (email,username)
-SELECT users.email, users.username
+/* REVIEWS */
+
+CREATE VIEW "ReviewsByProductId" AS
+SELECT *
+FROM productreview
+WHERE id_product= 1;
+
+
+CREATE VIEW "ReviewsByPurchaseId" AS
+SELECT *
+FROM productreview
+WHERE id_purchase = 1;
+
+
+/* BRAND */
+
+CREATE VIEW "ListBrands" AS
+SELECT *
+FROM brand;
+
+
+CREATE VIEW "BrandProducts" AS
+SELECT *
+FROM product
+WHERE id_brand=(SELECT id FROM brand WHERE name = 'Alameda Turquesa');
+
+
+
+/* USERS */
+
+CREATE VIEW "ListUsers" AS
+SELECT *
 FROM users;
 
-***************LOGIN
--lista de todos ultilizadores (email,username)
--utilizador em particular (password)
 
-***************APPLY SUPPORT
--lista supports
-SELECT users.email, users.username
+CREATE VIEW "Profile" AS
+SELECT *
 FROM users
-INNER JOIN chatSupport ON (chatSupport.id = users.id);
+WHERE id = 1;
 
 
-****************APPLY BRANDMANAGER
--lista brand manager
-SELECT users.email, users.username
+
+/* CHAT */
+
+CREATE VIEW "Supports" AS
+SELECT *
 FROM users
-INNER JOIN brandBrandManager ON (brandBrandManager.idbrandManager = users.id);
+LEFT OUTER JOIN chatSupport
+ON users.id = chatSupport.id_chatSupport;
 
-*********VIEW PROFILE (client)
-SELECT users.email, users.username, users.firstName, users.lastName, users.imageURL
+
+
+/* BRAND MANAGERS*/
+
+CREATE VIEW "BrandManagers" AS
+SELECT *
 FROM users
-INNER JOIN brandBrandManager ON (brandBrandManager.idbrandManager = users.id);
+INNER JOIN brandManager
+ON users.id = brandManager.id_brandManager;
 
-************VIEW WISHLIST
-SELECT product.name, product.modelNumber, product.price
-FROM product
-INNER JOIN productwishlist ON (productwishlist.id_product = product.id)
-INNER JOIN wishlist ON (wishlist.id = productwishlist.id_wishlist)
-INNER JOIN client ON (client.id = productwishlist.id_wishlist);
 
-****************PURCHASE LIST
-SELECT product.name, product.modelNumber, purchaseproduct.cost, purchaseproduct.quantity, purchase.purchaseDate, purchase.purchaseState
-FROM product
-INNER JOIN purchaseproduct ON (purchaseproduct.id_product = product.id)
-INNER JOIN purchase ON (purchase.id = purchaseproduct.id_purchase)
-INNER JOIN client ON (client.id = purchase.id_client);
+CREATE VIEW "BrandManagersByBrand" AS
+SELECT *
+FROM brandManager
+WHERE id_brandManager = (SELECT idBrandManager FROM brandBrandManager WHERE idBrand = (SELECT id FROM brand WHERE name='Alameda Turquesa'));
 
-**************VIEW CART
-SELECT product.name, product.modelNumber, product.price
-FROM product
-INNER JOIN cartProduct ON (cartProduct.id_product = product.id)
-INNER JOIN cart ON (cart.id = cartProduct.id_cart)
-INNER JOIN client ON (client.id_cart = cart.id);
+
+
+/* CLIENT */
+
+CREATE VIEW "WishlistByClientId" AS
+SELECT product.name, product.price, product.imageURL, client.id_client
+FROM product, client, productwishlist
+WHERE client.id_client = productwishlist.id_client AND product.id = productwishlist.id_product AND client.id_client = 12;
+
+CREATE VIEW "PurchasesByClientId" AS
+SELECT *
+FROM purchase
+WHERE id_client = 11;
+
+
+CREATE VIEW "ProductsInPurchase" AS
+SELECT product.name, product.price, product.imageURL, purchase.id_client, purchaseproduct.quantity, purchaseproduct.cost
+FROM purchase, product, purchaseproduct
+WHERE purchase.id = purchaseproduct.id_purchase AND product.id = purchaseproduct.id_product AND purchase.id_client = 12;
+
+
+CREATE VIEW "ProductsInCart" AS
+SELECT product.name, product.price, product.imageURL, client.id_client
+FROM product, client, cartproduct
+WHERE client.id_client = cartproduct.id_client AND product.id = cartproduct.id_product AND client.id_client = 11;
