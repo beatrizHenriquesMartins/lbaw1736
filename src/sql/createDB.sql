@@ -19,6 +19,8 @@ DROP TABLE IF EXISTS client CASCADE;
 DROP TABLE IF EXISTS chatSupport CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 
+
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   firstName TEXT NOT NULL,
@@ -45,7 +47,7 @@ CREATE TABLE message (
   id SERIAL PRIMARY KEY,
   message TEXT NOT NULL,
   dateSent TIMESTAMP DEFAULT now() NOT NULL,
-  sender TEXT NOT NULL CHECK(sender = 'chatSupport' OR sender = 'client'),
+  sender TEXT NOT NULL CHECK((sender = ANY (ARRAY['Client'::text, 'ChatSupport'::text]))),
   id_chatSupport INTEGER NOT NULL REFERENCES chatSupport,
   id_client INTEGER NOT NULL REFERENCES client
 );
