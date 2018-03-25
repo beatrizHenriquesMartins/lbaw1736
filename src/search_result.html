@@ -9,7 +9,9 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Search</title>
+        <title>
+            Search
+        </title>
 
         <!-- CSS -->
         <!-- Bootstrap Core CSS -->
@@ -33,6 +35,9 @@
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
+
+        <!-- breadcrumb -->
+        <link rel="stylesheet" href="./css/breadcrumb_path.css" type="text/css">
         <!-- CSS -->
 
         <link rel="icon" type="image/png"  href="./images/icon.png" />
@@ -58,14 +63,24 @@
                     <div class="col-sm-3 flex-item search">
                         <form class="navbar-form navbar-right" role="search" id="navBarSearchForm" action="/action_page.php">
                             <input class="form-control" type="text" placeholder="Search..." name="search">
-                            <a class="btn btn-dark" href="search_result.html" role="button">GO!</a>
+                            <a class="btn btn-dark" href="search_result.html" role="button">
+                                GO!
+                            </a>
                         </form>
                     </div>
 
                     <div class="col-sm-3 flex-item sign">
-                        <a href="signin.html">Sign in</a>
-                        <span> or </span>
-                        <a href="register.html">Sign up</a>
+                        <a href="signin.html">
+                            Sign in
+                        </a>
+
+                        <span>
+                            or
+                        </span>
+
+                        <a href="register.html">
+                            Sign up
+                        </a>
                     </div>
                 </div>
             </div>
@@ -73,25 +88,37 @@
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-static-top custom-navbar" role="navigation">
                 <div class="navBar-container">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar-collapse-1">
+                        <span class="sr-only">
+                            Toggle navigation
+                        </span>
+
+                        <span class="icon-bar">
+                        </span>
+
+                        <span class="icon-bar">
+                        </span>
+
+                        <span class="icon-bar">
+                        </span>
                     </button>
 
                     <!-- Non-collapsing right-side icons -->
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="list_favourites.html" class="fa fa-heart"></a>
+                            <a href="list_favourites.html" class="fa fa-heart">
+                            </a>
                         </li>
 
                         <li>
-                            <a href="cart.html" class="fa fa-shopping-cart"></a>
+                            <a href="cart.html" class="fa fa-shopping-cart">
+                            </a>
                         </li>
 
                         <li>
-                            <a href="homepage.html" class="fa fa-home"></a>
+                            <a href="homepage.html" class="fa fa-home">
+                            </a>
                         </li>
                     </ul>
 
@@ -99,57 +126,108 @@
                     <div class="collapse navbar-collapse navbar-left" id="navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a id="category_font_size" href="category.html"> Fashion </a>
+                                <a id="category_font_size" href="category.html">
+                                    Fashion
+                                </a>
                             </li>
 
                             <li>
-                                <a id="category_font_size" href="category.html"> Beauty </a>
+                                <a id="category_font_size" href="category.html">
+                                    Beauty
+                                </a>
                             </li>
 
                             <li>
-                                <a id="category_font_size" href="category.html"> Tecnology </a>
+                                <a id="category_font_size" href="category.html">
+                                    Tecnology
+                                </a>
                             </li>
 
                             <li>
-                                <a id="category_font_size" href="category.html"> Food </a>
+                                <a id="category_font_size" href="category.html">
+                                    Food
+                                </a>
                             </li>
 
                             <li>
-                                <a id="category_font_size" href="category.html"> Culture </a>
+                                <a id="category_font_size" href="category.html">
+                                    Culture
+                                </a>
                             </li>
 
                             <li>
-                                <a id="category_font_size" href="category.html"> Home </a>
+                                <a id="category_font_size" href="category.html">
+                                    Home
+                                </a>
                             </li>
 
                             <li>
-                                <a id="category_font_size" href="category.html"> Sports </a>
+                                <a id="category_font_size" href="category.html">
+                                    Sports
+                                </a>
                             </li>
                         </ul>
                     </div>
-                    <!--/.nav-collapse -->
                 </div>
-                <!--/.container -->
             </nav>
         </div>
+
+        <!-- breadcrumbs -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="homepage.html">
+                        Homepage
+                    </a>
+                </li>
+
+                <li class="breadcrumb-item" aria-current="page">
+                    Search result
+                </li>
+            </ol>
+        </nav>
 
         <div class="container category-section">
             <div class="category-topbar row">
                 <div class="col-sm-10 category">
-                    <h3>Results for "Cardosas"</h3>
+                    <h3>
+                        Results for "Cardosas"
+                    </h3>
                 </div>
 
-
-
                 <div class="col-sm-2 dropdown">
-                    <button class="btn btn-secondary dropdown-toggle pull-right" type="button" data-toggle="dropdown">Order by
-                        <span class="caret"></span></button>
+                    <button class="btn btn-secondary dropdown-toggle pull-right" type="button"
+                            data-toggle="dropdown">
+                        Order by
+
+                        <span class="caret">
+                        </span>
+                    </button>
 
                     <ul class="dropdown-menu pull-right">
-                        <li><a href="#">Preço Ascendente</a></li>
-                        <li><a href="#">Preço Descendente</a></li>
-                        <li><a href="#">Rating Ascendente</a></li>
-                        <li><a href="#">Rating Descendente</a></li>
+                        <li>
+                            <a href="#">
+                                Preço Ascendente
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Preço Descendente
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Rating Ascendente
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Rating Descendente
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -163,28 +241,58 @@
 
                         <div class="product-body">
                             <a href="product.html">
-                                <h3 class="product-name">Cardosas</h3>
+                                <h3 class="product-name">
+                                    Cardosas
+                                </h3>
                             </a>
 
-                            <h5 class="product-price">300€</h5>
+                            <h5 class="product-price">
+                                300€
+                            </h5>
 
                             <div class="rating">
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
                             </div>
 
-                            <p class="product-description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="product-description">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
 
                             <div class="btns">
                                 <div class="cart-btn">
-                                    <a class="btn btn-success" href="cart.html" role="button">Add Cart</a>
+                                    <a class="btn btn-success" href="cart.html" role="button">
+                                        Add Cart
+                                    </a>
                                 </div>
 
                                 <div class="fav-btn">
-                                    <a class="btn btn-info" href="#" role="button">Add Fav</a>
+                                    <a class="btn btn-info" href="#" role="button">
+                                        Add Fav
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -197,28 +305,58 @@
 
                         <div class="product-body">
                             <a href="product.html">
-                                <h3 class="product-name">Cardosas</h3>
+                                <h3 class="product-name">
+                                    Cardosas
+                                </h3>
                             </a>
 
-                            <h5 class="product-price">300€</h5>
+                            <h5 class="product-price">
+                                300€
+                            </h5>
 
                             <div class="rating">
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
                             </div>
 
-                            <p class="product-description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="product-description">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
 
                             <div class="btns">
                                 <div class="cart-btn">
-                                    <a class="btn btn-success" href="cart.html" role="button">Add Cart</a>
+                                    <a class="btn btn-success" href="cart.html" role="button">
+                                        Add Cart
+                                    </a>
                                 </div>
 
                                 <div class="fav-btn">
-                                    <a class="btn btn-info" href="#" role="button">Add Fav</a>
+                                    <a class="btn btn-info" href="#" role="button">
+                                        Add Fav
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -231,29 +369,58 @@
 
                         <div class="product-body">
                             <a href="product.html">
-                                <h3 class="product-name">Cardosas</h3>
+                                <h3 class="product-name">
+                                    Cardosas
+                                </h3>
                             </a>
 
-                            <h5 class="product-price">300€</h5>
+                            <h5 class="product-price">
+                                300€
+                            </h5>
 
                             <div class="rating">
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
                             </div>
 
-                            <p class="product-description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="product-description">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
 
                             <div class="btns">
                                 <div class="cart-btn">
-                                    <a class="btn btn-success" href="cart.html" role="button">Add Cart</a>
+                                    <a class="btn btn-success" href="cart.html" role="button">
+                                        Add Cart
+                                    </a>
                                 </div>
 
-
                                 <div class="fav-btn">
-                                    <a class="btn btn-info" href="#" role="button">Add Fav</a>
+                                    <a class="btn btn-info" href="#" role="button">
+                                        Add Fav
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -266,28 +433,58 @@
 
                         <div class="product-body">
                             <a href="product.html">
-                                <h3 class="product-name">Cardosas</h3>
+                                <h3 class="product-name">
+                                    Cardosas
+                                </h3>
                             </a>
 
-                            <h5 class="product-price">300€</h5>
+                            <h5 class="product-price">
+                                300€
+                            </h5>
 
                             <div class="rating">
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
                             </div>
 
-                            <p class="product-description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="product-description">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
 
                             <div class="btns">
                                 <div class="cart-btn">
-                                    <a class="btn btn-success" href="cart.html" role="button">Add Cart</a>
+                                    <a class="btn btn-success" href="cart.html" role="button">
+                                        Add Cart
+                                    </a>
                                 </div>
 
                                 <div class="fav-btn">
-                                    <a class="btn btn-info" href="#" role="button">Add Fav</a>
+                                    <a class="btn btn-info" href="#" role="button">
+                                        Add Fav
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -302,28 +499,58 @@
 
                         <div class="product-body">
                             <a href="product.html">
-                                <h3 class="product-name">Cardosas</h3>
+                                <h3 class="product-name">
+                                    Cardosas
+                                </h3>
                             </a>
 
-                            <h5 class="product-price">300€</h5>
+                            <h5 class="product-price">
+                                300€
+                            </h5>
 
                             <div class="rating">
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
                             </div>
 
-                            <p class="product-description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="product-description">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
 
                             <div class="btns">
                                 <div class="cart-btn">
-                                    <a class="btn btn-success" href="cart.html" role="button">Add Cart</a>
+                                    <a class="btn btn-success" href="cart.html" role="button">
+                                        Add Cart
+                                    </a>
                                 </div>
 
                                 <div class="fav-btn">
-                                    <a class="btn btn-info" href="#" role="button">Add Fav</a>
+                                    <a class="btn btn-info" href="#" role="button">
+                                        Add Fav
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -336,28 +563,58 @@
 
                         <div class="product-body">
                             <a href="product.html">
-                                <h3 class="product-name">Cardosas</h3>
+                                <h3 class="product-name">
+                                    Cardosas
+                                </h3>
                             </a>
 
-                            <h5 class="product-price">300€</h5>
+                            <h5 class="product-price">
+                                300€
+                            </h5>
 
                             <div class="rating">
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
                             </div>
 
-                            <p class="product-description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="product-description">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
 
                             <div class="btns">
                                 <div class="cart-btn">
-                                    <a class="btn btn-success" href="cart.html" role="button">Add Cart</a>
+                                    <a class="btn btn-success" href="cart.html" role="button">
+                                        Add Cart
+                                    </a>
                                 </div>
 
                                 <div class="fav-btn">
-                                    <a class="btn btn-info" href="#" role="button">Add Fav</a>
+                                    <a class="btn btn-info" href="#" role="button">
+                                        Add Fav
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -370,28 +627,58 @@
 
                         <div class="product-body">
                             <a href="product.html">
-                                <h3 class="product-name">Cardosas</h3>
+                                <h3 class="product-name">
+                                    Cardosas
+                                </h3>
                             </a>
 
-                            <h5 class="product-price">300€</h5>
+                            <h5 class="product-price">
+                                300€
+                            </h5>
 
                             <div class="rating">
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
                             </div>
 
-                            <p class="product-description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="product-description">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
 
                             <div class="btns">
                                 <div class="cart-btn">
-                                    <a class="btn btn-success" href="cart.html" role="button">Add Cart</a>
+                                    <a class="btn btn-success" href="cart.html" role="button">
+                                        Add Cart
+                                    </a>
                                 </div>
 
                                 <div class="fav-btn">
-                                    <a class="btn btn-info" href="#" role="button">Add Fav</a>
+                                    <a class="btn btn-info" href="#" role="button">
+                                        Add Fav
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -404,28 +691,58 @@
 
                         <div class="product-body">
                             <a href="product.html">
-                                <h3 class="product-name">Cardosas</h3>
+                                <h3 class="product-name">
+                                    Cardosas
+                                </h3>
                             </a>
 
-                            <h5 class="product-price">300€</h5>
+                            <h5 class="product-price">
+                                300€
+                            </h5>
 
                             <div class="rating">
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
-                                <span class="rating-addon align-content-center grey"><i class="fa fa-star"></i></span>
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
+
+                                <span class="rating-addon align-content-center grey">
+                                    <i class="fa fa-star">
+                                    </i>
+                                </span>
                             </div>
 
-                            <p class="product-description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="product-description">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
 
                             <div class="btns">
                                 <div class="cart-btn">
-                                    <a class="btn btn-success" href="cart.html" role="button">Add Cart</a>
+                                    <a class="btn btn-success" href="cart.html" role="button">
+                                        Add Cart
+                                    </a>
                                 </div>
 
                                 <div class="fav-btn">
-                                    <a class="btn btn-info" href="#" role="button">Add Fav</a>
+                                    <a class="btn btn-info" href="#" role="button">
+                                        Add Fav
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -433,7 +750,6 @@
                 </div>
             </div>
         </div>
-
 
         <!--Company Links-->
         <div>

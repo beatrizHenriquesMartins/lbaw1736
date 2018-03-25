@@ -165,8 +165,7 @@
 }
 
 @media (max-width:500px) {
-
-  .category-section .category-products .final .delete-cart .delete-cart-btn {
-    padding-top: 2.2em;
-  }
+    .category-section .category-products .final .delete-cart .delete-cart-btn {
+        padding-top: 2.2em;
+    }
 }

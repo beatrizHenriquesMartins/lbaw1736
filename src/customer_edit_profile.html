@@ -9,7 +9,9 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Profile</title>
+        <title>
+            Profile
+        </title>
 
         <!-- CSS -->
         <!-- Bootstrap Core CSS -->
@@ -36,6 +38,9 @@
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
+
+        <!-- breadcrumb -->
+        <link rel="stylesheet" href="./css/breadcrumb_path.css" type="text/css">
         <!-- CSS -->
 
         <link rel="icon" type="image/png"  href="./images/icon.png" />
@@ -59,9 +64,13 @@
                     </div>
 
                     <div class="col-sm-3 flex-item search">
-                        <form class="navbar-form navbar-right" role="search" id="navBarSearchForm" action="/action_page.php">
-                          <input class="form-control" type="text" placeholder="Search..." name="search">
-                          <a class="btn btn-dark" href="search_result.html" role="button">GO!</a>
+                        <form class="navbar-form navbar-right" role="search" id="navBarSearchForm"
+                              action="/action_page.php">
+                            <input class="form-control" type="text" placeholder="Search..." name="search">
+
+                            <a class="btn btn-dark" href="search_result.html" role="button">
+                                GO!
+                            </a>
                         </form>
                     </div>
 
@@ -80,9 +89,20 @@
                             </button>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                              <li><a class="dropdown-item" href="customer_profile.html">Profile</a></li>
-                              <div class="dropdown-divider"></div>
-                              <li><a class="dropdown-item" href="homepage.html">Sign Out</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="customer_profile.html">
+                                        Profile
+                                    </a>
+                                </li>
+
+                                <div class="dropdown-divider">
+                                </div>
+
+                                <li>
+                                    <a class="dropdown-item" href="homepage.html">
+                                        Sign Out
+                                    </a>
+                                </li>
                             </div>
                         </div>
                     </div>
@@ -92,7 +112,8 @@
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-static-top custom-navbar" role="navigation">
                 <div class="navBar-container">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar-collapse-1">
                         <span class="sr-only">
                             Toggle navigation
                         </span>
@@ -171,11 +192,24 @@
                             </li>
                         </ul>
                     </div>
-                    <!--/.nav-collapse -->
                 </div>
-                <!--/.container -->
             </nav>
         </div>
+
+        <!-- breadcrumbs -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="homepage.html">
+                        Homepage
+                    </a>
+                </li>
+
+                <li class="breadcrumb-item" aria-current="page">
+                    Profile
+                </li>
+            </ol>
+        </nav>
 
         <div class="container-fluid main">
             <div class="row">
@@ -198,7 +232,9 @@
                 <div class = "user_area col-sm-8 col-sm-offset-1">
                     <div class = "row">
                         <div class = "photo col-sm-2">
-                            <img border="0" alt="Photo" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Shahter-Reak_M_2015_cropped_%2818%29.jpg" width="100" height="100">
+                            <img border="0" alt="Photo"
+                                 src="https://upload.wikimedia.org/wikipedia/commons/9/93/Shahter-Reak_M_2015_cropped_%2818%29.jpg"
+                                 width="100" height="100">
 
                             <a href="#">
                                 Edit Image
@@ -281,10 +317,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--
-                            </form>
-                            </div>
-                            -->
 
                             <div class = "row addresses">
                                 <p>
@@ -295,28 +327,36 @@
                                     <li class="row">
                                         <div class="col-xs-9">Rua Marco de Canaveses 19 Porto</div>
 
-                                        <div class="col-xs-3"><button type="button" class="btn btn-default btn-sm">
-                                            <span class="fa fa-remove">
-                                            </span>
-                                        </button></div>
+                                        <div class="col-xs-3">
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                <span class="fa fa-remove">
+                                                </span>
+                                            </button>
+                                        </div>
                                     </li>
 
                                     <li class="row">
                                          <div class="col-xs-9">Avenida 5 de Outubro 52 Lamego</div>
 
-                                        <div class="col-xs-3"><button type="button" class="btn btn-default btn-sm">
-											<span class="fa fa-remove">
-                                            </span>
-                                        </button></div>
+                                        <div class="col-xs-3">
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                <span class="fa fa-remove">
+                                                </span>
+                                            </button>
+                                        </div>
                                     </li>
 
                                     <li class="row">
-                                        <div class="col-xs-9">Rua de Moçambique 138 Coimbra</div>
+                                        <div class="col-xs-9">
+                                            Rua de Moçambique 138 Coimbra
+                                        </div>
 
-                                        <div class="col-xs-3"><button type="button" class="btn btn-default btn-sm">
-                                            <span class="fa fa-remove">
-                                            </span>
-                                        </button></div>
+                                        <div class="col-xs-3">
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                <span class="fa fa-remove">
+                                                </span>
+                                            </button>
+                                        </div>
                                     </li>
 
                                     <li>
