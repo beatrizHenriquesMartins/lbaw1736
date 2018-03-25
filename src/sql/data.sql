@@ -36,21 +36,21 @@ INSERT INTO client VALUES (18, 914834304);
 INSERT INTO client VALUES (19, 923456536);
 INSERT INTO client VALUES (20, 924254676);
 
-INSERT INTO message VALUES (1, 'teste msg', DEFAULT, 'client', 5, 11);
-INSERT INTO message VALUES (2, 'teste msg', DEFAULT, 'chatSupport', 5, 11);
-INSERT INTO message VALUES (3, 'teste msg', DEFAULT, 'client', 5, 11);
-INSERT INTO message VALUES (4, 'teste msg', DEFAULT, 'chatSupport', 6, 12);
-INSERT INTO message VALUES (5, 'teste msg', DEFAULT, 'client', 6, 12);
-INSERT INTO message VALUES (6, 'teste msg', DEFAULT, 'chatSupport', 6, 12);
-INSERT INTO message VALUES (7, 'teste msg', DEFAULT, 'client', 6, 12);
-INSERT INTO message VALUES (8, 'teste msg', DEFAULT, 'chatSupport', 7, 15);
-INSERT INTO message VALUES (9, 'teste msg', DEFAULT, 'client', 7, 15);
-INSERT INTO message VALUES (10, 'teste msg', DEFAULT, 'chatSupport', 5, 18);
-INSERT INTO message VALUES (11, 'teste msg', DEFAULT, 'client', 5, 18);
-INSERT INTO message VALUES (12, 'teste msg', DEFAULT, 'chatSupport', 5, 18);
-INSERT INTO message VALUES (13, 'teste msg', DEFAULT, 'client', 5, 18);
-INSERT INTO message VALUES (14, 'teste msg', DEFAULT, 'client', 6, 20);
-INSERT INTO message VALUES (15, 'teste msg', DEFAULT, 'chatSupport', 6, 20);
+INSERT INTO message VALUES (1, 'teste msg', DEFAULT, 'Client', 5, 11);
+INSERT INTO message VALUES (2, 'teste msg', DEFAULT, 'ChatSupport', 5, 11);
+INSERT INTO message VALUES (3, 'teste msg', DEFAULT, 'Client', 5, 11);
+INSERT INTO message VALUES (4, 'teste msg', DEFAULT, 'ChatSupport', 6, 12);
+INSERT INTO message VALUES (5, 'teste msg', DEFAULT, 'Client', 6, 12);
+INSERT INTO message VALUES (6, 'teste msg', DEFAULT, 'ChatSupport', 6, 12);
+INSERT INTO message VALUES (7, 'teste msg', DEFAULT, 'Client', 6, 12);
+INSERT INTO message VALUES (8, 'teste msg', DEFAULT, 'ChatSupport', 7, 15);
+INSERT INTO message VALUES (9, 'teste msg', DEFAULT, 'Client', 7, 15);
+INSERT INTO message VALUES (10, 'teste msg', DEFAULT, 'ChatSupport', 5, 18);
+INSERT INTO message VALUES (11, 'teste msg', DEFAULT, 'Client', 5, 18);
+INSERT INTO message VALUES (12, 'teste msg', DEFAULT, 'ChatSupport', 5, 18);
+INSERT INTO message VALUES (13, 'teste msg', DEFAULT, 'Client', 5, 18);
+INSERT INTO message VALUES (14, 'teste msg', DEFAULT, 'Client', 6, 20);
+INSERT INTO message VALUES (15, 'teste msg', DEFAULT, 'ChatSupport', 6, 20);
 
 
 INSERT INTO brand VALUES (1, 'Alameda Turquesa', 223143243);

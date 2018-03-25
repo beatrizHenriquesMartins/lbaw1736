@@ -1,14 +1,13 @@
-/* em vez do id */
-CREATE INDEX idx_productcategory ON productcategory(categoryName);
+CREATE INDEX idx_purchase ON purchase(id_client)
 
-CREATE INDEX idx_productreview ON productreview(id_product, id_purchase);
+CREATE INDEX idx_brand ON brand(name)
 
-/* em vez do id */
-CREATE INDEX idx_brand ON brand(name);
+CREATE INDEX idx_users ON users(id);
 
-CREATE INDEX idx_productwishlist ON productwishlist(id_client, id_product);
+CREATE INDEX idx_message ON message(id_client, id_chatSupport);
 
-CREATE INDEX idx_cartproduct ON cartproduct(id_client, id_product);
+CREATE INDEX idx_product ON product(id_category, id_brand);
+
 
 /*
 sao todos do tipo b-tree (o por defeito)
