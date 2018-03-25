@@ -146,7 +146,7 @@ CREATE TABLE purchaseproduct (
   id_purchase INTEGER REFERENCES purchase,
   id_product INTEGER NOT NULL REFERENCES product,
   quantity INTEGER NOT NULL CHECK (quantity > 0),
-  cost INTEGER NOT NULL CHECK (cost > 0),
+  cost MONEY NOT NULL CHECK (cost > CAST ( 0 AS MONEY )),
   PRIMARY KEY(id_purchase, id_product)
 );
 
