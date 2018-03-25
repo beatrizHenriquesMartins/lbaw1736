@@ -4,8 +4,7 @@
 
 DROP FUNCTION IF EXISTS ban_admin() CASCADE;
 DROP TRIGGER IF EXISTS ban_admin ON ban CASCADE;
-DROP FUNCTION IF EXISTS purchaseProduct_cost() CASCADE;
-DROP TRIGGER IF EXISTS purchaseProduct_cost ON purchaseProduct CASCADE;
+
 DROP FUNCTION IF EXISTS purchase_cost() CASCADE;
 DROP TRIGGER IF EXISTS purchase_cost ON purchase CASCADE;
 
@@ -25,19 +24,19 @@ CREATE TRIGGER ban_admin
 	FOR EACH ROW
 		EXECUTE PROCEDURE ban_admin();
 
-
-
-
-
-CREATE FUNCTION purchaseProduct_cost() RETURNS TRIGGER AS
+CREATE FUNCTION purchase_cost() RETURNS TRIGGER AS
 $BODY$
 BEGIN
 	UPDATE purchaseProduct
-	SET cost = (SELECT (SELECT price FROM PRODUCT WHERE id=NEW.id_product));
+	SET cost = (SELECT (SELECT price FROM product WHERE id=NEW.id_product) * NEW.quantity) WHERE purchaseProduct.id_product = NEW.id_product AND purchaseProduct.id_purchase = NEW.id_purchase;
+	UPDATE purchase
+	SET cost = (SELECT SUM(cost2) FROM (SELECT purchaseProduct.cost AS cost2 FROM purchaseProduct WHERE ( purchaseProduct.id_purchase = NEW.id_purchase) ) AS derived_table) WHERE purchase.id = NEW.id_purchase;
 	RETURN NEW;
-END	
+END
 $BODY$
-LANGUAGE plpgsql;
+LANGUAGE plpgsql;	
+
+
 
 CREATE TRIGGER purchase_cost
 	AFTER INSERT ON purchaseProduct
@@ -45,17 +44,6 @@ CREATE TRIGGER purchase_cost
 		EXECUTE PROCEDURE purchase_cost();	
 		
 
-CREATE FUNCTION purchase_cost() RETURNS TRIGGER AS
-$BODY$
-BEGIN
-	UPDATE purchaseProduct
-	SET cost = (SELECT (SELECT price FROM PRODUCT WHERE id=NEW.id_product));
-	UPDATE purchase
-	SET cost = (SELECT SUM(cost2) FROM (SELECT purchaseProduct.cost AS cost2 FROM purchaseProduct WHERE ( purchaseProduct.id_purchase = NEW.id_purchase) ) AS derived_table);
-	RETURN NEW;
-END
-$BODY$
-LANGUAGE plpgsql;	
 
 
 
