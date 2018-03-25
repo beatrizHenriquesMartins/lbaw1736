@@ -36,21 +36,21 @@ INSERT INTO client VALUES (18, 914834304);
 INSERT INTO client VALUES (19, 923456536);
 INSERT INTO client VALUES (20, 924254676);
 
-INSERT INTO message VALUES (1, 'teste msg', DEFAULT,'Client', 5, 11);
-INSERT INTO message VALUES (2, 'teste msg', DEFAULT,'Client', 5, 11);
-INSERT INTO message VALUES (3, 'teste msg', DEFAULT,'Client', 5, 11);
-INSERT INTO message VALUES (4, 'teste msg', DEFAULT, 'Client',6, 12);
-INSERT INTO message VALUES (5, 'teste msg', DEFAULT, 'Client',6, 12);
-INSERT INTO message VALUES (6, 'teste msg', DEFAULT,'Client', 6, 12);
-INSERT INTO message VALUES (7, 'teste msg', DEFAULT, 'Client',6, 12);
-INSERT INTO message VALUES (8, 'teste msg', DEFAULT, 'Client',7, 15);
-INSERT INTO message VALUES (9, 'teste msg', DEFAULT, 'ChatSupport',7, 15);
-INSERT INTO message VALUES (10, 'teste msg', DEFAULT, 'ChatSupport',5, 18);
-INSERT INTO message VALUES (11, 'teste msg', DEFAULT, 'ChatSupport',5, 18);
-INSERT INTO message VALUES (12, 'teste msg', DEFAULT, 'ChatSupport',5, 18);
-INSERT INTO message VALUES (13, 'teste msg', DEFAULT, 'ChatSupport',5, 18);
-INSERT INTO message VALUES (14, 'teste msg', DEFAULT, 'ChatSupport',6, 20);
-INSERT INTO message VALUES (15, 'teste msg', DEFAULT, 'ChatSupport',6, 20);
+INSERT INTO message VALUES (1, 'teste msg', DEFAULT, 'client', 5, 11);
+INSERT INTO message VALUES (2, 'teste msg', DEFAULT, 'chatSupport', 5, 11);
+INSERT INTO message VALUES (3, 'teste msg', DEFAULT, 'client', 5, 11);
+INSERT INTO message VALUES (4, 'teste msg', DEFAULT, 'chatSupport', 6, 12);
+INSERT INTO message VALUES (5, 'teste msg', DEFAULT, 'client', 6, 12);
+INSERT INTO message VALUES (6, 'teste msg', DEFAULT, 'chatSupport', 6, 12);
+INSERT INTO message VALUES (7, 'teste msg', DEFAULT, 'client', 6, 12);
+INSERT INTO message VALUES (8, 'teste msg', DEFAULT, 'chatSupport', 7, 15);
+INSERT INTO message VALUES (9, 'teste msg', DEFAULT, 'client', 7, 15);
+INSERT INTO message VALUES (10, 'teste msg', DEFAULT, 'chatSupport', 5, 18);
+INSERT INTO message VALUES (11, 'teste msg', DEFAULT, 'client', 5, 18);
+INSERT INTO message VALUES (12, 'teste msg', DEFAULT, 'chatSupport', 5, 18);
+INSERT INTO message VALUES (13, 'teste msg', DEFAULT, 'client', 5, 18);
+INSERT INTO message VALUES (14, 'teste msg', DEFAULT, 'client', 6, 20);
+INSERT INTO message VALUES (15, 'teste msg', DEFAULT, 'chatSupport', 6, 20);
 
 
 INSERT INTO brand VALUES (1, 'Alameda Turquesa', 223143243);
@@ -200,4 +200,13 @@ INSERT INTO address VALUES (9, 'Rua Damião de Góis 211', '1312-321', 9);
 INSERT INTO address VALUES (10, 'Rua Serpa Pinto 15', '1532-253', 10);
 
 
-INSERT INTo purchase VALUES (1, 11, 1, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482); 
+INSERT INTO purchase VALUES (1, 11, 1, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchase VALUES (2, 11, 2, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchase VALUES (3, 12, 3, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 212393204);
+INSERT INTO purchase VALUES (4, 12, 4, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchase VALUES (5, 12, 5, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchase VALUES (6, 15, 6, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchase VALUES (7, 17, 7, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchase VALUES (8, 17, 8, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchase VALUES (9, 19, 9, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchase VALUES (10, 19, 10, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
