@@ -1,8 +1,4 @@
-﻿
---Trigger that prevents an admin from being banned
---Test: INSERT INTO ban VALUES(1, 2, DEFAULT);
-
-DROP FUNCTION IF EXISTS ban_admin() CASCADE;
+﻿DROP FUNCTION IF EXISTS ban_admin() CASCADE;
 DROP TRIGGER IF EXISTS ban_admin ON ban CASCADE;
 
 DROP FUNCTION IF EXISTS purchase_cost() CASCADE;
@@ -23,6 +19,9 @@ CREATE TRIGGER ban_admin
 	BEFORE INSERT OR UPDATE ON ban
 	FOR EACH ROW
 		EXECUTE PROCEDURE ban_admin();
+
+--Trigger that prevents an admin from being banned
+--Test: INSERT INTO ban VALUES(1, 2, DEFAULT);
 
 CREATE FUNCTION purchase_cost() RETURNS TRIGGER AS
 $BODY$
