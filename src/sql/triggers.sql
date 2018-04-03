@@ -1,6 +1,5 @@
 ﻿DROP FUNCTION IF EXISTS ban_admin() CASCADE;
 DROP TRIGGER IF EXISTS ban_admin ON ban CASCADE;
-
 DROP FUNCTION IF EXISTS purchase_cost() CASCADE;
 DROP TRIGGER IF EXISTS purchase_cost ON purchase CASCADE;
 
