@@ -1,5 +1,4 @@
-
- /* USERS */
+/* USERS */
  UPDATE users
  SET firstName = $firstName,
  lastName = $lastName,
@@ -61,11 +60,12 @@ bigDescription=$bigDescription,
 shortDescription=$shortDescription,
 id_category=$id_category
 WHERE id_brand=$id_brand
-AND name=$name,;
+AND name=$name;
 
 INSERT INTO product(id, name, quantityInStock, modelNumber, weight, price, imageURL, bigDescription, shortDescription, id_brand, id_category)
 VALUES($id, $name, $quantityInStock, $modelNumber, $weight, $price, $imageURL, $bigDescription, $shortDescription, $id_brand, $id_category);
 
+DELETE FROM product WHERE id_product=$id_product;
 
 UPDATE productcategory
 SET categoryName=$categoryName
