@@ -4,6 +4,7 @@ DROP TRIGGER IF EXISTS ban_admin ON ban CASCADE;
 DROP FUNCTION IF EXISTS purchase_cost() CASCADE;
 DROP TRIGGER IF EXISTS purchase_cost ON purchase CASCADE;
 
+--Trigger that prevents an admin from being banned
 CREATE FUNCTION ban_admin() RETURNS TRIGGER AS
 $BODY$
 BEGIN
@@ -15,13 +16,13 @@ END
 $BODY$
 LANGUAGE plpgsql;
 
+--Trigger that actualizes the of a product in a purchase according to its actual value
 CREATE TRIGGER ban_admin
 	BEFORE INSERT OR UPDATE ON ban
 	FOR EACH ROW
 		EXECUTE PROCEDURE ban_admin();
 
---Trigger that prevents an admin from being banned
---Test: INSERT INTO ban VALUES(1, 2, DEFAULT);
+
 
 CREATE FUNCTION purchase_cost() RETURNS TRIGGER AS
 $BODY$
@@ -46,8 +47,4 @@ CREATE TRIGGER purchase_cost
 
 
 
---Trigger that actualizes the of a product in a purchase according to its actual value
---TEST: 
---INSERT INTO purchase VALUES (11, 11, 1, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482); 
---INSERT INTO purchaseProduct VALUES (11, 4, 1, 1)		
-		
+
