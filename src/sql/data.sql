@@ -210,3 +210,53 @@ INSERT INTO purchase VALUES (7, 17, 7, DEFAULT, 'verificacao', 300, 'cartao cred
 INSERT INTO purchase VALUES (8, 17, 8, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
 INSERT INTO purchase VALUES (9, 19, 9, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
 INSERT INTO purchase VALUES (10, 19, 10, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+
+
+INSERT INTO purchaseproduct VALUES (1, 5, 1, 300);
+INSERT INTO purchaseproduct VALUES (2, 2, 1, 300);
+INSERT INTO purchaseproduct VALUES (2, 3, 1, 300);
+INSERT INTO purchaseproduct VALUES (3, 1, 1, 300);
+INSERT INTO purchaseproduct VALUES (4, 4, 1, 300);
+INSERT INTO purchaseproduct VALUES (5, 1, 1, 300);
+INSERT INTO purchaseproduct VALUES (6, 3, 1, 300);
+INSERT INTO purchaseproduct VALUES (7, 3, 1, 300);
+INSERT INTO purchaseproduct VALUES (8, 2, 1, 300);
+INSERT INTO purchaseproduct VALUES (9, 2, 1, 300);
+INSERT INTO purchaseproduct VALUES (10, 4, 1, 300);
+INSERT INTO purchaseproduct VALUES (3, 3, 1, 300);
+INSERT INTO purchaseproduct VALUES (4, 1, 1, 300);
+INSERT INTO purchaseproduct VALUES (5, 5, 1, 300);
+INSERT INTO purchaseproduct VALUES (6, 1, 1, 300);
+INSERT INTO purchaseproduct VALUES (7, 2, 1, 300);
+INSERT INTO purchaseproduct VALUES (8, 3, 1, 300);
+INSERT INTO purchaseproduct VALUES (9, 4, 1, 300);
+INSERT INTO purchaseproduct VALUES (10, 2, 1, 300);
+
+INSERT INTO productreview VALUES (1, 5, DEFAULT, '', 3);
+INSERT INTO productreview VALUES (2, 2, DEFAULT, '', 5);
+INSERT INTO productreview VALUES (3, 2, DEFAULT, '', 5);
+INSERT INTO productreview VALUES (4, 10, DEFAULT, '', 4);
+INSERT INTO productreview VALUES (2, 8, DEFAULT, '', 2);
+INSERT INTO productreview VALUES (1, 3, DEFAULT, '', 3);
+INSERT INTO productreview VALUES (3, 6, DEFAULT, '', 5);
+INSERT INTO productreview VALUES (5, 1, DEFAULT, '', 4);
+INSERT INTO productreview VALUES (4, 4, DEFAULT, '', 4);
+
+INSERT INTO brandBrandManager VALUES (1, 8);
+INSERT INTO brandBrandManager VALUES (2, 9);
+INSERT INTO brandBrandManager VALUES (3, 10);
+INSERT INTO brandBrandManager VALUES (4, 8);
+INSERT INTO brandBrandManager VALUES (5, 9);
+INSERT INTO brandBrandManager VALUES (6, 10);
+INSERT INTO brandBrandManager VALUES (7, 8);
+INSERT INTO brandBrandManager VALUES (8, 9);
+INSERT INTO brandBrandManager VALUES (9, 10);
+INSERT INTO brandBrandManager VALUES (10, 8);
+INSERT INTO brandBrandManager VALUES (11, 9);
+INSERT INTO brandBrandManager VALUES (12, 10);
+INSERT INTO brandBrandManager VALUES (13, 8);
+INSERT INTO brandBrandManager VALUES (14, 9);
+INSERT INTO brandBrandManager VALUES (15, 10);
+INSERT INTO brandBrandManager VALUES (16, 8);
+INSERT INTO brandBrandManager VALUES (17, 9);
+INSERT INTO brandBrandManager VALUES (18, 10);
