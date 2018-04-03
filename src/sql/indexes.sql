@@ -10,6 +10,6 @@ CREATE INDEX idx_cartproduct ON cartproduct USING hash (id_client); /*cardinalid
 
 CREATE INDEX idx_purchase ON purchase USING btree (id_client); /*cardinalidade media-bom candidato para cluster*/
 
-CREATE INDEX idx_purchaseproduct ON purchaseproduct USING hash (id_purchase); /*cardinalidade alta-nao se faz cluster*/
+CREATE INDEX idx_purchaseproduct ON purchaseproduct USING hash (id_purchase); /*cardinalidade media-nao se faz cluster*/
 
 CREATE INDEX idx_productreview ON productreview USING hash (id_product); /*cardinalidade media-bom candidato para cluster*/
