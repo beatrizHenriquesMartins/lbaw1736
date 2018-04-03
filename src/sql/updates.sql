@@ -1,6 +1,6 @@
  
  /* USERS */
- UPDATE user
+ UPDATE users
  SET firstName = $firstName,
  lastName = $lastName,
  username = $username,
@@ -10,7 +10,7 @@
  dateModified = now()
  WHERE id = $id; 
 
- INSERT INTO user(firstName, lastName, email, password, imageURL)
+ INSERT INTO users(firstName, lastName, email, password, imageURL)
  VALUES ($firstName, $lastName, $email, $password, $imageURL);
 
 /* ADMIN */

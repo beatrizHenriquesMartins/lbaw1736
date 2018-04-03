@@ -109,3 +109,9 @@ CREATE VIEW "ProductsInCart" AS
 SELECT product.name, product.price, product.imageURL, client.id_client
 FROM product, client, cartproduct
 WHERE client.id_client = cartproduct.id_client AND product.id = cartproduct.id_product AND client.id_client = 11;
+
+
+CREATE VIEW "ClientMessages" AS
+SELECT *
+FROM message
+WHERE id_client = 11;
