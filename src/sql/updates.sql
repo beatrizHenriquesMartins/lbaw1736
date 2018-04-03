@@ -105,11 +105,11 @@ VALUES ($id_client, $id_product, $quantity);
 DELETE FROM cartproduct WHERE id_product=$id_product AND id_client=$id_client;
 
 /* ADDRESS */
-INSERT INTO city (city, id_country)
-VALUES ($city, $id_country);
+INSERT INTO city (id, city, id_country)
+VALUES ($id, $city, $id_country);
 
-INSERT INTO address (address, zipcode, id_city)
-VALUES($address, $zipcode, $id_city);
+INSERT INTO address (id, address, zipcode, id_city)
+VALUES($id, $address, $zipcode, $id_city);
 
 DELETE FROM clientaddress WHERE id_client=$id_client AND id_address=(SELECT id FROM address WHERE address=$address);
 DELETE FROM address WHERE address=$address;
