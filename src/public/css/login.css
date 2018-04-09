@@ -12,8 +12,13 @@
     padding-top: 0.1em;
 }
 
+.topbar .top .sign .dropdown {
+    height: 1.5em;
+}
+
+
 .topbar .top .sign .dropdown .dropdown-menu {
-    z-index: 999;
+    z-index: 10;
 }
 
 .topbar .top .sign .dropdown .dropdown-menu .dropdown-divider {
@@ -26,7 +31,7 @@
     padding: 0.3em 0.3em 0.3em 0.3em;
 }
 
-.custom-navbar {
+.first_class .custom-navbar {
     z-index: 1;
 }
 

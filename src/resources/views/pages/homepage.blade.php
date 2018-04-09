@@ -1,5 +1,8 @@
 @extends('layouts.main')
 
+<!-- login style -->
+<link rel="stylesheet" href="./css/login.css" type="text/css">
+
 @section('content')
 <!-- Carousel -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">

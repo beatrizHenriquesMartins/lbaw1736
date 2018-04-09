@@ -22,7 +22,6 @@ class HomepageController extends Controller
     public function show()
     {
       return view('pages.homepage');
-      return view('layouts.main');
 
     }
 }

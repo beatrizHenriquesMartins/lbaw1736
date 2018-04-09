@@ -59,8 +59,8 @@
           <div class="container-fluid topbar">
               <div class="row top">
                   <div class="col-sm-2 flex-item">
-                      <a href="homepage.html">
-                          <img class="mb-4"  {{HTML::image('/images/logo_1.png', 'logo')}} >
+                      <a href="{{ url('/homepage') }}">
+                          <img class="mb-4"  src="/images/logo_1.png" alt="logo" >
                       </a>
                   </div>
 
@@ -73,20 +73,53 @@
                           </a>
                       </form>
                   </div>
+                  @if (Auth::check())
+                    <div class="col-sm-3 flex-item sign">
+                        <span class="hi"> Hi, </span>
 
-                  <div class="col-sm-3 flex-item sign">
-                      <a href="signin.html">
-                          Sign in
-                      </a>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle align-text-top" type="button"
+                                    id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->firstname }}
 
-                      <span>
-                          or
-                      </span>
+                                <i class="fa fa-caret-down">
+                                </i>
+                            </button>
 
-                      <a href="register.html">
-                          Sign up
-                      </a>
-                  </div>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                    <a class="dropdown-item" href="customer_profile.html">
+                                        Profile
+                                    </a>
+                                </li>
+
+                                <div class="dropdown-divider">
+                                </div>
+
+                                <li>
+                                    <a class="dropdown-item" href="{{ url('/logout') }}">
+                                        Sign Out
+                                    </a>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                  @endif
+                  @if (!Auth::check())
+                    <div class="col-sm-3 flex-item sign">
+                        <a href="{{ url('/login') }}">
+                            Sign in
+                        </a>
+
+                        <span>
+                            or
+                        </span>
+
+                        <a href="{{ url('/register') }}">
+                            Sign up
+                        </a>
+                    </div>
+                  @endif
               </div>
           </div>
 
@@ -111,17 +144,17 @@
                   <!-- Non-collapsing right-side icons -->
                   <ul class="nav navbar-nav navbar-right">
                       <li>
-                          <a href="list_favourites.html" class="fa fa-heart">
+                          <a href="{{ url('/listfavourites') }}" class="fa fa-heart">
                           </a>
                       </li>
 
                       <li>
-                          <a href="cart.html" class="fa fa-shopping-cart">
+                          <a href="{{ url('/cart') }}" class="fa fa-shopping-cart">
                           </a>
                       </li>
 
                       <li>
-                          <a href="homepage.html" class="fa fa-home">
+                          <a href="{{ url('/homepage') }}" class="fa fa-home">
                           </a>
                       </li>
                   </ul>
@@ -130,43 +163,43 @@
                   <div class="collapse navbar-collapse navbar-left" id="navbar-collapse-1">
                       <ul class="nav navbar-nav">
                           <li>
-                              <a id="category_font_size" href="category.html">
+                              <a id="category_font_size" href="{{ url('/category') }}">
                                   Fashion
                               </a>
                           </li>
 
                           <li>
-                              <a id="category_font_size" href="category.html">
+                              <a id="category_font_size" href="{{ url('/category') }}">
                                   Beauty
                               </a>
                           </li>
 
                           <li>
-                              <a id="category_font_size" href="category.html">
+                              <a id="category_font_size" href="{{ url('/category') }}">
                                   Tecnology
                               </a>
                           </li>
 
                           <li>
-                              <a id="category_font_size" href="category.html">
+                              <a id="category_font_size" href="{{ url('/category') }}">
                                   Food
                               </a>
                           </li>
 
                           <li>
-                              <a id="category_font_size" href="category.html">
+                              <a id="category_font_size" href="{{ url('/category') }}">
                                   Culture
                               </a>
                           </li>
 
                           <li>
-                              <a id="category_font_size" href="category.html">
+                              <a id="category_font_size" href="{{ url('/category') }}">
                                   Home
                               </a>
                           </li>
 
                           <li>
-                              <a id="category_font_size" href="category.html">
+                              <a id="category_font_size" href="{{ url('/category') }}">
                                   Sports
                               </a>
                           </li>
