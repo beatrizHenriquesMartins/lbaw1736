@@ -88,7 +88,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <li>
-                                    <a class="dropdown-item" href="customer_profile.html">
+                                    <a class="dropdown-item" href="{{ url('/customer_profile') }}">
                                         Profile
                                     </a>
                                 </li>
