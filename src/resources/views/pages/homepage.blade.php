@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('info')
+@section('content')
 <!-- Carousel -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -110,3 +110,4 @@
         </div>
     </div>
 </div>
+@endsection

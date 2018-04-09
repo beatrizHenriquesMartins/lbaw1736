@@ -1,167 +1,224 @@
-@extends('layouts.app')
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-@section('content')
-<!-- cabeçalho -->
-<div class="first_class">
-    <!-- TOP BAR -->
-    <div class="container-fluid topbar">
-        <div class="row top">
-            <div class="col-sm-2 flex-item">
-                <a href="homepage.html">
-                    <img class="mb-4" src="./images/logo_1.png" alt="logo" width="323.75" height="78">
-                </a>
-            </div>
 
-            <div class="col-sm-3 flex-item search">
-                <form class="navbar-form navbar-right" role="search" id="navBarSearchForm" action="/action_page.php">
-                    <input class="form-control" type="text" placeholder="Search..." name="search">
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                    <a class="btn btn-dark" href="search_result.html" role="button">
-                        GO!
-                    </a>
-                </form>
-            </div>
+    <title>
+        Amazonas
+    </title>
 
-            <div class="col-sm-3 flex-item sign">
-                <a href="signin.html">
-                    Sign in
-                </a>
+    <!-- CSS -->
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-                <span>
-                    or
-                </span>
+    <!-- Website Font style-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
-                <a href="register.html">
-                    Sign up
-                </a>
-            </div>
-        </div>
-    </div>
+    <!-- TopBar CSS -->
+    <link href="css/topbar.css" rel="stylesheet">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-static-top custom-navbar" role="navigation">
-        <div class="navBar-container">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
-                <span class="sr-only">
-                    Toggle navigation
-                </span>
+    <!-- Homepage CSS -->
+    <link href="css/homepage.css" rel="stylesheet">
 
-                <span class="icon-bar">
-                </span>
+    <!-- Company Links -->
+    <link href="css/company_links.css" rel="stylesheet">
 
-                <span class="icon-bar">
-                </span>
+    <!-- footer style -->
+    <link rel="stylesheet" href="./css/footer.css" type="text/css">
 
-                <span class="icon-bar">
-                </span>
-            </button>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
+    <!-- CSS -->
 
-            <!-- Non-collapsing right-side icons -->
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="list_favourites.html" class="fa fa-heart">
-                    </a>
-                </li>
+    <link rel="icon" type="image/png"  href="./images/icon.png" />
 
-                <li>
-                    <a href="cart.html" class="fa fa-shopping-cart">
-                    </a>
-                </li>
+    <script language="JavaScript" type="text/javascript" src="./js/jquery.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
-                <li>
-                    <a href="homepage.html" class="fa fa-home">
-                    </a>
-                </li>
-            </ul>
+  </head>
+  <body>
+    <main>
+    <!--  <header>
+        <h1><a href="{{ url('/cards') }}">Thingy!</a></h1>
+        @if (Auth::check())
+        <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{ Auth::user()->name }}</span>
+        @endif
+      </header> -->
 
-            <!-- the collapsing menu -->
-            <div class="collapse navbar-collapse navbar-left" id="navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a id="category_font_size" href="category.html">
-                            Fashion
-                        </a>
-                    </li>
 
-                    <li>
-                        <a id="category_font_size" href="category.html">
-                            Beauty
-                        </a>
-                    </li>
+      <!-- cabeçalho -->
+      <div class="first_class">
+          <!-- TOP BAR -->
+          <div class="container-fluid topbar">
+              <div class="row top">
+                  <div class="col-sm-2 flex-item">
+                      <a href="homepage.html">
+                          <img class="mb-4"  {{HTML::image('/images/logo_1.png', 'logo')}} >
+                      </a>
+                  </div>
 
-                    <li>
-                        <a id="category_font_size" href="category.html">
-                            Tecnology
-                        </a>
-                    </li>
+                  <div class="col-sm-3 flex-item search">
+                      <form class="navbar-form navbar-right" role="search" id="navBarSearchForm" action="/action_page.php">
+                          <input class="form-control" type="text" placeholder="Search..." name="search">
 
-                    <li>
-                        <a id="category_font_size" href="category.html">
-                            Food
-                        </a>
-                    </li>
+                          <a class="btn btn-dark" href="search_result.html" role="button">
+                              GO!
+                          </a>
+                      </form>
+                  </div>
 
-                    <li>
-                        <a id="category_font_size" href="category.html">
-                            Culture
-                        </a>
-                    </li>
+                  <div class="col-sm-3 flex-item sign">
+                      <a href="signin.html">
+                          Sign in
+                      </a>
 
-                    <li>
-                        <a id="category_font_size" href="category.html">
-                            Home
-                        </a>
-                    </li>
+                      <span>
+                          or
+                      </span>
 
-                    <li>
-                        <a id="category_font_size" href="category.html">
-                            Sports
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
+                      <a href="register.html">
+                          Sign up
+                      </a>
+                  </div>
+              </div>
+          </div>
 
-<section id="info">
-  @include(pages.$info)
-</section>
+          <!-- Navigation -->
+          <nav class="navbar navbar-inverse navbar-static-top custom-navbar" role="navigation">
+              <div class="navBar-container">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                      <span class="sr-only">
+                          Toggle navigation
+                      </span>
 
-<!--Company Links-->
-<div>
-    <div class ="company_links container-fluid">
-        <div class="col-sm-10">
-        </div>
+                      <span class="icon-bar">
+                      </span>
 
-        <div class="col-sm-2">
-            <div class="row-fluid">
-                <a href="#">
-                    <h4>
-                        About Amazonas
-                    </h4>
-                </a>
-            </div>
+                      <span class="icon-bar">
+                      </span>
 
-            <div class="row-fluid">
-                <a href="#">
-                    Contact us
-                </a>
-            </div>
+                      <span class="icon-bar">
+                      </span>
+                  </button>
 
-            <div class="row-fluid">
-                <a href="#">
-                    Terms & Conditions
-                </a>
-            </div>
-        </div>
-    </div>
+                  <!-- Non-collapsing right-side icons -->
+                  <ul class="nav navbar-nav navbar-right">
+                      <li>
+                          <a href="list_favourites.html" class="fa fa-heart">
+                          </a>
+                      </li>
 
-    <div>
-        <footer id="pageFooter">
-            <p>
-                Powered by LBAW1736 - MIEIC 2017/2018
-            </p>
-        </footer>
-    </div>
-</div>
+                      <li>
+                          <a href="cart.html" class="fa fa-shopping-cart">
+                          </a>
+                      </li>
+
+                      <li>
+                          <a href="homepage.html" class="fa fa-home">
+                          </a>
+                      </li>
+                  </ul>
+
+                  <!-- the collapsing menu -->
+                  <div class="collapse navbar-collapse navbar-left" id="navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                          <li>
+                              <a id="category_font_size" href="category.html">
+                                  Fashion
+                              </a>
+                          </li>
+
+                          <li>
+                              <a id="category_font_size" href="category.html">
+                                  Beauty
+                              </a>
+                          </li>
+
+                          <li>
+                              <a id="category_font_size" href="category.html">
+                                  Tecnology
+                              </a>
+                          </li>
+
+                          <li>
+                              <a id="category_font_size" href="category.html">
+                                  Food
+                              </a>
+                          </li>
+
+                          <li>
+                              <a id="category_font_size" href="category.html">
+                                  Culture
+                              </a>
+                          </li>
+
+                          <li>
+                              <a id="category_font_size" href="category.html">
+                                  Home
+                              </a>
+                          </li>
+
+                          <li>
+                              <a id="category_font_size" href="category.html">
+                                  Sports
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+      </div>
+
+      <section id="content">
+        @yield('content')
+      </section>
+
+      <!--Company Links-->
+      <div>
+          <div class ="company_links container-fluid">
+              <div class="col-sm-10">
+              </div>
+
+              <div class="col-sm-2">
+                  <div class="row-fluid">
+                      <a href="#">
+                          <h4>
+                              About Amazonas
+                          </h4>
+                      </a>
+                  </div>
+
+                  <div class="row-fluid">
+                      <a href="#">
+                          Contact us
+                      </a>
+                  </div>
+
+                  <div class="row-fluid">
+                      <a href="#">
+                          Terms & Conditions
+                      </a>
+                  </div>
+              </div>
+          </div>
+
+          <div>
+              <footer id="pageFooter">
+                  <p>
+                      Powered by LBAW1736 - MIEIC 2017/2018
+                  </p>
+              </footer>
+          </div>
+      </div>
+
+
+    </main>
+  </body>
+</html>

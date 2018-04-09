@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Card;
 
+use Image;
+use HTML;
+
 class HomepageController extends Controller
 {
     /**
@@ -18,8 +21,8 @@ class HomepageController extends Controller
      */
     public function show()
     {
-
-      return view('layouts.main', ['info' => 'homepage']);
+      return view('pages.homepage');
+      return view('layouts.main');
 
     }
 }

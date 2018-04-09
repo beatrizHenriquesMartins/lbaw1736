@@ -113,8 +113,6 @@
       </div>
   </div>
 
-  <footer id="pageFooter">
-      <p>Powered by LBAW1736 - MIEIC 2017/2018</p>
-  </footer>
+
 </form>
 @endsection
