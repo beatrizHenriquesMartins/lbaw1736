@@ -1,0 +1,30 @@
+body,
+html {
+    background-repeat: no-repeat;
+    background-color: white;
+    font-family: 'Karma', sans-serif;
+	overflow-x: hidden;  /* para não existirem scroll horizontal */
+}
+
+/* Main Section */
+.main{
+    margin-top: 1.5em;
+	margin-left: 0em;
+	margin-right: 0em;
+}
+
+/* SideLinks */
+.sidelinks {
+    padding-right: 0em;
+}
+
+@media (max-width:500px) {
+    .category-section .category-products {
+        padding-right: 0;
+    }
+
+    .category-section .category-products .product {
+        width: 100%;
+        margin-right: 0;
+    }
+}

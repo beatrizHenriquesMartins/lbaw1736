@@ -1,0 +1,123 @@
+body, html {
+	background-repeat: no-repeat;
+    background-color: white;
+    font-family: 'Karma', sans-serif;
+	overflow-x: hidden;  /* para não existirem scroll horizontal */
+}
+
+/* Main Section */
+.main{
+	padding-top: 1.5em;
+	margin-left: 0em;
+	margin-right: 0em;
+}
+
+.user_area{
+    padding-left: 4em;
+	padding-top: 2em;
+}
+
+/* SideLinks */
+.sidelinks {
+	padding-right: 0em;
+}
+
+/* User Information */
+.information>div>div:first-child {
+    padding-right: 0em;
+}
+
+.information>div>div div:first-child>p{
+    font-weight: bold;
+}
+
+.main .user_area > .row:first-child {
+    box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+	background-color: hsl(0, 0%, 95%);
+	border-radius: 5px;
+	border: 1px solid hsl(0, 0%, 95%);
+	padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.main .row .addresses {
+	padding-top: 2.5em;
+}
+
+/* Addresses List */
+.addresses>p {
+	font-weight: bold;
+}
+
+.addresses ul {
+    background-color: white;
+    overflow-y: scroll;
+    height: 12em;
+    margin: 0;
+    padding: 0;
+    border: 0.14285714285714285em solid #ccc;
+}
+
+.addresses li {
+    padding: 0.7142857142857143em 1.4285714285714286em;
+    border-bottom: 0.07142857142857142em solid #ccc;
+}
+
+.addresses li:last-child{
+	border-bottom: none;
+}
+
+.addresses li:nth-child(even) {
+	background: #f8f8f8;
+}
+
+/* Profile Photo */
+.photo {
+	padding-left: 0em;
+}
+
+.photo>img {
+	height: 12em;
+	width: 10em;
+}
+
+/* Responsive */
+@media (max-width: 1400px) and (min-width: 1150px) {
+    .information div:nth-child(2)>p{
+        padding-left: 1em;
+	}
+}
+
+@media (max-width: 1150px) and (min-width: 950px) {
+	.information div:nth-child(2)>p{
+		padding-left: 2em;
+	}
+}
+
+@media (max-width: 950px) and (min-width: 768px) {
+	.information div:nth-child(2)>p{
+		padding-left: 4em;
+	}
+}
+
+@media (max-width: 1200px) and (min-width: 950px) {
+	.information {
+		padding-left: 3em;
+	}
+}
+
+@media (max-width: 950px) and (min-width: 768px) {
+	.information {
+		padding-left: 4em;
+	}
+}
+
+@media (max-width: 768px) {
+	.information {
+		padding-top: 2em;
+	}
+	
+	.user_area>.row>div:last-child{
+		position: relative;
+		top: -10em;
+	}
+}
