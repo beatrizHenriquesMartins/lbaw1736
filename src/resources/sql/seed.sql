@@ -37,7 +37,8 @@ CREATE TABLE users (
   imageURL TEXT NOT NULL,
   dateCreated TIMESTAMP DEFAULT now() NOT NULL,
   dateModified TIMESTAMP DEFAULT now() NOT NULL,
-  active BOOLEAN NOT NULL
+  active BOOLEAN NOT NULL,
+  remember_token TEXT
 );
 
 CREATE TABLE chatSupport (
