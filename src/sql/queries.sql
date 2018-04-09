@@ -2,20 +2,33 @@
 /*SEARCH*/
 
 CREATE VIEW "ListProducts" AS
-SELECT *
-FROM product;
-
+SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock", 
+	   p.dateCreated AS "Date Created", p.modelNumber AS "Model Number", p.weight AS "Weight", p.price AS "Price", 
+	   p.imageURL AS "Image URL", p.bigDescription AS "Big Description", p.shortDescription AS "Short Description", 
+	   (array_agg(pc.categoryName ORDER BY p.id DESC))[1] AS "Category", (array_agg(b.name ORDER BY p.id DESC))[1] AS "Brand", AVG(pr.rating) AS "Rating"
+FROM product p, productcategory pc, brand b, productreview pr
+WHERE p.id_brand = b.id AND p.id_category = pc.id AND pr.id_product = p.id 
+GROUP BY p.id;
 
 CREATE VIEW "ViewProduct" AS
-SELECT *
-FROM product
-WHERE id = 1;
-
+SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock", 
+	   p.dateCreated AS "Date Created", p.modelNumber AS "Model Number", p.weight AS "Weight", p.price AS "Price", 
+	   p.imageURL AS "Image URL", p.bigDescription AS "Big Description", p.shortDescription AS "Short Description", 
+	   (array_agg(pc.categoryName ORDER BY p.id DESC))[1] AS "Category", (array_agg(b.name ORDER BY p.id DESC))[1] AS "Brand", AVG(pr.rating) AS "Rating"
+FROM product p, productcategory pc, brand b, productreview pr
+WHERE p.id_brand = b.id AND p.id_category = pc.id AND pr.id_product = p.id 
+AND p.id = 1
+GROUP BY p.id;
 
 CREATE VIEW "ListProductsByCategory" AS
-SELECT *
-FROM product
-WHERE id_category = (SELECT id FROM productcategory WHERE categoryName = 'Fashion');
+SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock", 
+	   p.dateCreated AS "Date Created", p.modelNumber AS "Model Number", p.weight AS "Weight", p.price AS "Price", 
+	   p.imageURL AS "Image URL", p.bigDescription AS "Big Description", p.shortDescription AS "Short Description", 
+	   (array_agg(pc.categoryName ORDER BY p.id DESC))[1] AS "Category", (array_agg(b.name ORDER BY p.id DESC))[1] AS "Brand", AVG(pr.rating) AS "Rating"
+FROM product p, productcategory pc, brand b, productreview pr
+WHERE p.id_brand = b.id AND p.id_category = pc.id AND pr.id_product = p.id 
+AND pc.categoryName LIKE '%Fashion%'
+GROUP BY p.id;
 
 
 /* REVIEWS */
