@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Client;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -53,6 +55,8 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'username' => 'required|string|max:255|unique:users',
+            'cellphone' => 'required|string|min:9',
+
         ]);
     }
 
@@ -64,7 +68,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'email' => $data['email'],
@@ -73,5 +77,12 @@ class RegisterController extends Controller
             'imageurl' => '/images/user_image.png',
             'active' => 'true',
         ]);
+
+        $client = Client::create([
+          'id_client' => $user['id'],
+          'cellphone' => $data['cellphone'],
+        ]);
+
+        return $user;
     }
 }

@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Client;
 use App\Product;
 use App\Wishlist;
+use App\User;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Facades\Auth;
@@ -13,8 +14,10 @@ class WishlistPolicy
 {
     use HandlesAuthorization;
 
-    public function list(Client $client)
+    public function list(User $user)
     {
+      $client = Client::find($user->id);
+
       // Any user can list its own cards
       return Auth::check();
     }

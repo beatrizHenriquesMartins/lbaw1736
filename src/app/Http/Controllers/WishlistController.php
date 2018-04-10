@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use App\Wishlist;
+use App\Client;
 
 class WishlistController extends Controller
 {
@@ -22,7 +23,7 @@ class WishlistController extends Controller
 
       $this->authorize('list', Wishlist::class);
 
-      $wishlist = Auth::client()->wishlist()->get();
+      $wishlist = Client::find(Auth::user()->id)->wishlist()->orderBy('id_client')->get();
 
       return view('pages.wishlist', ['wishlist' => $wishlist]);
     }
@@ -34,23 +35,31 @@ class WishlistController extends Controller
      */
     public function create(Request $request)
     {
-      $product = new Product();
+      $wishlist = new Wishlist();
 
-      $this->authorize('create', $product);
+      $client = Client::find(Auth::user()->id);
+
+      $client->authorize('create', $wishlist);
 
       $product->id_product = $request->input('id_product');
-      $product->id_client = Auth::user()->id;
-      $product->save();
+
+      $product = Product::find($id_product);
+
+      $wishlist->id_client = Auth::user()->id;
+      $wishlist->$id_product = $id_product;
+
+      $wishlist->save();
 
     }
 
     public function delete(Request $request, $id_product)
     {
-      $product->id_client = Auth::user()->id;
-      $product = Product::find($id_client, $id_product);
+      $client = Client::find(Auth::user()->id);
+      $wishlist = Wishlist::find(Auth::user()->id, $id_product);
 
-      $this->authorize('delete', $product);
-      $product->delete();
+      $client->authorize('delete', $wishlist);
+
+      $wishlist->delete();
 
     }
 }

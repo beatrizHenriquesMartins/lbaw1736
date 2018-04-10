@@ -108,6 +108,30 @@
 
                 </div>
 
+                <div id="form_cellphone" class="form-group">
+                    <label for="cellphone" class="cols-sm-2 control-label">
+                        Cellphone
+                    </label>
+
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-phone fa" aria-hidden="true">
+                                </i>
+                            </span>
+
+                            <input type="text" class="form-control" name="cellphone" id="cellphone"
+                                   required autofocus/>
+                        </div>
+                    </div>
+                    @if ($errors->has('cellphone'))
+                      <span class="error">
+                        {{ $errors->first('cellphone') }}
+                      </span>
+                    @endif
+
+                </div>
+
                 <div id="form_password" class="form-group">
                     <label for="password" class="cols-sm-2 control-label">
                         Password

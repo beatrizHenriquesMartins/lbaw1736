@@ -17,23 +17,23 @@
                {{ csrf_field() }}
                 <div id="form_username" class="form-group">
                     <label for="username" class="cols-sm-2 control-label">
-                        Username
+                        Email
                     </label>
 
                     <div id="form_password" class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-user fa" aria-hidden="true">
+                                <i class="fa fa-envelope fa" aria-hidden="true">
                                 </i>
                             </span>
 
-                            <input type="text" class="form-control" name="username" id="username"
+                            <input type="text" class="form-control" name="email" id="username"
                                    required autofocus/>
                         </div>
                     </div>
-                    @if ($errors->has('username'))
+                    @if ($errors->has('email'))
                         <span class="error">
-                          {{ $errors->first('username') }}
+                          {{ $errors->first('email') }}
                         </span>
                     @endif
                 </div>
