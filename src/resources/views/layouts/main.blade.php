@@ -68,7 +68,7 @@
                       <form class="navbar-form navbar-right" role="search" id="navBarSearchForm" action="/action_page.php">
                           <input class="form-control" type="text" placeholder="Search..." name="search">
 
-                          <a class="btn btn-dark" href="search_result.html" role="button">
+                          <a class="btn btn-dark" href="{{ url('/search_result') }}" role="button">
                               GO!
                           </a>
                       </form>
@@ -144,7 +144,7 @@
                   <!-- Non-collapsing right-side icons -->
                   <ul class="nav navbar-nav navbar-right">
                       <li>
-                          <a href="{{ url('/listfavourites') }}" class="fa fa-heart">
+                          <a href="{{ url('/wishlist') }}" class="fa fa-heart">
                           </a>
                       </li>
 

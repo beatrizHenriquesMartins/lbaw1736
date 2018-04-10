@@ -30,6 +30,9 @@ Route::delete('api/item/{id}', 'ItemController@delete');
 
 Route::get('homepage', 'HomepageController@show')->name('homepage');
 
+// wishlist
+Route::get('wishlist', 'WishlistController@list')->name('wishlist');
+
 // Authentication
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

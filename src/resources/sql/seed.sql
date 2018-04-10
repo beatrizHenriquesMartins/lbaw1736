@@ -1,16 +1,16 @@
 -- Drops
 DROP Table IF EXISTS brandBrandManager CASCADE;
-DROP TABLE IF EXISTS productreview CASCADE;
+DROP TABLE IF EXISTS review CASCADE;
 DROP TABLE IF EXISTS purchaseproduct CASCADE;
 DROP TABLE IF EXISTS purchase CASCADE;
 DROP TABLE IF EXISTS clientaddress CASCADE;
 DROP TABLE IF EXISTS country CASCADE;
 DROP TABLE IF EXISTS city CASCADE;
 DROP TABLE IF EXISTS address CASCADE;
-DROP TABLE IF EXISTS cartproduct CASCADE;
-DROP TABLE IF EXISTS productwishlist CASCADE;
+DROP TABLE IF EXISTS cart CASCADE;
+DROP TABLE IF EXISTS wishlists CASCADE;
 DROP TABLE IF EXISTS product CASCADE;
-DROP TABLE IF EXISTS productcategory CASCADE;
+DROP TABLE IF EXISTS category CASCADE;
 DROP TABLE IF EXISTS ban CASCADE;
 DROP TABLE IF EXISTS admin CASCADE;
 DROP TABLE IF EXISTS brandManager CASCADE;
@@ -79,7 +79,7 @@ CREATE TABLE ban (
   banDate TIMESTAMP DEFAULT now() NOT NULL
 );
 
-CREATE TABLE productcategory (
+CREATE TABLE category (
   id SERIAL PRIMARY KEY,
   categoryName TEXT NOT NULL UNIQUE
 );
@@ -96,16 +96,16 @@ CREATE TABLE product (
   bigDescription TEXT NOT NULL,
   shortDescription TEXT NOT NULL,
   id_brand INTEGER NOT NULL REFERENCES brand,
-  id_category INTEGER NOT NULL REFERENCES productcategory
+  id_category INTEGER NOT NULL REFERENCES category
 );
 
-CREATE TABLE productwishlist (
+CREATE TABLE wishlists (
   id_product INTEGER REFERENCES product,
   id_client INTEGER REFERENCES client,
   PRIMARY KEY(id_product, id_client)
 );
 
-CREATE TABLE cartproduct (
+CREATE TABLE cart (
   id_client INTEGER REFERENCES client,
   id_product INTEGER REFERENCES product,
   quantity INTEGER NOT NULL CHECK (quantity > 0),
@@ -159,7 +159,7 @@ CREATE TABLE purchaseproduct (
   PRIMARY KEY(id_purchase, id_product)
 );
 
-CREATE TABLE productreview (
+CREATE TABLE review (
   id_product INTEGER NOT NULL REFERENCES product,
   id_purchase INTEGER NOT NULL REFERENCES purchase,
   reviewDate TIMESTAMP DEFAULT now() NOT NULL,
@@ -182,7 +182,7 @@ CREATE INDEX idx_product ON product USING hash (name); /*cardinalidade media-bom
 
 CREATE INDEX idx_purchase ON purchase USING btree (id_client); /*cardinalidade media-bom candidato para cluster*/
 
-CREATE INDEX search_idx ON productcategory USING GIST (to_tsvector('english', categoryName));
+CREATE INDEX search_idx ON category USING GIST (to_tsvector('english', categoryName));
 
  -- Triggers
 
@@ -330,13 +330,13 @@ INSERT INTO admin VALUES (4);
 
 INSERT INTO ban VALUES (20, 1, DEFAULT);
 
-INSERT INTO productcategory VALUES (DEFAULT, 'Fashion');
-INSERT INTO productcategory VALUES (DEFAULT, 'Beauty');
-INSERT INTO productcategory VALUES (DEFAULT, 'Technology');
-INSERT INTO productcategory VALUES (DEFAULT, 'Food');
-INSERT INTO productcategory VALUES (DEFAULT, 'Culture');
-INSERT INTO productcategory VALUES (DEFAULT, 'Home');
-INSERT INTO productcategory VALUES (DEFAULT, 'Sports');
+INSERT INTO category VALUES (DEFAULT, 'Fashion');
+INSERT INTO category VALUES (DEFAULT, 'Beauty');
+INSERT INTO category VALUES (DEFAULT, 'Technology');
+INSERT INTO category VALUES (DEFAULT, 'Food');
+INSERT INTO category VALUES (DEFAULT, 'Culture');
+INSERT INTO category VALUES (DEFAULT, 'Home');
+INSERT INTO category VALUES (DEFAULT, 'Sports');
 
 INSERT INTO product VALUES (DEFAULT, 'Gelato', 10, now(), 1, 3.0, 30.00, './src/images/brands/alameda_turquesa/01-holi-400x400.jpg', '', '', 1, 1);
 INSERT INTO product VALUES (DEFAULT, 'Holi', 10, now(), 1, 3.0, 30.00, './src/images/brands/alameda_turquesa/2-alameda-turquesa-gelato-400x400.jpg', '', '', 1, 1);
@@ -346,34 +346,34 @@ INSERT INTO product VALUES (DEFAULT, 'Cardosas', 10, now(), 1, 3.0, 300.00, './s
 INSERT INTO product VALUES (DEFAULT, 'Aparador Multi-Gavetas', 10, now(), 1, 3.0, 300.00, './src/images/brands/alma_de_luce/3.jpg', '', '', 3, 6);
 
 
-INSERT INTO productwishlist VALUES (1, 11);
-INSERT INTO productwishlist VALUES (2, 12);
-INSERT INTO productwishlist VALUES (3, 12);
-INSERT INTO productwishlist VALUES (4, 14);
-INSERT INTO productwishlist VALUES (5, 15);
-INSERT INTO productwishlist VALUES (1, 16);
-INSERT INTO productwishlist VALUES (4, 16);
-INSERT INTO productwishlist VALUES (1, 19);
-INSERT INTO productwishlist VALUES (2, 19);
-INSERT INTO productwishlist VALUES (4, 19);
+INSERT INTO wishlists VALUES (1, 11);
+INSERT INTO wishlists VALUES (2, 12);
+INSERT INTO wishlists VALUES (3, 12);
+INSERT INTO wishlists VALUES (4, 14);
+INSERT INTO wishlists VALUES (5, 15);
+INSERT INTO wishlists VALUES (1, 16);
+INSERT INTO wishlists VALUES (4, 16);
+INSERT INTO wishlists VALUES (1, 19);
+INSERT INTO wishlists VALUES (2, 19);
+INSERT INTO wishlists VALUES (4, 19);
 
 
-INSERT INTO cartproduct VALUES (11, 1, 2);
-INSERT INTO cartproduct VALUES (11, 3, 2);
-INSERT INTO cartproduct VALUES (11, 2, 2);
-INSERT INTO cartproduct VALUES (12, 1, 2);
-INSERT INTO cartproduct VALUES (13, 5, 1);
-INSERT INTO cartproduct VALUES (13, 2, 2);
-INSERT INTO cartproduct VALUES (13, 3, 2);
-INSERT INTO cartproduct VALUES (13, 1, 1);
-INSERT INTO cartproduct VALUES (14, 2, 1);
-INSERT INTO cartproduct VALUES (14, 1, 1);
-INSERT INTO cartproduct VALUES (16, 4, 1);
-INSERT INTO cartproduct VALUES (16, 2, 2);
-INSERT INTO cartproduct VALUES (17, 3, 2);
-INSERT INTO cartproduct VALUES (17, 1, 2);
-INSERT INTO cartproduct VALUES (18, 4, 1);
-INSERT INTO cartproduct VALUES (19, 5, 3);
+INSERT INTO cart VALUES (11, 1, 2);
+INSERT INTO cart VALUES (11, 3, 2);
+INSERT INTO cart VALUES (11, 2, 2);
+INSERT INTO cart VALUES (12, 1, 2);
+INSERT INTO cart VALUES (13, 5, 1);
+INSERT INTO cart VALUES (13, 2, 2);
+INSERT INTO cart VALUES (13, 3, 2);
+INSERT INTO cart VALUES (13, 1, 1);
+INSERT INTO cart VALUES (14, 2, 1);
+INSERT INTO cart VALUES (14, 1, 1);
+INSERT INTO cart VALUES (16, 4, 1);
+INSERT INTO cart VALUES (16, 2, 2);
+INSERT INTO cart VALUES (17, 3, 2);
+INSERT INTO cart VALUES (17, 1, 2);
+INSERT INTO cart VALUES (18, 4, 1);
+INSERT INTO cart VALUES (19, 5, 3);
 
 
 INSERT INTO country VALUES (DEFAULT, 'Portugal');
@@ -460,15 +460,15 @@ INSERT INTO purchaseproduct VALUES (8, 3, 1, 300);
 INSERT INTO purchaseproduct VALUES (9, 4, 1, 300);
 INSERT INTO purchaseproduct VALUES (10, 2, 1, 300);
 
-INSERT INTO productreview VALUES (1, 5, DEFAULT, '', 3);
-INSERT INTO productreview VALUES (2, 2, DEFAULT, '', 5);
-INSERT INTO productreview VALUES (3, 2, DEFAULT, '', 5);
-INSERT INTO productreview VALUES (4, 10, DEFAULT, '', 4);
-INSERT INTO productreview VALUES (2, 8, DEFAULT, '', 2);
-INSERT INTO productreview VALUES (1, 3, DEFAULT, '', 3);
-INSERT INTO productreview VALUES (3, 6, DEFAULT, '', 5);
-INSERT INTO productreview VALUES (5, 1, DEFAULT, '', 4);
-INSERT INTO productreview VALUES (4, 4, DEFAULT, '', 4);
+INSERT INTO review VALUES (1, 5, DEFAULT, '', 3);
+INSERT INTO review VALUES (2, 2, DEFAULT, '', 5);
+INSERT INTO review VALUES (3, 2, DEFAULT, '', 5);
+INSERT INTO review VALUES (4, 10, DEFAULT, '', 4);
+INSERT INTO review VALUES (2, 8, DEFAULT, '', 2);
+INSERT INTO review VALUES (1, 3, DEFAULT, '', 3);
+INSERT INTO review VALUES (3, 6, DEFAULT, '', 5);
+INSERT INTO review VALUES (5, 1, DEFAULT, '', 4);
+INSERT INTO review VALUES (4, 4, DEFAULT, '', 4);
 
 INSERT INTO brandBrandManager VALUES (1, 8);
 INSERT INTO brandBrandManager VALUES (2, 9);
