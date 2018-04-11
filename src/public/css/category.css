@@ -32,8 +32,8 @@ html {
     margin-right: 0;
 }
 
-.category-section {
-    width: auto;
+#content .category-section {
+    width: 90%;
     height: auto;
 }
 
@@ -80,7 +80,7 @@ html {
 }
 
 .category-section .category-products {
-    width: auto;
+    width: 75%;
     height: auto;
     margin: 1.8em 4.2em 1.8em 4.2em;
     padding-bottom: 1.8em;
@@ -121,7 +121,7 @@ html {
 
 .category-section .category-products .product-row .product .product-img {
     width: 18em;
-    height: 12em;
+    height: 10em;
 }
 
 .category-section .category-products .product-row .product .btns {

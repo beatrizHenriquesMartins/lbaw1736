@@ -1,10 +1,18 @@
 @extends('layouts.main')
 
 <!-- lists CSS -->
-<link href="css/lists.css" rel="stylesheet">
+<link href="/css/lists.css" rel="stylesheet">
+
+<!-- Category CSS -->
+<link href="/css/category.css" rel="stylesheet">
+
+<!-- Category CSS -->
+<link href="/css/customer_profile.css" rel="stylesheet">
 
 <!-- Cart Links -->
-<link href="css/cart.css" rel="stylesheet">
+<link href="/css/cart.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/breadcrumb_path.css" type="text/css">
 
 @section('content')
 

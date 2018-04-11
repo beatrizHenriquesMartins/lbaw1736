@@ -38,7 +38,6 @@ class CartController extends Controller
             $quantities = $quantities + array('quantity' => $list->pivot->quantity);
 
           }
-          echo $client->cart;
 
           return view('pages.cart', ['carts' => $client->cart]);
         }

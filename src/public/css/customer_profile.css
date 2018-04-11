@@ -19,6 +19,7 @@ body, html {
 
 /* SideLinks */
 .sidelinks {
+	margin-top: 1.8em;
 	padding-right: 0em;
 }
 
@@ -115,7 +116,7 @@ body, html {
 	.information {
 		padding-top: 2em;
 	}
-	
+
 	.user_area>.row>div:last-child{
 		position: relative;
 		top: -10em;
