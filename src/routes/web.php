@@ -32,6 +32,14 @@ Route::get('homepage', 'HomepageController@show')->name('homepage');
 
 // wishlist
 Route::get('wishlist', 'WishlistController@list')->name('wishlist');
+Route::delete('wishlist/{id}', 'WishlistController@delete');
+
+// 404
+Route::get('404', 'ErrorController@show')->name('404');
+
+// cart
+Route::get('cart', 'CartController@list')->name('cart');
+
 
 // Authentication
 
