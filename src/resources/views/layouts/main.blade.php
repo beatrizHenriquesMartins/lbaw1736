@@ -21,8 +21,9 @@
     <!-- TopBar CSS -->
     <link href="css/topbar.css" rel="stylesheet">
 
-    <!-- Homepage CSS -->
-    <link href="css/homepage.css" rel="stylesheet">
+
+    <!-- login style -->
+    <link rel="stylesheet" href="./css/login.css" type="text/css">
 
     <!-- Company Links -->
     <link href="css/company_links.css" rel="stylesheet">

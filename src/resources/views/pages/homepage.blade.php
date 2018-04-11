@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
-<!-- login style -->
-<link rel="stylesheet" href="./css/login.css" type="text/css">
+<!-- Homepage CSS -->
+<link href="css/homepage.css" rel="stylesheet">
 
 @section('content')
 <!-- Carousel -->

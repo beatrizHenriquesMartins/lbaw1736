@@ -49,7 +49,7 @@ CREATE TABLE chatSupports (
 
 CREATE TABLE clients (
   id_client INTEGER PRIMARY KEY REFERENCES users,
-  cellphone INTEGER
+  cellphone BIGINT
 );
 
 CREATE TABLE messages (
@@ -228,26 +228,26 @@ CREATE TRIGGER purchase_cost
 		EXECUTE PROCEDURE purchase_cost();
 
 
-INSERT INTO users VALUES (DEFAULT, 'Luis', 'Saraiva', 'admin_luissaraiva', 'a_luissaraiva@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Beatriz', 'Henriques', 'admin_beatriz', 'a_beatriz@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Francisco', 'Andrade', 'admin_francisco', 'a_francisco@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Ricardo', 'Abreu', 'admin_ricardo', 'a_ricardo@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Bernardo', 'Leite', 'sprt_bernardoleite', 'sprt_bernardo@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Antonio', 'Pires', 'sprt_antoniopires', 'sprt_antonio@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Jose', 'Cunha', 'sprt_josecunha', 'sprt_jose@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Tomas', 'Costa', 'bm_tomascosta', 'bm_tomas@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Diogo', 'Silva', 'bm_diogosilva', 'bm_diogo@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Joao', 'Monteiro', 'bm_joaomonteiro', 'bm_joao@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Pedro', 'Goncalves', 'pedrogoncalves', 'pedro@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Mariana', 'Oliveira', 'marianaoliveira', 'mariana@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Francisca', 'Rodrigues', 'francisarodrigues', 'francisca@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Ines', 'Pinto', 'inespinto', 'ines@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Raquel', 'Pereira', 'raquelpereira', 'raquel@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Margarida', 'Santos', 'margaridasantos', 'margarida@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Teresa', 'Brito', 'teresabrito', 'teresa@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Tiago', 'Carvalho', 'tiagocarvalho', 'tiago@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Maria', 'Coelho', 'mariacoelho', 'maria@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
-INSERT INTO users VALUES (DEFAULT, 'Ana', 'Ferreira', 'anaferreira', 'ana@gmail.com', '1234', '/images/user_image.png', DEFAULT, DEFAULT, true);
+INSERT INTO users VALUES (DEFAULT, 'Luis', 'Saraiva', 'admin_luissaraiva', 'a_luissaraiva@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Beatriz', 'Henriques', 'admin_beatriz', 'a_beatriz@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Francisco', 'Andrade', 'admin_francisco', 'a_francisco@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Ricardo', 'Abreu', 'admin_ricardo', 'a_ricardo@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Bernardo', 'Leite', 'sprt_bernardoleite', 'sprt_bernardo@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Antonio', 'Pires', 'sprt_antoniopires', 'sprt_antonio@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Jose', 'Cunha', 'sprt_josecunha', 'sprt_jose@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Tomas', 'Costa', 'bm_tomascosta', 'bm_tomas@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Diogo', 'Silva', 'bm_diogosilva', 'bm_diogo@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Joao', 'Monteiro', 'bm_joaomonteiro', 'bm_joao@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Pedro', 'Goncalves', 'pedrogoncalves', 'pedro@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Mariana', 'Oliveira', 'marianaoliveira', 'mariana@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Francisca', 'Rodrigues', 'francisarodrigues', 'francisca@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Ines', 'Pinto', 'inespinto', 'ines@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Raquel', 'Pereira', 'raquelpereira', 'raquel@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Margarida', 'Santos', 'margaridasantos', 'margarida@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Teresa', 'Brito', 'teresabrito', 'teresa@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Tiago', 'Carvalho', 'tiagocarvalho', 'tiago@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Maria', 'Coelho', 'mariacoelho', 'maria@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Ana', 'Ferreira', 'anaferreira', 'ana@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
 
 
 INSERT INTO chatSupports VALUES (5);
@@ -340,12 +340,12 @@ INSERT INTO categories VALUES (DEFAULT, 'Culture');
 INSERT INTO categories VALUES (DEFAULT, 'Home');
 INSERT INTO categories VALUES (DEFAULT, 'Sports');
 
-INSERT INTO products VALUES (DEFAULT, 'Gelato', 10, now(), 1, 3.0, 30.00, './src/images/brands/alameda_turquesa/01-holi-400x400.jpg', '', '', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Holi', 10, now(), 1, 3.0, 30.00, './src/images/brands/alameda_turquesa/2-alameda-turquesa-gelato-400x400.jpg', '', '', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Chizela', 10, now(), 1, 3.0, 30.00, './src/images/brands/alameda_turquesa/03-chizela-black-alameda-turquesa.png', '', '', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Frozen', 10, now(), 1, 3.0, 30.00, './src/images/brands/alameda_turquesa/3-frozen-sneakers-alamedaturquesa-400x400.jpg', '', '', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Cardosas', 10, now(), 1, 3.0, 300.00, './src/images/brands/alma_de_luce/1.jpg', '', '', 3, 6);
-INSERT INTO products VALUES (DEFAULT, 'Aparador Multi-Gavetas', 10, now(), 1, 3.0, 300.00, './src/images/brands/alma_de_luce/3.jpg', '', '', 3, 6);
+INSERT INTO products VALUES (DEFAULT, 'Gelato', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/01-holi-400x400.jpg', '', '', 1, 1);
+INSERT INTO products VALUES (DEFAULT, 'Holi', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/2-alameda-turquesa-gelato-400x400.jpg', '', '', 1, 1);
+INSERT INTO products VALUES (DEFAULT, 'Chizela', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/03-chizela-black-alameda-turquesa.png', '', '', 1, 1);
+INSERT INTO products VALUES (DEFAULT, 'Frozen', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/3-frozen-sneakers-alamedaturquesa-400x400.jpg', '', '', 1, 1);
+INSERT INTO products VALUES (DEFAULT, 'Cardosas', 10, now(), 1, 3.0, 300.00, '/images/brands/alma_de_luce/1.jpg', '', '', 3, 6);
+INSERT INTO products VALUES (DEFAULT, 'Aparador Multi-Gavetas', 10, now(), 1, 3.0, 300.00, '/images/brands/alma_de_luce/3.jpg', '', '', 3, 6);
 
 
 INSERT INTO wishlists VALUES (1, 11);

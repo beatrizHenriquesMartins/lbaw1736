@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Wishlist;
 use App\Client;
+use App\Product;
 
 class WishlistController extends Controller
 {
@@ -21,11 +22,29 @@ class WishlistController extends Controller
     {
       if (!Auth::check()) return redirect('/login');
 
-      $this->authorize('list', Wishlist::class);
+      if (!$this->authorize('list', Wishlist::class))
+        return redirect('/homepage');
 
-      $wishlist = Client::find(Auth::user()->id)->wishlist()->orderBy('id_client')->get();
+      $client = Client::find(Auth::user()->id);
 
-      return view('pages.wishlist', ['wishlist' => $wishlist]);
+      if($client->wishlist == null)
+        return view('pages.404');
+
+      else {
+        if(count($client->wishlist) != 0) {
+          $products = collect(new Product);
+          foreach ($client->wishlist as $list) {
+            $products->push(Product::find($list->pivot->id_product));
+
+          }
+          return view('pages.wishlist', ['products' => $products]);
+        }
+        else {
+          $products = null;
+          return view('pages.wishlist', ['products' => $products]);
+
+        }
+      }
     }
 
     /**
@@ -33,33 +52,45 @@ class WishlistController extends Controller
      *
      * @return Product The product created.
      */
-    public function create(Request $request)
+    public function create(Request $request, $id_product)
     {
-      $wishlist = new Wishlist();
-
-      $client = Client::find(Auth::user()->id);
-
-      $client->authorize('create', $wishlist);
-
-      $product->id_product = $request->input('id_product');
 
       $product = Product::find($id_product);
 
-      $wishlist->id_client = Auth::user()->id;
-      $wishlist->$id_product = $id_product;
 
-      $wishlist->save();
+      if (!$this->authorize('create', Wishlist::class))
+        return redirect('/homepage');
+
+      $client = Client::find(Auth::user()->id);
+
+
+
+      if($client == null || $product == null)
+        return view('pages.404');
+
+      $client->wishlist()->create([
+        'id_client' => Auth::user()->id(),
+        'id_product' => $id_product,
+      ]);
 
     }
 
     public function delete(Request $request, $id_product)
     {
+      echo 'HERE';
+
+/*      $product = Product::find((int)$id_product);
       $client = Client::find(Auth::user()->id);
-      $wishlist = Wishlist::find(Auth::user()->id, $id_product);
+      echo $product;
+      if (!$this->authorize('delete', [$client, $product]))
+        return '/homepage';
 
-      $client->authorize('delete', $wishlist);
 
-      $wishlist->delete();
+      if($client == null || $product == null)
+        return view('pages.404');
 
-    }
+      $client->wishlist()->where($id_product, $id_product)->delete();
+
+      return $product;
+  */  }
 }

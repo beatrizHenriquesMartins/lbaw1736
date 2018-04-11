@@ -3,8 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
-
 
 class Client extends Model
 {
@@ -21,8 +19,13 @@ class Client extends Model
      * The wishlist this user owns.
      */
      public function wishlist() {
-      return $this->hasMany('App\Wishlist');
+      return $this->belongsToMany('App\Product', 'wishlists', 'id_client', 'id_product');
     }
+
+    public function cart() {
+     return $this->belongsToMany('App\Product', 'carts', 'id_client', 'id_product')->withPivot('quantity');
+   }
+
 
     public function user() {
       return $this->belongsTo('App\User');

@@ -1,7 +1,10 @@
 @extends('layouts.main')
 
-<!-- login style -->
-<link rel="stylesheet" href="./css/login.css" type="text/css">
+<!-- lists CSS -->
+<link href="css/lists.css" rel="stylesheet">
+
+<!-- Cart Links -->
+<link href="css/cart.css" rel="stylesheet">
 
 @section('content')
 
@@ -9,7 +12,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="homepage.html">
+            <a href="/homepage">
                 Homepage
             </a>
         </li>
@@ -43,9 +46,8 @@
                 </a>
             </div>
         </div>
-
         <div class = "category-products col-sm-8 col-sm-offset-1">
-          @each('partials.productwishlist', $product, 'product')
+          @each('partials.productwishlist', $products, 'product')
 
         </div>
     </div>
