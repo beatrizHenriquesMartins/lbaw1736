@@ -24,5 +24,4 @@ class Product extends Model
     return $this->belongsToMany('App\Client', 'cart', 'id_client', 'id_product');
   }
 
-
 }

@@ -1,7 +1,5 @@
 @extends('layouts.main')
 
-<!-- Homepage CSS -->
-<link href="css/homepage.css" rel="stylesheet">
 
 @section('content')
 <!-- Carousel -->

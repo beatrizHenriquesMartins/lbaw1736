@@ -19,12 +19,9 @@
     <div class="product-class">
         <div class="btns">
             <div class="cart-btn">
-              <a href="/wishlist/{{ $product->id}}" class="delete">
-
-                  <button type="button" class="btn btn-danger pull-right">
-                      Remove
-                  </button>
-              </a>
+                <button type="button" class="btn btn-danger pull-right">
+                    Remove
+                </button>
             </div>
         </div>
     </div>

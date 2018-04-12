@@ -342,7 +342,7 @@ INSERT INTO categories VALUES (DEFAULT, 'Sports');
 
 INSERT INTO products VALUES (DEFAULT, 'Gelato', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/01-holi-400x400.jpg', '', '', 1, 1);
 INSERT INTO products VALUES (DEFAULT, 'Holi', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/2-alameda-turquesa-gelato-400x400.jpg', '', '', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Chizela', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/03-chizela-black-alameda-turquesa.png', '', '', 1, 1);
+INSERT INTO products VALUES (DEFAULT, 'Chizela', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/03-chizela-black-alameda-turquesa-400x400.png', '', '', 1, 1);
 INSERT INTO products VALUES (DEFAULT, 'Frozen', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/3-frozen-sneakers-alamedaturquesa-400x400.jpg', '', '', 1, 1);
 INSERT INTO products VALUES (DEFAULT, 'Cardosas', 10, now(), 1, 3.0, 300.00, '/images/brands/alma_de_luce/1.jpg', '', '', 3, 6);
 INSERT INTO products VALUES (DEFAULT, 'Aparador Multi-Gavetas', 10, now(), 1, 3.0, 300.00, '/images/brands/alma_de_luce/3.jpg', '', '', 3, 6);

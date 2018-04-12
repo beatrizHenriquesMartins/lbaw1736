@@ -1,27 +1,29 @@
 <div class="product">
     <div class="product-image">
       <a href="/products/{{ $cart->id }}">
-        <img src="{{ $cart['imageurl'] }}" alt="Product Image">
+        <img src="{{ $cart->imageurl }}" alt="Product Image">
       </a>
     </div>
 
     <div class="product-name">
-        <h3>
-            {{$cart['name']}}
-        </h3>
+        <a href="/products/{{ $cart->id }}">
 
+          <h3>
+              {{$cart->name}}
+          </h3>
+        </a>
         <!--<h4>
             Alma de Luce
         </h4>-->
 
         <h5>
-            {{$cart['price']}}
+            {{$cart->price}}
         </h5>
     </div>
     <div class="product-class">
         <div class="quantity">
             <div class="input-group spinner">
-                <input type="text" class="form-control" value="{{$cart['pivot']['quantity']}}">
+                <input type="text" class="form-control" value="{{$cart->pivot->quantity}}">
 
                 <div class="input-group-btn-vertical">
                     <button class="btn btn-default plus" type="button">

@@ -26,25 +26,27 @@ class CartController extends Controller
         return redirect('/homepage');
 
       $client = Client::find(Auth::user()->id);
-      if($client->cart == null)
+      $cost = 0;
+      if($client == null || $client->cart == null)
         return view('pages.404');
 
       else {
         if(count($client->cart) != 0) {
-          $products = collect(new Product);
-          $quantities = array();
           foreach ($client->cart as $list) {
-            $products->push(Product::find($list->pivot->id_product));
-            $quantities = $quantities + array('quantity' => $list->pivot->quantity);
-
+            $product = (Product::find($list->pivot->id_product));
+            $quantity = $list->pivot->quantity;
+            $price = ltrim(Product::find($list->pivot->id_product)->price);
+            echo $price;
+            settype($price, "integer");
+            echo $price;
+            $cost = $cost + $price;
           }
-
-          return view('pages.cart', ['carts' => $client->cart]);
+          echo $cost;
+          return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost]);
         }
         else {
-          $products = null;
-          $quantities = null;
-          return view('pages.cart', ['carts' => $client->cart]);
+
+          return view('pages.cart', ['carts' => $client->cart, 'cost' => '0']);
 
         }
       }

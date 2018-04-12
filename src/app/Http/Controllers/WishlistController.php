@@ -27,7 +27,7 @@ class WishlistController extends Controller
 
       $client = Client::find(Auth::user()->id);
 
-      if($client->wishlist == null)
+      if($client == null || $client->wishlist == null)
         return view('pages.404');
 
       else {
@@ -47,50 +47,5 @@ class WishlistController extends Controller
       }
     }
 
-    /**
-     * Add a new product to the wishlist.
-     *
-     * @return Product The product created.
-     */
-    public function create(Request $request, $id_product)
-    {
 
-      $product = Product::find($id_product);
-
-
-      if (!$this->authorize('create', Wishlist::class))
-        return redirect('/homepage');
-
-      $client = Client::find(Auth::user()->id);
-
-
-
-      if($client == null || $product == null)
-        return view('pages.404');
-
-      $client->wishlist()->create([
-        'id_client' => Auth::user()->id(),
-        'id_product' => $id_product,
-      ]);
-
-    }
-
-    public function delete(Request $request, $id_product)
-    {
-      echo 'HERE';
-
-/*      $product = Product::find((int)$id_product);
-      $client = Client::find(Auth::user()->id);
-      echo $product;
-      if (!$this->authorize('delete', [$client, $product]))
-        return '/homepage';
-
-
-      if($client == null || $product == null)
-        return view('pages.404');
-
-      $client->wishlist()->where($id_product, $id_product)->delete();
-
-      return $product;
-  */  }
 }

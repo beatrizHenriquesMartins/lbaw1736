@@ -79,10 +79,20 @@ html {
     margin: 0;
 }
 
+.category-section div.wishlist-products {
+    width: 75%;
+    height: auto;
+    margin: 1.2em 4.2em 1.8em 4.2em;
+    padding-bottom: 1.8em;
+    display: flex;
+    -webkit-flex-direction: column;  /* Safari */
+    flex-direction:  column;
+}
+
 .category-section .category-products {
     width: 75%;
     height: auto;
-    margin: 1.8em 4.2em 1.8em 4.2em;
+    margin: 1.2em 4.2em 1.8em 4.2em;
     padding-bottom: 1.8em;
     display: flex;
     -webkit-flex-direction: column;  /* Safari */

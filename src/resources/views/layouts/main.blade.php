@@ -19,17 +19,38 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
     <!-- TopBar CSS -->
-    <link href="css/topbar.css" rel="stylesheet">
+    <link href="/css/topbar.css" rel="stylesheet">
+
+    <!-- Homepage CSS -->
+    <link href="css/homepage.css" rel="stylesheet" type="text/css" >
 
 
     <!-- login style -->
-    <link rel="stylesheet" href="./css/login.css" type="text/css">
+    <link rel="stylesheet" href="/css/login.css" type="text/css">
 
     <!-- Company Links -->
-    <link href="css/company_links.css" rel="stylesheet">
+    <link href="/css/company_links.css" rel="stylesheet">
 
     <!-- footer style -->
-    <link rel="stylesheet" href="./css/footer.css" type="text/css">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+
+    <!-- lists CSS -->
+    <link href="/css/lists.css" rel="stylesheet" type="text/css" >
+
+    <!-- Category CSS -->
+    <link href="/css/category.css" rel="stylesheet" type="text/css" >
+
+    <!-- Category CSS -->
+    <link href="/css/customer_profile.css" rel="stylesheet" type="text/css" >
+
+    <!-- Cart Links -->
+    <link href="/css/cart.css" rel="stylesheet" type="text/css" >
+
+    <link href="/css/breadcrumb_path.css" rel="stylesheet" type="text/css" >
+
+    <!-- product CSS -->
+    <link href="/css/product.css" rel="stylesheet" type="text/css" >
+
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -37,6 +58,8 @@
     <!-- CSS -->
 
     <link rel="icon" type="image/png"  href="./images/icon.png" />
+
+    <script language="JavaScript" type="text/javascript" src="js/cart_quantity.js"></script>
 
     <script language="JavaScript" type="text/javascript" src="./js/jquery.js"></script>
     <script language="JavaScript" type="text/javascript" src="./js/bootstrap.min.js"></script>
@@ -163,47 +186,7 @@
                   <!-- the collapsing menu -->
                   <div class="collapse navbar-collapse navbar-left" id="navbar-collapse-1">
                       <ul class="nav navbar-nav">
-                          <li>
-                              <a id="category_font_size" href="{{ url('/category') }}">
-                                  Fashion
-                              </a>
-                          </li>
-
-                          <li>
-                              <a id="category_font_size" href="{{ url('/category') }}">
-                                  Beauty
-                              </a>
-                          </li>
-
-                          <li>
-                              <a id="category_font_size" href="{{ url('/category') }}">
-                                  Tecnology
-                              </a>
-                          </li>
-
-                          <li>
-                              <a id="category_font_size" href="{{ url('/category') }}">
-                                  Food
-                              </a>
-                          </li>
-
-                          <li>
-                              <a id="category_font_size" href="{{ url('/category') }}">
-                                  Culture
-                              </a>
-                          </li>
-
-                          <li>
-                              <a id="category_font_size" href="{{ url('/category') }}">
-                                  Home
-                              </a>
-                          </li>
-
-                          <li>
-                              <a id="category_font_size" href="{{ url('/category') }}">
-                                  Sports
-                              </a>
-                          </li>
+                        @each('partials.category', $categories, 'category')
                       </ul>
                   </div>
               </div>

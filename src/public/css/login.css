@@ -8,6 +8,16 @@
     padding-top: 2em;
 }
 
+.topbar .top .sign a {
+    color: #6699DD;
+}
+
+.topbar .top .sign a:hover {
+    color: #6699DD;
+    text-decoration: underline;
+}
+
+
 .topbar .top .sign .hi {
     padding-top: 0.1em;
 }

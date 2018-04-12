@@ -46,11 +46,15 @@
     width: 1em;
 }
 
+.category-section .category-products {
+    width: auto;
+}
+
 .category-section .category-products .product {
 /*    border-style: solid;
     border-width: 0.0714em 0.0714em 0.0714em 0.0714em;
   */
-    margin: 1.8em 1.8em 1.8em 0;
+    margin: 0.8em 1.8em 1.8em 0;
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
