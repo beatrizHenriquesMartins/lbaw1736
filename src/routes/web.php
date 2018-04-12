@@ -37,11 +37,6 @@ Route::get('wishlist', 'WishlistController@list')->name('wishlist');
 // 404
 Route::get('404', 'FooterController@show404')->name('404');
 
-// Footer
-Route::get('aboutus', 'FooterController@showaboutus')->name('aboutus');
-Route::get('faq', 'FooterController@showfaq')->name('faq');
-Route::get('contactus', 'FooterController@showcontactus')->name('contactus');
-Route::get('terms', 'FooterController@showterms')->name('terms');
 
 // cart
 Route::get('cart', 'CartController@list')->name('cart');
