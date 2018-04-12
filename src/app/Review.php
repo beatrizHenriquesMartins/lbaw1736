@@ -11,5 +11,8 @@ class Review extends Model
 
   protected $primaryKey = ['id_purchase','id_product'];
 
+  public function product() {
+    return $this->belongsTo('App\Product', 'id_product');
+  }
 
 }

@@ -24,4 +24,8 @@ class Product extends Model
     return $this->belongsToMany('App\Client', 'cart', 'id_client', 'id_product');
   }
 
+  public function reviews() {
+    return $this->hasMany('App\Review', 'id_product');
+  }
+
 }

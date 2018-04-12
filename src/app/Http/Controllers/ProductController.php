@@ -21,8 +21,9 @@ class ProductController extends Controller
     {
       $product = Product::find($id);
 
-      $reviews[] = Review::where('id_product', $id)->get();
+      $reviews = $product->reviews;
       print_r($reviews);
+
       return view('pages.product', ['product' => $product, 'reviews' => $reviews]);
     }
 

@@ -205,21 +205,25 @@
 
               <div class="col-sm-2">
                   <div class="row-fluid">
-                      <a href="#">
+                      <a href="{{ route('aboutus')}}">
                           <h4>
                               About Amazonas
                           </h4>
                       </a>
                   </div>
-
                   <div class="row-fluid">
-                      <a href="#">
+                      <a href="{{ route('faq')}}">
+                          FAQ
+                      </a>
+                  </div>
+                  <div class="row-fluid">
+                      <a href="{{ route('contactus')}}">
                           Contact us
                       </a>
                   </div>
 
                   <div class="row-fluid">
-                      <a href="#">
+                      <a href="{{ route('terms')}}">
                           Terms & Conditions
                       </a>
                   </div>
