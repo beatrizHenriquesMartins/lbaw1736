@@ -11,8 +11,12 @@ class Review extends Model
 
   protected $primaryKey = ['id_purchase','id_product'];
 
+  protected $fillable = [
+      'id_purchase', 'id_product', 'reviewdate', 'textreview', 'rating'
+  ];
+
   public function product() {
-    return $this->belongsTo('App\Product', 'id_product');
+    return $this->belongsTo('App\Product', 'id');
   }
 
 }

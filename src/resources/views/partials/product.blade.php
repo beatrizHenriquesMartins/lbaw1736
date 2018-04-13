@@ -8,8 +8,8 @@
         </li>
 
         <li class="breadcrumb-item">
-            <a href="/search_result/Category">
-                Category
+            <a href="/search_result/{{$product->categoryname}}">
+                {{$product->category->categoryname}}
             </a>
         </li>
 

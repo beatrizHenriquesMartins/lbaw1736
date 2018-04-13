@@ -28,4 +28,8 @@ class Product extends Model
     return $this->hasMany('App\Review', 'id_product');
   }
 
+  public function category() {
+    return $this->belongsTo('App\Category', 'id_category');
+  }
+
 }

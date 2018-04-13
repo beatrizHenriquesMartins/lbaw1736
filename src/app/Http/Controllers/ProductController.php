@@ -20,9 +20,7 @@ class ProductController extends Controller
     public function show($id)
     {
       $product = Product::find($id);
-
       $reviews = $product->reviews;
-      print_r($reviews);
 
       return view('pages.product', ['product' => $product, 'reviews' => $reviews]);
     }
