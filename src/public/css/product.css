@@ -442,3 +442,20 @@ h2 {
         order: 3;
     }
 }
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+  and (min-resolution:.001dpcm) {
+
+    .reviews-section .review {
+        height: 20em;
+    }
+
+    .reviews-section .review .col-sm-1 {
+        height: auto;
+    }
+
+    .reviews-section .review .col-sm-1 img {
+        height: auto;
+    }
+
+}
