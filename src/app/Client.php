@@ -30,4 +30,8 @@ class Client extends Model
     public function user() {
       return $this->belongsTo('App\User');
     }
+
+    public function purchases() {
+      return $this->hasMany('App\Purchase', 'id_client');
+    }
 }

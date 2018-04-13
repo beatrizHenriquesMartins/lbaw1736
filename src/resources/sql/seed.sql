@@ -164,7 +164,7 @@ CREATE TABLE purchaseproducts (
 CREATE TABLE reviews (
   id_product INTEGER NOT NULL REFERENCES products,
   id_purchase INTEGER NOT NULL REFERENCES purchases,
-  reviewDate TIMESTAMP DEFAULT now() NOT NULL,
+  reviewDate date DEFAULT now() NOT NULL,
   textReview TEXT NOT NULL,
   rating INTEGER NOT NULL CHECK (((rating >= 0) AND (rating <= 5))),
   PRIMARY KEY(id_product, id_purchase)
@@ -340,12 +340,12 @@ INSERT INTO categories VALUES (DEFAULT, 'Culture');
 INSERT INTO categories VALUES (DEFAULT, 'Home');
 INSERT INTO categories VALUES (DEFAULT, 'Sports');
 
-INSERT INTO products VALUES (DEFAULT, 'Gelato', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/01-holi-400x400.jpg', '', '', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Holi', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/2-alameda-turquesa-gelato-400x400.jpg', '', '', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Chizela', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/03-chizela-black-alameda-turquesa-400x400.png', '', '', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Frozen', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/3-frozen-sneakers-alamedaturquesa-400x400.jpg', '', '', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Cardosas', 10, now(), 1, 3.0, 300.00, '/images/brands/alma_de_luce/1.jpg', '', '', 3, 6);
-INSERT INTO products VALUES (DEFAULT, 'Aparador Multi-Gavetas', 10, now(), 1, 3.0, 300.00, '/images/brands/alma_de_luce/3.jpg', '', '', 3, 6);
+INSERT INTO products VALUES (DEFAULT, 'Gelato', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/01-holi-400x400.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 1, 1);
+INSERT INTO products VALUES (DEFAULT, 'Holi', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/2-alameda-turquesa-gelato-400x400.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 1, 1);
+INSERT INTO products VALUES (DEFAULT, 'Chizela', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/03-chizela-black-alameda-turquesa-400x400.png', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 1, 1);
+INSERT INTO products VALUES (DEFAULT, 'Frozen', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/3-frozen-sneakers-alamedaturquesa-400x400.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 1, 1);
+INSERT INTO products VALUES (DEFAULT, 'Cardosas', 10, now(), 1, 3.0, 300.00, '/images/brands/alma_de_luce/1.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 3, 6);
+INSERT INTO products VALUES (DEFAULT, 'Aparador Multi-Gavetas', 10, now(), 1, 3.0, 300.00, '/images/brands/alma_de_luce/3.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 3, 6);
 
 
 INSERT INTO wishlists VALUES (1, 11);
@@ -474,15 +474,15 @@ INSERT INTO purchaseproducts VALUES (8, 3, 1, 300);
 INSERT INTO purchaseproducts VALUES (9, 4, 1, 300);
 INSERT INTO purchaseproducts VALUES (10, 2, 1, 300);
 
-INSERT INTO reviews VALUES (1, 5, DEFAULT, '', 3);
-INSERT INTO reviews VALUES (2, 2, DEFAULT, '', 5);
-INSERT INTO reviews VALUES (3, 2, DEFAULT, '', 5);
-INSERT INTO reviews VALUES (4, 10, DEFAULT, '', 4);
-INSERT INTO reviews VALUES (2, 8, DEFAULT, '', 2);
-INSERT INTO reviews VALUES (1, 3, DEFAULT, '', 3);
-INSERT INTO reviews VALUES (3, 6, DEFAULT, '', 5);
-INSERT INTO reviews VALUES (5, 1, DEFAULT, '', 4);
-INSERT INTO reviews VALUES (4, 4, DEFAULT, '', 4);
+INSERT INTO reviews VALUES (1, 5, DEFAULT, 'First to Comment', 3);
+INSERT INTO reviews VALUES (2, 2, DEFAULT, 'Excellent Service', 5);
+INSERT INTO reviews VALUES (3, 2, DEFAULT, 'Excellent Service', 5);
+INSERT INTO reviews VALUES (4, 10, DEFAULT, 'First to Comment', 4);
+INSERT INTO reviews VALUES (2, 8, DEFAULT, 'Horrible Product', 1);
+INSERT INTO reviews VALUES (1, 3, DEFAULT, 'Loved this product', 4);
+INSERT INTO reviews VALUES (3, 6, DEFAULT, 'Loved this product', 5);
+INSERT INTO reviews VALUES (5, 1, DEFAULT, 'First to Comment', 4);
+INSERT INTO reviews VALUES (4, 4, DEFAULT, 'Horrible Product', 2);
 
 INSERT INTO brandBrandManagers VALUES (1, 8);
 INSERT INTO brandBrandManagers VALUES (2, 9);

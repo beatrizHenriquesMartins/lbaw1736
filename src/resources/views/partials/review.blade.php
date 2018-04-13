@@ -1,7 +1,7 @@
 <div class="review">
     <div class="col-sm-1">
         <div class="review-image">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Shahter-Reak_M_2015_cropped_%2818%29.jpg"
+            <img src="{{$review->imageurl}}"
                  alt="Costumer Image">
         </div>
     </div>
@@ -10,14 +10,30 @@
         <div class="review-information">
             <div class="username">
                 <h3>
-                    cr7
+                    {{$review->username}}
                 </h3>
             </div>
 
             <div class="date">
                 <h5>
-                    {{$review->reviewDate}}
+                    {{$review->reviewdate}}
                 </h5>
+            </div>
+
+            <div class="rating">
+
+              @for($i=0; $i < $review->rating; $i++)
+                <span class="rating-addon align-content-center">
+                    <i class="fa fa-star">
+                    </i>
+                </span>
+              @endfor
+              @for($i=$review->rating; $i < 5; $i++)
+                <span class="rating-addon align-content-center grey">
+                    <i class="fa fa-star">
+                    </i>
+                </span>
+              @endfor
             </div>
 
 
@@ -27,7 +43,7 @@
     <div class="col-sm-8 align-content-stretch">
         <div class="review-text align-content-stretch">
             <p>
-              {{$review->textReview}}
+              {{$review->textreview}}
             </p>
         </div>
     </div>

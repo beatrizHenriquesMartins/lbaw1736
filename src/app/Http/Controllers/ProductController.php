@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Product;
 use App\Review;
+use App\Purchase;
+use App\User;
 
 class ProductController extends Controller
 {
@@ -20,7 +22,7 @@ class ProductController extends Controller
     public function show($id)
     {
       $product = Product::find($id);
-      $reviews = $product->reviews;
+      $reviews = DB::table('reviews')->where('id_product', $id)->join('purchases','purchases.id','=','id_purchase')->join('users', 'users.id', '=', 'id_client')->get();
 
       return view('pages.product', ['product' => $product, 'reviews' => $reviews]);
     }

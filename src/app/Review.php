@@ -19,4 +19,8 @@ class Review extends Model
     return $this->belongsTo('App\Product', 'id');
   }
 
+  public function purchase() {
+    return $this->belongsTo('App\Purchase', 'id_purchase');
+  }
+
 }
