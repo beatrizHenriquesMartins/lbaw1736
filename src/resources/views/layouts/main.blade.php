@@ -22,7 +22,7 @@
     <link href="/css/topbar.css" rel="stylesheet">
 
     <!-- Homepage CSS -->
-    <link href="css/homepage.css" rel="stylesheet" type="text/css" >
+    <link href="/css/homepage.css" rel="stylesheet" type="text/css" >
 
 
     <!-- login style -->
