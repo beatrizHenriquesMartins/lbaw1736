@@ -188,3 +188,16 @@
         padding-top: 2.2em;
     }
 }
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+  and (min-resolution:.001dpcm) {
+
+    .category-section .category-products .product {
+        height: auto;
+    }
+
+    .category-section .category-products .product .product-image img {
+        height: auto;
+    }
+
+}

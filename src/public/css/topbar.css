@@ -237,3 +237,10 @@ div.container-fluid.topbar{
 .top .sign .dropdown-menu li {
     padding: 0 0.5em 0 0.5em;
 }
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+  and (min-resolution:.001dpcm) {
+    img.mb-4{
+        height: auto;
+    }
+}

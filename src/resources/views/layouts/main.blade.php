@@ -13,7 +13,7 @@
 
     <!-- CSS -->
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Website Font style-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -22,7 +22,7 @@
     <link href="/css/topbar.css" rel="stylesheet">
 
     <!-- Homepage CSS -->
-    <link href="css/homepage.css" rel="stylesheet" type="text/css" >
+    <link href="/css/homepage.css" rel="stylesheet" type="text/css" >
 
 
     <!-- login style -->
@@ -57,12 +57,12 @@
     <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
     <!-- CSS -->
 
-    <link rel="icon" type="image/png"  href="./images/icon.png" />
+    <link rel="icon" type="image/png"  href="/images/icon.png" />
 
-    <script language="JavaScript" type="text/javascript" src="js/cart_quantity.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/js/cart_quantity.js"></script>
 
-    <script language="JavaScript" type="text/javascript" src="./js/jquery.js"></script>
-    <script language="JavaScript" type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
