@@ -128,11 +128,3 @@ span {
         flex-direction: column;
     }
 }
-
-@media screen and (-webkit-min-device-pixel-ratio:0)
-  and (min-resolution:.001dpcm) {
-    #myCarousel .carousel-inner img{
-        height: auto;
-    }
-
-}
