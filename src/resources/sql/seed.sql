@@ -26,6 +26,10 @@ DROP TRIGGER IF EXISTS ban_admin ON bans CASCADE;
 DROP FUNCTION IF EXISTS purchase_cost() CASCADE;
 DROP TRIGGER IF EXISTS purchase_cost ON purchases CASCADE;
 
+DROP INDEX IF EXISTS idx_message;
+DROP INDEX IF EXISTS idx_product;
+DROP INDEX IF EXISTS idx_purchase;
+DROP INDEX IF EXISTS search_idx;
 
 -- Tables
 
