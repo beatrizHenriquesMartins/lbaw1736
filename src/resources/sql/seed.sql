@@ -97,7 +97,7 @@ CREATE TABLE products (
   dateCreated TIMESTAMP DEFAULT now() NOT NULL,
   modelNumber INTEGER NOT NULL,
   weight DECIMAL NOT NULL,
-  price MONEY NOT NULL,
+  price DECIMAL NOT NULL,
   imageURL TEXT NOT NULL UNIQUE,
   bigDescription TEXT NOT NULL,
   shortDescription TEXT NOT NULL,
@@ -148,7 +148,7 @@ CREATE TABLE purchases (
   id_address INTEGER REFERENCES addresses NOT NULL,
   purchaseDate TIMESTAMP DEFAULT now() NOT NULL,
   purchaseState TEXT NOT NULL,
-  cost MONEY NOT NULL CHECK (cost > CAST ( 0 AS MONEY )),
+  cost DECIMAL NOT NULL CHECK (cost > CAST ( 0 AS DECIMAL )),
   paymentType TEXT NOT NULL,
   cardNumber TEXT NOT NULL,
   cardName TEXT NOT NULL,
@@ -161,7 +161,7 @@ CREATE TABLE purchaseproducts (
   id_purchase INTEGER REFERENCES purchases,
   id_product INTEGER NOT NULL REFERENCES products,
   quantity INTEGER NOT NULL CHECK (quantity > 0),
-  cost MONEY NOT NULL CHECK (cost > CAST ( 0 AS MONEY )),
+  cost DECIMAL NOT NULL CHECK (cost > CAST ( 0 AS DECIMAL )),
   PRIMARY KEY(id_purchase, id_product)
 );
 

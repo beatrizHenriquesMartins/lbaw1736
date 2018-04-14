@@ -31,17 +31,15 @@ class CartController extends Controller
         return view('pages.404');
 
       else {
+        $cost = 0;
         if(count($client->cart) != 0) {
           foreach ($client->cart as $list) {
             $product = (Product::find($list->pivot->id_product));
             $quantity = $list->pivot->quantity;
             $price = ltrim(Product::find($list->pivot->id_product)->price);
-            echo $price;
             settype($price, "integer");
-            echo $price;
-            $cost = $cost + $price;
+            $cost = $cost + $price * $quantity;
           }
-          echo $cost;
           return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost]);
         }
         else {
