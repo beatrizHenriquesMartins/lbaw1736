@@ -46,10 +46,14 @@
     <!-- Cart Links -->
     <link href="/css/cart.css" rel="stylesheet" type="text/css" >
 
+    <!-- breadcrumb path css -->
     <link href="/css/breadcrumb_path.css" rel="stylesheet" type="text/css" >
 
     <!-- product CSS -->
     <link href="/css/product.css" rel="stylesheet" type="text/css" >
+
+    <!-- about us CSS -->
+    <link href="/css/aboutus.css" rel="stylesheet" type="text/css" >
 
 
     <!-- Google Fonts -->
@@ -67,9 +71,9 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
   </head>
-  <body>
-    <main>
 
+  <body>
+  <main>
       <!-- cabeçalho -->
       <div class="first_class">
           <!-- TOP BAR -->
@@ -90,52 +94,57 @@
                           </a>
                       </form>
                   </div>
+
                   @if (Auth::check())
-                    <div class="col-sm-3 flex-item sign">
-                        <span class="hi"> Hi, </span>
+                      <div class="col-sm-3 flex-item sign">
+                          <span class="hi">
+                              Hi,
+                          </span>
 
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle align-text-top" type="button"
-                                    id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ Auth::user()->firstname }}
+                          <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle align-text-top" type="button"
+                                      id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                                <i class="fa fa-caret-down">
-                                </i>
-                            </button>
+                                  {{ Auth::user()->firstname }}
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <li>
-                                    <a class="dropdown-item" href="{{ url('/customer_profile') }}">
-                                        Profile
-                                    </a>
-                                </li>
+                                  <i class="fa fa-caret-down">
+                                  </i>
+                              </button>
 
-                                <div class="dropdown-divider">
-                                </div>
+                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                  <li>
+                                      <a class="dropdown-item" href="{{ url('/customer_profile') }}">
+                                          Profile
+                                      </a>
+                                  </li>
 
-                                <li>
-                                    <a class="dropdown-item" href="{{ url('/logout') }}">
-                                        Sign Out
-                                    </a>
-                                </li>
-                            </div>
-                        </div>
-                    </div>
+                                  <div class="dropdown-divider">
+                                  </div>
+
+                                  <li>
+                                      <a class="dropdown-item" href="{{ url('/logout') }}">
+                                          Sign Out
+                                      </a>
+                                  </li>
+                              </div>
+                          </div>
+                      </div>
                   @endif
+
                   @if (!Auth::check())
-                    <div class="col-sm-3 flex-item sign">
-                        <a href="{{ url('/login') }}">
-                            Sign in
-                        </a>
+                      <div class="col-sm-3 flex-item sign">
+                          <a href="{{ url('/login') }}">
+                              Sign in
+                          </a>
 
-                        <span>
-                            or
-                        </span>
+                          <span>
+                              or
+                          </span>
 
-                        <a href="{{ url('/register') }}">
-                            Sign up
-                        </a>
-                    </div>
+                          <a href="{{ url('/register') }}">
+                              Sign up
+                          </a>
+                      </div>
                   @endif
               </div>
           </div>
@@ -179,7 +188,7 @@
                   <!-- the collapsing menu -->
                   <div class="collapse navbar-collapse navbar-left" id="navbar-collapse-1">
                       <ul class="nav navbar-nav">
-                        @each('partials.category', $categories, 'category')
+                          @each('partials.category', $categories, 'category')
                       </ul>
                   </div>
               </div>
@@ -187,7 +196,7 @@
       </div>
 
       <section id="content">
-        @yield('content')
+          @yield('content')
       </section>
 
       <!--Company Links-->
@@ -204,11 +213,13 @@
                           </h4>
                       </a>
                   </div>
+
                   <div class="row-fluid">
                       <a href="{{ url('/faq') }}">
                           FAQ
                       </a>
                   </div>
+
                   <div class="row-fluid">
                       <a href="{{ url('/contactus') }}">
                           Contact us
@@ -231,8 +242,6 @@
               </footer>
           </div>
       </div>
-
-
-    </main>
+  </main>
   </body>
 </html>

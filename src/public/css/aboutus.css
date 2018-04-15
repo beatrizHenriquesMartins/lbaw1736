@@ -1,0 +1,15 @@
+body,
+html {
+    background-color: white;
+    font-family: 'Karma', serif;
+}
+
+div#page_about_us{
+    margin-left: 5em;
+    margin-top: 2.5em;
+    margin-right: 5em;
+}
+
+div#content_topics{
+    margin-left: 2.5em;
+}
