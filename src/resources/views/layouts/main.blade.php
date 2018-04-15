@@ -69,13 +69,6 @@
   </head>
   <body>
     <main>
-    <!--  <header>
-        <h1><a href="{{ url('/cards') }}">Thingy!</a></h1>
-        @if (Auth::check())
-        <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{ Auth::user()->name }}</span>
-        @endif
-      </header> -->
-
 
       <!-- cabeçalho -->
       <div class="first_class">
@@ -205,7 +198,7 @@
 
               <div class="col-sm-2">
                   <div class="row-fluid">
-                      <a href="#">
+                      <a href="{{ url('/aboutus') }}">
                           <h4>
                               About Amazonas
                           </h4>

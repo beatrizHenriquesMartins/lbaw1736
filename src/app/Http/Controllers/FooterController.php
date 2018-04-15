@@ -21,6 +21,12 @@ class FooterController extends Controller
       return view('pages.404');
     }
 
+    public function showaboutus()
+    {
+
+      return view('pages.aboutus');
+    }
+
 
 
 }

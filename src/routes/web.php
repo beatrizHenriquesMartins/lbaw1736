@@ -23,8 +23,9 @@ Route::get('homepage', 'HomepageController@show')->name('homepage');
 Route::get('wishlist', 'WishlistController@list')->name('wishlist');
 
 
-// 404
+// Footer
 Route::get('404', 'FooterController@show404')->name('404');
+Route::get('aboutus', 'FooterController@showaboutus')->name('aboutus');
 
 
 // cart
