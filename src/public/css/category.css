@@ -33,7 +33,7 @@ html {
 }
 
 #content .category-section {
-    width: 90%;
+    display: flex;
     height: auto;
 }
 
