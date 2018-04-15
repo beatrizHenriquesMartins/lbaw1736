@@ -27,7 +27,7 @@
                 <h3>
                     Team
                 </h3>
-                
+
                 <div class="container">
                     <div class="card-columns col-sm-4">
                         <!-- Beatriz de Henriques Martins -->
@@ -61,7 +61,7 @@
                         <!-- Luís Miguel Santos Monteiro Saraiva -->
                         <div id="luis">
                             <div id="photo">
-                                <img src="./images/team_photos/photo_francisco.jpg" alt="beatriz" height="350"
+                                <img src="./images/team_photos/photo_luis.jpg" alt="beatriz" height="350"
                                      width="350" class="img-responsive">
                             </div>
 
