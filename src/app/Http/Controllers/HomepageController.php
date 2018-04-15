@@ -6,10 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-use App\Card;
-
-use Image;
-use HTML;
+use App\Product;
 
 class HomepageController extends Controller
 {
@@ -22,6 +19,5 @@ class HomepageController extends Controller
     public function show()
     {
       return view('pages.homepage');
-
     }
 }

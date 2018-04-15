@@ -46,8 +46,17 @@
     width: 1em;
 }
 
+.category-section {
+    flex-direction: column;
+
+}
+
 .category-section .category-products {
     width: auto;
+}
+
+.wishlist-section {
+    flex-direction: row;
 }
 
 .category-section .category-products .product {

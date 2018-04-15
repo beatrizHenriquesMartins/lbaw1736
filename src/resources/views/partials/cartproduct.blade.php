@@ -12,12 +12,14 @@
               {{$cart->name}}
           </h3>
         </a>
-        <!--<h4>
-            Alma de Luce
-        </h4>-->
-
+        <h4>
+            {{$cart->brand->name}}
+        </h4>
         <h5>
-            {{$cart->price}}
+            {{$cart->category->categoryName}}
+        </h5>
+        <h5>
+            {{$cart->price}} €
         </h5>
     </div>
     <div class="product-class">

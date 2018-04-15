@@ -1,0 +1,31 @@
+body,
+html {
+    background-color: white;
+    font-family: 'Karma', serif;
+}
+
+div#page_about_us{
+    margin-left: 5em;
+    margin-top: 2.5em;
+    margin-right: 5em;
+}
+
+p#description{
+    text-align: justify;
+}
+
+div#content_topics{
+    padding-left: 2.5em;
+}
+
+div#beatriz,
+div#francisco,
+div#luis,
+div#ricardo{
+    padding: 1.5em;
+}
+
+div#name_member_team{
+    padding-top: 1em;
+    text-align: center;
+}
