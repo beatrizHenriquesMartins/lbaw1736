@@ -10,9 +10,14 @@
               {{ $product['name'] }}
             </a>
         </h3>
-
+        <h4>
+            {{$product->brand->name}}
+        </h4>
         <h5>
-            {{ $product['price'] }}
+            {{$product->category->categoryName}}
+        </h5>
+        <h5>
+            {{ $product['price'] }} €
         </h5>
     </div>
 

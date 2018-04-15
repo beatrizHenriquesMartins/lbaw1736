@@ -32,12 +32,14 @@
                 {{$product->name}}
             </h2>
 
-            <!--<h4>
-                Alma de Luce
-            </h4>-->
-
+            <h4>
+                {{$product->brand->name}}
+            </h4>
             <h5>
-                {{$product->price}}
+                {{$product->category->categoryName}}
+            </h5>
+            <h5>
+                {{$product->price}} €
             </h5>
 
             <div class="description">
