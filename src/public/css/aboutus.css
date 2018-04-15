@@ -10,6 +10,22 @@ div#page_about_us{
     margin-right: 5em;
 }
 
+p#description{
+    text-align: justify;
+}
+
 div#content_topics{
-    margin-left: 2.5em;
+    padding-left: 2.5em;
+}
+
+div#beatriz,
+div#francisco,
+div#luis,
+div#ricardo{
+    padding: 1.5em;
+}
+
+div#name_member_team{
+    padding-top: 1em;
+    text-align: center;
 }
