@@ -15,15 +15,11 @@ class FooterController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show404()
-    {
-
+    public function show404(){
       return view('pages.404');
     }
 
-    public function showaboutus()
-    {
-
+    public function showaboutus(){
       return view('pages.aboutus');
     }
 
