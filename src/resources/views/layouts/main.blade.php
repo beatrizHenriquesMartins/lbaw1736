@@ -205,18 +205,18 @@
                       </a>
                   </div>
                   <div class="row-fluid">
-                      <a href="#">
+                      <a href="{{ url('/faq') }}">
                           FAQ
                       </a>
                   </div>
                   <div class="row-fluid">
-                      <a href="#">
+                      <a href="{{ url('/contactus') }}">
                           Contact us
                       </a>
                   </div>
 
                   <div class="row-fluid">
-                      <a href="#">
+                      <a href="{{ url('/terms') }}">
                           Terms & Conditions
                       </a>
                   </div>
