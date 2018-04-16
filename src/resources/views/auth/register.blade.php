@@ -27,7 +27,7 @@
                                 </i>
                             </span>
 
-                            <input type="text" class="form-control" name="firstname" id="name" @if(isset($firstname))value="{{$firstname}}"@endif required autofocus>
+                            <input type="text" class="form-control" name="firstname" id="name" @if(old('firstname'))value="{{old('firstname')}}"@endif required autofocus>
 
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                                 </i>
                             </span>
 
-                            <input type="text" class="form-control" name="lastname" id="name" @if(isset($lastname))value="{{$lastname}}"@endif required autofocus>
+                            <input type="text" class="form-control" name="lastname" id="name" @if(old('firstname'))value="{{old('lastname')}}"@endif required autofocus>
 
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                                 </i>
                             </span>
 
-                            <input type="text" class="form-control" name="email" id="email" @if(isset($email))value="{{$email}}"@endif required autofocus>
+                            <input type="text" class="form-control" name="email" id="email" @if(old('email'))value="{{old('email')}}"@endif required autofocus>
 
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                                 </i>
                             </span>
 
-                            <input type="text" class="form-control" name="username" id="username" @if(isset($username))value="{{$username}}"@endif autofocus>
+                            <input type="text" class="form-control" name="username" id="username" @if(old('username'))value="{{old('username')}}"@endif autofocus>
                         </div>
                     </div>
                     @if ($errors->has('username'))
@@ -119,7 +119,7 @@
                                 </i>
                             </span>
 
-                            <input type="text" class="form-control" name="cellphone" id="cellphone" @if(isset($password))value="{{$cellphone}}"@endif required autofocus>
+                            <input type="text" class="form-control" name="cellphone" id="cellphone" @if(old('cellphone'))value="{{old('cellphone')}}"@endif required autofocus>
                         </div>
                     </div>
                     @if ($errors->has('cellphone'))
