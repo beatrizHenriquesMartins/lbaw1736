@@ -24,9 +24,12 @@
     <div class="product-class">
         <div class="btns">
             <div class="cart-btn">
-                <button type="button" class="btn btn-danger pull-right">
+              <form class="form-horizontal" method="post" action="{{ route('removeWishlist', ['id' => $product->id]) }}">
+                  {{ csrf_field() }}
+                <button type="submit" class="btn btn-danger pull-right">
                     Remove
                 </button>
+              </form>
             </div>
         </div>
     </div>

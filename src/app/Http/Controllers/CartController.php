@@ -50,5 +50,26 @@ class CartController extends Controller
       }
     }
 
+    public function create(Request $request, $product_id) {
+
+      if (!Auth::check()) return redirect('/login');
+
+      if (!$this->authorize('list', Cart::class))
+        return redirect('/homepage');
+
+      $client = Client::find(Auth::user()->id);
+      $cost = 0;
+      if($client == null || $client->cart == null)
+        return redirect('/404');
+
+      DB::table('carts')->insert(['id_product' => $product_id, 'id_client' => Auth::user()->id, 'quantity' => 1]);
+
+
+
+      return redirect('/cart');
+
+
+    }
+
 
 }

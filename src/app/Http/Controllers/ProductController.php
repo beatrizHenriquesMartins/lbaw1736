@@ -22,9 +22,21 @@ class ProductController extends Controller
     public function show($id)
     {
       $product = Product::find($id);
+
+      if($product == null)
+        return view('pages.404');
+
+
       $reviews = DB::table('reviews')->where('id_product', $id)->join('purchases','purchases.id','=','id_purchase')->join('users', 'users.id', '=', 'id_client')->get();
 
-      return view('pages.product', ['product' => $product, 'reviews' => $reviews]);
+      $total = 0;
+      $number = 0;
+      foreach ($reviews as $review) {
+        $total  = $total + $review->rating;
+        $number++;
+      }
+      $reviewmed = round($total / $number);
+      return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed]);
     }
 
 

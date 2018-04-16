@@ -28,7 +28,7 @@ class WishlistController extends Controller
       $client = Client::find(Auth::user()->id);
 
       if($client == null || $client->wishlist == null)
-        return view('pages.404');
+        return redirect('/404');
 
       else {
         if(count($client->wishlist) != 0) {
@@ -47,5 +47,22 @@ class WishlistController extends Controller
       }
     }
 
+    public function create(Request $request, $product_id) {
+
+      if (!Auth::check()) return redirect('/login');
+
+      if (!$this->authorize('list', Wishlist::class))
+        return redirect('/homepage');
+
+      $client = Client::find(Auth::user()->id);
+
+      if($client == null || $client->wishlist == null)
+        return redirect('/404');
+
+      DB::table('wishlists')->insert(['id_product' => $product_id, 'id_client' => Auth::user()->id]);
+
+
+      return redirect('/wishlist');
+    }
 
 }

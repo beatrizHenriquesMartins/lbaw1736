@@ -51,43 +51,37 @@
     <div class="col-sm-2">
         <div class="product-class">
             <div class="rating">
+              @for($i=0; $i < $reviewmed; $i++)
                 <span class="rating-addon align-content-center">
                     <i class="fa fa-star">
                     </i>
                 </span>
-
-                <span class="rating-addon align-content-center">
-                    <i class="fa fa-star">
-                    </i>
-                </span>
-
-                <span class="rating-addon align-content-center">
-                    <i class="fa fa-star">
-                    </i>
-                </span>
-
+              @endfor
+              @for($i=$reviewmed; $i < 5; $i++)
                 <span class="rating-addon align-content-center grey">
                     <i class="fa fa-star">
                     </i>
                 </span>
-
-                <span class="rating-addon align-content-center grey">
-                    <i class="fa fa-star">
-                    </i>
-                </span>
+              @endfor
             </div>
 
             <div class="btns">
                 <div class="cart-btn">
-                    <a class="btn btn-success" role="button">
+                  <form class="form-horizontal" method="post" action="{{ route('addCart', ['id' => $product->id]) }}">
+                      {{ csrf_field() }}
+                      <button class="btn btn-success" role="submit" >
                         Add Cart
-                    </a>
+                      </button>
+                  </form>
                 </div>
 
                 <div class="fav-btn">
-                  <a role="button" class="btn btn-info">
-                      Add Favourites
-                  </a>
+                  <form class="form-horizontal" method="post" action="{{ route('addwishlist', ['id' => $product->id]) }}">
+                      {{ csrf_field() }}
+                      <button role="submit" class="btn btn-info" >
+                          Add Favourites
+                      </button>
+                  </form>
                 </div>
             </div>
         </div>
