@@ -4,77 +4,77 @@
 
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>
-        Amazonas
-    </title>
+        <title>
+            Amazonas
+        </title>
 
-    <!-- CSS -->
-    <!-- Bootstrap Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <!-- CSS -->
+        <!-- Bootstrap Core CSS -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Website Font style-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <!-- Website Font style-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
-    <!-- TopBar CSS -->
-    <link href="/css/topbar.css" rel="stylesheet">
+        <!-- TopBar CSS -->
+        <link href="/css/topbar.css" rel="stylesheet">
 
-    <!-- Homepage CSS -->
-    <link href="/css/homepage.css" rel="stylesheet" type="text/css" >
+        <!-- Homepage CSS -->
+        <link href="/css/homepage.css" rel="stylesheet" type="text/css" >
+
+        <!-- login style -->
+        <link rel="stylesheet" href="/css/login.css" type="text/css">
+
+        <!-- Company Links -->
+        <link href="/css/company_links.css" rel="stylesheet">
+
+        <!-- footer style -->
+        <link rel="stylesheet" href="/css/footer.css" type="text/css">
+
+        <!-- lists CSS -->
+        <link href="/css/lists.css" rel="stylesheet" type="text/css" >
+
+        <!-- Category CSS -->
+        <link href="/css/category.css" rel="stylesheet" type="text/css" >
+
+        <!-- Category CSS -->
+        <link href="/css/customer_profile.css" rel="stylesheet" type="text/css" >
+
+        <!-- Cart Links -->
+        <link href="/css/cart.css" rel="stylesheet" type="text/css" >
+
+        <!-- breadcrumb path css -->
+        <link href="/css/breadcrumb_path.css" rel="stylesheet" type="text/css" >
+
+        <!-- product CSS -->
+        <link href="/css/product.css" rel="stylesheet" type="text/css" >
+
+        <!-- about us CSS -->
+        <link href="/css/aboutus.css" rel="stylesheet" type="text/css" >
+
+        <!-- faq CSS -->
+        <link href="/css/faq.css" rel="stylesheet" type="text/css" >
 
 
-    <!-- login style -->
-    <link rel="stylesheet" href="/css/login.css" type="text/css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
+        <!-- CSS -->
 
-    <!-- Company Links -->
-    <link href="/css/company_links.css" rel="stylesheet">
+        <link rel="icon" type="image/png"  href="/images/icon.png" />
 
-    <!-- footer style -->
-    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+        <script language="JavaScript" type="text/javascript" src="/js/cart_quantity.js"></script>
+        <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
+        <script language="JavaScript" type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    </head>
 
-    <!-- lists CSS -->
-    <link href="/css/lists.css" rel="stylesheet" type="text/css" >
-
-    <!-- Category CSS -->
-    <link href="/css/category.css" rel="stylesheet" type="text/css" >
-
-    <!-- Category CSS -->
-    <link href="/css/customer_profile.css" rel="stylesheet" type="text/css" >
-
-    <!-- Cart Links -->
-    <link href="/css/cart.css" rel="stylesheet" type="text/css" >
-
-    <!-- breadcrumb path css -->
-    <link href="/css/breadcrumb_path.css" rel="stylesheet" type="text/css" >
-
-    <!-- product CSS -->
-    <link href="/css/product.css" rel="stylesheet" type="text/css" >
-
-    <!-- about us CSS -->
-    <link href="/css/aboutus.css" rel="stylesheet" type="text/css" >
-
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
-    <!-- CSS -->
-
-    <link rel="icon" type="image/png"  href="/images/icon.png" />
-
-    <script language="JavaScript" type="text/javascript" src="/js/cart_quantity.js"></script>
-
-    <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
-    <script language="JavaScript" type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-
-  </head>
-
-  <body>
-  <main>
-      <!-- cabeçalho -->
+    <body>
+    <main>
+        <!-- cabeçalho -->
       <div class="first_class">
           <!-- TOP BAR -->
           <div class="container-fluid topbar">

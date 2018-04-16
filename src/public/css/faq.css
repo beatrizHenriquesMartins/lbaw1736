@@ -1,0 +1,15 @@
+body,
+html {
+    background-color: white;
+    font-family: 'Karma', serif;
+}
+
+div#page_faq{
+    margin-left: 5em;
+    margin-top: 2.5em;
+    margin-right: 5em;
+}
+
+div#accordion{
+    padding-left: 2.5em;
+}
