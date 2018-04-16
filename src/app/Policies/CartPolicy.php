@@ -20,7 +20,7 @@ class CartPolicy
       return Auth::check();
     }
 
-    public function create(Client $client)
+    public function create(User $user)
     {
       // Any user can add a new product to their wishlist
       return Auth::check();
@@ -31,8 +31,11 @@ class CartPolicy
 
       // Only a owner can delete it
       $client = Client::find($user->id);
-      $product = $client->wishlist()->find((int)$product->id);
+      $cart = DB::table('carts')->where([['id_product', '=', $product->id], ['id_client', '=', $user->id]]);
 
-      return $product != null;
+      if($cart != null) {
+          return true;
+      }
+      return false;
     }
 }

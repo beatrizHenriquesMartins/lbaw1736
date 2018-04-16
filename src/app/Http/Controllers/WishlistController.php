@@ -65,4 +65,25 @@ class WishlistController extends Controller
       return redirect('/wishlist');
     }
 
+
+    public function delete($product_id) {
+
+      if (!Auth::check()) return redirect('/login');
+
+      $product = Product::find($product_id);
+
+      $client = Client::find(Auth::user()->id);
+      $cost = 0;
+      if($client == null || $client->cart == null)
+        return redirect('/404');
+
+      DB::table('wishlists')->where([['id_product', '=', $product_id,], ['id_client', '=', Auth::user()->id]])->delete();
+
+
+
+      return redirect('/wishlist');
+
+
+    }
+
 }

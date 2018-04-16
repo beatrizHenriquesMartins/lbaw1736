@@ -35,7 +35,12 @@ class ProductController extends Controller
         $total  = $total + $review->rating;
         $number++;
       }
-      $reviewmed = round($total / $number);
+      if($total == 0)
+        $reviewmed = 0;
+
+      else
+        $reviewmed = round($total / $number);
+
       return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed]);
     }
 

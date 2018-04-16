@@ -25,7 +25,7 @@
         <div class="btns">
             <div class="cart-btn">
               <form class="form-horizontal" method="post" action="{{ route('removeWishlist', ['id' => $product->id]) }}">
-                  {{ csrf_field() }}
+                {{ csrf_field() }}
                 <button type="submit" class="btn btn-danger pull-right">
                     Remove
                 </button>

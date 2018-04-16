@@ -54,7 +54,7 @@ class CartController extends Controller
 
       if (!Auth::check()) return redirect('/login');
 
-      if (!$this->authorize('list', Cart::class))
+      if (!$this->authorize('create', Cart::class))
         return redirect('/homepage');
 
       $client = Client::find(Auth::user()->id);
@@ -63,6 +63,43 @@ class CartController extends Controller
         return redirect('/404');
 
       DB::table('carts')->insert(['id_product' => $product_id, 'id_client' => Auth::user()->id, 'quantity' => 1]);
+
+
+
+      return redirect('/cart');
+
+
+    }
+
+    public function delete(Request $request, $product_id) {
+
+      if (!Auth::check()) return redirect('/login');
+
+      $client = Client::find(Auth::user()->id);
+      $cost = 0;
+      if($client == null || $client->cart == null)
+        return redirect('/404');
+
+      DB::table('carts')->where([['id_product', '=', $product_id,], ['id_client', '=', Auth::user()->id]])->delete();
+
+
+
+      return redirect('/cart');
+
+
+    }
+
+
+    public function deleteAll(Request $request) {
+
+      if (!Auth::check()) return redirect('/login');
+
+      $client = Client::find(Auth::user()->id);
+      $cost = 0;
+      if($client == null || $client->cart == null)
+        return redirect('/404');
+
+      DB::table('carts')->where([['id_client', '=', Auth::user()->id]])->delete();
 
 
 

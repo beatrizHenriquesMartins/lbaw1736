@@ -44,9 +44,12 @@
               </div>
 
               <div class="delete-cart-btn">
-                  <button type="button" class="btn btn-danger">
-                      Delete Cart
-                  </button>
+                <form class="form-horizontal" method="post" action="{{ route('removeAllCart') }}">
+                      {{ csrf_field() }}
+                      <button type="submit" class="btn btn-danger">
+                          Delete Cart
+                      </button>
+                  </form>
               </div>
           </div>
 
