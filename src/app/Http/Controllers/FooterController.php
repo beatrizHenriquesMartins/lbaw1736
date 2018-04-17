@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
+use App\Client;
+use App\BrandManager;
+use App\SupportChat;
+use App\Admin;
 
 class FooterController extends Controller
 {
@@ -16,29 +20,155 @@ class FooterController extends Controller
      * @return Response
      */
     public function show404(){
-      return view('pages.404');
+      $type = 0;
+
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = SupportChat::find(Auth::user()->id);
+        $userCL = SupportChat::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+
+
+      return view('pages.404', ['type' => $type]);
     }
 
     public function showaboutus(){
-      return view('pages.aboutus');
+      $type = 0;
+
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = SupportChat::find(Auth::user()->id);
+        $userCL = SupportChat::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+
+
+      return view('pages.aboutus', ['type' => $type]);
     }
 
     public function showfaq()
     {
+      $type = 0;
 
-      return view('pages.faq');
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = SupportChat::find(Auth::user()->id);
+        $userCL = SupportChat::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+
+
+      return view('pages.faq', ['type' => $type]);
     }
 
     public function showcontactus()
     {
+      $type = 0;
 
-      return view('pages.contactus');
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = SupportChat::find(Auth::user()->id);
+        $userCL = SupportChat::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+
+      return view('pages.contactus', ['type' => $type]);
     }
 
     public function showterms()
     {
+      $type = 0;
 
-      return view('pages.terms');
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = SupportChat::find(Auth::user()->id);
+        $userCL = SupportChat::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+
+
+      return view('pages.terms', ['type' => $type]);
     }
 
 }

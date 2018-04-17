@@ -18,7 +18,16 @@
         </li>
     </ol>
 </nav>
-
+@if($usertype == 2)
+  <div class="edit">
+    <a href="{{ route('editProduct', ['id' => $product->id]) }}">
+      <i class="fa fa-edit"></i>
+    </a>
+    <a href="{{ route('removeProduct', ['id' => $product->id]) }}">
+      <i class="fa fa-trash"></i>
+    </a>
+  </div>
+@endif
 <div class="product-section">
     <div class="col-sm-4">
         <div class="product-image">

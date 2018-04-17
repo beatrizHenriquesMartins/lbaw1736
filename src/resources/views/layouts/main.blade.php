@@ -169,16 +169,23 @@
 
                   <!-- Non-collapsing right-side icons -->
                   <ul class="nav navbar-nav navbar-right">
-                      <li>
-                          <a href="{{ url('/wishlist') }}" class="fa fa-heart">
-                          </a>
-                      </li>
+                      @if($type == 1)
+                        <li>
+                            <a href="{{ url('/wishlist') }}" class="fa fa-heart">
+                            </a>
+                        </li>
 
-                      <li>
-                          <a href="{{ url('/cart') }}" class="fa fa-shopping-cart">
-                          </a>
-                      </li>
-
+                        <li>
+                            <a href="{{ url('/cart') }}" class="fa fa-shopping-cart">
+                            </a>
+                        </li>
+                      @endif
+                      @if($type == 2)
+                        <li>
+                            <a href="{{ url('/addProduct') }}" class="fa fa-plus">
+                            </a>
+                        </li>
+                      @endif
                       <li>
                           <a href="{{ url('/homepage') }}" class="fa fa-home">
                           </a>

@@ -34,11 +34,5 @@ class ClientController extends Controller
       return $client;
     }
 
-    public function list()
-    {
-      if (!Auth::check()) return redirect('/login');
-
-      return view('pages.profile');
-    }
 
 }

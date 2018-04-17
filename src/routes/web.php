@@ -44,6 +44,8 @@ Route::post('removeallcart/', 'CartController@deleteAll')->name('removeAllCart')
 
 // product
 Route::get('products/{id}', 'ProductController@show');
+Route::get('products/{id}/edit', 'ProductController@edit')->name('editProduct');
+Route::get('products/{id}/remove', 'ProductController@delete')->name('removeProduct');
 
 // Authentication
 

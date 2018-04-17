@@ -30,20 +30,38 @@ class WishlistController extends Controller
       if($client == null || $client->wishlist == null)
         return redirect('/404');
 
-      else {
-        if(count($client->wishlist) != 0) {
-          $products = collect(new Product);
-          foreach ($client->wishlist as $list) {
-            $products->push(Product::find($list->pivot->id_product));
+        $type = 0;
 
-          }
-          return view('pages.wishlist', ['products' => $products]);
+
+        if(Auth::check()) {
+
+          $userBM = BrandManager::find(Auth::user()->id);
+          $userSP = SupportChat::find(Auth::user()->id);
+          $userADM = SupportChat::find(Auth::user()->id);
+          $userCL = SupportChat::find(Auth::user()->id);
+
+
+          if($userCL != null)
+            $type = 1;
+
+          if($userBM != null)
+            $type = 2;
+
+          if($userSP != null)
+            $type = 3;
+
+          if($userADM != null)
+            $type = 4;
         }
-        else {
-          $products = null;
-          return view('pages.wishlist', ['products' => $products]);
+
+
+      if(count($client->wishlist) != 0) {
+        $products = collect(new Product);
+        foreach ($client->wishlist as $list) {
+          $products->push(Product::find($list->pivot->id_product));
 
         }
+        return view('pages.wishlist', ['products' => $products, 'type' => $type]);
       }
     }
 
@@ -54,15 +72,22 @@ class WishlistController extends Controller
       if (!$this->authorize('list', Wishlist::class))
         return redirect('/homepage');
 
+
       $client = Client::find(Auth::user()->id);
 
       if($client == null || $client->wishlist == null)
         return redirect('/404');
 
-      DB::table('wishlists')->insert(['id_product' => $product_id, 'id_client' => Auth::user()->id]);
 
+      $product = DB::table('wishlists')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->first();
 
-      return redirect('/wishlist');
+      if($product == null && $product->active == 1) {
+        DB::table('wishlists')->insert(['id_product' => $product_id, 'id_client' => Auth::user()->id]);
+        return redirect('/wishlist');
+
+      }
+
+      return redirect()->back();
     }
 
 
@@ -77,11 +102,16 @@ class WishlistController extends Controller
       if($client == null || $client->cart == null)
         return redirect('/404');
 
-      DB::table('wishlists')->where([['id_product', '=', $product_id,], ['id_client', '=', Auth::user()->id]])->delete();
+
+      $product = DB::table('wishlists')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->first();
+
+      if($product != null) {
+        DB::table('wishlists')->where([['id_product', '=', $product_id,], ['id_client', '=', Auth::user()->id]])->delete();
+        return redirect('/wishlist');
+      }
 
 
-
-      return redirect('/wishlist');
+      return redirect()->back();
 
 
     }

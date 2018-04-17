@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-use App\Product;
+use App\Client;
+use App\BrandManager;
+use App\SupportChat;
+use App\Admin;
 
 class HomepageController extends Controller
 {
@@ -18,6 +21,31 @@ class HomepageController extends Controller
      */
     public function show()
     {
-      return view('pages.homepage');
+      $type = 0;
+
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = SupportChat::find(Auth::user()->id);
+        $userCL = SupportChat::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+
+      return view('pages.homepage', ['type' => $type]);
     }
 }
