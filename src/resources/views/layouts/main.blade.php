@@ -128,6 +128,11 @@
                                   </li>
                               </div>
                           </div>
+                          <div class="user-img">
+                            <a href="{{ url('/profile') }}">
+                                <img class="mb-4"  src="{{Auth::user()->imageurl}}" alt="logo" >
+                            </a>
+                          </div>
                       </div>
                   @endif
 

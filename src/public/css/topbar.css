@@ -136,6 +136,37 @@ div.container-fluid.topbar{
     font-size: 17px;
 }
 
+.first_class .topbar .sign .user-img img {
+    width: 3em;
+    height: 3em;
+}
+
+.first_class .topbar .sign .user-img {
+    flex: 1;
+    padding-right: 2.6em;
+}
+
+.first_class .topbar .sign .hi {
+    flex: 9;
+}
+
+.first_class .topbar .sign .dropdown {
+    flex: 1;
+}
+
+
+
+.first_class .topbar .search {
+    align-items: center;
+}
+
+.first_class .topbar .sign {
+    align-items: center;
+    display: flex;
+    align-content: flex-end;
+
+}
+
 @media (max-width:1000px) {
     #navBarSearchForm input[type=text]{
         width: 10em !important;

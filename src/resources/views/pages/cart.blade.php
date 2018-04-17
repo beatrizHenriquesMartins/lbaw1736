@@ -20,23 +20,33 @@
     </ol>
 </nav>
 
+<div class="container-fluid main">
+    <div class="row-fluid category-section wishlist-section">
+        <div class = "sidelinks col-sm-2">
+            <div class="list-group">
+                <a href="customer_profile.html" class="list-group-item list-group-item-action">
+                    Profile
+                </a>
 
-<div class="container category-section">
-    <div class="category-topbar row">
-        <div class="col-sm-2 category">
-            <h2>
-                Cart
-            </h2>
-        </div>
+                <a href="list_purchases.html" class="list-group-item list-group-item-action">
+                    List of Purchases
+                </a>
 
-        <div class="col-sm-8">
+                <a href="{{route('wishlist')}}" class="list-group-item list-group-item-action">
+                    List of Favourites
+                </a>
+
+                <a href="{{route('cart')}}" class="list-group-item list-group-item-action active">
+                    Cart
+                </a>
+            </div>
         </div>
+      <div class="category-products row">
+        @each('partials.cartproduct', $carts, 'cart')
+
+      </div>
     </div>
 
-    <div class="category-products row">
-      @each('partials.cartproduct', $carts, 'cart')
-
-    </div>
     @if(count($carts)!=0)
       <div class="final">
           <div class="delete-cart">
@@ -80,5 +90,4 @@
       </div>
     @endif
 </div>
-
 @endsection

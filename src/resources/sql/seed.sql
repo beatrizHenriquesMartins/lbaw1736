@@ -86,7 +86,7 @@ CREATE TABLE bans (
 );
 
 CREATE TABLE categories (
-  id SERIAL PRIMARY KEY,
+  id_category SERIAL PRIMARY KEY,
   categoryName TEXT NOT NULL UNIQUE
 );
 

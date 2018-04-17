@@ -36,8 +36,12 @@
                     List of Purchases
                 </a>
 
-                <a href="list_favourites.html" class="list-group-item list-group-item-action active">
+                <a href="{{route('wishlist')}}" class="list-group-item list-group-item-action active">
                     List of Favourites
+                </a>
+
+                <a href="{{route('cart')}}" class="list-group-item list-group-item-action">
+                    Cart
                 </a>
             </div>
         </div>

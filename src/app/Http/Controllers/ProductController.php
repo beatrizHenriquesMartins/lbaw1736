@@ -101,7 +101,7 @@ class ProductController extends Controller
       }
 
 
-      $products = Product::join('categories', 'categories.id', '=', 'id_category')->where('categories.categoryname', '=', $categoryname)->get();
+      $products = Product::join('categories', 'categories.id_category', '=', 'products.id_category')->where('categories.categoryname', '=', $categoryname)->get();
       $reviewsmed = [];
       foreach ($products as $product) {
         $reviews = DB::table('reviews')->where('id_product', $product->id)->join('purchases','purchases.id','=','id_purchase')->join('users', 'users.id', '=', 'id_client')->get();
