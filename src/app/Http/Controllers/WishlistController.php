@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Wishlist;
 use App\Client;
 use App\Product;
+use App\BrandManager;
+use App\SupportChat;
+use App\Admin;
 
 class WishlistController extends Controller
 {
@@ -63,6 +66,11 @@ class WishlistController extends Controller
         }
         return view('pages.wishlist', ['products' => $products, 'type' => $type]);
       }
+      else {
+        $products = null;
+        return view('pages.wishlist', ['products' => $products, 'type' => $type]);
+
+      }
     }
 
     public function create(Request $request, $product_id) {
@@ -78,10 +86,10 @@ class WishlistController extends Controller
       if($client == null || $client->wishlist == null)
         return redirect('/404');
 
+      $product = Product::find($product_id);
+      $wishlist = DB::table('wishlists')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->first();
 
-      $product = DB::table('wishlists')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->first();
-
-      if($product == null && $product->active == 1) {
+      if($wishlist == null && $product->active == 1) {
         DB::table('wishlists')->insert(['id_product' => $product_id, 'id_client' => Auth::user()->id]);
         return redirect('/wishlist');
 
