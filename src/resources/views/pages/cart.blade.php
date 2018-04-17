@@ -15,7 +15,7 @@
         </li>
         <li class="breadcrumb-item">
             <a href="/profile">
-                Profile 
+                Profile
             </a>
         </li>
         <li class="breadcrumb-item" aria-current="page">
@@ -45,7 +45,7 @@
                 </a>
             </div>
         </div>
-      <div class="category-products row">
+      <div class="category-products wishlist-products col-sm-8 col-sm-offset-1">
         @each('partials.cartproduct', $carts, 'cart')
 
       </div>
