@@ -67,7 +67,7 @@
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
-    height: 60%;
+    height: 100%;
     padding-left: 1.8em;
     box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
     border-radius: 5px;
@@ -136,7 +136,7 @@
 .main .final {
     width: auto;
     height: auto;
-    margin: 1.0em 14.5em 4em 25.7em;
+    margin: 1.0em 7.5em 4em 25.7em;
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
@@ -207,6 +207,6 @@
         height: auto;
     }
 
-  
+
 
 }

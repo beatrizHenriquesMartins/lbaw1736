@@ -13,7 +13,11 @@
                 Homepage
             </a>
         </li>
-
+        <li class="breadcrumb-item">
+            <a href="/profile">
+                Profile 
+            </a>
+        </li>
         <li class="breadcrumb-item" aria-current="page">
             Cart
         </li>
