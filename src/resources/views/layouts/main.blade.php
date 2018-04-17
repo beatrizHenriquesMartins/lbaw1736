@@ -169,20 +169,48 @@
 
                   <!-- Non-collapsing right-side icons -->
                   <ul class="nav navbar-nav navbar-right">
-                      @if($type == 1)
-                        <li>
-                            <a href="{{ url('/wishlist') }}" class="fa fa-heart">
-                            </a>
-                        </li>
+                      @if(Auth::check())
+                          <li>
+                              <a href="{{ url('/profile') }}" class="fa fa-user">
+                              </a>
+                          </li>
+                        @if($type == 1)
+                          <li>
+                              <a href="{{ url('/wishlist') }}" class="fa fa-heart">
+                              </a>
+                          </li>
 
+                          <li>
+                              <a href="{{ url('/cart') }}" class="fa fa-shopping-cart">
+                              </a>
+                          </li>
+                        @endif
+                        @if($type == 2)
+                          <li>
+                              <a href="{{ url('/addProduct') }}" class="fa fa-plus">
+                              </a>
+                          </li>
+                        @endif
+                        @if($type == 3)
+                          <li>
+                              <a href="{{ url('/messages') }}" class="fa fa-plus">
+                              </a>
+                          </li>
+                        @endif
+                        @if($type == 4)
+                          <li>
+                              <a href="{{ url('/clients') }}" class="fa fa-users">
+                              </a>
+                          </li>
+                        @endif
+                      @endif
+                      @if(!Auth::check())
                         <li>
-                            <a href="{{ url('/cart') }}" class="fa fa-shopping-cart">
+                            <a href="{{ url('/login') }}" class="fa fa-sign-in">
                             </a>
                         </li>
-                      @endif
-                      @if($type == 2)
                         <li>
-                            <a href="{{ url('/addProduct') }}" class="fa fa-plus">
+                            <a href="{{ url('/register') }}" class="fa fa-user-plus">
                             </a>
                         </li>
                       @endif

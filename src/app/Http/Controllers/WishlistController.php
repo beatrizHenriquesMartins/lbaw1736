@@ -37,8 +37,8 @@ class WishlistController extends Controller
 
           $userBM = BrandManager::find(Auth::user()->id);
           $userSP = SupportChat::find(Auth::user()->id);
-          $userADM = SupportChat::find(Auth::user()->id);
-          $userCL = SupportChat::find(Auth::user()->id);
+          $userADM = Admin::find(Auth::user()->id);
+          $userCL = Client::find(Auth::user()->id);
 
 
           if($userCL != null)

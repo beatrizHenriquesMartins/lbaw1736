@@ -40,8 +40,8 @@ class ProductController extends Controller
 
         $userBM = BrandManager::find(Auth::user()->id);
         $userSP = SupportChat::find(Auth::user()->id);
-        $userADM = SupportChat::find(Auth::user()->id);
-        $userCL = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
 
 
         if($userCL != null)
@@ -87,9 +87,8 @@ class ProductController extends Controller
 
         $userBM = BrandManager::find(Auth::user()->id);
         $userSP = SupportChat::find(Auth::user()->id);
-        $userADM = SupportChat::find(Auth::user()->id);
-        $userCL = SupportChat::find(Auth::user()->id);
-
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
 
         if($userCL != null)
           $type = 1;
@@ -139,23 +138,6 @@ class ProductController extends Controller
       if (!Auth::check()) return redirect('/login');
 
       $userBM = BrandManager::find(Auth::user()->id);
-      $userSP = SupportChat::find(Auth::user()->id);
-      $userADM = SupportChat::find(Auth::user()->id);
-      $userCL = SupportChat::find(Auth::user()->id);
-
-      $type = 0;
-
-      if($userCL != null)
-        $type = 1;
-
-      if($userBM != null)
-        $type = 2;
-
-      if($userSP != null)
-        $type = 3;
-
-      if($userADM != null)
-        $type = 4;
 
       if($userBM == null)
         return redirect('/404');
@@ -176,7 +158,6 @@ class ProductController extends Controller
         DB::table('products')->where([['id', '=', $id]])->update(['active' => 0]);
         return redirect('/homepage');
       }
-      $previousUrl = app('url')->previous();
 
       return redirect('/homepage');
     }
