@@ -160,6 +160,16 @@ class ProductController extends Controller
       if($userBM == null)
         return redirect('/404');
 
+        $canchange = 0;
+
+      foreach ($userBM->brands as $brand) {
+        if($product->id_brand == $brand->id)
+          $canchange = 1;
+      }
+
+      if($canchange == 0)
+        return redirect('/404');
+
       $product = Product::find($id);
 
       if($product != null) {
