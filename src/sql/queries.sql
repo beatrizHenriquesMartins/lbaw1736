@@ -128,3 +128,17 @@ CREATE VIEW "ClientMessages" AS
 SELECT *
 FROM message
 WHERE id_client = 11;
+
+
+/*SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock", 
+	   p.dateCreated AS "Date Created", p.modelNumber AS "Model Number", 
+       p.weight AS "Weight", p.price AS "Price", 
+	   p.imageURL AS "Image URL", p.bigDescription AS "Big Description", 
+       p.shortDescription AS "Short Description", 
+	   (array_agg(pc.categoryName ORDER BY p.id DESC))[1] AS "Category", 
+       (array_agg(b.name ORDER BY p.id DESC))[1] AS "Brand", AVG(pr.rating) AS "Rating"
+FROM products p, productcategory pc, brand b, productreview pr, (setweight(to_ts_vector(pc.categoryName), 'B') || setweight(to_ts_vector(p.name), 'A')) AS document, plainto_ts_query("Fashion") AS query
+WHERE p.id_brand = b.id AND p.id_category = pc.id AND pr.id_product = p.id 
+AND document  @@ query
+GROUP BY p.id
+ORDER BY ts_rank_cd(document, query);*/
