@@ -1,4 +1,4 @@
-<div class="product" data-id="{{ $product->id }}">
+<div class="product product-wishlist" data-id="{{ $product->id }}">
     <div class="product-image">
         <a href="/products/{{ $product->id }}">
             <img src="{{ $product['imageurl'] }}" alt="Product Image">
@@ -28,13 +28,9 @@
     <div class="product-class">
         <div class="btns">
             <div class="cart-btn">
-                <form class="form-horizontal" method="post" action="{{ route('removeWishlist', ['id' => $product->id]) }}">
-                    {{ csrf_field() }}
-
-                    <button type="submit" class="btn btn-danger pull-right">
-                        Remove
-                    </button>
-                </form>
+                <a role="button" class="btn btn-danger pull-right">
+                    Remove
+                </a>
             </div>
         </div>
     </div>

@@ -11,6 +11,8 @@
             Amazonas
         </title>
 
+         <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <!-- CSS -->
         <!-- Bootstrap Core CSS -->
         <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -57,7 +59,10 @@
         <!-- faq CSS -->
         <link href="/css/faq.css" rel="stylesheet" type="text/css" >
 
-
+        <script type="text/javascript">
+            // Fix for Firefox autofocus CSS bug
+            // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
+        </script>
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
@@ -65,7 +70,10 @@
 
         <link rel="icon" type="image/png"  href="/images/icon.png" />
 
-        <script language="JavaScript" type="text/javascript" src="/js/cart_quantity.js"></script>
+        <script language="JavaScript" type="text/javascript" src="/js/cart_quantity.js" defer></script>
+        <script language="JavaScript" type="text/javascript" src="/js/stars_review.js" defer></script>
+        <script language="JavaScript" type="text/javascript" src="/js/app.js" defer></script>
+
         <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
         <script language="JavaScript" type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

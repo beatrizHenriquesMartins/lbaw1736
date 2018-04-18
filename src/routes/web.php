@@ -21,12 +21,10 @@ Route::get('homepage', 'HomepageController@show')->name('homepage');
 
 // wishlist
 Route::get('wishlist', 'WishlistController@list')->name('wishlist');
-Route::post('addwishlist/{product_id}', 'WishlistController@create')->name('addwishlist');
-Route::post('removewishlist/{product_id}', 'WishlistController@delete')->name('removeWishlist');
-/*
-Route::get('addwishlist/{product_id}', '['as' => 'addWishlist', function (Request $id, $product_id) {
-    echo $product_id;
-}]');*/
+Route::delete('api/wishlist/{id}', 'WishlistController@delete');
+Route::put('api/wishlist/{id}', 'WishlistController@create');
+
+
 // Footer
 Route::get('404', 'FooterController@show404')->name('404');
 Route::get('aboutus', 'FooterController@showaboutus')->name('aboutus');
@@ -37,9 +35,9 @@ Route::get('terms', 'FooterController@showterms')->name('terms');
 
 // cart
 Route::get('cart', 'CartController@list')->name('cart');
-Route::post('addcart/{product_id}', 'CartController@create')->name('addCart');
-Route::post('removecart/{product_id}', 'CartController@delete')->name('removeCart');
-Route::post('removeallcart/', 'CartController@deleteAll')->name('removeAllCart');
+Route::delete('api/cart/{id}', 'CartController@delete');
+Route::delete('api/cart', 'CartController@deleteAll');
+Route::put('api/cart/{id}', 'CartController@create');
 
 
 // product

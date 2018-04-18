@@ -10,6 +10,7 @@ use App\Client;
 use App\BrandManager;
 use App\SupportChat;
 use App\Admin;
+use App\Product;
 
 class HomepageController extends Controller
 {
@@ -45,7 +46,8 @@ class HomepageController extends Controller
           $type = 4;
       }
 
+      $products = Product::where([['active', '=', 1], ['tocarousel', '=', '1']])->get()->random(3);
 
-      return view('pages.homepage', ['type' => $type]);
+      return view('pages.homepage', ['products' => $products, 'type' => $type]);
     }
 }

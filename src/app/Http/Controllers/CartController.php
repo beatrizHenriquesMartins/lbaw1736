@@ -90,11 +90,10 @@ class CartController extends Controller
       $cart = DB::table('carts')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->get();
       if(count($cart) == 0 && $product->active == 1) {
         DB::table('carts')->insert(['id_product' => $product_id, 'id_client' => Auth::user()->id, 'quantity' => 1]);
-        return redirect('/cart');
 
       }
 
-      //return redirect()->back();
+      return json_encode($product);
 
 
     }
@@ -108,13 +107,13 @@ class CartController extends Controller
       if($client == null || $client->cart == null)
         return redirect('/404');
 
-      $product = DB::table('carts')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->get();
+      $product = DB::table('carts')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->first();
 
       if($product != null) {
         DB::table('carts')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->delete();
-        return redirect('/cart');
       }
-      return redirect()->back();
+
+      return json_encode($product);
     }
 
 
@@ -131,10 +130,10 @@ class CartController extends Controller
 
       if($product != null) {
         DB::table('carts')->where([['id_client', '=', Auth::user()->id]])->delete();
-        return redirect('/cart');
-      }
-      return redirect()->back();
 
+      }
+
+      return json_encode($product);
     }
 
 

@@ -57,12 +57,9 @@
                     </div>
 
                     <div class="delete-cart-btn">
-                        <form class="form-horizontal" method="post" action="{{ route('removeAllCart') }}">
-                            {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger">
+                        <a role="button" class="btn btn-danger">
                                 Delete Cart
-                            </button>
-                        </form>
+                        </a>
                     </div>
                 </div>
 
@@ -76,7 +73,7 @@
                                 Total
                             </h3>
 
-                            <h3>
+                            <h3 class="value">
                                 {{$cost}} €
                             </h3>
                         </div>

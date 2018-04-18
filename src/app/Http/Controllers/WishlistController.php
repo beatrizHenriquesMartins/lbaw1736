@@ -91,15 +91,14 @@ class WishlistController extends Controller
 
       if($wishlist == null && $product->active == 1) {
         DB::table('wishlists')->insert(['id_product' => $product_id, 'id_client' => Auth::user()->id]);
-        return redirect('/wishlist');
 
       }
 
-      return redirect()->back();
+      return json_encode($product);
     }
 
 
-    public function delete($product_id) {
+    public function delete(Request $request, $product_id) {
 
       if (!Auth::check()) return redirect('/login');
 
@@ -115,11 +114,9 @@ class WishlistController extends Controller
 
       if($product != null) {
         DB::table('wishlists')->where([['id_product', '=', $product_id,], ['id_client', '=', Auth::user()->id]])->delete();
-        return redirect('/wishlist');
       }
 
-
-      return redirect()->back();
+      return json_encode($product);
 
 
     }

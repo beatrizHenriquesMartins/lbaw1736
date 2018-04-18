@@ -1,4 +1,4 @@
-<div class="product">
+<div class="product product-cart" data-id="{{ $cart->id }}">
     <div class="product-image">
         <a href="/products/{{ $cart->id }}">
             <img src="{{ $cart->imageurl }}" alt="Product Image">
@@ -20,7 +20,7 @@
             {{$cart->category->categoryName}}
         </h5>
 
-        <h5>
+        <h5 class="price">
             {{$cart->price}} €
         </h5>
     </div>
@@ -54,13 +54,9 @@
 
         <div class="btns">
             <div class="cart-btn">
-                <form class="form-horizontal" method="post" action="{{ route('removeCart', ['id' => $cart->id]) }}">
-                    {{ csrf_field() }}
-
-                    <button type="submit" class="btn btn-danger pull-right">
-                        Delete
-                    </button>
-                </form>
+                <a role="button" class="btn btn-danger pull-right">
+                    Delete
+                </a>
             </div>
         </div>
     </div>

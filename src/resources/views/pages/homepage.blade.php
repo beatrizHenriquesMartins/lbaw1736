@@ -18,16 +18,17 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
+
             <div class="item active">
-                <img src="./images/brands/alma_de_luce/1.jpg" alt="Logo">
+                <img src="{{$products[0]->imageurl}}" alt="Logo">
             </div>
 
             <div class="item">
-                <img src="./images/brands/alma_de_luce/2.jpg" alt="Logo">
+                <img src="{{$products[1]->imageurl}}" alt="Logo">
             </div>
 
             <div class="item">
-                <img src="./images/brands/anita_picnic/slideshow_9.jpg" alt="Logo">
+                <img src="{{$products[2]->imageurl}}" alt="Logo">
             </div>
         </div>
 
