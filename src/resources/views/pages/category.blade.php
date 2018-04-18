@@ -79,7 +79,7 @@
             <?php } ?>
             <?php for($k = 0; $k < $rest; $k++) {?>
 
-              <div class="product empty">
+              <div class="product-section empty">
               </div>
           <?php } ?>
           </div>
