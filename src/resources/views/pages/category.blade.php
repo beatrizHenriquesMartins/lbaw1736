@@ -84,4 +84,5 @@
       </div>
     <?php } ?>
 </div>
+{{ $products->links() }}
 @endsection
