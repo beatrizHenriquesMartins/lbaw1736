@@ -8,10 +8,16 @@ div#page_faq{
     margin-left: 5em;
     margin-top: 2.5em;
     margin-right: 5em;
+    margin-bottom: 2.5em;
 }
 
 div#accordion{
     padding-left: 2.5em;
+}
+
+button.btn.btn-link{
+    font-weight: bold;
+    font-size: medium;
 }
 
 div.card-body{
