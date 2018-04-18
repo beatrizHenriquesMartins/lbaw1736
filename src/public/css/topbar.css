@@ -146,11 +146,6 @@ div.container-fluid.topbar{
     height: 3em;
 }
 
-.first_class .topbar .sign .user-img {
-    flex: 1;
-    padding-right: 2.6em;
-}
-
 .first_class .topbar .sign .hi {
     flex: 9;
 }
@@ -168,7 +163,8 @@ div.container-fluid.topbar{
 .first_class .topbar .sign {
     align-items: center;
     display: flex;
-    align-content: flex-end;
+    justify-content: flex-end;
+    padding-right: 3.5em;
 
 }
 
