@@ -189,7 +189,9 @@ CREATE INDEX idx_product ON products USING hash (name); /*cardinalidade media-bo
 
 CREATE INDEX idx_purchase ON purchases USING btree (id_client); /*cardinalidade media-bom candidato para cluster*/
 
-CREATE INDEX search_idx ON categories USING GIST (to_tsvector('english', categoryName));
+CREATE INDEX searchbigdescription_idx ON products USING GIST (to_tsvector('english', bigDescription));
+
+CREATE INDEX searchshortdescription_idx ON products USING GIST (to_tsvector('english', shortDescription));
 
  -- Triggers
 

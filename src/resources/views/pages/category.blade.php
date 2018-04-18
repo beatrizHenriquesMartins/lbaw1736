@@ -63,7 +63,8 @@
     $num_elems = count($products);
 
     $elems_per_row = 4;
-    $rest = $num_elems%$elems_per_row;
+    $rest = $elems_per_row - ($num_elems%$elems_per_row);
+
     $num_rows = ceil($num_elems / $elems_per_row);
 
     $col_division = 12 / $elems_per_row; //DONT CHANGE. Used for grid position purposes
@@ -84,5 +85,7 @@
       </div>
     <?php } ?>
 </div>
-{{ $products->links() }}
+<div class="category-links">
+  {{ $products->links() }}
+</div>
 @endsection

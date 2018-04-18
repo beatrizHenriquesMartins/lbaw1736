@@ -6,6 +6,17 @@ html{
     font-family: 'Karma', serif;
 }
 
+.edit {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 4.7em;
+}
+
+.edit .fa {
+  font-size: 25px;
+  padding-left: 1em;
+}
+
 .product-section {
     display: flex;
     -webkit-flex-direction: row;  /* Safari */

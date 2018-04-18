@@ -254,6 +254,11 @@ h3.product_name{
     color: #874e5a;
 }
 
+.category-links {
+  display: flex;
+  justify-content: center;
+}
+
 /* Responsive */
 @media (max-width: 1200px) and (min-width: 900px) {
     .product-name h3{
