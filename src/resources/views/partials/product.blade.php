@@ -8,7 +8,7 @@
         </li>
 
         <li class="breadcrumb-item">
-            <a href="/search_result/{{$product->categoryname}}">
+            <a href="{{route('category', ['categoryname' => $product->category->categoryname])}}">
                 {{$product->category->categoryname}}
             </a>
         </li>

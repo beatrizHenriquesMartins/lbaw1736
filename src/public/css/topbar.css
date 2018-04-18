@@ -132,6 +132,11 @@ div.container-fluid.topbar{
     margin-right: 1.1em;
 }
 
+.custom-navbar .navBar-container .navbar-right {
+    margin-left: 0;
+    margin-right: 2.5em;
+}
+
 #category_font_size{
     font-size: 17px;
 }
