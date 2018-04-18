@@ -14,6 +14,7 @@ use App\Client;
 use App\BrandManager;
 use App\SupportChat;
 use App\Admin;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -75,6 +76,11 @@ class ProductController extends Controller
 
     public function showCategory($categoryname)
     {
+
+      $category = Category::where('categoryname', '=', $categoryname)->first();
+
+      if($category == null)
+        return redirect('/404');
 
       $type = 0;
 
