@@ -21,7 +21,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             You're covered by the eBay Money Back Guarantee for just about every purchase on eBay.co.uk
                             when you pay with PayPal. As with every programme like this, there are some rules:
@@ -54,7 +54,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                         <div class="card-body">
                             The amount of time that it takes for an item to arrive often depends on the postage method
                             that you selected when you bought the item. You can review the estimated delivery time on
@@ -77,7 +77,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="card-body">
                             If you received an item that's wrong, damaged or otherwise not as described, you should
                             contact us so we can quickly help you with the issue.
@@ -96,7 +96,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                         <div class="card-body">
                             If you received an item that's wrong, damaged or otherwise not as described, you should
                             contact us so we can quickly help you with the issue.
@@ -116,7 +116,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseFive" class="collapse show" aria-labelledby="headingFive" data-parent="#accordion">
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                         <div class="card-body">
                             Go to the contact us page and send as an email with the account and we open a process.
                         </div>
