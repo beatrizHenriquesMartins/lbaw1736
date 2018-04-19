@@ -15,6 +15,7 @@ use App\BrandManager;
 use App\SupportChat;
 use App\Admin;
 use App\Category;
+use App\Brand;
 
 class ProductController extends Controller
 {
@@ -34,31 +35,6 @@ class ProductController extends Controller
 
       $reviews = DB::table('reviews')->where('id_product', $id)->join('purchases','purchases.id','=','id_purchase')->join('users', 'users.id', '=', 'id_client')->get();
 
-      $type = 0;
-
-
-      if(Auth::check()) {
-
-        $userBM = BrandManager::find(Auth::user()->id);
-        $userSP = SupportChat::find(Auth::user()->id);
-        $userADM = Admin::find(Auth::user()->id);
-        $userCL = Client::find(Auth::user()->id);
-
-
-        if($userCL != null)
-          $type = 1;
-
-        if($userBM != null)
-          $type = 2;
-
-        if($userSP != null)
-          $type = 3;
-
-        if($userADM != null)
-          $type = 4;
-      }
-
-
       $total = 0;
       $number = 0;
       foreach ($reviews as $review) {
@@ -71,7 +47,7 @@ class ProductController extends Controller
       else
         $reviewmed = round($total / $number);
 
-      return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' =>$type]);
+      return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed]);
     }
 
     public function showCategory($categoryname)
@@ -82,29 +58,7 @@ class ProductController extends Controller
       if($category == null)
         return redirect('/404');
 
-      $type = 0;
 
-
-      if(Auth::check()) {
-
-        $userBM = BrandManager::find(Auth::user()->id);
-        $userSP = SupportChat::find(Auth::user()->id);
-        $userADM = Admin::find(Auth::user()->id);
-        $userCL = Client::find(Auth::user()->id);
-
-
-        if($userCL != null)
-          $type = 1;
-
-        if($userBM != null)
-          $type = 2;
-
-        if($userSP != null)
-          $type = 3;
-
-        if($userADM != null)
-          $type = 4;
-      }
 
 
       $products = Product::where('active', '=', 1)->join('categories', 'categories.id_category', '=', 'products.id_category')->where('categories.categoryname', '=', $categoryname)->paginate(12);
@@ -125,39 +79,17 @@ class ProductController extends Controller
           $reviewmed = round($total / $number);
           array_push($reviewsmed, $reviewmed);
       }
-      return view('pages.category', ['categoryname' => $categoryname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' =>$type]);
+      return view('pages.category', ['categoryname' => $categoryname, 'products' => $products, 'reviewsmed' => $reviewsmed]);
     }
 
 
-    public function edit($id)
+    public function showedit($id)
     {
       $product = Product::find($id);
 
       if($product == null)
         return view('pages.404');
 
-      $type = 0;
-
-
-      if(Auth::check()) {
-
-        $userBM = BrandManager::find(Auth::user()->id);
-        $userSP = SupportChat::find(Auth::user()->id);
-        $userADM = Admin::find(Auth::user()->id);
-        $userCL = Client::find(Auth::user()->id);
-
-        if($userCL != null)
-          $type = 1;
-
-        if($userBM != null)
-          $type = 2;
-
-        if($userSP != null)
-          $type = 3;
-
-        if($userADM != null)
-          $type = 4;
-      }
 
       if($userBM == null)
         return redirect('/404');
@@ -174,6 +106,8 @@ class ProductController extends Controller
 
       $reviews = DB::table('reviews')->where('id_product', $id)->join('purchases','purchases.id','=','id_purchase')->join('users', 'users.id', '=', 'id_client')->get();
 
+      $userBM = BrandManager::find(Auth::user()->id);
+
       $total = 0;
       $number = 0;
       foreach ($reviews as $review) {
@@ -186,7 +120,7 @@ class ProductController extends Controller
       else
         $reviewmed = round($total / $number);
 
-      return view('pages.productedit', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type]);
+      return view('pages.productedit', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed]);
     }
 
     public function delete($id)
@@ -200,7 +134,7 @@ class ProductController extends Controller
 
       $canchange = 0;
       $product = Product::find($id);
-
+      $brandname = $product->brand->brandName;
       foreach ($userBM->brands as $brand) {
         if($product->id_brand == $brand->id)
           $canchange = 1;
@@ -211,12 +145,44 @@ class ProductController extends Controller
 
       if($product != null) {
         DB::table('products')->where([['id', '=', $id]])->update(['active' => 0]);
-        return redirect('/homepage');
+        return redirect('/brand', ['brandName' => $brandname]);
       }
 
       return redirect('/homepage');
     }
 
+    public function showBrand($brandname)
+    {
 
+      $brand = Brand::where('brandname', '=', $brandname)->first();
+
+      if($brand == null)
+        return redirect('/404');
+
+
+      $products = Product::where('active', '=', 1)->join('brands', 'brands.id_brand', '=', 'products.id_brand')->where('brands.brandname', '=', $brandname)->paginate(12);
+
+      if($products == null)
+        return view('pages.brand', ['brandname' => $brandname, 'products' => null, 'reviewsmed' => null]);
+
+      $reviewsmed = [];
+      foreach ($products as $product) {
+        $reviews = DB::table('reviews')->where('id_product', $product->id)->join('purchases','purchases.id','=','id_purchase')->join('users', 'users.id', '=', 'id_client')->get();
+
+        $total = 0;
+        $number = 0;
+        foreach ($reviews as $review) {
+          $total  = $total + $review->rating;
+          $number++;
+        }
+        if($total == 0)
+          $reviewmed = 0;
+
+        else
+          $reviewmed = round($total / $number);
+          array_push($reviewsmed, $reviewmed);
+      }
+      return view('pages.brand', ['brandname' => $brandname, 'products' => $products, 'reviewsmed' => $reviewsmed]);
+    }
 
 }

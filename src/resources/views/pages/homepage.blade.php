@@ -53,63 +53,42 @@
         </a>
     </div>
 
-    <!-- several imgs -->
     <div id="brand-container" class="container">
         <div id="inner-brand-container" class="container">
-            <div class="card-columns">
-                <div class="col-sm-4 col-xs-12 brand-box flex-item ">
-                    <div class="brand-banner-box stretch">
-                        <img src="./images/brands/aldeia_da_roupa_branca/aldeia_da_roupa_branca.png"
-                             alt="Banner 1" class="img-responsive img-center">
+          <div class="card-columns">
+              <?php for($j = 0; $j < 4; $j++) {
+                if($j == 0 || $j == 3) {?>
+                  <div class="col-sm-4 col-xs-12 brand-box flex-item ">
+                    @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
+                  </div>
+                <?php } if($j == 1) {?>
+                    <div class="col-sm-4 col-xs-12 brand-box flex-item ">
+                      @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
+                <?php } if($j == 2) {?>
+                      @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
                     </div>
-                </div>
-
-                <div class="col-sm-4 col-xs-12 brand-box flex-item">
-                    <div class="brand-banner-box">
-                        <img src="./images/brands/briel/briel.png" alt="Banner 2" class="img-responsive img-center">
-                    </div>
-
-                    <div class="brand-banner-box">
-                        <img src="./images/brands/castelbel/castelbel.png" alt="Banner 2" class="img-responsive img-center">
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-xs-12 brand-box flex-item">
-                    <div class="brand-banner-box stretch">
-                        <img src="./images/brands/bateye/bateye.png" alt="Banner 3" class="img-responsive img-center">
-                    </div>
-                </div>
-            </div>
+                <?php }
+              } ?>
+          </div>
         </div>
-
         <div id="inner-brand-container" class="container">
-            <div class="card-columns">
-                <div class="col-sm-4 col-xs-12 brand-box flex-item">
-                    <div class="brand-banner-box">
-                        <img src="./images/brands/anita_picnic/anita_picnic.png" alt="Banner 2" class="img-responsive img-center">
+          <div class="card-columns">
+              <?php for($j = 4; $j < 9; $j++) {
+                if($j == 6) {?>
+                  <div class="col-sm-4 col-xs-12 brand-box flex-item ">
+                    @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
+                  </div>
+                <?php } if($j == 4 || $j == 7) {?>
+                    <div class="col-sm-4 col-xs-12 brand-box flex-item ">
+                      @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
+                <?php } if($j == 5 || $j == 8) {?>
+                      @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
                     </div>
-
-                    <div class="brand-banner-box">
-                        <img src="./images/brands/coloradd/coloradd.png" alt="Banner 2" class="img-responsive img-center">
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-xs-12 brand-box flex-item">
-                    <div class="brand-banner-box stretch">
-                        <img src="./images/brands/boca_do_lobo/boca_do_lobo.png" alt="Banner 3" class="img-responsive img-center">
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-xs-12 brand-box flex-item">
-                    <div class="brand-banner-box">
-                        <img src="./images/brands/bluf/bluf.png" alt="Banner 2" class="img-responsive img-center">
-                    </div>
-
-                    <div class="brand-banner-box">
-                        <img src="./images/brands/ana_leite/ana_leite.png" alt="Banner 2" class="img-responsive img-center">
-                    </div>
-                </div>
-            </div>
+                <?php }
+              } ?>
+          </div>
         </div>
+
     </div>
+
 @endsection

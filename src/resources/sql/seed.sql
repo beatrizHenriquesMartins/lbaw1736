@@ -66,9 +66,10 @@ CREATE TABLE messages (
 );
 
 CREATE TABLE brands (
-  id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL UNIQUE,
-  contact INTEGER NOT NULL
+  id_brand SERIAL PRIMARY KEY,
+  brandname TEXT NOT NULL UNIQUE,
+  contact INTEGER NOT NULL,
+  brandimgurl TEXT NOT NULL
 );
 
 CREATE TABLE brandManagers (
@@ -291,39 +292,39 @@ INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'Client', 6, 20);
 INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'ChatSupport', 6, 20);
 
 
-INSERT INTO brands VALUES (DEFAULT, 'Alameda Turquesa', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Aldeia da Roupa Branca', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Alma de Luce', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Ame Moi', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Ana Leite', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Anita Picnic', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Antiflop', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Aparattus', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Babash Design', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Bateye', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Bluf', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Boca do Lobo', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Bordallo Pinheiro', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Briel', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Cabo d Mar', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Candle In', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Cante', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Castelbel', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Cavalinho', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Chicos', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Claus Porto', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Coloradd', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Deamor', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Decenio', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Design Flops', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Doodles', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Dub Dressed', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Ecola', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Enamorata', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Eureka Shoes', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Fasm', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Fio Rosa', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Science4You', 223143243);
+INSERT INTO brands VALUES (DEFAULT, 'Alameda Turquesa', 223143243, '/images/brands/alameda_turquesa/alameda_turquesa.png');
+INSERT INTO brands VALUES (DEFAULT, 'Aldeia da Roupa Branca', 223143243, '/images/brands/aldeia_da_roupa_branca/aldeia_da_roupa_branca.png');
+INSERT INTO brands VALUES (DEFAULT, 'Alma de Luce', 223143243, '/images/brands/alma_de_luce/alma_de_luce.png');
+INSERT INTO brands VALUES (DEFAULT, 'Ame Moi', 223143243, '/images/brands/ame_moi/ame_moi.png');
+INSERT INTO brands VALUES (DEFAULT, 'Ana Leite', 223143243, '/images/brands/ana_leite/ana_leite.png');
+INSERT INTO brands VALUES (DEFAULT, 'Anita Picnic', 223143243, '/images/brands/anita_picnic/anita_picnic.png');
+INSERT INTO brands VALUES (DEFAULT, 'Antiflop', 223143243, '/images/brands/antiflop/antiflop.png');
+INSERT INTO brands VALUES (DEFAULT, 'Aparattus', 223143243, '/images/brands/aparattus/aparattus.png');
+INSERT INTO brands VALUES (DEFAULT, 'Babash Design', 223143243, '/images/brands/babash_design/babash_design.png');
+INSERT INTO brands VALUES (DEFAULT, 'Bateye', 223143243, '/images/brands/bateye/bateye.png');
+INSERT INTO brands VALUES (DEFAULT, 'Bluf', 223143243, '/images/brands/bluf/bluf.png');
+INSERT INTO brands VALUES (DEFAULT, 'Boca do Lobo', 223143243, '/images/brands/boca_do_lobo/boca_do_lobo.png');
+INSERT INTO brands VALUES (DEFAULT, 'Bordallo Pinheiro', 223143243, '/images/brands/bordallo_pinheiro/bordallo_pinheiro.png');
+INSERT INTO brands VALUES (DEFAULT, 'Briel', 223143243, '/images/brands/briel/briel.png');
+INSERT INTO brands VALUES (DEFAULT, 'Cabo d Mar', 223143243, '/images/brands/cado_d_mar/cado_d_mar.png');
+INSERT INTO brands VALUES (DEFAULT, 'Candle In', 223143243, '/images/brands/candle_in/candle_in.png');
+INSERT INTO brands VALUES (DEFAULT, 'Cante', 223143243, '/images/brands/cante/cante.png');
+INSERT INTO brands VALUES (DEFAULT, 'Castelbel', 223143243, '/images/brands/castelbel/castelbel.png');
+INSERT INTO brands VALUES (DEFAULT, 'Cavalinho', 223143243, '/images/brands/cavalinho/cavalinho.png');
+INSERT INTO brands VALUES (DEFAULT, 'Chicos', 223143243, '/images/brands/chicos/chicos.png');
+INSERT INTO brands VALUES (DEFAULT, 'Claus Porto', 223143243, '/images/brands/claus_porto/claus_porto.png');
+INSERT INTO brands VALUES (DEFAULT, 'Coloradd', 223143243, '/images/brands/coloradd/coloradd.png');
+INSERT INTO brands VALUES (DEFAULT, 'Deamor', 223143243, '/images/brands/deamor/deamor.png');
+INSERT INTO brands VALUES (DEFAULT, 'Decenio', 223143243, '/images/brands/decenio/decenio.png');
+INSERT INTO brands VALUES (DEFAULT, 'Design Flops', 223143243, '/images/brands/design_flops/design_flops.png');
+INSERT INTO brands VALUES (DEFAULT, 'Doodles', 223143243, '/images/brands/doodles/doodles.png');
+INSERT INTO brands VALUES (DEFAULT, 'Dub Dressed', 223143243, '/images/brands/dub_dressed/dub_dressed.png');
+INSERT INTO brands VALUES (DEFAULT, 'Ecola', 223143243, '/images/brands/ecola/ecola.png');
+INSERT INTO brands VALUES (DEFAULT, 'Enamorata', 223143243, '/images/brands/enamorata/enamorata.png');
+INSERT INTO brands VALUES (DEFAULT, 'Eureka Shoes', 223143243, '/images/brands/eureka_shoes/eureka_shoes.png');
+INSERT INTO brands VALUES (DEFAULT, 'Fasm', 223143243, '/images/brands/fasm/fasm.png');
+INSERT INTO brands VALUES (DEFAULT, 'Fio Rosa', 223143243, '/images/brands/fio_rosa/fio_rosa.png');
+INSERT INTO brands VALUES (DEFAULT, 'Science4You', 223143243, '/images/brands/science4you/science4you.png');
 
 INSERT INTO brandManagers VALUES (1);
 INSERT INTO brandManagers VALUES (2);

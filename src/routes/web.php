@@ -42,9 +42,14 @@ Route::put('api/cart/{id}', 'CartController@create');
 
 // product
 Route::get('products/{id}', 'ProductController@show');
-Route::get('products/{id}/edit', 'ProductController@edit')->name('editProduct');
+Route::get('products/{id}/edit', 'ProductController@showedit')->name('editProduct');
 Route::get('products/{id}/remove', 'ProductController@delete')->name('removeProduct');
+
+// category
 Route::get('category/{categoryName}', 'ProductController@showCategory')->name('category');
+
+// category
+Route::get('brand/{brandName}', 'ProductController@showBrand')->name('brand');
 
 // Authentication
 

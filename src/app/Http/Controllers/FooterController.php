@@ -20,154 +20,31 @@ class FooterController extends Controller
      * @return Response
      */
     public function show404(){
-      $type = 0;
 
-
-      if(Auth::check()) {
-
-        $userBM = BrandManager::find(Auth::user()->id);
-        $userSP = SupportChat::find(Auth::user()->id);
-        $userADM = Admin::find(Auth::user()->id);
-        $userCL = Client::find(Auth::user()->id);
-
-
-        if($userCL != null)
-          $type = 1;
-
-        if($userBM != null)
-          $type = 2;
-
-        if($userSP != null)
-          $type = 3;
-
-        if($userADM != null)
-          $type = 4;
-      }
-
-
-
-      return view('pages.404', ['type' => $type]);
+      return view('pages.404');
     }
 
     public function showaboutus(){
-      $type = 0;
 
-
-      if(Auth::check()) {
-
-        $userBM = BrandManager::find(Auth::user()->id);
-        $userSP = SupportChat::find(Auth::user()->id);
-        $userADM = Admin::find(Auth::user()->id);
-        $userCL = Client::find(Auth::user()->id);
-
-
-        if($userCL != null)
-          $type = 1;
-
-        if($userBM != null)
-          $type = 2;
-
-        if($userSP != null)
-          $type = 3;
-
-        if($userADM != null)
-          $type = 4;
-      }
-
-
-
-      return view('pages.aboutus', ['type' => $type]);
+      return view('pages.aboutus');
     }
 
     public function showfaq()
     {
-      $type = 0;
 
-
-      if(Auth::check()) {
-
-        $userBM = BrandManager::find(Auth::user()->id);
-        $userSP = SupportChat::find(Auth::user()->id);
-        $userADM = Admin::find(Auth::user()->id);
-        $userCL = Client::find(Auth::user()->id);
-
-        if($userCL != null)
-          $type = 1;
-
-        if($userBM != null)
-          $type = 2;
-
-        if($userSP != null)
-          $type = 3;
-
-        if($userADM != null)
-          $type = 4;
-      }
-
-
-
-      return view('pages.faq', ['type' => $type]);
+      return view('pages.faq');
     }
 
     public function showcontactus()
     {
-      $type = 0;
 
-
-      if(Auth::check()) {
-
-        $userBM = BrandManager::find(Auth::user()->id);
-        $userSP = SupportChat::find(Auth::user()->id);
-        $userADM = Admin::find(Auth::user()->id);
-        $userCL = Client::find(Auth::user()->id);
-
-
-        if($userCL != null)
-          $type = 1;
-
-        if($userBM != null)
-          $type = 2;
-
-        if($userSP != null)
-          $type = 3;
-
-        if($userADM != null)
-          $type = 4;
-      }
-
-
-      return view('pages.contactus', ['type' => $type]);
+      return view('pages.contactus');
     }
 
     public function showterms()
     {
-      $type = 0;
 
-
-      if(Auth::check()) {
-
-        $userBM = BrandManager::find(Auth::user()->id);
-        $userSP = SupportChat::find(Auth::user()->id);
-        $userADM = Admin::find(Auth::user()->id);
-        $userCL = Client::find(Auth::user()->id);
-
-
-        if($userCL != null)
-          $type = 1;
-
-        if($userBM != null)
-          $type = 2;
-
-        if($userSP != null)
-          $type = 3;
-
-        if($userADM != null)
-          $type = 4;
-      }
-
-
-
-      return view('pages.terms', ['type' => $type]);
+      return view('pages.terms');
     }
 
 }
