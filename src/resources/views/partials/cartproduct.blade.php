@@ -12,9 +12,11 @@
             </h3>
         </a>
 
-        <h4>
-            {{$cart->brand->name}}
-        </h4>
+        <a href="/brands/{{ $cart->brand->brandname }}">
+            <h4>
+                {{$cart->brand->brandname}}
+            </h4>
+        </a>
 
         <h5>
             {{$cart->category->categoryName}}

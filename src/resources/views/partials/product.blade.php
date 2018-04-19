@@ -6,7 +6,11 @@
                 Homepage
             </a>
         </li>
-
+        <li class="breadcrumb-item">
+            <a href="{{route('brand', ['brandname' => $product->brand->brandname])}}">
+                {{$product->brand->brandname}}
+            </a>
+        </li>
         <li class="breadcrumb-item">
             <a href="{{route('category', ['categoryname' => $product->category->categoryname])}}">
                 {{$product->category->categoryname}}
@@ -46,9 +50,11 @@
                 {{$product->name}}
             </h2>
 
-            <h4>
-                {{$product->brand->name}}
-            </h4>
+            <a href="/brands/{{ $product->brand->brandname }}">
+                <h4 class="product-name">
+                    {{$product->brand->brandname}}
+                </h4>
+            </a>
 
             <h5>
                 {{$product->category->categoryName}}

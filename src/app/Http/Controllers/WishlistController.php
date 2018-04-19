@@ -30,6 +30,7 @@ class WishlistController extends Controller
 
       $client = Client::find(Auth::user()->id);
 
+
       if($client == null || $client->wishlist == null)
         return redirect('/404');
 

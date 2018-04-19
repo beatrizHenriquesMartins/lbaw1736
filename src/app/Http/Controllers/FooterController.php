@@ -21,30 +21,150 @@ class FooterController extends Controller
      */
     public function show404(){
 
-      return view('pages.404');
+      $type = 0;
+
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      return view('pages.404', ['type' => $type]);
     }
 
     public function showaboutus(){
 
-      return view('pages.aboutus');
+      $type = 0;
+
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      return view('pages.aboutus', ['type' => $type]);
     }
 
     public function showfaq()
     {
 
-      return view('pages.faq');
+      $type = 0;
+
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      return view('pages.faq', ['type' => $type]);
     }
 
     public function showcontactus()
     {
 
-      return view('pages.contactus');
+      $type = 0;
+
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      return view('pages.contactus', ['tyep' => $type]);
     }
 
     public function showterms()
     {
 
-      return view('pages.terms');
+      $type = 0;
+
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      return view('pages.terms', ['type' => $type]);
     }
 
 }

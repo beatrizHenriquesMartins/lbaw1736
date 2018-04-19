@@ -49,7 +49,7 @@ Route::get('products/{id}/remove', 'ProductController@delete')->name('removeProd
 Route::get('category/{categoryName}', 'ProductController@showCategory')->name('category');
 
 // category
-Route::get('brand/{brandName}', 'ProductController@showBrand')->name('brand');
+Route::get('brands/{brandName}', 'ProductController@showBrand')->name('brand');
 
 // Authentication
 

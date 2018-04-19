@@ -9,6 +9,11 @@
                 {{$product->name}}
             </h3>
         </a>
+        <a href="/brands/{{ $product->brand->brandname }}">
+            <h4 class="product-name">
+                {{$product->brand->brandname}}
+            </h4>
+        </a>
 
         <h5 class="product-price">
             {{$product->price}} €

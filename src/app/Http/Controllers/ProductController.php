@@ -29,9 +29,34 @@ class ProductController extends Controller
     {
       $product = Product::find($id);
 
+
       if($product == null || $product->active == 0)
         return redirect('/404');
 
+
+        $type = 0;
+
+
+        if(Auth::check()) {
+
+          $userBM = BrandManager::find(Auth::user()->id);
+          $userSP = SupportChat::find(Auth::user()->id);
+          $userADM = Admin::find(Auth::user()->id);
+          $userCL = Client::find(Auth::user()->id);
+
+
+          if($userCL != null)
+            $type = 1;
+
+          if($userBM != null)
+            $type = 2;
+
+          if($userSP != null)
+            $type = 3;
+
+          if($userADM != null)
+            $type = 4;
+        }
 
       $reviews = DB::table('reviews')->where('id_product', $id)->join('purchases','purchases.id','=','id_purchase')->join('users', 'users.id', '=', 'id_client')->get();
 
@@ -47,7 +72,7 @@ class ProductController extends Controller
       else
         $reviewmed = round($total / $number);
 
-      return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed]);
+      return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type]);
     }
 
     public function showCategory($categoryname)
@@ -60,6 +85,29 @@ class ProductController extends Controller
 
 
 
+        $type = 0;
+
+
+        if(Auth::check()) {
+
+          $userBM = BrandManager::find(Auth::user()->id);
+          $userSP = SupportChat::find(Auth::user()->id);
+          $userADM = Admin::find(Auth::user()->id);
+          $userCL = Client::find(Auth::user()->id);
+
+
+          if($userCL != null)
+            $type = 1;
+
+          if($userBM != null)
+            $type = 2;
+
+          if($userSP != null)
+            $type = 3;
+
+          if($userADM != null)
+            $type = 4;
+        }
 
       $products = Product::where('active', '=', 1)->join('categories', 'categories.id_category', '=', 'products.id_category')->where('categories.categoryname', '=', $categoryname)->paginate(12);
       $reviewsmed = [];
@@ -79,7 +127,7 @@ class ProductController extends Controller
           $reviewmed = round($total / $number);
           array_push($reviewsmed, $reviewmed);
       }
-      return view('pages.category', ['categoryname' => $categoryname, 'products' => $products, 'reviewsmed' => $reviewsmed]);
+      return view('pages.category', ['categoryname' => $categoryname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type]);
     }
 
 
@@ -89,6 +137,33 @@ class ProductController extends Controller
 
       if($product == null)
         return view('pages.404');
+
+
+        $type = 0;
+
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      $userBM = BrandManager::find(Auth::user()->id);
 
 
       if($userBM == null)
@@ -120,12 +195,39 @@ class ProductController extends Controller
       else
         $reviewmed = round($total / $number);
 
-      return view('pages.productedit', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed]);
+      return view('pages.productedit', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type]);
     }
 
     public function delete($id)
     {
       if (!Auth::check()) return redirect('/login');
+
+
+
+      $type = 0;
+
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
 
       $userBM = BrandManager::find(Auth::user()->id);
 
@@ -160,6 +262,30 @@ class ProductController extends Controller
         return redirect('/404');
 
 
+        $type = 0;
+
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
       $products = Product::where('active', '=', 1)->join('brands', 'brands.id_brand', '=', 'products.id_brand')->where('brands.brandname', '=', $brandname)->paginate(12);
 
       if($products == null)
@@ -182,7 +308,7 @@ class ProductController extends Controller
           $reviewmed = round($total / $number);
           array_push($reviewsmed, $reviewmed);
       }
-      return view('pages.brand', ['brandname' => $brandname, 'products' => $products, 'reviewsmed' => $reviewsmed]);
+      return view('pages.brand', ['brandname' => $brandname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type]);
     }
 
 }
