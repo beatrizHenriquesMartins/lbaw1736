@@ -20,18 +20,19 @@
         </h5>
 
         <div class="rating">
-          @for($i=0; $i < $reviewmed; $i++)
-            <span class="rating-addon align-content-center">
-                <i class="fa fa-star">
-                </i>
-            </span>
-          @endfor
-          @for($i=$reviewmed; $i < 5; $i++)
-            <span class="rating-addon align-content-center grey">
-                <i class="fa fa-star">
-                </i>
-            </span>
-          @endfor
+            @for($i=0; $i < $reviewmed; $i++)
+                <span class="rating-addon align-content-center">
+                    <i class="fa fa-star">
+                    </i>
+                </span>
+            @endfor
+
+            @for($i=$reviewmed; $i < 5; $i++)
+                <span class="rating-addon align-content-center grey">
+                    <i class="fa fa-star">
+                    </i>
+                </span>
+            @endfor
         </div>
 
         <p class="product-description">

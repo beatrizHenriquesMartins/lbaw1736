@@ -292,8 +292,6 @@ h2 {
     .reviews-section .review .col-sm-8 {
         flex: 5;
     }
-
-
 }
 
 @media (max-width: 900px) and (min-width: 850px) {
@@ -455,8 +453,7 @@ h2 {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0)
-  and (min-resolution:.001dpcm) {
-
+and (min-resolution:.001dpcm) {
     .reviews-section .review {
         height: 20em;
     }
@@ -468,5 +465,4 @@ h2 {
     .reviews-section .review .col-sm-1 img {
         height: auto;
     }
-
 }
