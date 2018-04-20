@@ -130,7 +130,7 @@ FROM message
 WHERE id_client = 11;
 
 
-/*SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock", 
+SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock", 
 	   p.dateCreated AS "Date Created", p.modelNumber AS "Model Number", 
        p.weight AS "Weight", p.price AS "Price", 
 	   p.imageURL AS "Image URL", p.bigDescription AS "Big Description", 
@@ -141,4 +141,4 @@ FROM products p, productcategory pc, brand b, productreview pr, (setweight(to_ts
 WHERE p.id_brand = b.id AND p.id_category = pc.id AND pr.id_product = p.id 
 AND document  @@ query
 GROUP BY p.id
-ORDER BY ts_rank_cd(document, query);*/
+ORDER BY ts_rank_cd(document, query);
