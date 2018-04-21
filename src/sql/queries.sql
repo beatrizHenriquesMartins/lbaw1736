@@ -130,7 +130,7 @@ FROM message
 WHERE id_client = 11;
 
 
-SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock", 
+/*SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock", 
 	   p.dateCreated AS "Date Created", p.modelNumber AS "Model Number", 
        p.weight AS "Weight", p.price AS "Price", 
 	   p.imageURL AS "Image URL", p.bigDescription AS "Big Description", 
@@ -150,7 +150,35 @@ SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock",
        p.shortDescription AS "Short Description", 
 	   (array_agg(pc.categoryName ORDER BY p.id DESC))[1] AS "Category", 
        (array_agg(b.brandname ORDER BY p.id DESC))[1] AS "Brand", AVG(pr.rating) AS "Rating", ts_rank_cd(document, query) AS rank
-FROM products p, categories pc, brands b, reviews pr, (setweight(to_tsvector(pc.categoryName), 'B') || setweight(to_tsvector(p.name), 'A')) AS document, plainto_tsquery('Fashion') AS query
+FROM products p, categories pc, brands b, reviews pr, (SELECT setweight(to_tsvector(pc.categoryName), 'B') || setweight(to_tsvector(p.name), 'A')) document, (SELECT plainto_tsquery('Fashion') ) query
+WHERE p.id_brand = b.id_brand AND p.id_category = pc.id_category AND pr.id_product = p.id 
+AND document  @@ query
+GROUP BY p.id, document.document, query.query
+ORDER BY  rank DESC;*/
+
+SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock", 
+	   p.dateCreated AS "Date Created", p.modelNumber AS "Model Number", 
+       p.weight AS "Weight", p.price AS "Price", 
+	   p.imageURL AS "Image URL", p.bigDescription AS "Big Description", 
+       p.shortDescription AS "Short Description", 
+	   (array_agg(pc.categoryName ORDER BY p.id DESC))[1] AS "Category", 
+       (array_agg(b.brandname ORDER BY p.id DESC))[1] AS "Brand", AVG(pr.rating) AS "Rating", ts_rank_cd(document, query) AS rank
+FROM products p, categories pc, brands b, reviews pr, to_tsvector(pc.categoryName || ' ' || p.name) AS document, plainto_tsquery('Fashion') AS query
+WHERE p.id_brand = b.id_brand AND p.id_category = pc.id_category AND pr.id_product = p.id 
+AND document  @@ query
+GROUP BY p.id, document.document, query.query
+ORDER BY  rank DESC;
+
+/*SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock", 
+	   p.dateCreated AS "Date Created", p.modelNumber AS "Model Number", 
+       p.weight AS "Weight", p.price AS "Price", 
+	   p.imageURL AS "Image URL", p.bigDescription AS "Big Description", 
+       p.shortDescription AS "Short Description", 
+	   (array_agg(pc.categoryName ORDER BY p.id DESC))[1] AS "Category", 
+       (array_agg(b.brandname ORDER BY p.id DESC))[1] AS "Brand", AVG(pr.rating) AS "Rating", 
+	   ts_rank_cd(document, query) AS rank, setweight(to_tsvector(pc.categoryName), 'B') || setweight(to_tsvector(p.name), 'A') AS document,
+	   plainto_tsquery('Fashion') AS query	   
+FROM products p, categories pc, brands b, reviews pr
 WHERE p.id_brand = b.id_brand AND p.id_category = pc.id_category AND pr.id_product = p.id 
 AND document  @@ query
 GROUP BY p.id, document.document, query.query
@@ -160,4 +188,4 @@ SELECT  ts_rank_cd(document, query) AS rank
 FROM  (setweight(to_tsvector('ola'), 'B') || setweight(to_tsvector('adeus'), 'A')) AS document, plainto_tsquery('Fashion') AS query
 WHERE document  @@ query
 GROUP BY p.id, document.document, query.query
-ORDER BY  rank DESC;
+ORDER BY  rank DESC;*/
