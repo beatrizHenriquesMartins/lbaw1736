@@ -200,7 +200,7 @@
                         @endif
                         @if($type == 2)
                           <li>
-                              <a href="{{ url('/addProduct') }}" class="fa fa-plus">
+                              <a href="{{ url('/newproduct') }}" class="fa fa-plus">
                               </a>
                           </li>
                         @endif

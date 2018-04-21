@@ -16,6 +16,8 @@ use App\SupportChat;
 use App\Admin;
 use App\Category;
 use App\Brand;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 class ProductController extends Controller
 {
@@ -134,13 +136,15 @@ class ProductController extends Controller
     public function showedit($id)
     {
       $product = Product::find($id);
-
       if($product == null)
         return view('pages.404');
 
 
-        $type = 0;
+      if(!Auth::check()) {
+        return view('login');
+      }
 
+      $type = 0;
 
       if(Auth::check()) {
 
@@ -165,23 +169,19 @@ class ProductController extends Controller
 
       $userBM = BrandManager::find(Auth::user()->id);
 
-
       if($userBM == null)
         return redirect('/404');
 
       $canchange = 0;
 
       foreach ($userBM->brands as $brand) {
-        if($product->id_brand == $brand->id)
+        if($product->id_brand == $brand->id_brand)
           $canchange = 1;
       }
-
       if($canchange == 0)
         return redirect('/404');
 
       $reviews = DB::table('reviews')->where('id_product', $id)->join('purchases','purchases.id','=','id_purchase')->join('users', 'users.id', '=', 'id_client')->get();
-
-      $userBM = BrandManager::find(Auth::user()->id);
 
       $total = 0;
       $number = 0;
@@ -195,7 +195,8 @@ class ProductController extends Controller
       else
         $reviewmed = round($total / $number);
 
-      return view('pages.productedit', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type]);
+      $brands = Brand::all();
+      return view('pages.editproduct', ['product' => $product, 'type' => $type, 'brands' => $brands]);
     }
 
     public function delete($id)
@@ -265,6 +266,7 @@ class ProductController extends Controller
         $type = 0;
 
 
+
       if(Auth::check()) {
 
         $userBM = BrandManager::find(Auth::user()->id);
@@ -311,4 +313,125 @@ class ProductController extends Controller
       return view('pages.brand', ['brandname' => $brandname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type]);
     }
 
+    public function edit(Request $request, $id) {
+      $product = Product::find($id);
+
+      $rules = array(
+          'name'       => 'required',
+          'brandname'      => 'required',
+          'categoryname' => 'required',
+          'price' => 'required|numeric',
+          'shortdescription' => 'required',
+          'bigdescription' => 'required',
+          'imageurl' => 'mimes:jpeg,png,jpg,gif,svg',
+      );
+
+      $validator = Validator::make(Input::all(), $rules);
+
+      if ($validator->fails()) {
+        return redirect()->route('editProduct', ['id' => $id])->withErrors($validator);
+      } else {
+
+        $product->name = $request->input('name');
+        $product->id_brand = $request->input('brandname');
+        $product->id_category = $request->input('categoryname');
+        $product->shortdescription = $request->input('shortdescription');
+        $product->bigdescription = $request->input('bigdescription');
+        $product->price = $request->input('price');
+        $destinationPath = public_path('/images');
+        $brand = Brand::find($request->Input('brandname'));
+        $brandname = $brand->brandname;
+        $brandname = str_replace(' ', '_', $brandname);
+        $brandname = strtolower($brandname);
+        if ($request->hasFile('imageurl')) {
+          $imageName = $request->imageurl->getClientOriginalName();
+          $request->imageurl->move(public_path('images/brands'.'/'.$brandname), $imageName);
+          $product->imageurl = "/images/brands".'/'.$brandname.'/'.$imageName;
+        }
+        $product->save();
+        return redirect()->route('product', ['id' => $id]);
+      }
+    }
+
+    public function create(Request $request) {
+
+      $rules = array(
+          'name'       => 'required',
+          'brandname'      => 'required',
+          'categoryname' => 'required',
+          'price' => 'required|numeric',
+          'shortdescription' => 'required',
+          'bigdescription' => 'required',
+          'imageurl' => 'required',
+      );
+
+      $validator = Validator::make(Input::all(), $rules);
+
+      if ($validator->fails()) {
+        return redirect()->route('newProduct')->withErrors($validator);
+      } else {
+        $product = new Product();
+
+        $product->name = $request->input('name');
+        $product->id_brand = $request->input('brandname');
+        $product->id_category = $request->input('categoryname');
+        $product->shortdescription = $request->input('shortdescription');
+        $product->bigdescription = $request->input('bigdescription');
+        $product->price = $request->input('price');
+        $product->active = 1;
+        $product->tocarousel = 0;
+        $destinationPath = public_path('/images');
+        $brand = Brand::find($request->Input('brandname'));
+        $brandname = $brand->brandname;
+        $brandname = str_replace(' ', '_', $brandname);
+        $brandname = strtolower($brandname);
+        $imageName = $request->imageurl->getClientOriginalName();
+        $request->imageurl->move(public_path('images/brands'.'/'.$brandname), $imageName);
+        $product->imageurl = "/images/brands".'/'.$brandname.'/'.$imageName;
+        $product->save();
+        return redirect()->route('product', ['id' => $product->id]);
+      }
+    }
+
+    public function showadd()
+    {
+
+
+      if(!Auth::check()) {
+        return view('login');
+      }
+
+      $type = 0;
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      $userBM = BrandManager::find(Auth::user()->id);
+
+      if($userBM == null)
+        return redirect('/404');
+
+
+
+      $brands = Brand::all();
+      return view('pages.addproduct', ['type' => $type, 'brands' => $brands]);
+    }
 }

@@ -193,7 +193,7 @@ html {
 
 .category-section .category-products .product-row .product-section .product-body .rating {
     padding-bottom: 1em;
-    padding-left: 10em;
+    text-align: center;
 }
 
 .category-section .category-products .product-row .product-section .product-body .rating .grey {

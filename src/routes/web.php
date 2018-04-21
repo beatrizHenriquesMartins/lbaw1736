@@ -41,9 +41,12 @@ Route::put('api/cart/{id}', 'CartController@create');
 
 
 // product
-Route::get('products/{id}', 'ProductController@show');
+Route::get('products/{id}', 'ProductController@show')->name('product');
 Route::get('products/{id}/edit', 'ProductController@showedit')->name('editProduct');
 Route::get('products/{id}/remove', 'ProductController@delete')->name('removeProduct');
+Route::get('newproduct', 'ProductController@showadd')->name('newProduct');
+Route::post('addproduct', 'ProductController@create')->name('addProduct');
+Route::post('products/{id}/editproduct', 'ProductController@edit')->name('editproduct');
 
 // category
 Route::get('category/{categoryName}', 'ProductController@showCategory')->name('category');
