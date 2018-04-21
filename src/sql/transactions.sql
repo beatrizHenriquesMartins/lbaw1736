@@ -34,7 +34,7 @@ SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 
 INSERT INTO purchases(id, id_client, id_address, purchaseDate, purchaseState, 
 	cost, paymentType, cardNumber, cardName, cardExpirationDate, nif)
-VALUES ($id_client,$id_address, DEFAULT, $purchaseState, 
+VALUES ($id, $id_client,$id_address, DEFAULT, $purchaseState, 
 	$cost, $paymentType, $cardNumber, $cardName, $cardExpirationDate, $nif);
 	
 INSERT INTO purchaseproducts (id_purchase, id_product, quantity, cost)
