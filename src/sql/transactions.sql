@@ -18,7 +18,7 @@ COMMIT;
 
 
 BEGIN TRANSACTION;
-SET TRANSACTION ISOLATION LEVEL SERIALIZABLE READ ONLY;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 
 INSERT INTO users(id, firstName, lastName, username, email, password, imageURL,
 	dateCreated, dateModified, active, rememember_token)
