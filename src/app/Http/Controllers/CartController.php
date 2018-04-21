@@ -137,4 +137,25 @@ class CartController extends Controller
     }
 
 
+    public function update(Request $request, $product_id, $quantity) {
+
+      if (!Auth::check()) return redirect('/login');
+
+      $product = DB::table('carts')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->first();
+
+      if(!is_numeric($quantity))
+        return json_encode($product);
+      $client = Client::find(Auth::user()->id);
+      $cost = 0;
+      if($client == null || $client->cart == null)
+        return redirect('/404');
+
+
+      if($product != null) {
+        DB::table('carts')->where([['id_client', '=', Auth::user()->id]])->update(['quantity'=> $quantity]);
+      }
+
+      return json_encode($product);
+    }
+
 }

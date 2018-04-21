@@ -4,7 +4,6 @@ function addEventListeners() {
   let removeWishlist = document.querySelectorAll('.category-section .category-products .product-wishlist .product-class .cart-btn .btn');
   if(removeWishlist) {
     [].forEach.call(removeWishlist, function(deleter) {
-      console.log("HERE");
       deleter.addEventListener('click', sendRemoveWishlistRequest);
     });
   }
@@ -36,6 +35,31 @@ function addEventListeners() {
       deleter.addEventListener('click', sendRemoveAllCartRequest);
     });
   }
+
+  let plus = document.querySelectorAll('.spinner .btn:first-of-type');
+  let minus = document.querySelectorAll('.spinner .btn:last-of-type');
+  let input = document.querySelectorAll('.spinner input');
+
+  if(plus) {
+    let i = 0;
+    for(i = 0; i < plus.length; i++) {
+      plus[i].addEventListener("click", moreQuantity);
+    }
+  }
+
+  if(minus) {
+    let i = 0;
+    for(i = 0; i < minus.length; i++) {
+      minus[i].addEventListener("click", lessQuantity);
+    }
+  }
+
+  if(input) {
+    let i = 0;
+    for(i = 0; i < input.length; i++) {
+      input[i].addEventListener("input", changeQuantity);
+    }
+  }
 }
 
 function encodeForAjax(data) {
@@ -54,6 +78,52 @@ function sendAjaxRequest(method, url, data, handler) {
   request.addEventListener('load', handler);
   request.send(encodeForAjax(data));
 }
+
+function changeQuantity() {
+  let spinner = this.closest('.spinner');
+
+  let input = document.querySelectorAll('.spinner input');
+  
+  let value = parseInt(input[parseInt(spinner.querySelector('.number').textContent)].value);
+
+  let id = this.closest('div.product').getAttribute('data-id');
+
+  sendAjaxRequest('post', '/api/cart/' + id + '/quantity/' + value, null, updateCartQuantityHandler);
+
+}
+
+function moreQuantity() {
+  let input = document.querySelectorAll('.spinner input');
+  let oldValue = parseInt(input[parseInt(this.querySelector('.number').textContent)].value);
+  let newVal = oldValue + 1;
+
+  input[parseInt(this.querySelector('.number').textContent)].value = newVal;
+  let id = this.closest('div.product').getAttribute('data-id');
+
+  sendAjaxRequest('post', '/api/cart/' + id + '/quantity/' + newVal, null, updateCartQuantityHandler);
+
+}
+
+function lessQuantity(i) {
+  let input = document.querySelectorAll('.spinner input');
+  let oldValue = parseInt(input[parseInt(this.querySelector('.number').textContent)].value);
+  let id = this.closest('div.product').getAttribute('data-id');
+  if(oldValue > 1) {
+    let newVal = oldValue - 1;
+
+  input[parseInt(this.querySelector('.number').textContent)].value = newVal;
+  sendAjaxRequest('post', '/api/cart/' + id + '/quantity/' + newVal, null, updateCartQuantityHandler);
+
+  }
+}
+
+function updateCartQuantityHandler() {
+  console.log(this.responseText);
+  if (this.status != 200) window.location = '/';
+
+  let newVal = JSON.parse(this.responseText);
+}
+
 
 function sendRemoveWishlistRequest() {
   let id = this.closest('div.product').getAttribute('data-id');

@@ -38,6 +38,7 @@ Route::get('cart', 'CartController@list')->name('cart');
 Route::delete('api/cart/{id}', 'CartController@delete');
 Route::delete('api/cart', 'CartController@deleteAll');
 Route::put('api/cart/{id}', 'CartController@create');
+Route::post('api/cart/{id}/quantity/{quantity}', 'CartController@update');
 
 
 // product
