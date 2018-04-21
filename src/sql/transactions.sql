@@ -32,11 +32,12 @@ COMMIT;
 BEGIN TRANSACTION;
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 
-INSERT INTO purchase(id, id_client, id_address, purchaseDate, purchaseState, 
+INSERT INTO purchases(id, id_client, id_address, purchaseDate, purchaseState, 
 	cost, paymentType, cardNumber, cardName, cardExpirationDate, nif)
 VALUES ($id_client,$id_address, DEFAULT, $purchaseState, 
 	$cost, $paymentType, $cardNumber, $cardName, $cardExpirationDate, $nif);
 	
-INSERT INTO clients($id, $cellphone);
+INSERT INTO purchaseproducts (id_purchase, id_product, quantity, cost)
+VALUES ($id, $id_product, $quantity, $cost);
 
 COMMIT;
