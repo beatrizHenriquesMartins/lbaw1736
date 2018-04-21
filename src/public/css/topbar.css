@@ -154,8 +154,6 @@ div.container-fluid.topbar{
     flex: 1;
 }
 
-
-
 .first_class .topbar .search {
     align-items: center;
 }
@@ -271,7 +269,7 @@ div.container-fluid.topbar{
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0)
-  and (min-resolution:.001dpcm) {
+and (min-resolution:.001dpcm) {
     img.mb-4{
         height: auto;
     }
