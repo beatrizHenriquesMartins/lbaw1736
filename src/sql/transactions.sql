@@ -28,3 +28,15 @@ VALUES ($id, $firstName, $lastName, $username, $email, $password, $imageURL,
 INSERT INTO clients($id, $cellphone);
 
 COMMIT;
+
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+INSERT INTO purchase(id, id_client, id_address, purchaseDate, purchaseState, 
+	cost, paymentType, cardNumber, cardName, cardExpirationDate, nif)
+VALUES ($id_client,$id_address, DEFAULT, $purchaseState, 
+	$cost, $paymentType, $cardNumber, $cardName, $cardExpirationDate, $nif);
+	
+INSERT INTO clients($id, $cellphone);
+
+COMMIT;
