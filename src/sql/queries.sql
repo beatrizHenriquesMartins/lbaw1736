@@ -155,7 +155,7 @@ WHERE p.id_brand = b.id_brand AND p.id_category = pc.id_category AND pr.id_produ
 AND document  @@ query
 GROUP BY p.id, document.document, query.query
 ORDER BY  rank DESC;*/
-
+CREATE VIEW "ListProductsByCategoryName" AS 
 SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock", 
 	   p.dateCreated AS "Date Created", p.modelNumber AS "Model Number", 
        p.weight AS "Weight", p.price AS "Price", 
