@@ -153,5 +153,5 @@ SELECT p.id AS "ID",p.name AS "Name", p.quantityInStock AS "Quantity In Stock",
 FROM products p, categories pc, brands b, reviews pr, to_tsvector(pc.categoryName)  AS document, plainto_tsquery('Fashion') AS query
 WHERE p.id_brand = b.id_brand AND p.id_category = pc.id_category AND pr.id_product = p.id 
 AND document  @@ query
-GROUP BY p.id
+GROUP BY p.id, document.document, query.query
 ORDER BY  rank DESC;
