@@ -66,9 +66,10 @@ CREATE TABLE messages (
 );
 
 CREATE TABLE brands (
-  id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL UNIQUE,
-  contact INTEGER NOT NULL
+  id_brand SERIAL PRIMARY KEY,
+  brandname TEXT NOT NULL UNIQUE,
+  contact INTEGER NOT NULL,
+  brandimgurl TEXT NOT NULL
 );
 
 CREATE TABLE brandManagers (
@@ -86,7 +87,7 @@ CREATE TABLE bans (
 );
 
 CREATE TABLE categories (
-  id SERIAL PRIMARY KEY,
+  id_category SERIAL PRIMARY KEY,
   categoryName TEXT NOT NULL UNIQUE
 );
 
@@ -95,14 +96,14 @@ CREATE TABLE products (
   name TEXT UNIQUE NOT NULL,
   quantityInStock INTEGER NOT NULL DEFAULT 0,
   dateCreated TIMESTAMP DEFAULT now() NOT NULL,
-  modelNumber INTEGER NOT NULL,
-  weight DECIMAL NOT NULL,
   price DECIMAL NOT NULL,
   imageURL TEXT NOT NULL UNIQUE,
   bigDescription TEXT NOT NULL,
   shortDescription TEXT NOT NULL,
   id_brand INTEGER NOT NULL REFERENCES brands,
-  id_category INTEGER NOT NULL REFERENCES categories
+  id_category INTEGER NOT NULL REFERENCES categories,
+  active INTEGER NOT NULL,
+  tocarousel INTEGER NOT NULL
 );
 
 CREATE TABLE wishlists (
@@ -175,9 +176,9 @@ CREATE TABLE reviews (
 );
 
 CREATE TABLE brandBrandManagers (
-  idBrand INTEGER NOT NULL REFERENCES brands,
-  idBrandManager INTEGER NOT NULL REFERENCES brandManagers,
-  PRIMARY KEY(idBrand, idBrandManager)
+  id_Brand INTEGER NOT NULL REFERENCES brands,
+  id_BrandManager INTEGER NOT NULL REFERENCES brandManagers,
+  PRIMARY KEY(id_Brand, id_BrandManager)
 );
 
  -- Indexes
@@ -188,7 +189,9 @@ CREATE INDEX idx_product ON products USING hash (name); /*cardinalidade media-bo
 
 CREATE INDEX idx_purchase ON purchases USING btree (id_client); /*cardinalidade media-bom candidato para cluster*/
 
-CREATE INDEX search_idx ON categories USING GIST (to_tsvector('english', categoryName));
+CREATE INDEX searchbigdescription_idx ON products USING GIST (to_tsvector('english', bigDescription));
+
+CREATE INDEX searchshortdescription_idx ON products USING GIST (to_tsvector('english', shortDescription));
 
  -- Triggers
 
@@ -287,39 +290,39 @@ INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'Client', 6, 20);
 INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'ChatSupport', 6, 20);
 
 
-INSERT INTO brands VALUES (DEFAULT, 'Alameda Turquesa', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Aldeia da Roupa Branca', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Alma de Luce', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Ame Moi', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Ana Leite', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Anita Picnic', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Antiflop', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Aparattus', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Babash Design', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Bateye', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Bluf', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Boca do Lobo', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Bordallo Pinheiro', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Briel', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Cabo d Mar', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Candle In', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Cante', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Castelbel', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Cavalinho', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Chicos', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Claus Porto', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Coloradd', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Deamor', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Decenio', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Design Flops', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Doodles', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Dub Dressed', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Ecola', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Enamorata', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Eureka Shoes', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Fasm', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Fio Rosa', 223143243);
-INSERT INTO brands VALUES (DEFAULT, 'Science4You', 223143243);
+INSERT INTO brands VALUES (DEFAULT, 'Alameda Turquesa', 223143243, '/images/brands/alameda_turquesa/alameda_turquesa.png');
+INSERT INTO brands VALUES (DEFAULT, 'Aldeia da Roupa Branca', 223143243, '/images/brands/aldeia_da_roupa_branca/aldeia_da_roupa_branca.png');
+INSERT INTO brands VALUES (DEFAULT, 'Alma de Luce', 223143243, '/images/brands/alma_de_luce/alma_de_luce.png');
+INSERT INTO brands VALUES (DEFAULT, 'Ame Moi', 223143243, '/images/brands/ame_moi/ame_moi.png');
+INSERT INTO brands VALUES (DEFAULT, 'Ana Leite', 223143243, '/images/brands/ana_leite/ana_leite.png');
+INSERT INTO brands VALUES (DEFAULT, 'Anita Picnic', 223143243, '/images/brands/anita_picnic/anita_picnic.png');
+INSERT INTO brands VALUES (DEFAULT, 'Antiflop', 223143243, '/images/brands/antiflop/antiflop.png');
+INSERT INTO brands VALUES (DEFAULT, 'Aparattus', 223143243, '/images/brands/aparattus/aparattus.png');
+INSERT INTO brands VALUES (DEFAULT, 'Babash Design', 223143243, '/images/brands/babash_design/babash_design.png');
+INSERT INTO brands VALUES (DEFAULT, 'Bateye', 223143243, '/images/brands/bateye/bateye.png');
+INSERT INTO brands VALUES (DEFAULT, 'Bluf', 223143243, '/images/brands/bluf/bluf.png');
+INSERT INTO brands VALUES (DEFAULT, 'Boca do Lobo', 223143243, '/images/brands/boca_do_lobo/boca_do_lobo.png');
+INSERT INTO brands VALUES (DEFAULT, 'Bordallo Pinheiro', 223143243, '/images/brands/bordallo_pinheiro/bordallo_pinheiro.png');
+INSERT INTO brands VALUES (DEFAULT, 'Briel', 223143243, '/images/brands/briel/briel.png');
+INSERT INTO brands VALUES (DEFAULT, 'Cabo d Mar', 223143243, '/images/brands/cado_d_mar/cado_d_mar.png');
+INSERT INTO brands VALUES (DEFAULT, 'Candle In', 223143243, '/images/brands/candle_in/candle_in.png');
+INSERT INTO brands VALUES (DEFAULT, 'Cante', 223143243, '/images/brands/cante/cante.png');
+INSERT INTO brands VALUES (DEFAULT, 'Castelbel', 223143243, '/images/brands/castelbel/castelbel.png');
+INSERT INTO brands VALUES (DEFAULT, 'Cavalinho', 223143243, '/images/brands/cavalinho/cavalinho.png');
+INSERT INTO brands VALUES (DEFAULT, 'Chicos', 223143243, '/images/brands/chicos/chicos.png');
+INSERT INTO brands VALUES (DEFAULT, 'Claus Porto', 223143243, '/images/brands/claus_porto/claus_porto.png');
+INSERT INTO brands VALUES (DEFAULT, 'Coloradd', 223143243, '/images/brands/coloradd/coloradd.png');
+INSERT INTO brands VALUES (DEFAULT, 'Deamor', 223143243, '/images/brands/deamor/deamor.png');
+INSERT INTO brands VALUES (DEFAULT, 'Decenio', 223143243, '/images/brands/decenio/decenio.png');
+INSERT INTO brands VALUES (DEFAULT, 'Design Flops', 223143243, '/images/brands/design_flops/design_flops.png');
+INSERT INTO brands VALUES (DEFAULT, 'Doodles', 223143243, '/images/brands/doodles/doodles.png');
+INSERT INTO brands VALUES (DEFAULT, 'Dub Dressed', 223143243, '/images/brands/dub_dressed/dub_dressed.png');
+INSERT INTO brands VALUES (DEFAULT, 'Ecola', 223143243, '/images/brands/ecola/ecola.png');
+INSERT INTO brands VALUES (DEFAULT, 'Enamorata', 223143243, '/images/brands/enamorata/enamorata.png');
+INSERT INTO brands VALUES (DEFAULT, 'Eureka Shoes', 223143243, '/images/brands/eureka_shoes/eureka_shoes.png');
+INSERT INTO brands VALUES (DEFAULT, 'Fasm', 223143243, '/images/brands/fasm/fasm.png');
+INSERT INTO brands VALUES (DEFAULT, 'Fio Rosa', 223143243, '/images/brands/fio_rosa/fio_rosa.png');
+INSERT INTO brands VALUES (DEFAULT, 'Science4You', 223143243, '/images/brands/science4you/science4you.png');
 
 INSERT INTO brandManagers VALUES (1);
 INSERT INTO brandManagers VALUES (2);
@@ -344,12 +347,13 @@ INSERT INTO categories VALUES (DEFAULT, 'Culture');
 INSERT INTO categories VALUES (DEFAULT, 'Home');
 INSERT INTO categories VALUES (DEFAULT, 'Sports');
 
-INSERT INTO products VALUES (DEFAULT, 'Gelato', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/01-holi-400x400.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Holi', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/2-alameda-turquesa-gelato-400x400.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Chizela', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/03-chizela-black-alameda-turquesa-400x400.png', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Frozen', 10, now(), 1, 3.0, 30.00, '/images/brands/alameda_turquesa/3-frozen-sneakers-alamedaturquesa-400x400.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 1, 1);
-INSERT INTO products VALUES (DEFAULT, 'Cardosas', 10, now(), 1, 3.0, 300.00, '/images/brands/alma_de_luce/1.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 3, 6);
-INSERT INTO products VALUES (DEFAULT, 'Aparador Multi-Gavetas', 10, now(), 1, 3.0, 300.00, '/images/brands/alma_de_luce/3.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 3, 6);
+INSERT INTO products VALUES (DEFAULT, 'Gelato', 10, now(), 30.00, '/images/brands/alameda_turquesa/01-holi-400x400.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 1, 1, 1, 0);
+INSERT INTO products VALUES (DEFAULT, 'Holi', 10, now(), 30.00, '/images/brands/alameda_turquesa/2-alameda-turquesa-gelato-400x400.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 1, 1, 1, 0);
+INSERT INTO products VALUES (DEFAULT, 'Chizela', 10, now(), 30.00, '/images/brands/alameda_turquesa/03-chizela-black-alameda-turquesa-400x400.png', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 1, 1, 1, 0);
+INSERT INTO products VALUES (DEFAULT, 'Frozen', 10, now(), 30.00, '/images/brands/alameda_turquesa/3-frozen-sneakers-alamedaturquesa-400x400.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 1, 1, 1, 0);
+INSERT INTO products VALUES (DEFAULT, 'Cardosas', 10, now(), 300.00, '/images/brands/alma_de_luce/1.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 3, 6, 1, 1);
+INSERT INTO products VALUES (DEFAULT, 'Aparador Multi-Gavetas', 10, now(), 300.00, '/images/brands/alma_de_luce/2.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 3, 6, 1, 1);
+INSERT INTO products VALUES (DEFAULT, 'Cesta Picnic', 10, now(), 10.10, '/images/brands/anita_picnic/slideshow_9.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 6, 6, 1, 1);
 
 
 INSERT INTO wishlists VALUES (1, 11);

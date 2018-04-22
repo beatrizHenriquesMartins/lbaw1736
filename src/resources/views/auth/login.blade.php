@@ -27,7 +27,7 @@
                                 </i>
                             </span>
 
-                            <input type="text" class="form-control" name="email" id="username"
+                            <input type="text" class="form-control" name="email" id="username" @if(old('email'))value="{{old('email')}}"@endif
                                    required autofocus/>
                         </div>
                     </div>

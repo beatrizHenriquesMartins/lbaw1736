@@ -1,32 +1,39 @@
-<div class="product" data-id="{{ $product->id }}">
+<div class="product product-wishlist" data-id="{{ $product->id }}">
     <div class="product-image">
         <a href="/products/{{ $product->id }}">
-          <img src="{{ $product['imageurl'] }}" alt="Product Image">
+            <img src="{{ $product->imageurl }}" alt="Product Image">
         </a>
     </div>
+
     <div class="product-name">
         <h3>
             <a href="/products/{{ $product->id }}">
-              {{ $product['name'] }}
+                {{ $product->name }}
             </a>
         </h3>
-        <h4>
-            {{$product->brand->name}}
-        </h4>
+
+        <a href="/brands/{{ $product->brand->brandname }}">
+            <h4>
+                {{$product->brand->brandname}}
+            </h4>
+        </a>
+
         <h5>
             {{$product->category->categoryName}}
         </h5>
+
         <h5>
-            {{ $product['price'] }} €
+            {{ $product->price }} €
         </h5>
+
     </div>
 
     <div class="product-class">
         <div class="btns">
             <div class="cart-btn">
-                <button type="button" class="btn btn-danger pull-right">
+                <a role="button" class="btn btn-danger pull-right">
                     Remove
-                </button>
+                </a>
             </div>
         </div>
     </div>

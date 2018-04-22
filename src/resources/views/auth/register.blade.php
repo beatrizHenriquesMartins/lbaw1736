@@ -27,7 +27,7 @@
                                 </i>
                             </span>
 
-                            <input type="text" class="form-control" name="firstname" id="name" required autofocus/>
+                            <input type="text" class="form-control" name="firstname" id="name" @if(old('firstname'))value="{{old('firstname')}}"@endif required autofocus>
 
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                                 </i>
                             </span>
 
-                            <input type="text" class="form-control" name="lastname" id="name" required autofocus/>
+                            <input type="text" class="form-control" name="lastname" id="name" @if(old('firstname'))value="{{old('lastname')}}"@endif required autofocus>
 
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                                 </i>
                             </span>
 
-                            <input type="text" class="form-control" name="email" id="email" required autofocus/>
+                            <input type="text" class="form-control" name="email" id="email" @if(old('email'))value="{{old('email')}}"@endif required autofocus>
 
                         </div>
                     </div>
@@ -96,8 +96,7 @@
                                 </i>
                             </span>
 
-                            <input type="text" class="form-control" name="username" id="username"
-                                   required autofocus/>
+                            <input type="text" class="form-control" name="username" id="username" @if(old('username'))value="{{old('username')}}"@endif autofocus>
                         </div>
                     </div>
                     @if ($errors->has('username'))
@@ -120,8 +119,7 @@
                                 </i>
                             </span>
 
-                            <input type="text" class="form-control" name="cellphone" id="cellphone"
-                                   required autofocus/>
+                            <input type="text" class="form-control" name="cellphone" id="cellphone" @if(old('cellphone'))value="{{old('cellphone')}}"@endif required autofocus>
                         </div>
                     </div>
                     @if ($errors->has('cellphone'))
@@ -144,8 +142,7 @@
                                 </i>
                             </span>
 
-                            <input type="password" class="form-control" name="password" id="password"
-                                   required autofocus/>
+                            <input type="password" class="form-control" name="password" id="password" required autofocus>
 
                         </div>
                     </div>
@@ -168,8 +165,7 @@
                                 </i>
                             </span>
 
-                            <input type="password" class="form-control" name="password_confirmation" id="confirm"
-                                   required autofocus/>
+                            <input type="password" class="form-control" name="password_confirmation" id="confirm" required autofocus>
                         </div>
                     </div>
                 </div>

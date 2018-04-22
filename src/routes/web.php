@@ -21,6 +21,8 @@ Route::get('homepage', 'HomepageController@show')->name('homepage');
 
 // wishlist
 Route::get('wishlist', 'WishlistController@list')->name('wishlist');
+Route::delete('api/wishlist/{id}', 'WishlistController@delete');
+Route::put('api/wishlist/{id}', 'WishlistController@create');
 
 
 // Footer
@@ -33,10 +35,25 @@ Route::get('terms', 'FooterController@showterms')->name('terms');
 
 // cart
 Route::get('cart', 'CartController@list')->name('cart');
+Route::delete('api/cart/{id}', 'CartController@delete');
+Route::delete('api/cart', 'CartController@deleteAll');
+Route::put('api/cart/{id}', 'CartController@create');
+Route::post('api/cart/{id}/quantity/{quantity}', 'CartController@update');
 
 
 // product
-Route::get('products/{id}', 'ProductController@show');
+Route::get('products/{id}', 'ProductController@show')->name('product');
+Route::get('products/{id}/edit', 'ProductController@showedit')->name('editProduct');
+Route::get('products/{id}/remove', 'ProductController@delete')->name('removeProduct');
+Route::get('newproduct', 'ProductController@showadd')->name('newProduct');
+Route::post('addproduct', 'ProductController@create')->name('addProduct');
+Route::post('products/{id}/editproduct', 'ProductController@edit')->name('editproduct');
+
+// category
+Route::get('category/{categoryName}', 'ProductController@showCategory')->name('category');
+
+// category
+Route::get('brands/{brandName}', 'ProductController@showBrand')->name('brand');
 
 // Authentication
 

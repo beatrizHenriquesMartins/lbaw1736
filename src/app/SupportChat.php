@@ -4,15 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class SupportChat extends Model
 {
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
+  public $table = 'chatsupports';
+  protected $primaryKey = 'id_chatsupport';
 
-  /**
-   * The card this item belongs to.
-   */
-  public function card() {
-    return $this->belongsTo('App\Card');
-  }
+
 }

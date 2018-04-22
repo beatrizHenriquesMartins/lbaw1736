@@ -1,0 +1,49 @@
+body,
+html {
+    background-color: white;
+    font-family: 'Karma', serif;
+}
+
+div#page_faq{
+    margin-left: 5em;
+    margin-top: 2.5em;
+    margin-right: 5em;
+    margin-bottom: 2.5em;
+}
+
+div#accordion{
+    padding-left: 2.5em;
+}
+
+button.btn.btn-link{
+    font-weight: bold;
+    font-size: medium;
+}
+
+div.card-header{
+    text-align: justify;
+}
+
+div.card-body{
+    padding-left: 2.5em;
+    text-align: justify;
+}
+
+@media (max-width: 500px) {
+    div#page_faq{
+        margin-left: 2em;
+        margin-top: 1.75em;
+        margin-right: 2em;
+        margin-bottom: 1.25em;
+    }
+
+    div#accordion{
+        padding-left: 1em;
+    }
+
+    /*
+    div.card-header{
+        text-align: justify;
+    }
+    */
+}

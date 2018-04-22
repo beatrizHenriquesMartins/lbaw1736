@@ -4,7 +4,13 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
+
 use App\Category;
+use App\BrandManager;
+use App\SupportChat;
+use App\Admin;
+use App\Client;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
         //
 
         View::share('categories', Category::get());
+
     }
 
     /**

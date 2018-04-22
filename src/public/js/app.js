@@ -1,27 +1,65 @@
 function addEventListeners() {
-  let itemCheckers = document.querySelectorAll('article.card li.item input[type=checkbox]');
-  [].forEach.call(itemCheckers, function(checker) {
-    checker.addEventListener('change', sendItemUpdateRequest);
-  });
 
-  let itemCreators = document.querySelectorAll('article.card form.new_item');
-  [].forEach.call(itemCreators, function(creator) {
-    creator.addEventListener('submit', sendCreateItemRequest);
-  });
 
-  let itemDeleters = document.querySelectorAll('article.card li a.delete');
-  [].forEach.call(itemDeleters, function(deleter) {
-    deleter.addEventListener('click', sendDeleteItemRequest);
-  });
+  let removeWishlist = document.querySelectorAll('.category-section .category-products .product-wishlist .product-class .cart-btn .btn');
+  if(removeWishlist) {
+    [].forEach.call(removeWishlist, function(deleter) {
+      deleter.addEventListener('click', sendRemoveWishlistRequest);
+    });
+  }
 
-  let cardDeleters = document.querySelectorAll('article.card header a.delete');
-  [].forEach.call(cardDeleters, function(deleter) {
-    deleter.addEventListener('click', sendDeleteCardRequest);
-  });
+  let removeCart = document.querySelectorAll('.category-section .category-products .product-cart .product-class .cart-btn .btn');
+  if(removeCart) {
+    [].forEach.call(removeCart, function(deleter) {
+      deleter.addEventListener('click', sendRemoveCartRequest);
+    });
+  }
 
-  let cardCreator = document.querySelector('article.card form.new_card');
-  if (cardCreator != null)
-    cardCreator.addEventListener('submit', sendCreateCardRequest);
+  let addWishlist = document.querySelectorAll('.product-section .btns .fav-btn .btn');
+  if(addWishlist) {
+    [].forEach.call(addWishlist, function(deleter) {
+      deleter.addEventListener('click', sendAddWishlistRequest);
+    });
+  }
+
+  let addCart = document.querySelectorAll('.product-section .btns .cart-btn .btn');
+  if(addCart) {
+    [].forEach.call(addCart, function(deleter) {
+      deleter.addEventListener('click', sendAddCartRequest);
+    });
+  }
+
+  let removeAllCart = document.querySelectorAll('.main .final .delete-cart .delete-cart-btn .btn');
+  if(removeAllCart) {
+    [].forEach.call(removeAllCart, function(deleter) {
+      deleter.addEventListener('click', sendRemoveAllCartRequest);
+    });
+  }
+
+  let plus = document.querySelectorAll('.spinner .btn:first-of-type');
+  let minus = document.querySelectorAll('.spinner .btn:last-of-type');
+  let input = document.querySelectorAll('.spinner input');
+
+  if(plus) {
+    let i = 0;
+    for(i = 0; i < plus.length; i++) {
+      plus[i].addEventListener("click", moreQuantity);
+    }
+  }
+
+  if(minus) {
+    let i = 0;
+    for(i = 0; i < minus.length; i++) {
+      minus[i].addEventListener("click", lessQuantity);
+    }
+  }
+
+  if(input) {
+    let i = 0;
+    for(i = 0; i < input.length; i++) {
+      input[i].addEventListener("input", changeQuantity);
+    }
+  }
 }
 
 function encodeForAjax(data) {
@@ -41,140 +79,136 @@ function sendAjaxRequest(method, url, data, handler) {
   request.send(encodeForAjax(data));
 }
 
-function sendItemUpdateRequest() {
-  let item = this.closest('li.item');
-  let id = item.getAttribute('data-id');
-  let checked = item.querySelector('input[type=checkbox]').checked;
+function changeQuantity() {
+  let spinner = this.closest('.spinner');
 
-  sendAjaxRequest('post', '/api/item/' + id, {done: checked}, itemUpdatedHandler);
+  let input = document.querySelectorAll('.spinner input');
+  
+  let value = parseInt(input[parseInt(spinner.querySelector('.number').textContent)].value);
+
+  let id = this.closest('div.product').getAttribute('data-id');
+
+  sendAjaxRequest('post', '/api/cart/' + id + '/quantity/' + value, null, updateCartQuantityHandler);
+
 }
 
-function sendDeleteItemRequest() {
-  let id = this.closest('li.item').getAttribute('data-id');
+function moreQuantity() {
+  let input = document.querySelectorAll('.spinner input');
+  let oldValue = parseInt(input[parseInt(this.querySelector('.number').textContent)].value);
+  let newVal = oldValue + 1;
 
-  sendAjaxRequest('delete', '/api/item/' + id, null, itemDeletedHandler);
+  input[parseInt(this.querySelector('.number').textContent)].value = newVal;
+  let id = this.closest('div.product').getAttribute('data-id');
+
+  sendAjaxRequest('post', '/api/cart/' + id + '/quantity/' + newVal, null, updateCartQuantityHandler);
+
 }
 
-function sendCreateItemRequest(event) {
-  let id = this.closest('article').getAttribute('data-id');
-  let description = this.querySelector('input[name=description]').value;
+function lessQuantity(i) {
+  let input = document.querySelectorAll('.spinner input');
+  let oldValue = parseInt(input[parseInt(this.querySelector('.number').textContent)].value);
+  let id = this.closest('div.product').getAttribute('data-id');
+  if(oldValue > 1) {
+    let newVal = oldValue - 1;
 
-  if (description != '')
-    sendAjaxRequest('put', '/api/cards/' + id, {description: description}, itemAddedHandler);
+  input[parseInt(this.querySelector('.number').textContent)].value = newVal;
+  sendAjaxRequest('post', '/api/cart/' + id + '/quantity/' + newVal, null, updateCartQuantityHandler);
 
-  event.preventDefault();
+  }
 }
 
-function sendDeleteCardRequest(event) {
-  let id = this.closest('article').getAttribute('data-id');
-
-  sendAjaxRequest('delete', '/api/cards/' + id, null, cardDeletedHandler);
-}
-
-function sendCreateCardRequest(event) {
-  let name = this.querySelector('input[name=name]').value;
-
-  if (name != '')
-    sendAjaxRequest('put', '/api/cards/', {name: name}, cardAddedHandler);
-
-  event.preventDefault();
-}
-
-function itemUpdatedHandler() {
-  let item = JSON.parse(this.responseText);
-  let element = document.querySelector('li.item[data-id="' + item.id + '"]');
-  let input = element.querySelector('input[type=checkbox]');
-  element.checked = item.done == "true";
-}
-
-function itemAddedHandler() {
+function updateCartQuantityHandler() {
+  console.log(this.responseText);
   if (this.status != 200) window.location = '/';
-  let item = JSON.parse(this.responseText);
 
-  // Create the new item
-  let new_item = createItem(item);
-
-  // Insert the new item
-  let card = document.querySelector('article.card[data-id="' + item.card_id + '"]');
-  let form = card.querySelector('form.new_item');
-  form.previousElementSibling.append(new_item);
-
-  // Reset the new item form
-  form.querySelector('[type=text]').value="";
+  let newVal = JSON.parse(this.responseText);
 }
 
-function itemDeletedHandler() {
+
+function sendRemoveWishlistRequest() {
+  let id = this.closest('div.product').getAttribute('data-id');
+  sendAjaxRequest('delete', '/api/wishlist/' + id, null, removeWishlistHandler);
+}
+
+function removeWishlistHandler() {
   if (this.status != 200) window.location = '/';
-  let item = JSON.parse(this.responseText);
-  let element = document.querySelector('li.item[data-id="' + item.id + '"]');
+  let wishlist = JSON.parse(this.responseText);
+  let element = document.querySelector('div.product.product-wishlist[data-id="' + wishlist.id_product + '"]');
   element.remove();
 }
 
-function cardDeletedHandler() {
+function sendRemoveCartRequest() {
+  let id = this.closest('div.product').getAttribute('data-id');
+  sendAjaxRequest('delete', '/api/cart/' + id, null, removeCartHandler);
+}
+
+function removeCartHandler() {
   if (this.status != 200) window.location = '/';
-  let card = JSON.parse(this.responseText);
-  let article = document.querySelector('article.card[data-id="'+ card.id + '"]');
-  article.remove();
+  let cart = JSON.parse(this.responseText);
+  let element = document.querySelector('div.product.product-cart[data-id="' + cart.id_product + '"]');
+  let productprice = element.querySelector('.product-name .price');
+  let productvalue = productprice.innerHTML;
+  productvalue = productvalue.match(/\S+/g) || [];
+  productvalue = productvalue[0];
+  element.remove();
+
+
+  let totalprice = document.querySelector('.main .final .total-order .total .value');
+  let totalvalue = totalprice.innerHTML;
+  totalvalue = totalvalue.match(/\S+/g) || [];
+  totalvalue = totalvalue[0];
+  totalprice.remove();
+
+  totalvalue -= productvalue;
+  if(totalvalue == 0) {
+    let final = document.querySelector('.main .final');
+    final.remove();
+  } else {
+    let total = document.querySelector('.main .final .total-order .total');
+    let newprice = document.createElement('h3');
+    newprice.innerHTML = totalvalue + ' €';
+    newprice.setAttribute('class', 'value');
+    total.append(newprice);
+  }
 }
 
-function cardAddedHandler() {
+function sendRemoveAllCartRequest() {
+  sendAjaxRequest('delete', '/api/cart/', null, removeAllCartHandler);
+}
+
+function removeAllCartHandler() {
   if (this.status != 200) window.location = '/';
-  let card = JSON.parse(this.responseText);
+  let cart = JSON.parse(this.responseText);
+  let elements = document.querySelectorAll('div.product-cart');
+  elements.forEach(function(element) {
+    element.remove();
+  });
+  let final = document.querySelector('.main .final');
+  final.remove();
 
-  // Create the new card
-  let new_card = createCard(card);
-
-  // Reset the new card input
-  let form = document.querySelector('article.card form.new_card');
-  form.querySelector('[type=text]').value="";
-
-  // Insert the new card
-  let article = form.parentElement;
-  let section = article.parentElement;
-  section.insertBefore(new_card, article);
-
-  // Focus on adding an item to the new card
-  new_card.querySelector('[type=text]').focus();
 }
 
-function createCard(card) {
-  let new_card = document.createElement('article');
-  new_card.classList.add('card');
-  new_card.setAttribute('data-id', card.id);
-  new_card.innerHTML = `
-
-  <header>
-    <h2><a href="cards/${card.id}">${card.name}</a></h2>
-    <a href="#" class="delete">&#10761;</a>
-  </header>
-  <ul></ul>
-  <form class="new_item">
-    <input name="description" type="text">
-  </form>`;
-
-  let creator = new_card.querySelector('form.new_item');
-  creator.addEventListener('submit', sendCreateItemRequest);
-
-  let deleter = new_card.querySelector('header a.delete');
-  deleter.addEventListener('click', sendDeleteCardRequest);
-
-  return new_card;
+function sendAddWishlistRequest() {
+  let id = this.closest('div.product-section').getAttribute('data-id');
+  sendAjaxRequest('put', '/api/wishlist/' + id, null, AddWishlistHandler);
 }
 
-function createItem(item) {
-  let new_item = document.createElement('li');
-  new_item.classList.add('item');
-  new_item.setAttribute('data-id', item.id);
-  new_item.innerHTML = `
-  <label>
-    <input type="checkbox"> <span>${item.description}</span><a href="#" class="delete">&#10761;</a>
-  </label>
-  `;
+function AddWishlistHandler() {
+  if (this.status != 200) window.location = '/';
+  let cart = JSON.parse(this.responseText);
 
-  new_item.querySelector('input').addEventListener('change', sendItemUpdateRequest);
-  new_item.querySelector('a.delete').addEventListener('click', sendDeleteItemRequest);
+}
 
-  return new_item;
+function sendAddCartRequest() {
+  let id = this.closest('div.product-section').getAttribute('data-id');
+  sendAjaxRequest('put', '/api/cart/' + id, null, AddCartHandler);
+}
+
+function AddCartHandler() {
+
+  if (this.status != 200) window.location = '/';
+  let cart = JSON.parse(this.responseText);
+
 }
 
 addEventListeners();

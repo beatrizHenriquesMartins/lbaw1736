@@ -124,7 +124,7 @@ div.container-fluid.topbar{
 }
 
 .custom-navbar .fa {
-    font-size:25px
+    font-size:25px;
 }
 
 .custom-navbar .navBar-container {
@@ -132,8 +132,40 @@ div.container-fluid.topbar{
     margin-right: 1.1em;
 }
 
+.custom-navbar .navBar-container .navbar-right {
+    margin-left: 0;
+    /*
+    margin-right: 2.5em;
+     */
+}
+
 #category_font_size{
     font-size: 17px;
+}
+
+.first_class .topbar .sign .user-img img {
+    width: 3em;
+    height: 3em;
+}
+
+.first_class .topbar .sign .hi {
+    flex: 9;
+}
+
+.first_class .topbar .sign .dropdown {
+    flex: 1;
+}
+
+.first_class .topbar .search {
+    align-items: center;
+}
+
+.first_class .topbar .sign {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3.5em;
+
 }
 
 @media (max-width:1000px) {
@@ -239,7 +271,7 @@ div.container-fluid.topbar{
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0)
-  and (min-resolution:.001dpcm) {
+and (min-resolution:.001dpcm) {
     img.mb-4{
         height: auto;
     }

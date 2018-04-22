@@ -1,5 +1,5 @@
 <li>
-    <a id="category_font_size" href="/search_result/{{ $category->categoryname }}">
+    <a id="category_font_size" href="/category/{{ $category->categoryname }}">
         {{$category->categoryname}}
     </a>
 </li>

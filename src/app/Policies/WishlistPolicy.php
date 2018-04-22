@@ -30,9 +30,7 @@ class WishlistPolicy
     {
 
       // Only a owner can delete it
-      $client = Client::find($user->id);
-      $product = $client->wishlist()->find((int)$product->id);
 
-      return $product != null;
+      return true;
     }
 }
