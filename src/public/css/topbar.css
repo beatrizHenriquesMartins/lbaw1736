@@ -134,7 +134,9 @@ div.container-fluid.topbar{
 
 .custom-navbar .navBar-container .navbar-right {
     margin-left: 0;
+    /*
     margin-right: 2.5em;
+     */
 }
 
 #category_font_size{
