@@ -18,14 +18,20 @@ div#content_topics{
     padding-left: 2.5em;
 }
 
-div#beatriz,
-div#francisco,
-div#luis,
-div#ricardo{
-    padding: 1.5em;
+div#photo{
+    padding-right: 2.5em;
 }
 
 div#name_member_team{
-    padding-top: 1em;
-    text-align: center;
+    padding-top: 1.5em;
+    font-size: medium;
+}
+
+div#member.card-columns.col-sm-2{
+    justify-content: left;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+
 }

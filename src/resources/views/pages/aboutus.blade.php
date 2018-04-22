@@ -29,60 +29,108 @@
                 </h3>
 
                 <div class="container">
-                    <div class="card-columns col-sm-4">
+                    <div> <!-- class="card-columns col-sm-1" -->
                         <!-- Beatriz de Henriques Martins -->
-                        <div id="beatriz">
+                        <div id="member" class="card-columns col-sm-2">
                             <div id="photo">
-                                <img src="./images/team_photos/photo_beatriz.jpeg" alt="beatriz" height="350"
-                                     width="350" class="img-responsive">
+                                <img src="./images/team_photos/photo_beatriz_1.jpg" alt="beatriz" height="250"
+                                     width="250" > <!-- class="img-responsive" -->
                             </div>
 
-                            <div id="name_member_team">
-                                <h5>
-                                    Beatriz de Henriques Martins
-                                </h5>
+                            <div>
+                                <div id="name_member_team">
+                                    <h5>
+                                        Beatriz de Henriques Martins
+                                    </h5>
+                                </div>
+
+                                <div>
+                                    <i class="material-icons">
+                                        link
+                                    </i>
+
+                                    <i>
+                                        https://www.linkedin.com/in/beatrizdehenriquesmartins/
+                                    </i>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Francisco Tuna Andrade -->
-                        <div id="francisco">
+                        <div id="member" class="card-columns col-sm-2">
                             <div id="photo">
-                                <img src="./images/team_photos/photo_francisco.jpg" alt="beatriz" height="350"
-                                     width="350" class="img-responsive">
+                                <img src="./images/team_photos/photo_francisco_1.jpg" alt="beatriz" height="250"
+                                     width="250" > <!-- class="img-responsive" -->
                             </div>
 
-                            <div id="name_member_team">
-                                <h5>
-                                    Francisco Tuna Andrade
-                                </h5>
+                            <div>
+                                <div id="name_member_team">
+                                    <h5>
+                                        Francisco Tuna Andrade
+                                    </h5>
+                                </div>
+
+                                <div>
+                                    <i class="material-icons">
+                                        link
+                                    </i>
+
+                                    <i>
+                                        https://www.linkedin.com/in/beatrizdehenriquesmartins/
+                                    </i>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Luís Miguel Santos Monteiro Saraiva -->
-                        <div id="luis">
+                        <div id="member" class="card-columns col-sm-2">
                             <div id="photo">
-                                <img src="./images/team_photos/photo_luis.jpg" alt="beatriz" height="350"
-                                     width="350" class="img-responsive">
+                                <img src="./images/team_photos/photo_luis_1.jpg" alt="beatriz" height="250"
+                                     width="250" > <!-- class="img-responsive" -->
                             </div>
 
-                            <div id="name_member_team">
-                                <h5>
-                                    Luís Miguel Santos Monteiro Saraiva
-                                </h5>
+                            <div>
+                                <div id="name_member_team">
+                                    <h5>
+                                        Luís Miguel Santos Monteiro Saraiva
+                                    </h5>
+                                </div>
+
+                                <div>
+                                    <i class="material-icons">
+                                        link
+                                    </i>
+
+                                    <i>
+                                        https://www.linkedin.com/in/beatrizdehenriquesmartins/
+                                    </i>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Ricardo Filipe Amaro Saleiro Abreu -->
-                        <div id="ricardo">
+                        <div id="member" class="card-columns col-sm-2">
                             <div id="photo">
-                                <img src="./images/team_photos/photo_ricardo.jpg" alt="beatriz" height="350"
-                                     width="350" class="img-responsive">
+                                <img src="./images/team_photos/photo_ricardo.jpg" alt="beatriz" height="250"
+                                     width="250"> <!-- class="img-responsive" -->
                             </div>
 
-                            <div id="name_member_team">
-                                <h5>
-                                    Ricardo Filipe Amaro Saleiro Abreu
-                                </h5>
+                            <div>
+                                <div id="name_member_team">
+                                    <h5>
+                                        Ricardo Filipe Amaro Saleiro Abreu
+                                    </h5>
+                                </div>
+
+                                <div>
+                                    <i class="material-icons">
+                                        link
+                                    </i>
+
+                                    <i>
+                                        https://www.linkedin.com/in/beatrizdehenriquesmartins/
+                                    </i>
+                                </div>
                             </div>
                         </div>
                     </div>
