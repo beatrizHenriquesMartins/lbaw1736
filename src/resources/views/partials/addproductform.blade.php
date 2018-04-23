@@ -89,7 +89,13 @@
                 </span>
               @endif
             </div>
-
+            <div class="tocarousel">
+              <h2>
+                Product in Carousel
+              </h2>
+              <input type="checkbox" name="tocarousel" id="tocarousel">
+              </input>
+            </div>
         </div>
     </div>
 
