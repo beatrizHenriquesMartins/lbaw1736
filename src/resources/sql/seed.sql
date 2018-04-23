@@ -144,7 +144,7 @@ CREATE TABLE clientaddresses (
 );
 
 CREATE TABLE purchases (
-  id SERIAL PRIMARY KEY,
+  id_purchase SERIAL PRIMARY KEY,
   id_client INTEGER REFERENCES clients NOT NULL,
   id_address INTEGER REFERENCES addresses NOT NULL,
   purchaseDate TIMESTAMP DEFAULT now() NOT NULL,
@@ -221,7 +221,7 @@ BEGIN
 	UPDATE purchaseProducts
 	SET cost = (SELECT (SELECT price FROM products WHERE id=NEW.id_product) * NEW.quantity) WHERE purchaseProducts.id_product = NEW.id_product AND purchaseProducts.id_purchase = NEW.id_purchase;
 	UPDATE purchases
-	SET cost = (SELECT SUM(cost2) FROM (SELECT purchaseProducts.cost AS cost2 FROM purchaseProducts WHERE ( purchaseProducts.id_purchase = NEW.id_purchase) ) AS derived_table) WHERE purchases.id = NEW.id_purchase;
+	SET cost = (SELECT SUM(cost2) FROM (SELECT purchaseProducts.cost AS cost2 FROM purchaseProducts WHERE ( purchaseProducts.id_purchase = NEW.id_purchase) ) AS derived_table) WHERE purchases.id_purchase = NEW.id_purchase;
 	RETURN NEW;
 END
 $BODY$

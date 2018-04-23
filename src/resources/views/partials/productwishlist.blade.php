@@ -18,9 +18,11 @@
             </h4>
         </a>
 
-        <h5>
-            {{$product->category->categoryName}}
-        </h5>
+        <a href="/categories/{{ $product->category->categoryName }}">
+          <h5>
+              {{$product->category->categoryName}}
+          </h5>
+        </a>
 
         <h5>
             {{ $product->price }} €

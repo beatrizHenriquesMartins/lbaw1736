@@ -24,6 +24,8 @@ Route::get('wishlist', 'WishlistController@list')->name('wishlist');
 Route::delete('api/wishlist/{id}', 'WishlistController@delete');
 Route::put('api/wishlist/{id}', 'WishlistController@create');
 
+// purchases
+Route::get('purchases', 'PurchaseController@list')->name('purchases');
 
 // Footer
 Route::get('404', 'FooterController@show404')->name('404');

@@ -140,6 +140,30 @@ html{
     width: 100%;
 }
 
+.btn-info.purchase-btn {
+  color: #fff!important;
+  background-color: #5bc0de!important;
+  border-color: #46b8da!important;
+}
+
+.btn-info.purchase-btn:active {
+  color: #fff!important;
+  background-color: #5bc0de!important;
+  border-color: #46b8da!important;
+}
+
+.btn-info.purchase-btn:hover {
+  color: #fff!important;
+  background-color: #5bc0de!important;
+  border-color: #46b8da!important;
+}
+
+.btn-info.purchase-btn:visited {
+  color: #fff!important;
+  background-color: #5bc0de!important;
+  border-color: #46b8da!important;
+}
+
 .btn-info {
     color: #874e5a !important;
     background-color: #ffe7e7 !important;

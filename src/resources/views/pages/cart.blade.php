@@ -31,7 +31,7 @@
                         Profile
                     </a>
 
-                    <a href="list_purchases.html" class="list-group-item list-group-item-action">
+                    <a href="{{route('purchases')}}" class="list-group-item list-group-item-action">
                         List of Purchases
                     </a>
 
