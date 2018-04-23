@@ -82,9 +82,9 @@ function sendAjaxRequest(method, url, data, handler) {
 function changeQuantity() {
   let spinner = this.closest('.spinner');
 
-  let input = document.querySelectorAll('.spinner input');
-  
-  let value = parseInt(input[parseInt(spinner.querySelector('.number').textContent)].value);
+  let input = spinner.querySelector('input');
+
+  let value = parseInt(input.value);
 
   let id = this.closest('div.product').getAttribute('data-id');
 
@@ -93,11 +93,12 @@ function changeQuantity() {
 }
 
 function moreQuantity() {
-  let input = document.querySelectorAll('.spinner input');
-  let oldValue = parseInt(input[parseInt(this.querySelector('.number').textContent)].value);
+  let spinner = this.closest('.spinner');
+  let input = spinner.querySelector('input');
+  let oldValue = parseInt(input.value);
   let newVal = oldValue + 1;
 
-  input[parseInt(this.querySelector('.number').textContent)].value = newVal;
+  input.value = newVal;
   let id = this.closest('div.product').getAttribute('data-id');
 
   sendAjaxRequest('post', '/api/cart/' + id + '/quantity/' + newVal, null, updateCartQuantityHandler);
@@ -105,13 +106,14 @@ function moreQuantity() {
 }
 
 function lessQuantity(i) {
-  let input = document.querySelectorAll('.spinner input');
-  let oldValue = parseInt(input[parseInt(this.querySelector('.number').textContent)].value);
+  let spinner = this.closest('.spinner');
+  let input = spinner.querySelector('input');
+  let oldValue = parseInt(input.value);
   let id = this.closest('div.product').getAttribute('data-id');
   if(oldValue > 1) {
     let newVal = oldValue - 1;
 
-  input[parseInt(this.querySelector('.number').textContent)].value = newVal;
+  input.value = newVal;
   sendAjaxRequest('post', '/api/cart/' + id + '/quantity/' + newVal, null, updateCartQuantityHandler);
 
   }
@@ -160,7 +162,8 @@ function removeCartHandler() {
   totalprice.remove();
 
   totalvalue -= productvalue;
-  if(totalvalue == 0) {
+  updateCartTotal(totalvalue);
+  /*if(totalvalue == 0) {
     let final = document.querySelector('.main .final');
     final.remove();
   } else {
@@ -169,7 +172,7 @@ function removeCartHandler() {
     newprice.innerHTML = totalvalue + ' €';
     newprice.setAttribute('class', 'value');
     total.append(newprice);
-  }
+  }*/
 }
 
 function sendRemoveAllCartRequest() {
@@ -209,6 +212,19 @@ function AddCartHandler() {
   if (this.status != 200) window.location = '/';
   let cart = JSON.parse(this.responseText);
 
+}
+
+function updateCartTotal(newTotal){
+  if(newTotal == 0) {
+    let final = document.querySelector('.main .final');
+    final.remove();
+  } else {
+    let total = document.querySelector('.main .final .total-order .total');
+    let newprice = document.createElement('h3');
+    newprice.innerHTML = newTotal + ' €';
+    newprice.setAttribute('class', 'value');
+    total.append(newprice);
+  }
 }
 
 addEventListeners();
