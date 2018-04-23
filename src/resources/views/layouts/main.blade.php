@@ -100,9 +100,9 @@
                       <form class="navbar-form navbar-right" role="search" id="navBarSearchForm" action="/action_page.php">
                           <input class="form-control" type="text" placeholder="Search..." name="search">
 
-                          <a class="btn btn-dark" href="{{ url('/search_result') }}" role="button">
+                          <button type="button" class="btn btn-dark" href="{{ url('/search_result') }}">
                               GO!
-                          </a>
+                          </button>
                       </form>
                   </div>
 

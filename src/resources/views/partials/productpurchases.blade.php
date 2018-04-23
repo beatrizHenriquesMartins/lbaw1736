@@ -60,7 +60,7 @@
                                     Close
                                 </button>
 
-                                <button type="button" class="btn btn-primary">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">
                                     Send message
                                 </button>
                             </div>
