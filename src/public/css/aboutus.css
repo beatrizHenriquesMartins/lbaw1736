@@ -44,7 +44,21 @@ div#member.card-columns.col-sm-2{
     }
 
     div#member.card-columns.col-sm-2 {
-        justify-content: left;
+        justify-content: center;
         flex-direction: column;
+        padding-bottom: 2.5em;
+    }
+
+    div#name_member_team {
+        padding-top: 0.5em;
+    }
+
+    div#photo{
+        padding-right: 0;
+    }
+
+    img#photo_img{
+        width: 130%;
+        height: auto;
     }
 }

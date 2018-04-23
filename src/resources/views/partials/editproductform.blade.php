@@ -96,7 +96,13 @@
                 </span>
               @endif
             </div>
-
+            <div class="tocarousel">
+              <h2>
+                Product in Carousel
+              </h2>
+              <input type="checkbox" name="tocarousel" id="tocarousel" @if($product->tocarousel == 1) checked @endif>
+              </input>
+            </div>
         </div>
     </div>
 

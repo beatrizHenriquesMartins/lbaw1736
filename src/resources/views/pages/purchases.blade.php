@@ -18,7 +18,7 @@
             </li>
 
             <li class="breadcrumb-item" aria-current="page">
-                List of Favorites
+                List of Purchases
             </li>
         </ol>
     </nav>
@@ -31,11 +31,11 @@
                         Profile
                     </a>
 
-                    <a href="{{route('purchases')}}" class="list-group-item list-group-item-action">
+                    <a href="{{route('purchases')}}" class="list-group-item list-group-item-action active">
                         List of Purchases
                     </a>
 
-                    <a href="{{route('wishlist')}}" class="list-group-item list-group-item-action active">
+                    <a href="{{route('wishlist')}}" class="list-group-item list-group-item-action">
                         List of Favourites
                     </a>
 
@@ -45,8 +45,8 @@
                 </div>
             </div>
 
-            <div class = "category-products wishlist-products col-sm-8 col-sm-offset-1">
-                @each('partials.productwishlist', $products, 'product')
+            <div class = "category-products col-sm-10 col-sm-offset-1 purchases-products">
+                @each('partials.productpurchases', $products, 'product')
             </div>
         </div>
     </div>
