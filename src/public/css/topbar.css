@@ -218,6 +218,10 @@ div.container-fluid.topbar{
         padding-top: 0.2em;
         padding-bottom: 0.4em;
     }
+    
+    div.col-sm-3.flex-item.sign{
+        display: none;
+    }
 }
 
 @media (max-width:500px) {
@@ -252,6 +256,10 @@ div.container-fluid.topbar{
         margin-left: 1em !important;
         border-color: #836262;
     }
+
+    div.col-sm-3.flex-item.sign{
+        display: none;
+    }
 }
 
 .profile_image img {
@@ -271,11 +279,5 @@ div.container-fluid.topbar{
 and (min-resolution:.001dpcm) {
     img.mb-4{
         height: auto;
-    }
-}
-
-@media (max-width: 500px) {
-    div.col-sm-3.flex-item.sign{
-        display: none;
     }
 }
