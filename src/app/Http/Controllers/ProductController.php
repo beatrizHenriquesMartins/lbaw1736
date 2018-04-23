@@ -337,6 +337,9 @@ class ProductController extends Controller
         $product->id_category = $request->input('categoryname');
         $product->shortdescription = $request->input('shortdescription');
         $product->bigdescription = $request->input('bigdescription');
+        if($request->input('tocarousel') == 0)
+          $product->tocarousel = 1;
+
         $product->price = $request->input('price');
         $destinationPath = public_path('/images');
         $brand = Brand::find($request->Input('brandname'));
@@ -379,7 +382,11 @@ class ProductController extends Controller
         $product->bigdescription = $request->input('bigdescription');
         $product->price = $request->input('price');
         $product->active = 1;
-        $product->tocarousel = 0;
+        if($request->input('tocarousel') == 0)
+          $product->tocarousel = 1;
+        else {
+          $product->tocarousel = 0;
+        }
         $destinationPath = public_path('/images');
         $brand = Brand::find($request->Input('brandname'));
         $brandname = $brand->brandname;
