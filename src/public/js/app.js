@@ -211,4 +211,17 @@ function AddCartHandler() {
 
 }
 
+function updateCartTotal(newTotal){
+  if(newTotal == 0) {
+    let final = document.querySelector('.main .final');
+    final.remove();
+  } else {
+    let total = document.querySelector('.main .final .total-order .total');
+    let newprice = document.createElement('h3');
+    newprice.innerHTML = newTotal + ' €';
+    newprice.setAttribute('class', 'value');
+    total.append(newprice);
+  }
+}
+
 addEventListeners();
