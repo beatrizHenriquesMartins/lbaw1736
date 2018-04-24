@@ -9,6 +9,8 @@ class Review extends Model
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
 
+  public $incrementing = false;
+
   protected $primaryKey = ['id_purchase','id_product'];
 
   protected $fillable = [

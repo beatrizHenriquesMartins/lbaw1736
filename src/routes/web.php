@@ -51,6 +51,9 @@ Route::get('newproduct', 'ProductController@showadd')->name('newProduct');
 Route::post('addproduct', 'ProductController@create')->name('addProduct');
 Route::post('products/{id}/editproduct', 'ProductController@edit')->name('editproduct');
 
+//Reivew
+Route::post('addreview/{id_product}/{id_purchase}', 'ReviewController@create')->name('addreview');
+
 // category
 Route::get('category/{categoryName}', 'ProductController@showCategory')->name('category');
 
