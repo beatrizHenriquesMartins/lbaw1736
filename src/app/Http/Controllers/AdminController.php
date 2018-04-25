@@ -48,7 +48,7 @@ class AdminController extends Controller
       if($type != 4)
         return redirect('/404');
 
-      $clients = Client::join('users', 'id', '=', 'id_client')->get();
+      $clients = Client::join('users', 'id', '=', 'id_client')->paginate(15);
 
 
       return view('pages.administration', ['users' => $clients, 'type' => $type, 'page' => 1]);
@@ -87,14 +87,9 @@ class AdminController extends Controller
      if($type != 4)
        return redirect('/404');
 
-     $bmsAndAdmins = BrandManager::join('users', 'users.id', '=', 'id_brandmanager')->get();
-     $bms = [];
-     foreach ($bmsAndAdmins as $user) {
-       $admin = Admin::find($user->id);
-       if($admin==null)
-         array_push($bms, $user);
-     }
-
+     $bms = BrandManager::join('users', 'users.id', '=', 'id_brandmanager')->whereNotIn('id_brandmanager', function($query) {
+        $query->select('id')
+              ->from('admins');})->paginate(15);
 
      return view('pages.administration', ['users' => $bms, 'type' => $type, 'page' => 2]);
    }
@@ -132,7 +127,7 @@ class AdminController extends Controller
     if($type != 4)
       return redirect('/404');
 
-    $supports = SupportChat::join('users', 'id', '=', 'id_chatsupport')->get();
+    $supports = SupportChat::join('users', 'id', '=', 'id_chatsupport')->paginate(15);
 
 
     return view('pages.administration', ['users' => $supports, 'type' => $type, 'page' => 3]);

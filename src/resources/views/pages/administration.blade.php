@@ -64,4 +64,7 @@
         </div>
     </div>
 </div>
+<div class="category-links">
+  {{ $users->links() }}
+</div>
 @endsection
