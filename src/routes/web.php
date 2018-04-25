@@ -75,6 +75,6 @@ Route::get('supports', 'AdminController@listSupports')->name('supports');
 
 
 // profile
-Route::get('users/{id_user}', 'ProfileController@show')->name('profile');
-Route::get('users/{id_user}/edit', 'ProfileController@showedit')->name('editProfile');
-Route::post('users/{id_user}/editprofile', 'ProfileController@edit')->name('editprofile');
+Route::get('profile', 'ProfileController@show')->name('profile');
+Route::get('profile/edit', 'ProfileController@showedit')->name('editProfile');
+Route::post('profile/edit', 'ProfileController@edit');

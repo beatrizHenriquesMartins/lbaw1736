@@ -6,13 +6,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\BrandManager;
+use App\SupportChat;
+use App\Admin;
+use App\Client;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 class ProfileController extends Controller
 {
 	public function show($id){
-		
-		if (!Auth::check()) 
-			return redirect('/login');
+
+			if (!Auth::check())
+				return redirect('/login');
 
 			$user = Auth::user();
 			//..............ou?
@@ -40,11 +46,11 @@ class ProfileController extends Controller
 
 
   public function showedit($id)
-    {   
+    {
 
     	if(!Auth::check())
     		return view('/login');
-        $user = Auth::user();
+      $user = Auth::user();
 
         $type = 0;
       $userBM = BrandManager::find(Auth::user()->id);
@@ -60,11 +66,11 @@ class ProfileController extends Controller
       if($userADM != null)
           $type = 4;
 
-        return view('pages.editprofile', compact('user', 'type'));
+        return view('pages.editprofile', ['user' => $user, 'type' => $type]);
     }
 
     public function edit(Request $request, $id)
-    { 
+    {
     	 $user = Auth::user();
 
     	  $rules = array(
@@ -86,24 +92,19 @@ class ProfileController extends Controller
       }
         $user->firstname = request('firstname');
         $user->lastname = request('lastname');
-        $user->username=request('username');
-        $user->email = request('email');
         $user->password = bcrypt(request('password'));
-        $user->imageurl=request('imageurl');
-        $user->nif=request('nif');
+        $user->imageurl = request('imageurl');
+				$user->datemodified = date('Y-m-d H:i:s');
 
-        /*
-        //onde se guardam as fotos dos users?....
         $destinationPath = public_path('/images');
         if ($request->hasFile('imageurl')) {
           $imageName = $request->imageurl->getClientOriginalName();
           $request->imageurl->move(public_path('images/users'.'/'.$user), $imageName);
-          $product->imageurl = "/images/users".'/'.$user.'/'.$imageName;
+          $user->imageurl = "/images/users".'/'.$user.'/'.$imageName;
         }
-        */
 
         $user->save();
 
-        return redirect()->route('pages.profile',['user' => $user]);
+        return redirect()->route('pages.profile');
     }
 }
