@@ -72,3 +72,9 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('clients', 'AdminController@listClients')->name('clients');
 Route::get('bms', 'AdminController@listBms')->name('bms');
 Route::get('supports', 'AdminController@listSupports')->name('supports');
+
+
+// profile
+Route::get('users/{id_user}', 'ProfileController@show')->name('profile');
+Route::get('users/{id_user}/edit', 'ProfileController@showedit')->name('editProfile');
+Route::post('users/{id_user}/editprofile', 'ProfileController@edit')->name('editprofile');
