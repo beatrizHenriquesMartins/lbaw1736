@@ -67,3 +67,8 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+
+// administration
+Route::get('clients', 'AdminController@listClients')->name('clients');
+Route::get('bms', 'AdminController@listBms')->name('bms');
+Route::get('supports', 'AdminController@listSupports')->name('supports');

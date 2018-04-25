@@ -54,7 +54,7 @@
                                     </div>
 
                                     <!-- Rating -->
-                                    <input class="rating ratable" data-max="5" data-min="1" id="some_id" name="rating" type="number" style="  padding-left: 1em;" />
+                                    <input class="rating ratable" data-max="5" data-min="1" id="some_id" name="rating" type="number" />
                                 </div>
 
                                 <div class="modal-footer">
