@@ -104,8 +104,7 @@ function sendUnBanRequest() {
 }
 
 function sendUnBanHandlers() {
-  console.log(this.responseText);
-//  if (this.status != 200) window.location = '/';
+  if (this.status != 200) window.location = '/';
   let banned = JSON.parse(this.responseText);
   let element = document.querySelector('#accordion .card[data-id="' + banned.id_user + '"]');
   element.remove();
@@ -120,8 +119,7 @@ function sendBanRequest() {
 }
 
 function sendBanHandlers() {
-    console.log(this.responseText);
-//  if (this.status != 200) window.location = '/';
+  if (this.status != 200) window.location = '/';
   let banned = JSON.parse(this.responseText);
   let element = document.querySelector('#accordion .card[data-id="' + banned.id_user + '"]');
   element.remove();
