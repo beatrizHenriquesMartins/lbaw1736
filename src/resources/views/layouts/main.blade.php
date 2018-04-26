@@ -56,6 +56,9 @@
         <!-- about us CSS -->
         <link href="/css/aboutus.css" rel="stylesheet" type="text/css" >
 
+        <!-- Admin CSS -->
+        <link href="/css/admin.css" rel="stylesheet" type="text/css" >
+
         <!-- faq CSS -->
         <link href="/css/faq.css" rel="stylesheet" type="text/css" >
 
@@ -73,7 +76,6 @@
 
         <link rel="icon" type="image/png"  href="/images/icon.png" />
 
-        <script language="JavaScript" type="text/javascript" src="/js/cart_quantity.js" defer></script>
         <script language="JavaScript" type="text/javascript" src="/js/bootstrap-rating-input.min.js" defer></script>
         <script language="JavaScript" type="text/javascript" src="/js/app.js" defer></script>
 

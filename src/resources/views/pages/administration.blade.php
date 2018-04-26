@@ -26,6 +26,9 @@
           @if($page == 3)
             List SupportChats
           @endif
+          @if($page == 4)
+            List Banned Users
+          @endif
         </li>
     </ol>
 </nav>
@@ -50,14 +53,17 @@
                 <a href="/supports" @if($page == 3) class="list-group-item list-group-item-action active" @endif @if($page != 3) class="list-group-item list-group-item-action" @endif>
                     List of SupportChat
                 </a>
+                <a href="/bans" @if($page == 4) class="list-group-item list-group-item-action active" @endif @if($page != 4) class="list-group-item list-group-item-action" @endif>
+                    List of Banned Users
+                </a>
             </div>
         </div>
 
         <div class = "category-products wishlist-products col-sm-8 col-sm-offset-1">
             <div id="accordion">
-
-               @each('partials.adminusers', $users, 'user')
-
+              @for($i = 0; $i < count($users); $i++)
+                @include('partials.adminusers', ['user' => $users[$i], 'page' => $page])
+              @endfor
 
 
             </div>

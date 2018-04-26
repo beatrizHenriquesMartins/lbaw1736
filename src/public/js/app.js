@@ -60,6 +60,23 @@ function addEventListeners() {
       input[i].addEventListener("input", changeQuantity);
     }
   }
+
+  let bans = document.querySelectorAll('#accordion .card .card-body .product .product-class .cart-btn .fa-ban');
+  if(bans) {
+    let i = 0;
+    for(i = 0; i < bans.length; i++) {
+      console.log("HERE!!!!");
+      bans[i].addEventListener("click", sendBanRequest);
+    }
+  }
+
+  let unbans = document.querySelectorAll('#accordion .card .card-body .product .product-class .cart-btn .fa-undo');
+  if(unbans) {
+    let i = 0;
+    for(i = 0; i < unbans.length; i++) {
+      unbans[i].addEventListener("click", sendUnBanRequest);
+    }
+  }
 }
 
 function encodeForAjax(data) {
@@ -77,6 +94,37 @@ function sendAjaxRequest(method, url, data, handler) {
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.addEventListener('load', handler);
   request.send(encodeForAjax(data));
+}
+
+function sendUnBanRequest() {
+
+  let id = this.closest('div.card').getAttribute('data-id');
+  sendAjaxRequest('post', '/api/users/unban', {id: id}, sendUnBanHandlers);
+
+}
+
+function sendUnBanHandlers() {
+  console.log(this.responseText);
+//  if (this.status != 200) window.location = '/';
+  let banned = JSON.parse(this.responseText);
+  let element = document.querySelector('#accordion .card[data-id="' + banned.id_user + '"]');
+  element.remove();
+
+}
+
+function sendBanRequest() {
+
+  let id = this.closest('div.card').getAttribute('data-id');
+  sendAjaxRequest('post', '/api/users/ban', {id: id}, sendBanHandlers);
+
+}
+
+function sendBanHandlers() {
+    console.log(this.responseText);
+//  if (this.status != 200) window.location = '/';
+  let banned = JSON.parse(this.responseText);
+  let element = document.querySelector('#accordion .card[data-id="' + banned.id_user + '"]');
+  element.remove();
 }
 
 function changeQuantity() {

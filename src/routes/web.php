@@ -72,7 +72,9 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('clients', 'AdminController@listClients')->name('clients');
 Route::get('bms', 'AdminController@listBms')->name('bms');
 Route::get('supports', 'AdminController@listSupports')->name('supports');
-
+Route::get('bans', 'AdminController@listBans')->name('bans');
+Route::post('api/users/ban', 'AdminController@ban');
+Route::post('api/users/unban', 'AdminController@unban');
 
 // profile
 Route::get('profile', 'ProfileController@show')->name('profile');

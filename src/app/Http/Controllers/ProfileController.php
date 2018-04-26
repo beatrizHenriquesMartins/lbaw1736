@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+
 use App\User;
 use App\BrandManager;
 use App\SupportChat;
 use App\Admin;
 use App\Client;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Input;
 
 class ProfileController extends Controller
 {
@@ -108,4 +109,5 @@ class ProfileController extends Controller
 
         return redirect()->route('profile');
     }
+
 }
