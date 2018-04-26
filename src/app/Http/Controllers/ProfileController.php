@@ -15,14 +15,10 @@ use Illuminate\Support\Facades\Input;
 
 class ProfileController extends Controller
 {
-	public function show($id){
+	public function show(){
 
 			if (!Auth::check())
 				return redirect('/login');
-
-			$user = Auth::user();
-			//..............ou?
-			//$user = User::find($id);
 
 
       $type = 0;
@@ -39,13 +35,13 @@ class ProfileController extends Controller
       if($userADM != null)
           $type = 4;
 
-		return view('pages.profile', ['user' => $user, 'type' => $type]);
+		return view('pages.profile', ['type' => $type]);
 		//ou...
 		//return view('pages.profile', compact('user','type');
 	}
 
 
-  public function showedit($id)
+  public function showedit()
     {
 
     	if(!Auth::check())
@@ -66,10 +62,10 @@ class ProfileController extends Controller
       if($userADM != null)
           $type = 4;
 
-        return view('pages.editprofile', ['user' => $user, 'type' => $type]);
+        return view('pages.editprofile', ['type' => $type]);
     }
 
-    public function edit(Request $request, $id)
+    public function edit(Request $request)
     {
     	 $user = Auth::user();
 
@@ -77,23 +73,28 @@ class ProfileController extends Controller
           'firstname' => 'required',
            'lastname' => 'required',
           'imageurl' => 'mimes:jpeg,png,jpg,gif,svg',
-           'username' => 'required|string|unique:users',
-            //'birthday' => 'date',
-            'email' => 'required|email|unique:users',
-            'nif' => 'integer',
-            'password' => 'required|min:6|confirmed'
       );
 
       $validator = Validator::make(Input::all(), $rules);
 
       if ($validator->fails()) {
-        return redirect()->route('editProduct', ['id' => $id])->withErrors($validator);
+        return redirect()->route('editProfile')->withErrors($validator);
       } else {
       }
-        $user->firstname = request('firstname');
-        $user->lastname = request('lastname');
-        $user->password = bcrypt(request('password'));
-        $user->imageurl = request('imageurl');
+				if($request->input('password')) {
+					$rules2 = array(
+						'password' => 'required|min:6|confirmed'
+					);
+
+					$validator2 = Validator::make(Input::all(), $rules2);
+
+					if ($validator2->fails()) {
+						return redirect()->route('editProfile')->withErrors($validator2);
+					}
+				}
+        $user->firstname = $request->input('firstname');
+        $user->lastname = $request->input('lastname');
+        $user->password = bcrypt($request->input('password'));
 				$user->datemodified = date('Y-m-d H:i:s');
 
         $destinationPath = public_path('/images');
@@ -105,6 +106,6 @@ class ProfileController extends Controller
 
         $user->save();
 
-        return redirect()->route('pages.profile');
+        return redirect()->route('profile');
     }
 }
