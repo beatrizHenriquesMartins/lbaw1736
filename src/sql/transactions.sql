@@ -82,3 +82,26 @@ VALUES ($firstName, $lastName, $username, $email, $password, $imageURL, DEFAULT,
 END $$;
 
 COMMIT;
+
+
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+DO $$
+DECLARE idp integer;
+BEGIN
+INSERT INTO purchases(id_client, id_address, purchaseDate, purchaseState, 
+	cost, paymentType, cardNumber, cardName, cardExpirationDate, nif)
+VALUES ($id_client,$id_address, DEFAULT, $purchaseState, 
+	0, $paymentType, $cardNumber, $cardName, $cardExpirationDate, $nif) RETURNING id_purchase INTO idp ;
+	
+INSERT INTO purchaseproducts (id_purchase, id_product, quantity, cost)
+SELECT idp, id_product, quantity, 0
+FROM carts
+WHERE carts.id_client = $id_client;
+
+DELETE FROM carts WHERE id_client = $id_client;
+
+END $$;
+
+COMMIT;
