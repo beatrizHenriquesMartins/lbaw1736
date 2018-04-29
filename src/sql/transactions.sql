@@ -65,3 +65,20 @@ WHERE p.id_brand = b.id_brand AND p.id_category = pc.id_category AND pr.id_produ
 GROUP BY p.id;
 
 COMMIT;
+
+
+
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+DO $$
+DECLARE idTemp integer;
+BEGIN
+  INSERT INTO users(firstName, lastName, username, email, password, imageURL,
+	dateCreated, dateModified, active)
+VALUES ($firstName, $lastName, $username, $email, $password, $imageURL, DEFAULT, DEFAULT, true) RETURNING id INTO idTemp ;
+ 
+  INSERT INTO clients VALUES(idTemp, 923132456);
+END $$;
+
+COMMIT;
