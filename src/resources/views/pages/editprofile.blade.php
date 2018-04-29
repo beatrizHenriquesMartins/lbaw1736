@@ -20,7 +20,7 @@
             <div class="row">
                 <div class = "sidelinks col-sm-2">
                     <div class="list-group">
-                        <a href="customer_profile.html" class="list-group-item list-group-item-action active">
+                        <a href="#" class="list-group-item list-group-item-action active">
                             Profile
                         </a>
 
@@ -46,7 +46,7 @@
                             </a>
                         </div>
 
-                        <form class = "form-horizontal" role="form">
+                        <form class = "form-horizontal" role="form" action="{{route('editProfile')}}">
                             <div class = "information col-sm-10 col-xs-10">
                                 <div class = "row">
                                     <div class = "col-sm-10 col-xs-10">
@@ -59,7 +59,7 @@
 
                                             <div class = "col-sm-10 col-xs-10">
                                                 <p class = "username-input">
-                                                    cr7
+                                                    {{ Auth::user()->username }}
                                                 </p>
                                             </div>
                                         </div>
@@ -74,7 +74,7 @@
                                             </label>
 
                                             <div class = "col-sm-6">
-                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text" name="name">
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +88,7 @@
                                             </label>
 
                                             <div class = "col-sm-6">
-                                                <input class="form-control" type="date">
+                                                <input class="form-control" type="date" name="birthday">
                                             </div>
                                         </div>
                                     </div>
@@ -102,7 +102,7 @@
                                             </label>
 
                                             <div class = "col-sm-6">
-                                                <input class="form-control" type="email">
+                                                <input class="form-control" type="email" name="email">
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
                                             </label>
 
                                             <div class = "col-sm-6">
-                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text" name="nif">
                                             </div>
                                         </div>
                                     </div>
@@ -175,7 +175,7 @@
                                 </label>
 
                                 <div class = "col-sm-8">
-                                    <input type="button" class="btn btn-primary" value="Save">
+                                    <input type="submit" class="btn btn-primary" value="Save">
 
                                     <span>
 									</span>

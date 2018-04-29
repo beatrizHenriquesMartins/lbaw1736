@@ -2,7 +2,7 @@
 @section('content')
     @if($type == 2)
     <div class="edit">
-        <a href="{{ route('editProfile', ['id' => $user->id]) }}">
+        <a href="{{ route('showEditProfile', ['id' => $user->id]) }}">
             <i class="fa fa-edit">
             </i>
         </a>
@@ -28,7 +28,7 @@
             <div class="row">
                 <div class = "sidelinks col-sm-2">
                     <div class="list-group">
-                        <a href="customer_profile.html" class="list-group-item list-group-item-action active">
+                        <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
                             Profile
                         </a>
 
@@ -63,7 +63,7 @@
 
                                         <div class = "col-sm-10">
                                             <p class = "username-input">
-                                                cr7
+                                                {{ Auth::user()->username }}
                                             </p>
                                         </div>
                                     </div>
@@ -75,13 +75,13 @@
                                     <div class = "row">
                                         <div class = "col-sm-2">
                                             <p>
-                                                Name:
+                                               Name:
                                             </p>
                                         </div>
 
                                         <div class = "col-sm-10">
                                             <p>
-                                                Cristiano Ronaldo dos Santos Aveiro
+                                                {{ Auth::user()->firstname ." ". Auth::user()->lastname }}
                                             </p>
                                         </div>
                                     </div>
@@ -99,6 +99,7 @@
 
                                         <div class = "col-sm-10">
                                             <p >
+                                                Isto ainda nao está:
                                                 33
                                             </p>
                                         </div>
@@ -117,6 +118,7 @@
 
                                         <div class = "col-sm-10">
                                             <p >
+                                                Isto ainda nao está:
                                                 5/02/1985
                                             </p>
                                         </div>
@@ -135,7 +137,7 @@
 
                                         <div class = "col-sm-10">
                                             <p >
-                                                cr7@gmail.com
+                                                 {{ Auth::user()->email }}
                                             </p>
                                         </div>
                                     </div>
@@ -153,7 +155,7 @@
 
                                         <div class = "col-sm-10">
                                             <p >
-                                                240192549
+                                                {{ Auth::user()->nif }}
                                             </p>
                                         </div>
                                     </div>
@@ -162,11 +164,14 @@
                         </div>
 
                         <div class = "col-sm-1 col-xs-2">
-                            <button type="button" class="btn btn-default btn-sm">
-                                <a class="glyphicon glyphicon-edit" href="{{route('editProfile')}}" role="button">
+                            
+
+                            <a href="{{route('showEditProfile')}}" role="button">
+                                <button type="button" class="btn btn-default btn-sm glyphicon glyphicon-edit" role="button">
                                     Edit
-                                </a>
-                            </button>
+                                </button>
+                            </a>
+                            
                         </div>
                     </div>
 
@@ -177,6 +182,7 @@
 
                         <ul>
                             <li>
+                                Isto ainda nao está:
                                 Rua Marco de Canaveses 19 Porto
                             </li>
 

@@ -78,5 +78,5 @@ Route::post('api/users/unban', 'AdminController@unban');
 
 // profile
 Route::get('profile', 'ProfileController@show')->name('profile');
-Route::get('profile/edit', 'ProfileController@showedit')->name('editProfile');
-Route::post('profile/edit', 'ProfileController@edit');
+Route::get('profile/edit', 'ProfileController@showedit')->name('showEditProfile');
+Route::post('profile/edit', 'ProfileController@edit')->name('editProfile');

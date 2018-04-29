@@ -72,7 +72,7 @@ class ProfileController extends Controller
 
     	  $rules = array(
           'firstname' => 'required',
-           'lastname' => 'required',
+          'lastname' => 'required',
           'imageurl' => 'mimes:jpeg,png,jpg,gif,svg',
       );
 
@@ -81,7 +81,8 @@ class ProfileController extends Controller
       if ($validator->fails()) {
         return redirect()->route('editProfile')->withErrors($validator);
       } else {
-      }
+
+      /*
 				if($request->input('password')) {
 					$rules2 = array(
 						'password' => 'required|min:6|confirmed'
@@ -92,7 +93,7 @@ class ProfileController extends Controller
 					if ($validator2->fails()) {
 						return redirect()->route('editProfile')->withErrors($validator2);
 					}
-				}
+*/
         $user->firstname = $request->input('firstname');
         $user->lastname = $request->input('lastname');
         $user->password = bcrypt($request->input('password'));
@@ -109,5 +110,6 @@ class ProfileController extends Controller
 
         return redirect()->route('profile');
     }
+  }
 
 }
