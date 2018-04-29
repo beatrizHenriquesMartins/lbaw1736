@@ -69,3 +69,28 @@ input::-webkit-input-placeholder {
 .login-container {
     padding-bottom: 18.7em;
 }
+
+@media (max-width: 500px) {
+    img.mb-4 {
+        width: 100%;
+        height: auto;
+    }
+
+    div.main-login.main-center{
+        align-content: center;
+    }
+
+    .login-container{
+        padding-bottom: 10em;
+    }
+}
+
+@media (max-width: 600px) {
+    .login-container{
+        padding-bottom: 7.5em;
+    }
+}
+
+@media () {
+    
+}
