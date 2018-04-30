@@ -62,6 +62,9 @@
         <!-- faq CSS -->
         <link href="/css/faq.css" rel="stylesheet" type="text/css" >
 
+        <!-- chatSupport CSS -->
+        <link href="/css/chatSupport.css" rel="stylesheet" type="text/css" >
+
         <script type="text/javascript">
             // Fix for Firefox autofocus CSS bug
             // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
@@ -88,65 +91,66 @@
     <body>
     <main>
         <!-- cabeçalho -->
-      <div class="first_class">
-          <!-- TOP BAR -->
-          <div class="container-fluid topbar">
-              <div class="row top">
-                  <div class="col-sm-2 flex-item">
-                      <a href="{{ url('/homepage') }}">
-                          <img class="mb-4"  src="/images/logo_1.png" alt="logo" >
-                      </a>
-                  </div>
+        <div class="first_class">
+            <!-- TOP BAR -->
+            <div class="container-fluid topbar">
+                <div class="row top">
+                    <div class="col-sm-2 flex-item">
+                        <a href="{{ url('/homepage') }}">
+                            <img class="mb-4"  src="/images/logo_1.png" alt="logo" >
+                        </a>
+                    </div>
 
-                  <div class="col-sm-3 flex-item search">
-                      <form class="navbar-form navbar-right" id="navBarSearchForm" action="{{route('search')}}" method="get">
-                          <input class="form-control" type="text" placeholder="Search..." name="input">
+                    <div class="col-sm-3 flex-item search">
+                        <form class="navbar-form navbar-right" id="navBarSearchForm" action="{{route('search')}}" method="get">
+                            <input class="form-control" type="text" placeholder="Search..." name="input">
 
-                          <button type="submit" class="btn btn-dark">
-                              GO!
-                          </button>
-                      </form>
-                  </div>
-
-                  @if (Auth::check())
-                      <div class="col-sm-3 flex-item sign">
-                          <span class="hi">
-                              Hi,
-                          </span>
-
-                          <div class="dropdown">
-                              <button class="btn btn-secondary dropdown-toggle align-text-top" type="button"
-                                      id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                                  {{ Auth::user()->firstname }}
-
-                                  <i class="fa fa-caret-down">
-                                  </i>
-                              </button>
-
-                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                  <li>
-                                      <a class="dropdown-item" href="{{ url('/profile') }}">
-                                          Profile
-                                      </a>
-                                  </li>
-
-                                  <div class="dropdown-divider">
-                                  </div>
-
-                                  <li>
-                                      <a class="dropdown-item" href="{{ url('/logout') }}">
-                                          Sign Out
-                                      </a>
-                                  </li>
-                              </div>
-                          </div>
-                          <div class="user-img">
-                            <a href="{{ url('/profile') }}">
-                                <img class="mb-4"  src="{{Auth::user()->imageurl}}" alt="logo" >
-                            </a>
+                            <button type="submit" class="btn btn-dark">
+                                GO!
+                            </button>
                         </form>
                     </div>
+
+                    @if (Auth::check())
+                        <div class="col-sm-3 flex-item sign">
+                            <span class="hi">
+                                Hi,
+                            </span>
+
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle align-text-top" type="button"
+                                        id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                    {{ Auth::user()->firstname }}
+
+                                    <i class="fa fa-caret-down">
+                                    </i>
+                                </button>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url('/profile') }}">
+                                            Profile
+                                        </a>
+                                    </li>
+
+                                    <div class="dropdown-divider">
+                                    </div>
+
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url('/logout') }}">
+                                            Sign Out
+                                        </a>
+                                    </li>
+                                </div>
+                            </div>
+
+                            <div class="user-img">
+                                <a href="{{ url('/profile') }}">
+                                    <img class="mb-4"  src="{{Auth::user()->imageurl}}" alt="logo" >
+                                </a>
+                            </form>
+                        </div>
                     @endif
 
                     @if (!Auth::check())
