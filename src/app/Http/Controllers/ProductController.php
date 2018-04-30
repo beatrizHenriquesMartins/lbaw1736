@@ -441,4 +441,58 @@ class ProductController extends Controller
       $brands = Brand::all();
       return view('pages.addproduct', ['type' => $type, 'brands' => $brands]);
     }
+
+    public function search()
+    {
+      $input = Input::get('input');
+      $products = Product::whereOr('shortdescription', 'LIKE', '%'.$input.'%')->whereOr('bigdescription', 'LIKE', '%'.$input.'%')->whereOr('name', 'LIKE', '%'.$input.'%')->paginate(12);
+      echo $products;
+      if(!Auth::check()) {
+        return view('login');
+      }
+
+      $type = 0;
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+
+      $reviewsmed = [];
+      foreach ($products as $product) {
+        $reviews = DB::table('reviews')->where('id_product', $product->id)->join('purchases','purchases.id_purchase','=','reviews.id_purchase')->join('users', 'users.id', '=', 'id_client')->get();
+
+        $total = 0;
+        $number = 0;
+        foreach ($reviews as $review) {
+          $total  = $total + $review->rating;
+          $number++;
+        }
+        if($total == 0)
+          $reviewmed = 0;
+
+        else
+          $reviewmed = round($total / $number);
+          array_push($reviewsmed, $reviewmed);
+      }
+
+      return view('pages.category', ['categoryname' => 'Search Result', 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type]);
+    }
 }

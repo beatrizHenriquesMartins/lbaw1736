@@ -43,6 +43,10 @@
     z-index: 1;
 }
 
+.login-container{
+    padding-bottom: 5.45em;
+}
+
 @media (max-width:767px) {
     .topbar .top .sign {
         padding-top: 0.2em;

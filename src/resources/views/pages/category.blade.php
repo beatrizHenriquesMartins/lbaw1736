@@ -64,6 +64,10 @@
 
     $elems_per_row = 4;
     $rest = $elems_per_row - ($num_elems%$elems_per_row);
+    echo $num_elems;
+    echo "    ";
+    echo $elems_per_row;
+    echo $rest;
     if($num_elems%$elems_per_row == 0)
       $rest = 0;
 
@@ -74,14 +78,15 @@
       <div class="category-products">
           <div class="product-row">
             <?php for($j = 0; $j < $elems_per_row && $num_elems > 0; $j++, $num_elems--) {
-              $actual_elem = $i*$elems_per_row + $j;?>
+                  $actual_elem = $i*$elems_per_row + $j;?>
                   @include('partials.categoryproduct', ['product' => $products[$actual_elem], 'reviewmed' => $reviewsmed[$actual_elem]])
             <?php } ?>
-            <?php for($k = 0; $k < $rest; $k++) {?>
-
-              <div class="product-section empty">
-              </div>
-          <?php } ?>
+            <?php if($num_rows == ceil($actual_elem/4)) {?>
+                  <?php for($k = 0; $k < $rest; $k++) {?>
+                      <div class="product-section empty">
+                      </div>
+                  <?php } ?>
+            <?php } ?>
           </div>
       </div>
     <?php } ?>

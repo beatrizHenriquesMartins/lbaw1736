@@ -50,6 +50,7 @@ Route::get('products/{id}/remove', 'ProductController@delete')->name('removeProd
 Route::get('newproduct', 'ProductController@showadd')->name('newProduct');
 Route::post('addproduct', 'ProductController@create')->name('addProduct');
 Route::post('products/{id}/editproduct', 'ProductController@edit')->name('editproduct');
+Route::get('search', 'ProductController@search')->name('search');
 
 //Reivew
 Route::post('addreview/{id_product}/{id_purchase}', 'ReviewController@create')->name('addreview');
@@ -81,3 +82,6 @@ Route::get('users/{id}', 'AdminController@showUser');
 Route::get('profile', 'ProfileController@show')->name('profile');
 Route::get('profile/edit', 'ProfileController@showedit')->name('showEditProfile');
 Route::post('profile/edit', 'ProfileController@edit')->name('editProfile');
+
+//chatSupport
+Route::get('messages','SupportMessagesController@showMessage')->name('messages');
