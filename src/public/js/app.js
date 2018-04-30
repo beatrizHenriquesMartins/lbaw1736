@@ -169,7 +169,10 @@ function updateCartQuantityHandler() {
   console.log(this.responseText);
   if (this.status != 200) window.location = '/';
 
-  let newVal = JSON.parse(this.responseText);
+  let response = JSON.parse(this.responseText);
+  console.log(response);
+  let oldValue = response['quantity'];
+  console.log(oldValue);
 }
 
 
@@ -190,10 +193,16 @@ function sendRemoveCartRequest() {
   sendAjaxRequest('delete', '/api/cart/' + id, null, removeCartHandler);
 }
 
-function removeCartHandler() {
+function removeCartHandler(){
   if (this.status != 200) window.location = '/';
-  let cart = JSON.parse(this.responseText);
-  let element = document.querySelector('div.product.product-cart[data-id="' + cart.id_product + '"]');
+
+  updateCartTotal(this.responseText);
+}
+
+function updateCartTotal(responseText) {
+  let productChanged = JSON.parse(responseText);
+  console.log(cart);
+  let element = document.querySelector('div.product.product-cart[data-id="' + productChanged.id_product + '"]');
   let productprice = element.querySelector('.product-name .price');
   let productvalue = productprice.innerHTML;
   productvalue = productvalue.match(/\S+/g) || [];
@@ -206,9 +215,8 @@ function removeCartHandler() {
   totalvalue = totalvalue.match(/\S+/g) || [];
   totalvalue = totalvalue[0];
   totalprice.remove();
-
   totalvalue -= productvalue;
-  updateCartTotal(totalvalue);
+  changeCartTotal(totalvalue);
   /*if(totalvalue == 0) {
     let final = document.querySelector('.main .final');
     final.remove();
@@ -260,7 +268,7 @@ function AddCartHandler() {
 
 }
 
-function updateCartTotal(newTotal){
+function changeCartTotal(newTotal){
   if(newTotal == 0) {
     let final = document.querySelector('.main .final');
     final.remove();
