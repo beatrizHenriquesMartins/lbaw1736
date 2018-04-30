@@ -152,7 +152,7 @@ class CartController extends Controller
 
 
       if($product != null) {
-        DB::table('carts')->where([['id_client', '=', Auth::user()->id]])->update(['quantity'=> $quantity]);
+        DB::table('carts')->where([['id_client', '=', Auth::user()->id], ['id_product', '=', $product_id]])->update(['quantity'=> $quantity]);
       }
 
       return json_encode($product);
