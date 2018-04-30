@@ -46,7 +46,8 @@
                             </a>
                         </div>
 
-                        <form class = "form-horizontal" role="form" action="{{route('editProfile')}}">
+                        <form class = "form-horizontal" role="form" action="{{ route('editProfile') }}"" method="post">
+                             {{ csrf_field() }}
                             <div class = "information col-sm-10 col-xs-10">
                                 <div class = "row">
                                     <div class = "col-sm-10 col-xs-10">
@@ -70,11 +71,25 @@
                                     <div class = "col-sm-10">
                                         <div class = "form-group">
                                             <label class = "col-sm-2 control-label">
-                                                Name:
+                                                First Name:
                                             </label>
 
                                             <div class = "col-sm-6">
-                                                <input class="form-control" type="text" name="name">
+                                                <input class="form-control" type="text" name="firstname">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                 <div class = "row">
+                                    <div class = "col-sm-10">
+                                        <div class = "form-group">
+                                            <label class = "col-sm-2 control-label">
+                                                Last Name:
+                                            </label>
+
+                                            <div class = "col-sm-6">
+                                                <input class="form-control" type="text" name="lastname">
                                             </div>
                                         </div>
                                     </div>
@@ -122,6 +137,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--
 
                             <div class = "row addresses">
                                 <p>
@@ -169,6 +185,7 @@
                                     </li>
                                 </ul>
                             </div>
+                        -->
 
                             <div class = "confirm_buttons row form-group">
                                 <label class = "col-sm-0 control-label">

@@ -17,6 +17,7 @@ use App\Client;
 class ProfileController extends Controller
 {
 	public function show(){
+     echo "<script>console.log( 'entrou ProfileController@show' );</script>";
 
 			if (!Auth::check())
 				return redirect('/login');
@@ -44,6 +45,7 @@ class ProfileController extends Controller
 
   public function showedit()
     {
+      echo "<script>console.log( 'entrou ProfileController@showedit' );</script>";
 
     	if(!Auth::check())
     		return view('/login');
@@ -68,20 +70,24 @@ class ProfileController extends Controller
 
     public function edit(Request $request)
     {
+      echo "<script>console.log( 'entrou ProfileController@edit' );</script>";
     	 $user = Auth::user();
 
     	  $rules = array(
           'firstname' => 'required',
           'lastname' => 'required',
-          'imageurl' => 'mimes:jpeg,png,jpg,gif,svg',
+          //'imageurl' => 'mimes:jpeg,png,jpg,gif,svg',
       );
 
       $validator = Validator::make(Input::all(), $rules);
 
       if ($validator->fails()) {
+
+       echo "<script>console.log( 'validacao falhou' );</script>";
         return redirect()->route('editProfile')->withErrors($validator);
       } else {
 
+         echo "<script>console.log( 'validacao ok' );</script>";
       /*
 				if($request->input('password')) {
 					$rules2 = array(
@@ -96,6 +102,7 @@ class ProfileController extends Controller
 */
         $user->firstname = $request->input('firstname');
         $user->lastname = $request->input('lastname');
+        /*
         $user->password = bcrypt($request->input('password'));
 				$user->datemodified = date('Y-m-d H:i:s');
 
@@ -105,6 +112,7 @@ class ProfileController extends Controller
           $request->imageurl->move(public_path('images/users'.'/'.$user), $imageName);
           $user->imageurl = "/images/users".'/'.$user.'/'.$imageName;
         }
+        */
 
         $user->save();
 
