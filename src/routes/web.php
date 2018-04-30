@@ -50,6 +50,7 @@ Route::get('products/{id}/remove', 'ProductController@delete')->name('removeProd
 Route::get('newproduct', 'ProductController@showadd')->name('newProduct');
 Route::post('addproduct', 'ProductController@create')->name('addProduct');
 Route::post('products/{id}/editproduct', 'ProductController@edit')->name('editproduct');
+Route::get('search', 'ProductController@search')->name('search');
 
 //Reivew
 Route::post('addreview/{id_product}/{id_purchase}', 'ReviewController@create')->name('addreview');

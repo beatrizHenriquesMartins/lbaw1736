@@ -99,10 +99,10 @@
                   </div>
 
                   <div class="col-sm-3 flex-item search">
-                      <form class="navbar-form navbar-right" role="search" id="navBarSearchForm" action="/action_page.php">
-                          <input class="form-control" type="text" placeholder="Search..." name="search">
+                      <form class="navbar-form navbar-right" id="navBarSearchForm" action="{{route('search')}}" method="get">
+                          <input class="form-control" type="text" placeholder="Search..." name="input">
 
-                          <button type="button" class="btn btn-dark" href="{{ url('/search_result') }}">
+                          <button type="submit" class="btn btn-dark">
                               GO!
                           </button>
                       </form>
