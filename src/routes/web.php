@@ -75,6 +75,7 @@ Route::get('supports', 'AdminController@listSupports')->name('supports');
 Route::get('bans', 'AdminController@listBans')->name('bans');
 Route::post('api/users/ban', 'AdminController@ban');
 Route::post('api/users/unban', 'AdminController@unban');
+Route::get('users/{id}', 'AdminController@showUser');
 
 // profile
 Route::get('profile', 'ProfileController@show')->name('profile');

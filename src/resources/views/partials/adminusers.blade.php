@@ -11,15 +11,17 @@
         <div class="card-body">
             <div class="product">
                 <div class="product-image">
-                    <img src="{{$user->imageurl}}"
-                         alt="Product Image">
+                    <a href="/users/{{$user->id}}">
+                        <img src="{{$user->imageurl}}" alt="User Image">
+                    </a>
                 </div>
 
                 <div class="product-name">
-                    <h3>
-                        {{$user->username}}
-                    </h3>
-
+                    <a href="">
+                        <h3>
+                            {{$user->username}}
+                        </h3>
+                    </a>
                     <h5>
                         {{$user->firstname}} {{$user->lastname}}
                     </h5>
