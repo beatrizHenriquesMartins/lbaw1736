@@ -166,13 +166,15 @@ function lessQuantity(i) {
 }
 
 function updateCartQuantityHandler() {
-  console.log(this.responseText);
   if (this.status != 200) window.location = '/';
 
-  let response = JSON.parse(this.responseText);
-  console.log(response);
-  let oldValue = response['quantity'];
-  console.log(oldValue);
+  let productChanged = JSON.parse(this.responseText);
+  let input = document.querySelector('div.product.product-cart[data-id="' + productChanged.id_product + '"] .quantity input');
+
+  let quantity = parseInt(input.value);
+
+  if(quantity != 0)
+    updateCartTotal(this.responseText, input.value);
 }
 
 
@@ -196,18 +198,18 @@ function sendRemoveCartRequest() {
 function removeCartHandler(){
   if (this.status != 200) window.location = '/';
 
-  updateCartTotal(this.responseText);
+  updateCartTotal(this.responseText, 0);
 }
 
-function updateCartTotal(responseText) {
+function updateCartTotal(responseText, newQuantity) {
   let productChanged = JSON.parse(responseText);
-  console.log(productChanged);
   let element = document.querySelector('div.product.product-cart[data-id="' + productChanged.id_product + '"]');
   let productprice = element.querySelector('.product-name .price');
   let productvalue = productprice.innerHTML;
   productvalue = productvalue.match(/\S+/g) || [];
   productvalue = productvalue[0];
-  element.remove();
+  if(newQuantity == 0)
+    element.remove();
 
 
   let totalprice = document.querySelector('.main .final .total-order .total .value');
@@ -215,7 +217,7 @@ function updateCartTotal(responseText) {
   totalvalue = totalvalue.match(/\S+/g) || [];
   totalvalue = totalvalue[0];
   totalprice.remove();
-  totalvalue -= productvalue * parseInt(productChanged.quantity);
+  totalvalue = parseInt(totalvalue) + parseInt(productvalue) * ( parseInt(newQuantity) - parseInt(productChanged.quantity) );
   changeCartTotal(totalvalue);
   /*if(totalvalue == 0) {
     let final = document.querySelector('.main .final');
