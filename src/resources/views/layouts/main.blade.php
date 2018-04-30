@@ -62,9 +62,11 @@
         <!-- faq CSS -->
         <link href="/css/faq.css" rel="stylesheet" type="text/css" >
 
-        <!-- faq CSS -->
-        <link href="/css/app.css" rel="stylesheet" type="text/css" >
+        <!-- chatSupport CSS -->
+        <link href="/css/chatSupport.css" rel="stylesheet" type="text/css" >
 
+
+        <link href="/css/chatClient.css" rel="stylesheet" type="text/css" >
 
         <script type="text/javascript">
             // Fix for Firefox autofocus CSS bug
@@ -121,8 +123,8 @@
 
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle align-text-top" type="button"
-                                        id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
+                                        id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
                                     {{ Auth::user()->firstname }}
 
                                     <i class="fa fa-caret-down">

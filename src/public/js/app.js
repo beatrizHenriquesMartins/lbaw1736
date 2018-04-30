@@ -166,10 +166,15 @@ function lessQuantity(i) {
 }
 
 function updateCartQuantityHandler() {
-  console.log(this.responseText);
   if (this.status != 200) window.location = '/';
 
-  let newVal = JSON.parse(this.responseText);
+  let productChanged = JSON.parse(this.responseText);
+  let input = document.querySelector('div.product.product-cart[data-id="' + productChanged.id_product + '"] .quantity input');
+
+  let quantity = parseInt(input.value);
+
+  if(quantity != 0)
+    updateCartTotal(this.responseText, input.value);
 }
 
 
@@ -190,15 +195,21 @@ function sendRemoveCartRequest() {
   sendAjaxRequest('delete', '/api/cart/' + id, null, removeCartHandler);
 }
 
-function removeCartHandler() {
+function removeCartHandler(){
   if (this.status != 200) window.location = '/';
-  let cart = JSON.parse(this.responseText);
-  let element = document.querySelector('div.product.product-cart[data-id="' + cart.id_product + '"]');
+
+  updateCartTotal(this.responseText, 0);
+}
+
+function updateCartTotal(responseText, newQuantity) {
+  let productChanged = JSON.parse(responseText);
+  let element = document.querySelector('div.product.product-cart[data-id="' + productChanged.id_product + '"]');
   let productprice = element.querySelector('.product-name .price');
   let productvalue = productprice.innerHTML;
   productvalue = productvalue.match(/\S+/g) || [];
   productvalue = productvalue[0];
-  element.remove();
+  if(newQuantity == 0)
+    element.remove();
 
 
   let totalprice = document.querySelector('.main .final .total-order .total .value');
@@ -206,9 +217,8 @@ function removeCartHandler() {
   totalvalue = totalvalue.match(/\S+/g) || [];
   totalvalue = totalvalue[0];
   totalprice.remove();
-
-  totalvalue -= productvalue;
-  updateCartTotal(totalvalue);
+  totalvalue = parseInt(totalvalue) + parseInt(productvalue) * ( parseInt(newQuantity) - parseInt(productChanged.quantity) );
+  changeCartTotal(totalvalue);
   /*if(totalvalue == 0) {
     let final = document.querySelector('.main .final');
     final.remove();
@@ -260,7 +270,7 @@ function AddCartHandler() {
 
 }
 
-function updateCartTotal(newTotal){
+function changeCartTotal(newTotal){
   if(newTotal == 0) {
     let final = document.querySelector('.main .final');
     final.remove();

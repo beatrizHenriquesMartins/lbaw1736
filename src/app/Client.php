@@ -34,4 +34,8 @@ class Client extends Model
     public function purchases() {
       return $this->hasMany('App\Purchase', 'id_client');
     }
+
+    public function addresses() {
+    return $this->hasMany('App\Address', 'id_client');
+  }
 }

@@ -82,3 +82,6 @@ Route::get('users/{id}', 'AdminController@showUser');
 Route::get('profile', 'ProfileController@show')->name('profile');
 Route::get('profile/edit', 'ProfileController@showedit')->name('showEditProfile');
 Route::post('profile/edit', 'ProfileController@edit')->name('editProfile');
+
+//chatSupport
+Route::get('messages','SupportMessagesController@showMessage')->name('messages');
