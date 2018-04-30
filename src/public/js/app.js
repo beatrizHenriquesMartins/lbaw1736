@@ -201,7 +201,7 @@ function removeCartHandler(){
 
 function updateCartTotal(responseText) {
   let productChanged = JSON.parse(responseText);
-  console.log(cart);
+  console.log(productChanged);
   let element = document.querySelector('div.product.product-cart[data-id="' + productChanged.id_product + '"]');
   let productprice = element.querySelector('.product-name .price');
   let productvalue = productprice.innerHTML;
@@ -215,7 +215,7 @@ function updateCartTotal(responseText) {
   totalvalue = totalvalue.match(/\S+/g) || [];
   totalvalue = totalvalue[0];
   totalprice.remove();
-  totalvalue -= productvalue;
+  totalvalue -= productvalue * parseInt(productChanged.quantity);
   changeCartTotal(totalvalue);
   /*if(totalvalue == 0) {
     let final = document.querySelector('.main .final');
