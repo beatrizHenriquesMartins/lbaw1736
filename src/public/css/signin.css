@@ -1,6 +1,5 @@
 body,
 html {
-    height: 99%;
     background-repeat: no-repeat;
     background-color: #ffe7e7;
     font-family: 'Roboto Slab', serif;
@@ -92,5 +91,5 @@ input::-webkit-input-placeholder {
 }
 
 @media () {
-    
+
 }

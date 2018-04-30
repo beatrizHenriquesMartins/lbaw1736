@@ -64,10 +64,6 @@
 
     $elems_per_row = 4;
     $rest = $elems_per_row - ($num_elems%$elems_per_row);
-    echo $num_elems;
-    echo "    ";
-    echo $elems_per_row;
-    echo $rest;
     if($num_elems%$elems_per_row == 0)
       $rest = 0;
 

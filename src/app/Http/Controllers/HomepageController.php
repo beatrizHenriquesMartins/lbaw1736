@@ -12,6 +12,7 @@ use App\SupportChat;
 use App\Admin;
 use App\Product;
 use App\Brand;
+use App\Message;
 
 class HomepageController extends Controller
 {
@@ -51,6 +52,13 @@ class HomepageController extends Controller
       $products = Product::where([['active', '=', 1], ['tocarousel', '=', '1']])->get()->random(3);
       $brands = Brand::all()->random(9);
 
-      return view('pages.homepage', ['products' => $products, 'brands' => $brands, 'type' => $type]);
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.homepage', ['products' => $products, 'brands' => $brands, 'type' => $type, 'messages' => $messages]);
+      }
+      else {
+        $messages = null;
+        return view('pages.homepage', ['products' => $products, 'brands' => $brands, 'type' => $type, 'messages' => $messages]);
+      }
     }
 }
