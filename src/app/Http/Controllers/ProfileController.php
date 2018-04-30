@@ -37,7 +37,14 @@ class ProfileController extends Controller
       if($userADM != null)
           $type = 4;
 
-		return view('pages.profile', ['type' => $type]);
+			if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+				return view('pages.profile', ['type' => $type, 'messages' => $messages]);
+      }
+      else {
+        $messages = null;
+				return view('pages.profile', ['type' => $type, 'messages' => null]);
+      }
 		//ou...
 		//return view('pages.profile', compact('user','type');
 	}
@@ -65,7 +72,14 @@ class ProfileController extends Controller
       if($userADM != null)
           $type = 4;
 
-        return view('pages.editprofile', ['type' => $type]);
+			if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+				return view('pages.editprofile', ['type' => $type, 'messages' => $messages]);
+      }
+      else {
+        $messages = null;
+				return view('pages.editprofile', ['type' => $type, 'messages' => null]);
+      }
     }
 
     public function edit(Request $request)

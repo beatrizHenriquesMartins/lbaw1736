@@ -48,7 +48,13 @@ class SupportMessagesController extends Controller{
         if($type != 3){
             return redirect('/404');
         }
+        if($type == 1) {
+          $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+          return view('pages.chatSupport', ['type' => $type, 'messages' => $messages]);
+        }
+        else {
+          return view('pages.chatSupport', ['type' => $type, 'messages' => null]);
+        }
 
-        return view('pages.chatSupport', ['type' => $type]);
     }
 }

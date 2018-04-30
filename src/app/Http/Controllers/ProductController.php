@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 use App\Product;
 use App\Review;
@@ -16,8 +18,8 @@ use App\SupportChat;
 use App\Admin;
 use App\Category;
 use App\Brand;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Input;
+use App\Message;
+
 
 class ProductController extends Controller
 {
@@ -74,7 +76,14 @@ class ProductController extends Controller
       else
         $reviewmed = round($total / $number);
 
-      return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type]);
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type, 'messages' => $messages]);
+      }
+      else {
+        $messages = null;
+        return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type, 'messages' => null]);
+      }
     }
 
     public function showCategory($categoryname)
@@ -129,7 +138,14 @@ class ProductController extends Controller
           $reviewmed = round($total / $number);
           array_push($reviewsmed, $reviewmed);
       }
-      return view('pages.category', ['categoryname' => $categoryname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type]);
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.category', ['categoryname' => $categoryname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => $messages]);
+      }
+      else {
+        $messages = null;
+        return view('pages.category', ['categoryname' => $categoryname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => null]);
+      }
     }
 
 
@@ -196,7 +212,10 @@ class ProductController extends Controller
         $reviewmed = round($total / $number);
 
       $brands = Brand::all();
-      return view('pages.editproduct', ['product' => $product, 'type' => $type, 'brands' => $brands]);
+
+      $messages = null;
+      return view('pages.editproduct', ['product' => $product, 'type' => $type, 'brands' => $brands, 'messages' => null]);
+
     }
 
     public function delete($id)
@@ -291,7 +310,7 @@ class ProductController extends Controller
       $products = Product::where('active', '=', 1)->join('brands', 'brands.id_brand', '=', 'products.id_brand')->where('brands.brandname', '=', $brandname)->paginate(12);
 
       if($products == null)
-        return view('pages.brand', ['brandname' => $brandname, 'products' => null, 'reviewsmed' => null]);
+        return view('pages.brand', ['brandname' => $brandname, 'products' => null, 'reviewsmed' => null, 'messages' => null]);
 
       $reviewsmed = [];
       foreach ($products as $product) {
@@ -310,7 +329,14 @@ class ProductController extends Controller
           $reviewmed = round($total / $number);
           array_push($reviewsmed, $reviewmed);
       }
-      return view('pages.brand', ['brandname' => $brandname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type]);
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.brand', ['brandname' => $brandname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => $messages]);
+      }
+      else {
+        $messages = null;
+        return view('pages.brand', ['brandname' => $brandname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => null]);
+      }
     }
 
     public function edit(Request $request, $id) {
@@ -439,7 +465,7 @@ class ProductController extends Controller
 
 
       $brands = Brand::all();
-      return view('pages.addproduct', ['type' => $type, 'brands' => $brands]);
+      return view('pages.addproduct', ['type' => $type, 'brands' => $brands, 'messages' => null]);
     }
 
     public function search()
@@ -493,6 +519,13 @@ class ProductController extends Controller
           array_push($reviewsmed, $reviewmed);
       }
 
-      return view('pages.category', ['categoryname' => 'Search Result', 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type]);
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.category', ['categoryname' => 'Search Result', 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => $messages]);
+      }
+      else {
+        $messages = null;
+        return view('pages.category', ['categoryname' => 'Search Result', 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => null]);
+      }
     }
 }

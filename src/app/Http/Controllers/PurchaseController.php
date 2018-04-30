@@ -64,8 +64,13 @@ class PurchaseController extends Controller
         $products = DB::table('purchaseproducts')->where('id_purchase', $purchase->id_purchase)->join('products','products.id','=','id_product')->join('categories', 'categories.id_category', '=', 'products.id_category')->join('brands', 'brands.id_brand', '=', 'products.id_brand')->get();
         array_push($purchaseproducts, $products);
       }
-
-      return view('pages.purchases', ['products' => $products, 'type' => $type]);
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.purchases', ['products' => $products, 'type' => $type, 'messages' => $messages]);
+      }
+      else {
+        return view('pages.purchases', ['products' => $products, 'type' => $type, 'messages' => null]);
+      }
 
     }
 

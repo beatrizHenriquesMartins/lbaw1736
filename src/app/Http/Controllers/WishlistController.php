@@ -65,13 +65,19 @@ class WishlistController extends Controller
           $products->push(Product::find($list->pivot->id_product));
 
         }
-        return view('pages.wishlist', ['products' => $products, 'type' => $type]);
       }
       else {
         $products = null;
-        return view('pages.wishlist', ['products' => $products, 'type' => $type]);
 
       }
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.wishlist', ['products' => $products, 'type' => $type, 'messages' => $messages]);
+      }
+      else {
+        return view('pages.wishlist', ['products' => $products, 'type' => $type, 'messages' => null]);
+      }
+
     }
 
     public function create(Request $request, $product_id) {

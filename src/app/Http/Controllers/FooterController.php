@@ -10,6 +10,7 @@ use App\Client;
 use App\BrandManager;
 use App\SupportChat;
 use App\Admin;
+use App\Message;
 
 class FooterController extends Controller
 {
@@ -45,7 +46,7 @@ class FooterController extends Controller
           $type = 4;
       }
 
-      return view('pages.404', ['type' => $type]);
+      return view('pages.404', ['type' => $type, 'messages' => null]);
     }
 
     public function showaboutus(){
@@ -74,7 +75,7 @@ class FooterController extends Controller
           $type = 4;
       }
 
-      return view('pages.aboutus', ['type' => $type]);
+      return view('pages.aboutus', ['type' => $type, 'messages' => null]);
     }
 
     public function showfaq()
@@ -104,7 +105,7 @@ class FooterController extends Controller
           $type = 4;
       }
 
-      return view('pages.faq', ['type' => $type]);
+      return view('pages.faq', ['type' => $type, 'messages' => null]);
     }
 
     public function showcontactus()
@@ -134,7 +135,7 @@ class FooterController extends Controller
           $type = 4;
       }
 
-      return view('pages.contactus', ['tyep' => $type]);
+      return view('pages.contactus', ['tyep' => $type, 'messages' => null]);
     }
 
     public function showterms()
@@ -163,8 +164,15 @@ class FooterController extends Controller
         if($userADM != null)
           $type = 4;
       }
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.terms', ['type' => $type, 'messages' => $messages]);
+      }
+      else {
+        $messages = null;
+        return view('pages.terms', ['type' => $type, 'messages' => null]);
+      }
 
-      return view('pages.terms', ['type' => $type]);
     }
 
 }

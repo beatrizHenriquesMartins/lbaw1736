@@ -12,6 +12,7 @@ use App\Product;
 use App\BrandManager;
 use App\SupportChat;
 use App\Admin;
+use App\Message;
 
 class CartController extends Controller
 {
@@ -68,8 +69,15 @@ class CartController extends Controller
           $cost = $cost + $price * $quantity;
         }
       }
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages]);
+      }
+      else {
+        $messages = null;
+        return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => null]);
+      }
 
-      return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type]);
 
     }
 
