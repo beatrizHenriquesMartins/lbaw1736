@@ -12,6 +12,7 @@ use App\Product;
 use App\BrandManager;
 use App\SupportChat;
 use App\Admin;
+use App\Message;
 
 class PurchaseController extends Controller
 {

@@ -13,6 +13,7 @@ use App\BrandManager;
 use App\SupportChat;
 use App\Admin;
 use App\Review;
+use App\Message;
 
 class SupportMessagesController extends Controller{
     public function showMessage(){

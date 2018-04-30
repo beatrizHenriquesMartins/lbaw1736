@@ -13,6 +13,7 @@ use App\BrandManager;
 use App\SupportChat;
 use App\Admin;
 use App\Client;
+use App\Message;
 
 class ProfileController extends Controller
 {
