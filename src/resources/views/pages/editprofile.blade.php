@@ -99,39 +99,11 @@
                                     <div class = "col-sm-10">
                                         <div class = "form-group">
                                             <label class = "col-sm-2 control-label">
-                                                Birthday:
-                                            </label>
-
-                                            <div class = "col-sm-6">
-                                                <input class="form-control" type="date" name="birthday">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class = "row">
-                                    <div class = "col-sm-10">
-                                        <div class = "form-group">
-                                            <label class = "col-sm-2 control-label">
                                                 Email:
                                             </label>
 
                                             <div class = "col-sm-6">
                                                 <input class="form-control" type="email" name="email">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class = "row">
-                                    <div class = "col-sm-10">
-                                        <div class = "form-group">
-                                            <label class = "col-sm-2 control-label">
-                                                NIF:
-                                            </label>
-
-                                            <div class = "col-sm-6">
-                                                <input class="form-control" type="text" name="nif">
                                             </div>
                                         </div>
                                     </div>
