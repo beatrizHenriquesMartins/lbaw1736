@@ -286,7 +286,7 @@
                               <div class="input-group">
                                   <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
                                   <span class="input-group-btn">
-                                  <button class="btn btn-primary btn-sm" id="btn-chat">Send</button>
+                                  <a class="btn btn-primary btn-sm" id="btn-chat">Send</a>
                                   </span>
                               </div>
                           </div>

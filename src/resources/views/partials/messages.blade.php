@@ -1,4 +1,4 @@
-@if($message->sender == "Client")
+@if($message->sender == "chatSupport")
 <div class="row msg_container base_receive">
     <div class="col-md-2 col-xs-2 avatar">
         <img src="{{$message->chatsupport->imageurl}}" class=" img-responsive ">
@@ -11,7 +11,7 @@
     </div>
 </div>
 @endif
-@if($message->sender == "ChatSupport")
+@if($message->sender == "Client")
 <div class="row msg_container base_sent">
     <div class="col-xs-10 col-md-10">
         <div class="messages msg_sent">
