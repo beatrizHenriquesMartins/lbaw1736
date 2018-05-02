@@ -40,4 +40,8 @@ div.card-body{
     div#accordion{
         padding-left: 1em;
     }
+
+    button#question.btn.btn-link{
+        white-space: initial;
+    }
 }

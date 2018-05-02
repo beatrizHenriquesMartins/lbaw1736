@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                            <button id="question" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
                                     aria-expanded="true" aria-controls="collapseOne">
                                 What is covered by the Amazonas Money Back Guarantee?
                             </button>
@@ -47,7 +47,7 @@
                 <div class="card">
                     <div class="card-header" id="headingTwo">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo"
+                            <button id="question" class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo"
                                     aria-expanded="true" aria-controls="collapseTwo">
                                 I haven't received an item – what should I do?
                             </button>
@@ -70,7 +70,7 @@
                 <div id="card">
                     <div class="card-header" id="headingThree">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree"
+                            <button id="question" class="btn btn-link" data-toggle="collapse" data-target="#collapseThree"
                                     aria-expanded="true" aria-controls="collapseThree">
                                 I received an item that doesn't match the listing description, what should I do?
                             </button>
@@ -89,7 +89,7 @@
                 <div id="card">
                     <div class="card-header" id="headingFour">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour"
+                            <button id="question" class="btn btn-link" data-toggle="collapse" data-target="#collapseFour"
                                     aria-expanded="true" aria-controls="collapseFour">
                                 I received an item that doesn't match the listing description, what should I do?
                             </button>
@@ -108,7 +108,7 @@
                 <div id="card">
                     <div class="card-header" id="headingFive">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive"
+                            <button id="question" class="btn btn-link" data-toggle="collapse" data-target="#collapseFive"
                                     aria-expanded="true" aria-controls="collapseFive">
                                 I received the correct item, but I changed my mind and don't want it any more – what
                                 should I do?
