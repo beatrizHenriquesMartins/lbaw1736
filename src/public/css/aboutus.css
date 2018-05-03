@@ -18,17 +18,28 @@ div#content_topics{
     padding-left: 2.5em;
 }
 
+/*
 div#photo{
     padding-right: 2.5em;
 }
+*/
 
 div#name_member_team{
     padding-top: 1.5em;
     font-size: medium;
 }
 
-div#member.card-columns.col-sm-2{
+div#memberTeam.card-columns.col-sm-2{
     justify-content: left;
+}
+
+img#photo_img{
+    height: 45%;
+    width: auto;
+}
+
+div#memberInformation {
+    margin-left: 12.5em;
 }
 
 /* Responsive */
@@ -43,7 +54,7 @@ div#member.card-columns.col-sm-2{
         padding-left: 1.5em;
     }
 
-    div#member.card-columns.col-sm-2 {
+    div#memberTeam.card-columns.col-sm-2 {
         justify-content: center;
         flex-direction: column;
         padding-bottom: 2.5em;

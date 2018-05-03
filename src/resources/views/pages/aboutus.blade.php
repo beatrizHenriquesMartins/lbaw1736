@@ -31,13 +31,13 @@
                 <div class="container">
                     <div>
                         <!-- Beatriz de Henriques Martins -->
-                        <div id="member" class="card-columns col-sm-2">
+                        <div id="memberTeam" class="card-columns col-sm-2">
                             <div id="photo">
                                 <img id="photo_img" src="./images/team_photos/photo_beatriz_1.jpg" alt="beatriz"
-                                     height="250" width="250" >
+                                     height="250" width="250"  >
                             </div>
 
-                            <div>
+                            <div id="memberInformation">
                                 <div id="name_member_team">
                                     <h5>
                                         Beatriz de Henriques Martins
@@ -58,13 +58,13 @@
                         </div>
 
                         <!-- Francisco Tuna Andrade -->
-                        <div id="member" class="card-columns col-sm-2">
+                        <div id="memberTeam" class="card-columns col-sm-2">
                             <div id="photo">
                                 <img id="photo_img" src="./images/team_photos/photo_francisco_1.jpg" alt="beatriz"
                                      height="250" width="250" >
                             </div>
 
-                            <div>
+                            <div id="memberInformation">
                                 <div id="name_member_team">
                                     <h5>
                                         Francisco Tuna Andrade
@@ -84,13 +84,13 @@
                         </div>
 
                         <!-- Luís Miguel Santos Monteiro Saraiva -->
-                        <div id="member" class="card-columns col-sm-2">
+                        <div id="memberTeam" class="card-columns col-sm-2">
                             <div id="photo">
                                 <img id="photo_img" src="./images/team_photos/photo_luis_1.jpg" alt="beatriz"
                                      height="250" width="250">
                             </div>
 
-                            <div>
+                            <div id="memberInformation">
                                 <div id="name_member_team">
                                     <h5>
                                         Luís Miguel Santos Monteiro Saraiva
@@ -110,13 +110,13 @@
                         </div>
 
                         <!-- Ricardo Filipe Amaro Saleiro Abreu -->
-                        <div id="member" class="card-columns col-sm-2">
+                        <div id="memberTeam" class="card-columns col-sm-2">
                             <div id="photo">
                                 <img id="photo_img" src="./images/team_photos/photo_ricardo.jpg" alt="beatriz"
                                      height="250" width="250">
                             </div>
 
-                            <div>
+                            <div id="memberInformation">
                                 <div id="name_member_team">
                                     <h5>
                                         Ricardo Filipe Amaro Saleiro Abreu

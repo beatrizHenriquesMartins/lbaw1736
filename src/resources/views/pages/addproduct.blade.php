@@ -15,7 +15,8 @@
             </li>
         </ol>
     </nav>
+
     <form method="post" action="{{route('addProduct')}}" enctype="multipart/form-data">
-      @include('partials.addproductform')
+        @include('partials.addproductform')
     </form>
 @endsection
