@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    //'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'public'), // para poder armazenar as imagens de perfil na pasta storage/app/public. Ric
 
     /*
     |--------------------------------------------------------------------------

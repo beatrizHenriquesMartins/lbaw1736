@@ -37,11 +37,14 @@
                 <div class = "user_area col-sm-8 col-sm-offset-1">
                     <div class = "row">
                         <div class = "photo col-sm-2">
+                            <!--
                             <img border="0" alt="Photo"
                                  src="https://upload.wikimedia.org/wikipedia/commons/9/93/Shahter-Reak_M_2015_cropped_%2818%29.jpg"
                                  width="100" height="100">
+                             -->
+                            <img class="rounded-circle" src="/storage/avatars/{{ Auth::user()->imageurl }}" />
 
-                            <a href="#">
+                            <a href="{{ route('showUpdateAvatar', ['id' => Auth::user()->id]) }}">
                                 Edit Image
                             </a>
                         </div>
@@ -167,7 +170,7 @@
                                     <input type="submit" class="btn btn-primary" value="Save">
 
                                     <span>
-									</span>
+                                    </span>
 
                                     <input type="reset" class="btn btn-default" value="Cancel">
                                 </div>

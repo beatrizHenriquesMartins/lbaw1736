@@ -135,4 +135,54 @@ class ProfileController extends Controller
     }
   }
 
+  public function showUpdateAvatar(){
+     echo "<script>console.log( 'entrou ProfileController@showUpdateAvatar' );</script>";
+
+      if(!Auth::check())
+        return view('/login');
+      $user = Auth::user();
+
+        $type = 0;
+      $userBM = BrandManager::find(Auth::user()->id);
+      $userSP = SupportChat::find(Auth::user()->id);
+      $userADM = Admin::find(Auth::user()->id);
+      $userCL = Client::find(Auth::user()->id);
+      if($userCL != null)
+          $type = 1;
+      if($userBM != null)
+          $type = 2;
+      if($userSP != null)
+          $type = 3;
+      if($userADM != null)
+          $type = 4;
+
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.updateAvatar', ['type' => $type, 'messages' => $messages]);
+      }
+      else {
+        $messages = null;
+        return view('pages.updateAvatar', ['type' => $type, 'messages' => null]);
+      }
+  }
+
+  public function updateAvatar(Request $request){
+ 
+        $request->validate([
+            'imageurl' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+ 
+        $user = Auth::user();
+ 
+        $avatarName = $user->id.'_avatar'.time().'.'.request()->imageurl->getClientOriginalExtension();
+ 
+        $request->imageurl->storeAs('avatars',$avatarName);
+ 
+        $user->imageurl = $avatarName;
+        $user->save();
+ 
+        return back()
+            ->with('success','You have successfully upload image.');
+    }
+
 }
