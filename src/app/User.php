@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'password', 'username', 'imageurl', 'active'
+        'firstname', 'lastname', 'email', 'password', 'username', 'imageurl', 'active', 'dateOfBirth','age'
     ];
 
     /**
@@ -42,6 +42,9 @@ class User extends Authenticatable
             $table->string('password');
             $table->string('username');
             $table->string('imageurl')->default('user-default.jpg');
+            $table->boolval('active');
+            $table->string('dateOfBirth');
+            $table->intval('age');
             $table->rememberToken();
         });
     }

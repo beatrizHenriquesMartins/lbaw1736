@@ -53,7 +53,9 @@ CREATE TABLE chatSupports (
 
 CREATE TABLE clients (
   id_client INTEGER PRIMARY KEY REFERENCES users,
-  cellphone BIGINT
+  cellphone BIGINT,
+	dateOfBirth DATE,
+	age INTEGER
 );
 
 CREATE TABLE messages (
