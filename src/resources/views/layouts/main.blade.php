@@ -145,6 +145,12 @@
                                         </div>
 
                                         <li>
+                                        <a class="dropdown-item" href="/changePassword">
+                                            Change Password
+                                        </a>
+                                        </li>
+
+                                        <li>
                                             <a class="dropdown-item" href="{{ url('/logout') }}">
                                                 Sign Out
                                             </a>

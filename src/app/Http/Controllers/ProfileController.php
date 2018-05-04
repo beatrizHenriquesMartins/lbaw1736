@@ -185,4 +185,58 @@ class ProfileController extends Controller
             ->with('success','You have successfully upload image.');
     }
 
+    public function showChangePassword(){
+
+      if(!Auth::check())
+        return view('/login');
+      $user = Auth::user();
+
+        $type = 0;
+      $userBM = BrandManager::find(Auth::user()->id);
+      $userSP = SupportChat::find(Auth::user()->id);
+      $userADM = Admin::find(Auth::user()->id);
+      $userCL = Client::find(Auth::user()->id);
+      if($userCL != null)
+          $type = 1;
+      if($userBM != null)
+          $type = 2;
+      if($userSP != null)
+          $type = 3;
+      if($userADM != null)
+          $type = 4;
+
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.changepassword', ['type' => $type, 'messages' => $messages]);
+      }
+      else {
+        $messages = null;
+        return view('pages.changepassword', ['type' => $type, 'messages' => null]);
+      }
+    }
+
+    public function changePassword(Request $request){
+        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+            // The passwords matches
+            return redirect()->back()->with("error","Your current password does not matches with the password you provided. Please try again.");
+        }
+ 
+        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+            //Current password and new password are same
+            return redirect()->back()->with("error","New Password cannot be same as your current password. Please choose a different password.");
+        }
+ 
+        $validatedData = $request->validate([
+            'current-password' => 'required',
+            'new-password' => 'required|string|min:6|confirmed',
+        ]);
+ 
+        //Change Password
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('new-password'));
+        $user->save();
+ 
+        return redirect()->back()->with("success","Password changed successfully !");
+    }
+
 }

@@ -84,6 +84,8 @@ Route::get('profile/edit', 'ProfileController@showedit')->name('showEditProfile'
 Route::post('profile/edit', 'ProfileController@edit')->name('editProfile');
 Route::get('profile/updateAvatar', 'ProfileController@showUpdateAvatar')->name('showUpdateAvatar');
 Route::post('profile/updateAvatar', 'ProfileController@updateAvatar')->name('updateAvatar');
+Route::get('/changePassword','ProfileController@showChangePassword');
+Route::post('/changePassword','HomeController@changePassword')->name('changePassword');
 
 //messages
 Route::get('messages','SupportMessagesController@showMessage')->name('messages');
