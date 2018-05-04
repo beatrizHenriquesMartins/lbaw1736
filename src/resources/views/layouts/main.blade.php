@@ -78,6 +78,9 @@
 
         <!-- icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- icons -->
+        <link href="/css/page_404.css" rel="stylesheet">
         <!-- CSS -->
 
         <link rel="icon" type="image/png"  href="/images/icon.png" />

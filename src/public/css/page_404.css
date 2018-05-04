@@ -1,0 +1,13 @@
+div#content_page_404.container.d-sm-flex{
+    margin: 0em;
+    padding: 0em;
+}
+
+img#photo_img_404.img-responsive{
+    max-width: 100%;
+    height: auto;
+
+    float: initial;
+
+    opacity: 0.75;
+}
