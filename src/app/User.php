@@ -30,7 +30,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
+    /*
     //necessário? como estamos a inserir novos users?
     public function up()
     {
@@ -48,5 +48,6 @@ class User extends Authenticatable
             $table->rememberToken();
         });
     }
+    */
 
 }
