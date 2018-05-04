@@ -154,7 +154,7 @@
 
                                 <div class="user-img">
                                     <a href="{{ url('/profile') }}">
-                                        <img class="mb-4"  src="{{Auth::user()->imageurl}}" alt="logo" >
+                                        <img class="mb-4"  src="/storage/avatars/{{Auth::user()->imageurl}}" alt="logo" >
                                     </a>
 
                                     <!-- </form> -->

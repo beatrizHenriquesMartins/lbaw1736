@@ -74,12 +74,24 @@
                 <div class = "user_area col-sm-8 col-sm-offset-1">
                     <div class = "row">
                         <div class = "photo col-sm-2">
+                          <!--
                             @if(!isset($page))
                               <img border="0" alt="Photo" src="{{Auth::user()->imageurl}}" width="100" height="100">
                             @endif
+                          -->
+                           <img border="0" alt="Photo" src="/storage/avatars/{{ Auth::user()->imageurl }}" width="100" height="100">
                             @if(isset($page))
-                              <img border="0" alt="Photo" src="{{$user->imageurl}}" width="100" height="100">
+                              <!--
+                                por alguma razão, se puser aqui dentro, deixa de funcionar....
+                              -->
                             @endif
+                            <div class="edit">
+                             <a href="{{ route('showUpdateAvatar', ['id' => Auth::user()->id]) }}">
+                                Edit Image
+                                <i class="fa fa-edit">
+                                </i>
+                            </a>
+                          </div>
                         </div>
 
                         <div class = "information col-sm-8 col-xs-9">
