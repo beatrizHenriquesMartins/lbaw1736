@@ -1,7 +1,7 @@
 @extends('layouts.signin_register')
 
 @section('content')
-<div class="login-container container ">
+<div class="login-container container d-sm-flex">
     <div class="row main">
         <div class="panel-heading">
             <div class="text-center mb-4">

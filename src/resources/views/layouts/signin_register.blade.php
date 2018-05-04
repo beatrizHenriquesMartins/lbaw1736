@@ -42,8 +42,10 @@
             @yield('content')
         </section>
 
-        <footer id="pageFooter">
-            <p>Powered by LBAW1736 - MIEIC 2017/2018</p>
+        <footer id="pageFooter" class="d-sm-flex">
+            <p>
+                Powered by LBAW1736 - MIEIC 2017/2018
+            </p>
         </footer>
     </main>
     </body>

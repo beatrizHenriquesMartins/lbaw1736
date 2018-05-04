@@ -80,18 +80,6 @@ input::-webkit-input-placeholder {
     }
 
     .login-container{
-        padding-bottom: 10em;
-    }
-}
-
-@media (max-width: 600px) {
-    .login-container{
-        padding-bottom: 13em;
-    }
-}
-
-@media (max-width: 700px) {
-    .login-container{
-        padding-bottom: 8.6em;
+        padding-bottom: 8.5em;
     }
 }
