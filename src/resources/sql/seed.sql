@@ -44,7 +44,9 @@ CREATE TABLE users (
   dateCreated TIMESTAMP DEFAULT now() NOT NULL,
   dateModified TIMESTAMP DEFAULT now() NOT NULL,
   active BOOLEAN NOT NULL,
-  remember_token TEXT
+  remember_token TEXT,
+  birthday DATE
+
 );
 
 CREATE TABLE chatSupports (
@@ -54,7 +56,6 @@ CREATE TABLE chatSupports (
 CREATE TABLE clients (
   id_client INTEGER PRIMARY KEY REFERENCES users,
   cellphone BIGINT,
-	dateOfBirth DATE,
 	age INTEGER
 );
 

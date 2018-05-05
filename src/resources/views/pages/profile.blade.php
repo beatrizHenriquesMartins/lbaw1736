@@ -74,24 +74,7 @@
                 <div class = "user_area col-sm-8 col-sm-offset-1">
                     <div class = "row">
                         <div class = "photo col-sm-2">
-                          <!--
-                            @if(!isset($page))
-                              <img border="0" alt="Photo" src="{{Auth::user()->imageurl}}" width="100" height="100">
-                            @endif
-                          -->
-                           <img border="0" alt="Photo" src="/storage/avatars/{{ Auth::user()->imageurl }}" width="100" height="100">
-                            @if(isset($page))
-                              <!--
-                                por alguma razão, se puser aqui dentro, deixa de funcionar....
-                              -->
-                            @endif
-                            <div class="edit">
-                             <a href="{{ route('showUpdateAvatar', ['id' => Auth::user()->id]) }}">
-                                Edit Image
-                                <i class="fa fa-edit">
-                                </i>
-                            </a>
-                          </div>
+                            <img border="0" alt="Photo" src="{{Auth::user()->imageurl}}" width="100" height="100">
                         </div>
 
                         <div class = "information col-sm-8 col-xs-9">
@@ -129,37 +112,12 @@
 
                                         <div class = "col-sm-10">
                                             <p>
-                                                @if(!isset($page))
-                                                  {{ Auth::user()->firstname ." ". Auth::user()->lastname }}
-                                                @endif
-                                                @if(isset($page))
-                                                  {{ $user->username }}
-                                                @endif
+                                                {{ Auth::user()->firstname ." ". Auth::user()->lastname }}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class = "row">
-                                <div class = "col-sm-9">
-                                    <div class = "row">
-                                        <div class = "col-sm-2">
-                                            <p >
-                                                Age:
-                                            </p>
-                                        </div>
-
-                                        <div class = "col-sm-10">
-                                            <p >
-                                                Isto ainda nao está:
-                                                33
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class = "row">
                                 <div class = "col-sm-9">
                                     <div class = "row">
@@ -170,9 +128,10 @@
                                         </div>
 
                                         <div class = "col-sm-10">
-                                            <p >
-                                                Isto ainda nao está:
-                                                5/02/1985
+                                            <p>
+                                                @if(isset(Auth::user()->birthday))
+                                                  {{ Auth::user()->birthday}}
+                                                @endif
                                             </p>
                                         </div>
                                     </div>
@@ -189,13 +148,8 @@
                                         </div>
 
                                         <div class = "col-sm-10">
-                                            <p >
-                                                @if(!isset($page))
-                                                  {{ Auth::user()->email }}
-                                                @endif
-                                                @if(isset($page))
-                                                  {{ $user->username }}
-                                                @endif
+                                            <p>
+                                                {{ Auth::user()->email }}
                                             </p>
                                         </div>
                                     </div>

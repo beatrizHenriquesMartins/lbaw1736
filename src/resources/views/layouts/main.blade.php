@@ -44,6 +44,9 @@
         <!-- Category CSS -->
         <link href="/css/customer_profile.css" rel="stylesheet" type="text/css" >
 
+        <!-- Category CSS -->
+        <link href="/css/customer_edit_profile.css" rel="stylesheet" type="text/css" >
+
         <!-- Cart Links -->
         <link href="/css/cart.css" rel="stylesheet" type="text/css" >
 
@@ -163,7 +166,7 @@
 
                                 <div class="user-img">
                                     <a href="{{ url('/profile') }}">
-                                        <img class="mb-4"  src="/storage/avatars/{{Auth::user()->imageurl}}" alt="logo" >
+                                        <img class="mb-4"  src="{{Auth::user()->imageurl}}" alt="logo" >
                                     </a>
 
                                     <!-- </form> -->
