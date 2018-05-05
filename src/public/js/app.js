@@ -82,6 +82,19 @@ function addEventListeners() {
   if(send) {
     send.addEventListener("click", sendMessageRequest);
   }
+
+  let removeAddresses = document.querySelectorAll('.addresses .address .col-xs-3 .btn');
+  if(removeAddresses) {
+    let i = 0;
+    for(i = 0; i < removeAddresses.length; i++) {
+      removeAddresses[i].addEventListener("click", sendRemoveAddressRequest);
+    }
+  }
+
+  let addAddress = document.querySelector('.addresses .addAddress .btn');
+  if(addAddress) {
+    addAddress.addEventListener("click", sendAddAddressRequest);
+  }
 }
 
 function encodeForAjax(data) {
@@ -100,6 +113,72 @@ function sendAjaxRequest(method, url, data, handler) {
   request.addEventListener('load', handler);
   request.send(encodeForAjax(data));
 }
+
+
+function sendAddAddressRequest() {
+  let addAddress = this.closest(".addAddress");
+  let address = addAddress.querySelector(".street").value;
+  let zipcode = addAddress.querySelector(".zipcode").value;
+  let country = addAddress.querySelector(".country").value;
+  let city = addAddress.querySelector(".city").value;
+  console.log(address);
+  console.log(zipcode);
+  console.log(country);
+  console.log(city);
+  sendAjaxRequest('put', '/api/add/address', {address:address,zipcode:zipcode,country:country,city:city}, sendAddAddressHandler);
+
+}
+
+function sendAddAddressHandler() {
+  console.log(this.responseText);
+  if (this.status != 200) window.location = '/';
+  let address = JSON.parse(this.responseText);
+
+  if(address != "Already Exists") {
+
+    let element = document.createElement("li");
+    element.setAttribute('class', 'row address');
+    element.setAttribute('data-id', address.id_address);
+
+    element.innerHTML = `<div class="col-xs-9">
+        `+ address.address +` `+ address.city +` `+ address.country +`
+    </div>
+
+    <div class="col-xs-3">
+        <button type="button" class="btn btn-default btn-sm">
+            <span class="fa fa-remove">
+            </span>
+        </button>
+    </div>`;
+
+    let ul =document.querySelector('.addresses ul');
+
+    let li =document.querySelector('.addresses ul li.addAddress');
+
+    ul.insertBefore(element, li);
+
+    let button = element.querySelector(".col-xs-3 .btn");
+    button.addEventListener("click", sendRemoveAddressRequest)
+  }
+}
+
+
+function sendRemoveAddressRequest() {
+  let addressId = this.closest(".address").getAttribute("data-id");
+  sendAjaxRequest('delete', '/api/remove/address', {addressId:addressId}, sendRemoveAddressHandler);
+
+}
+
+function sendRemoveAddressHandler() {
+  console.log(this.responseText);
+  if (this.status != 200) window.location = '/';
+  let address = JSON.parse(this.responseText);
+
+  let element = document.querySelector('.addresses .address[data-id="'+ address.id_address +'"]');
+
+  element.remove();
+}
+
 
 function sendMessageRequest() {
   let parent = this.closest('.input-group');

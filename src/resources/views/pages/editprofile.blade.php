@@ -193,55 +193,27 @@
                                 </div>
                             </div>
                         </form>
-                            <!--
 
-                            <div class = "row addresses">
-                                <p>
-                                    Addresses:
-                                </p>
 
-                                <ul>
-                                    <li class="row">
-                                        <div class="col-xs-9">Rua Marco de Canaveses 19 Porto</div>
 
-                                        <div class="col-xs-3">
-                                            <button type="button" class="btn btn-default btn-sm">
-                                                <span class="fa fa-remove">
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </li>
+                        <div class = "row addresses">
+                            <p>
+                                Addresses:
+                            </p>
 
-                                    <li class="row">
-                                         <div class="col-xs-9">Avenida 5 de Outubro 52 Lamego</div>
+                            <ul>
+                                @each('partials.address', $addresses, 'address')
+                            </ul>
 
-                                        <div class="col-xs-3">
-                                            <button type="button" class="btn btn-default btn-sm">
-                                                <span class="fa fa-remove">
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </li>
+                            <li class="addAddress">
+                                <input class="street" type="text" name="street" placeholder="Street">
+                                <input class="zipcode" type="text" name="zipcode" placeholder="Zip Code">
+                                <input class="city" type="text" name="city" placeholder="City">
+                                <input class="country" type="text" name="country" placeholder="Country">
+                                <a role="button" class="btn btn-primary"> Add </a>
 
-                                    <li class="row">
-                                        <div class="col-xs-9">
-                                            Rua de Moçambique 138 Coimbra
-                                        </div>
-
-                                        <div class="col-xs-3">
-                                            <button type="button" class="btn btn-default btn-sm">
-                                                <span class="fa fa-remove">
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <input type="text">
-                                    </li>
-                                </ul>
-                            </div>
-                        -->
+                            </li>
+                        </div>
 
                     </div>
                 </div>

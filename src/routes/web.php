@@ -75,6 +75,7 @@ Route::get('bms', 'AdminController@listBms')->name('bms');
 Route::get('supports', 'AdminController@listSupports')->name('supports');
 Route::get('bans', 'AdminController@listBans')->name('bans');
 Route::post('api/users/ban', 'AdminController@ban');
+
 Route::post('api/users/unban', 'AdminController@unban');
 Route::get('users/{id}', 'AdminController@showUser');
 
@@ -82,6 +83,8 @@ Route::get('users/{id}', 'AdminController@showUser');
 Route::get('profile', 'ProfileController@show')->name('profile');
 Route::get('profile/edit', 'ProfileController@showedit')->name('showEditProfile');
 Route::post('profile/edit', 'ProfileController@edit')->name('editProfile');
+Route::delete('api/remove/address', 'ProfileController@removeAddress');
+Route::put('api/add/address', 'ProfileController@addAddress');
 
 
 //messages

@@ -123,18 +123,18 @@ CREATE TABLE carts (
 );
 
 CREATE TABLE countries (
-  id SERIAL PRIMARY KEY,
+  id_country SERIAL PRIMARY KEY,
   country TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE cities (
-  id SERIAL PRIMARY KEY,
+  id_city SERIAL PRIMARY KEY,
   city TEXT NOT NULL,
   id_country INTEGER NOT NULL REFERENCES countries
 );
 
 CREATE TABLE addresses (
-  id SERIAL PRIMARY KEY,
+  id_address SERIAL PRIMARY KEY,
   address TEXT NOT NULL,
   zipcode TEXT NOT NULL,
   id_city INTEGER NOT NULL REFERENCES cities

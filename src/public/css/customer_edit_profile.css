@@ -80,9 +80,14 @@ html {
     background-color:  hsl(0, 0%, 88%);
 }
 
-.main .addresses li:last-child{
-	border-bottom: none;
+.main .addresses li.addAddress:last-child:hover{
+	  border-bottom: none;
     background-color: white;
+
+}
+
+.main .addresses li {
+    list-style-type: none;
 }
 
 /* Profile Photo */
