@@ -66,4 +66,8 @@ div#memberInformation {
         width: 130%;
         height: auto;
     }
+
+    div#memberInformation {
+        margin-left: initials;
+    }
 }

@@ -34,7 +34,7 @@
                         </div>
 
                         @if ($errors->has('email'))
-                            <span class="error">
+                            <span id="credencial_error" class="error">
                                 {{ $errors->first('email') }}
                             </span>
                         @endif
@@ -58,7 +58,7 @@
                         </div>
 
                         @if ($errors->has('password'))
-                            <span class="error">
+                            <span id="credencial_error" class="error">
                                 {{ $errors->first('password') }}
                             </span>
                         @endif
