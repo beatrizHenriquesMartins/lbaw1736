@@ -38,7 +38,9 @@ a:hover {
 
 .sign {
     text-align: right;
+    /*
     padding-top: 2em;
+     */
     padding-bottom: 1.5714em;
     width: auto;
     display: flex;
@@ -158,7 +160,10 @@ img.mb-4{
     display: flex;
     justify-content: flex-end;
     padding-right: 3.5em;
+}
 
+div.row.top{
+    margin-bottom: 1em;
 }
 
 @media (max-width:1000px) {
@@ -211,7 +216,9 @@ img.mb-4{
     }
 
     .topbar .top .sign {
+        /*
         padding-top: 0.2em;
+         */
         padding-bottom: 0.4em;
     }
 
