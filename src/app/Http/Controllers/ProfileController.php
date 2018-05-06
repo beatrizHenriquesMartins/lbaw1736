@@ -39,12 +39,19 @@ class ProfileController extends Controller
           $type = 4;
 
 			if($type == 1) {
+
+				$addresses = DB::table('clientaddresses')
+				->where('id_client', Auth::user()->id)
+				->join('addresses', 'addresses.id_address', '=', 'clientaddresses.id_address')
+				->join('cities', 'cities.id_city', '=', 'addresses.id_city')
+				->join('countries', 'countries.id_country', '=', 'cities.id_country')->get();
+
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-				return view('pages.profile', ['type' => $type, 'messages' => $messages]);
+				return view('pages.profile', ['type' => $type, 'messages' => $messages, 'addresses' => $addresses]);
       }
       else {
         $messages = null;
-				return view('pages.profile', ['type' => $type, 'messages' => null]);
+				return view('pages.profile', ['type' => $type, 'messages' => null, 'addresses' =>null]);
       }
 		//ou...
 		//return view('pages.profile', compact('user','type');
