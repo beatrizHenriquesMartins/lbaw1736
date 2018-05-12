@@ -35,19 +35,40 @@ class ReviewController extends Controller
       $purchaseproducts = DB::table('purchaseproducts')->where([['id_product', '=', $product_id], ['id_purchase', '=', $purchase_id]])->first();
       $review = DB::table('reviews')->where([['id_product', '=', $product_id], ['id_purchase', '=', $purchase_id]])->first();
 
-      if($purchaseproducts == null || $review != null)
+      if($purchaseproducts == null)
         return redirect()->back();
 
-      $review = new Review();
-      $review->id_purchase = $purchase_id;
-      $review->id_product = $product_id;
-      $review->rating =  $request->input('rating');
-      $review->textreview = $request->input('reviewtext');
-      $review->reviewdate = date('Y-m-d H:i:s');
-      $review->save();
-      return redirect()->back();
+      if($review != null) {
 
+        $review = DB::table('reviews')->where([['id_product', '=', $product_id], ['id_purchase', '=', $purchase_id]])
+        ->update(['rating' => $request->input('rating')]);
+        $review = DB::table('reviews')->where([['id_product', '=', $product_id], ['id_purchase', '=', $purchase_id]])
+        ->update(['textreview' => $request->input('reviewtext')]);
+        $review = DB::table('reviews')->where([['id_product', '=', $product_id], ['id_purchase', '=', $purchase_id]])
+        ->update(['reviewdate' => date('Y-m-d H:i:s')]);
+
+        return redirect()->back();
+      }
+      else {
+        $review = new Review();
+        $review->id_purchase = $purchase_id;
+        $review->id_product = $product_id;
+        $review->rating =  $request->input('rating');
+        $review->textreview = $request->input('reviewtext');
+        $review->reviewdate = date('Y-m-d H:i:s');
+        $review->save();
+        return redirect()->back();
+      }
 
     }
 
+    public function delete(Request $request) {
+      $review = DB::table('reviews')->where('id_product', $request->input('id_product'))->where('id_purchase', $request->input('id_purchase'))->first();
+
+      if($review) {
+        DB::table('reviews')->where('id_product', $request->input('id_product'))->where('id_purchase', $request->input('id_purchase'))->delete();
+      }
+
+      return json_encode($review);
+    }
 }

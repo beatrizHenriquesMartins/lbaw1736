@@ -95,6 +95,15 @@ function addEventListeners() {
   if(addAddress) {
     addAddress.addEventListener("click", sendAddAddressRequest);
   }
+
+  let removeComments = document.querySelectorAll('.review .removeComment #removeComment');
+  if(removeComments) {
+    let i = 0;
+    for(i = 0; i < removeComments.length; i++) {
+      removeComments[i].addEventListener("click", sendRemoveCommentRequest);
+    }
+  }
+
 }
 
 function encodeForAjax(data) {
@@ -114,6 +123,35 @@ function sendAjaxRequest(method, url, data, handler) {
   request.send(encodeForAjax(data));
 }
 
+function sendRemoveCommentRequest() {
+  let parent = this.closest("#content");
+  let id_product = parent.querySelector(".product-section").getAttribute("data-id");
+  let id_purchase = this.closest(".review").getAttribute("data-id");
+  sendAjaxRequest('delete', '/api/remove/comment', {id_product:id_product, id_purchase:id_purchase}, sendRemoveCommentHandler);
+
+}
+
+function sendRemoveCommentHandler() {
+  console.log(this.responseText);
+  if (this.status != 200) window.location = '/';
+  let comment = JSON.parse(this.responseText);
+
+  let element = document.querySelector('.review[data-id="'+ comment.id_purchase +'"]');
+
+  element.remove();
+
+  let msg = document.createElement("div");
+  msg.setAttribute("class", "alert alert-success");
+  msg.innerHTML = ` <strong>Success!</strong> comment Deleted.`;
+  let section = document.querySelector("#content");
+
+  let breadcrumbs = section.querySelector("#breadcrumbs");
+
+  section.insertBefore(msg, breadcrumbs.nextSibling);
+
+  setTimeout(function(){ msg.remove(); }, 2000);
+
+}
 
 function sendAddAddressRequest() {
   let addAddress = this.closest(".addAddress");

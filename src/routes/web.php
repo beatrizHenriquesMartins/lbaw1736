@@ -54,6 +54,7 @@ Route::get('search', 'ProductController@search')->name('search');
 
 //Reivew
 Route::post('addreview/{id_product}/{id_purchase}', 'ReviewController@create')->name('addreview');
+Route::delete('api/remove/comment', 'ReviewController@delete');
 
 // category
 Route::get('category/{categoryName}', 'ProductController@showCategory')->name('category');

@@ -10,7 +10,9 @@
         @endif
 
         @if(count($reviews) != 0)
-            @each('partials.review', $reviews, 'review')
+            @for($i = 0; $i < count($reviews); $i++)
+              @include('partials.review', ['review' => $reviews[$i], 'type' => $type])
+            @endfor
         @endif
     </div>
 @endsection
