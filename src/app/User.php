@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -18,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'password', 'username', 'imageurl', 'active', 'dateOfBirth','age'
+        'firstname', 'lastname', 'email', 'password', 'username', 'imageurl', 'active', 'birthday','age'
     ];
 
     /**
@@ -49,5 +50,13 @@ class User extends Authenticatable
         });
     }
     */
+
+    /**
+    * Accessor for Age.
+    */
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->attributes['birthday'])->age;
+    }
 
 }

@@ -146,6 +146,25 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class = "row">
+                                <div class = "col-sm-9">
+                                    <div class = "row">
+                                        <div class = "col-sm-2">
+                                            <p>
+                                                Age:
+                                            </p>
+                                        </div>
+
+                                        <div class = "col-sm-10">
+                                            <p>
+                                                @if(isset(Auth::user()->age))
+                                                  {{ Auth::user()->age}}
+                                                @endif
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class = "row">
                                 <div class = "col-sm-9">
@@ -179,25 +198,21 @@
                         </div>
                     </div>
 
-                    <div class = "row addresses">
-                        <p>
-                            Addresses:
-                        </p>
-
-                        <ul>
-                            <li>
-                                Rua Marco de Canaveses 19 Porto
+                     <div class = "row addresses">
+                            <p>
+                                Addresses:
+                            </p>
+                        
+                            
+                            @foreach ($addresses as $entry)
+                            <li class="row address">
+                              <div class="col-xs-9">
+                                {{ $entry->address . " " . $entry->city . " " . $entry->country}}
+                              </div>
                             </li>
-
-                            <li>
-                                Avenida 5 de Outubro 52 Lamego
-                            </li>
-
-                            <li>
-                                Rua de Moçambique 138 Coimbra
-                            </li>
-                        </ul>
-                    </div>
+                            @endforeach
+                           
+                        </div>
                 </div>
             </div>
         </div>
