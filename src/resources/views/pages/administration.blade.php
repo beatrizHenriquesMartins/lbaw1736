@@ -5,13 +5,13 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="homepage.html">
+                <a href="{{route('homepage')}}">
                     Homepage
                 </a>
             </li>
 
             <li class="breadcrumb-item">
-                <a href="admin_users.html">
+                <a href="{{route('profile')}}">
                     Profile
                 </a>
             </li>
@@ -41,7 +41,7 @@
         <div class="row-fluid category-section wishlist-section">
             <div class = "sidelinks col-sm-2">
                 <div class="list-group">
-                    <a href="customer_profile.html" class="list-group-item list-group-item-action">
+                    <a href="{{route('profile')}}" class="list-group-item list-group-item-action">
                         Profile
                     </a>
 

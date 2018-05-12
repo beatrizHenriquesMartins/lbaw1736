@@ -5,7 +5,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="homepage.html">
+                    <a href="{{route('homepage')}}">
                         Homepage
                     </a>
                 </li>
@@ -20,17 +20,48 @@
             <div class="row">
                 <div class = "sidelinks col-sm-2">
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active">
+                      @if($type == 1)
+                        <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
                             Profile
                         </a>
 
-                        <a href="list_purchases.html" class="list-group-item list-group-item-action">
+                        <a href="{{route('purchases')}}" class="list-group-item list-group-item-action">
                             List of Purchases
                         </a>
 
-                        <a href="list_favourites.html" class="list-group-item list-group-item-action">
+                        <a href="{{route('wishlist')}}" class="list-group-item list-group-item-action">
                             List of Favourites
                         </a>
+
+                        <a href="{{route('cart')}}" class="list-group-item list-group-item-action">
+                            Cart
+                        </a>
+                      @endif
+                      @if($type != 4 && $type != 1)
+                        <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
+                            Profile
+                        </a>
+                      @endif
+                      @if($type == 4)
+                        <a href="{{ route('profile') }}" class="list-group-item list-group-item-action">
+                            Profile
+                        </a>
+
+                        <a href="/clients" class="list-group-item list-group-item-action">
+                            List of Clients
+                        </a>
+
+                        <a href="/bms" class="list-group-item list-group-item-action">
+                            List of Brand Managers
+                        </a>
+
+                        <a href="/supports" class="list-group-item list-group-item-action">
+                            List of SupportChat
+                        </a>
+                        <a href="/bans" class="list-group-item list-group-item-action">
+                            List of Banned Users
+                        </a>
+                      @endif
                     </div>
                 </div>
 

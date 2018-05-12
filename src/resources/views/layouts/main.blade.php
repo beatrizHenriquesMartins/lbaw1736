@@ -151,12 +151,6 @@
                                         </div>
 
                                         <li>
-                                        <a class="dropdown-item" href="/changePassword">
-                                            Change Password
-                                        </a>
-                                        </li>
-
-                                        <li>
                                             <a class="dropdown-item" href="{{ url('/logout') }}">
                                                 Sign Out
                                             </a>
@@ -246,6 +240,10 @@
                                 @endif
 
                                 @if($type == 4)
+                                    <li>
+                                        <a href="{{ url('/newproduct') }}" class="fa fa-plus">
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="{{ url('/clients') }}" class="fa fa-users">
                                         </a>

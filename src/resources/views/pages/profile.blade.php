@@ -1,6 +1,6 @@
 @extends('layouts.main', ['type' => $type])
 @section('content')
-    @if($type == 2)
+    @if($type == 3)
     <div class="edit">
         <a href="{{ route('showEditProfile', ['id' => $user->id]) }}">
             <i class="fa fa-edit">
@@ -13,7 +13,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="homepage.html">
+                    <a href="{{route('homepage')}}">
                         Homepage
                     </a>
                 </li>
@@ -35,21 +35,30 @@
                 <div class = "sidelinks col-sm-2">
                     <div class="list-group">
 
-                        @if(!isset($page))
+                        @if($type == 1)
                           <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
                               Profile
                           </a>
 
-                          <a href="list_purchases.html" class="list-group-item list-group-item-action">
+                          <a href="{{route('purchases')}}" class="list-group-item list-group-item-action">
                               List of Purchases
                           </a>
 
-                          <a href="list_favourites.html" class="list-group-item list-group-item-action">
+                          <a href="{{route('wishlist')}}" class="list-group-item list-group-item-action">
                               List of Favourites
                           </a>
+                          
+                          <a href="{{route('cart')}}" class="list-group-item list-group-item-action">
+                              Cart
+                          </a>
                         @endif
-                        @if(isset($page))
-                          <a href="{{ route('profile') }}" class="list-group-item list-group-item-action">
+                        @if($type != 4 && $type != 1)
+                          <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
+                              Profile
+                          </a>
+                        @endif
+                        @if($type == 4)
+                          <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
                               Profile
                           </a>
 
