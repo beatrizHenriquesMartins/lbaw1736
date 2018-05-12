@@ -10,7 +10,7 @@
     @endif
 
      <!-- breadcrumbs -->
-        <nav aria-label="breadcrumb">
+        <nav id="breadcrumbs" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{route('homepage')}}">
@@ -47,7 +47,7 @@
                           <a href="{{route('wishlist')}}" class="list-group-item list-group-item-action">
                               List of Favourites
                           </a>
-                          
+
                           <a href="{{route('cart')}}" class="list-group-item list-group-item-action">
                               Cart
                           </a>
@@ -202,8 +202,8 @@
                             <p>
                                 Addresses:
                             </p>
-                        
-                            
+
+
                             @foreach ($addresses as $entry)
                             <li class="row address">
                               <div class="col-xs-9">
@@ -211,7 +211,7 @@
                               </div>
                             </li>
                             @endforeach
-                           
+
                         </div>
                 </div>
             </div>

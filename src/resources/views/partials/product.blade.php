@@ -1,5 +1,5 @@
 <!-- breadcrumbs -->
-<nav aria-label="breadcrumb">
+<nav id="breadcrumbs" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
             <a href="/homepage">
@@ -23,7 +23,7 @@
     </ol>
 </nav>
 
-@if($usertype == 2)
+@if($usertype == 2 || $usertype == 4)
     <div class="edit">
         <a href="{{ route('editProduct', ['id' => $product->id]) }}">
             <i class="fa fa-edit">

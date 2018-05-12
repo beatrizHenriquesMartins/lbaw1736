@@ -158,8 +158,18 @@ function sendAddAddressHandler() {
     ul.insertBefore(element, li);
 
     let button = element.querySelector(".col-xs-3 .btn");
-    button.addEventListener("click", sendRemoveAddressRequest)
-  }
+    button.addEventListener("click", sendRemoveAddressRequest);
+
+    let msg = document.createElement("div");
+    msg.setAttribute("class", "alert alert-success");
+    msg.innerHTML = ` <strong>Success!</strong> ` + address.address + ` ` + address.city + ` ` + address.country +` added to Addresses .`;
+    let section = document.querySelector("#content");
+
+    let breadcrumbs = section.querySelector("#breadcrumbs");
+
+    section.insertBefore(msg, breadcrumbs.nextSibling);
+
+    setTimeout(function(){ msg.remove(); }, 2000);  }
 }
 
 
@@ -177,6 +187,18 @@ function sendRemoveAddressHandler() {
   let element = document.querySelector('.addresses .address[data-id="'+ address.id_address +'"]');
 
   element.remove();
+
+  let msg = document.createElement("div");
+  msg.setAttribute("class", "alert alert-success");
+  msg.innerHTML = ` <strong>Success!</strong> ` + address.address + ` ` + address.city + ` ` + address.country +` removed from Addresses .`;
+  let section = document.querySelector("#content");
+
+  let breadcrumbs = section.querySelector("#breadcrumbs");
+
+  section.insertBefore(msg, breadcrumbs.nextSibling);
+
+  setTimeout(function(){ msg.remove(); }, 2000);
+
 }
 
 
@@ -329,16 +351,7 @@ function updateCartTotal(responseText, newQuantity) {
   totalprice.remove();
   totalvalue = parseInt(totalvalue) + parseInt(productvalue) * ( parseInt(newQuantity) - parseInt(productChanged.quantity) );
   changeCartTotal(totalvalue);
-  /*if(totalvalue == 0) {
-    let final = document.querySelector('.main .final');
-    final.remove();
-  } else {
-    let total = document.querySelector('.main .final .total-order .total');
-    let newprice = document.createElement('h3');
-    newprice.innerHTML = totalvalue + ' €';
-    newprice.setAttribute('class', 'value');
-    total.append(newprice);
-  }*/
+
 }
 
 function sendRemoveAllCartRequest() {
@@ -366,7 +379,16 @@ function AddWishlistHandler() {
   if (this.status != 200) window.location = '/';
   let cart = JSON.parse(this.responseText);
 
-}
+  let element = document.createElement("div");
+  element.setAttribute("class", "alert alert-success");
+  element.innerHTML = ` <strong>Success!</strong> ` + cart.name +` added to Wishlist.`;
+  let section = document.querySelector("#content");
+
+  let breadcrumbs = section.querySelector("#breadcrumbs");
+
+  section.insertBefore(element, breadcrumbs.nextSibling);
+
+  setTimeout(function(){ element.remove(); }, 2000);}
 
 function sendAddCartRequest() {
   let id = this.closest('div.product-section').getAttribute('data-id');
@@ -378,6 +400,17 @@ function AddCartHandler() {
   if (this.status != 200) window.location = '/';
   let cart = JSON.parse(this.responseText);
 
+
+  let element = document.createElement("div");
+  element.setAttribute("class", "alert alert-success");
+  element.innerHTML = ` <strong>Success!</strong> ` + cart.name +` added to Cart.`;
+  let section = document.querySelector("#content");
+
+  let breadcrumbs = section.querySelector("#breadcrumbs");
+
+  section.insertBefore(element, breadcrumbs.nextSibling);
+
+  setTimeout(function(){ element.remove(); }, 2000);
 }
 
 function changeCartTotal(newTotal){

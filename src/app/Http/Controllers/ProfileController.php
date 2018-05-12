@@ -136,11 +136,15 @@ class ProfileController extends Controller
 		public function removeAddress(Request $request) {
 
 			$clientaddress = DB::table('clientaddresses')
-			->where('id_client', Auth::user()->id)->where('id_address', $request->input('addressId'))->first();
-
+			->where('id_client', Auth::user()->id)
+			->where('clientaddresses.id_address', $request->input('addressId'))
+			->join('addresses', 'addresses.id_address', '=', 'clientaddresses.id_address')
+			->join('cities', 'cities.id_city', '=', 'addresses.id_city')
+			->join('countries', 'countries.id_country', '=', 'cities.id_country')->first();
 			if($clientaddress)
 				DB::table('clientaddresses')->where('id_client', Auth::user()->id)
 				->where('id_address', $request->input('addressId'))->delete();
+
 
 			return json_encode($clientaddress);
 		}

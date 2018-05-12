@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- breadcrumbs -->
-    <nav aria-label="breadcrumb">
+    <nav id="breadcrumbs" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="/homepage">
