@@ -9,84 +9,86 @@
             </a>
         </li>
 
-        <li class="breadcrumb-item" aria-current="page">
-          {{$brandname}}
-        </li>
-    </ol>
-</nav>
-<div class="container category-section">
-    <div class="category-topbar row">
-        <div class="col-sm-10 category">
-            <h3>
+            <li class="breadcrumb-item" aria-current="page">
                 {{$brandname}}
-            </h3>
+            </li>
+        </ol>
+    </nav>
+
+    <div class="container category-section">
+        <div class="category-topbar row">
+            <div class="col-sm-10 category">
+                <h3>
+                    {{$brandname}}
+                </h3>
+            </div>
+
+            <div class="col-sm-2 dropdown">
+                <button class="btn btn-secondary dropdown-toggle pull-right" type="button" data-toggle="dropdown">
+                    Order by
+
+                    <span class="caret">
+                    </span>
+                </button>
+
+                <ul class="dropdown-menu pull-right">
+                    <li>
+                        <a href="#">
+                            Preço Ascendente
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Preço Descendente
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Rating Ascendente
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Rating Descendente
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div class="col-sm-2 dropdown">
-            <button class="btn btn-secondary dropdown-toggle pull-right" type="button"
-                    data-toggle="dropdown">
-                Order by
+        <?php
+            $num_elems = count($products);
 
-                <span class="caret">
-                </span>
-            </button>
+            $elems_per_row = 4;
+            $rest = $elems_per_row - ($num_elems%$elems_per_row);
+            if($num_elems%$elems_per_row == 0)
+                $rest = 0;
 
-            <ul class="dropdown-menu pull-right">
-                <li>
-                    <a href="#">
-                        Preço Ascendente
-                    </a>
-                </li>
+            $num_rows = ceil($num_elems / $elems_per_row);
+            $col_division = 12 / $elems_per_row; //DONT CHANGE. Used for grid position purposes
 
-                <li>
-                    <a href="#">
-                        Preço Descendente
-                    </a>
-                </li>
+            for($i = 0; $i < $num_rows; $i++) {?>
+                <div class="category-products">
+                    <div class="product-row">
+                        <?php for($j = 0; $j < $elems_per_row && $num_elems > 0; $j++, $num_elems--) {
+                            $actual_elem = $i*$elems_per_row + $j;?>
 
-                <li>
-                    <a href="#">
-                        Rating Ascendente
-                    </a>
-                </li>
+                            @include('partials.categoryproduct', ['product' => $products[$actual_elem], 'reviewmed' => $reviewsmed[$actual_elem]])
+                            <?php } ?>
+                            <?php for($k = 0; $k < $rest; $k++) {?>
 
-                <li>
-                    <a href="#">
-                        Rating Descendente
-                    </a>
-                </li>
-            </ul>
-        </div>
+                            <div class="product-section empty">
+                            </div>
+                            <?php } ?>
+                    </div>
+                </div>
+            <?php }?>
     </div>
 
-    <?php
-    $num_elems = count($products);
-
-    $elems_per_row = 4;
-    $rest = $elems_per_row - ($num_elems%$elems_per_row);
-    if($num_elems%$elems_per_row == 0)
-      $rest = 0;
-
-    $num_rows = ceil($num_elems / $elems_per_row);
-    $col_division = 12 / $elems_per_row; //DONT CHANGE. Used for grid position purposes
-
-    for($i = 0; $i < $num_rows; $i++) {?>
-      <div class="category-products">
-          <div class="product-row">
-            <?php for($j = 0; $j < $elems_per_row && $num_elems > 0; $j++, $num_elems--) {
-              $actual_elem = $i*$elems_per_row + $j;?>
-                  @include('partials.categoryproduct', ['product' => $products[$actual_elem], 'reviewmed' => $reviewsmed[$actual_elem]])
-            <?php } ?>
-            <?php for($k = 0; $k < $rest; $k++) {?>
-
-              <div class="product-section empty">
-              </div>
-          <?php } ?>
-          </div>
-      </div>
-    <?php } ?>
-</div>
-<div class="category-links">
-  {{ $products->links() }}
-</div>
+    <div class="category-links">
+        {{ $products->links() }}
+    </div>
 @endsection
