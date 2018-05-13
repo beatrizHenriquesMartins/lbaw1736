@@ -18,3 +18,15 @@ div#message_404{
     align-self: center;
     padding-left: 4em;
 }
+
+@media (max-width: 500px) {
+    div#div_content_404.card-columns.col-sm-2{
+        flex-direction: column;
+        alignment: center;
+    }
+
+    div#message_404{
+        align-self: auto;
+        padding-left: 0em;
+    }
+}
