@@ -6,13 +6,13 @@
  <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="homepage.html">
+                    <a href="/homepage">
                         Homepage
                     </a>
                 </li>
 
                 <li class="breadcrumb-item">
-                    <a href="cart.html">
+                    <a href="/cart">
                         Cart
                     </a>
                 </li>

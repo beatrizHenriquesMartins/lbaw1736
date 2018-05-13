@@ -6,19 +6,19 @@
        <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="homepage.html">
+                    <a href="/homepage">
                         Homepage
                     </a>
                 </li>
 
                 <li class="breadcrumb-item">
-                    <a href="cart.html">
+                    <a href="/cart">
                         Cart
                     </a>
                 </li>
 
                 <li class="breadcrumb-item">
-                    <a href="cart_order.html">
+                    <a href="/cart_order">
                         Cart Order
                     </a>
                 </li>
@@ -142,7 +142,7 @@
                                     </h3>
 
                                     <h3 class="quantity">
-                                        {{$cart->quantity}}
+                                        {{$cart->pivot->quantity}}
                                     </h3>
                                 </div>
                             </div>

@@ -58,7 +58,7 @@
 
                     <div class="delete-cart-btn">
                         <a role="button" class="btn btn-danger">
-                                Delete Cart
+                                Empty Cart
                         </a>
                     </div>
                 </div>

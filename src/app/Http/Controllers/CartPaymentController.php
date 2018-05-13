@@ -44,7 +44,7 @@ class CartPaymentController extends Controller
   $cost = 0;
   if($client == null || $client->cart == null)
         return redirect('/404');     
-
+  
   if(count($client->cart) != 0) {
         foreach ($client->cart as $list) {
           $product = (Product::find($list->pivot->id_product));
@@ -63,11 +63,18 @@ class CartPaymentController extends Controller
             ->join('countries', 'countries.id_country', '=', 'cities.id_country')->get();
 
     $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-            return view('pages.cart_payment', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages, 'addresses' => $addresses]);
+
+    if(count($client->cart) != 0)
+        return view('pages.cart_payment', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages, 'addresses' => $addresses]);
+    else
+        return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages]);
   }
   else {
     $messages = null;
-            return view('pages.cart_payment', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => null, 'addresses' =>null]);
+    if(count($client->cart) != 0)
+        return view('pages.cart_payment', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => null, 'addresses' =>null]);
+    else
+        return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => null]);
   }
     //ou...
     //return view('pages.profile', compact('user','type');
