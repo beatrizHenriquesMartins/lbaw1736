@@ -42,6 +42,9 @@ Route::delete('api/cart', 'CartController@deleteAll');
 Route::put('api/cart/{id}', 'CartController@create');
 Route::post('api/cart/{id}/quantity/{quantity}', 'CartController@update');
 
+//cart_order
+Route::get('cart_order', 'CartOrderController@show')->name('cart_order');
+
 
 // product
 Route::get('products/{id}', 'ProductController@show')->name('product');

@@ -80,7 +80,7 @@
 
                         <div class="order">
                             <div class="order-btn">
-                                <a class="btn btn-success pull-right" href="cart_order.html" role="button">
+                                <a class="btn btn-success pull-right" href="{{route('cart_order')}}" role="button">
                                     Order
                                 </a>
                             </div>
