@@ -42,7 +42,7 @@
                     </h3>
 
                     <h5 class="name">
-                        Cristiano Ronaldo dos Santos Aveiro
+                    {{ Auth::user()->firstname ." ". Auth::user()->lastname }}
                     </h5>
                 </div>
 
@@ -52,7 +52,7 @@
                     </h3>
 
                     <h5 class="email">
-                        cr7@gmail.com
+                    {{ Auth::user()->email }}
                     </h5>
                 </div>
 
@@ -62,7 +62,7 @@
                     </h3>
 
                     <h5 class="nif">
-                        240192549
+                    {{ Auth::user()->nif }}
                     </h5>
                 </div>
 
@@ -72,9 +72,10 @@
                     </p>
 
                     <ul>
+                        @foreach ($addresses as $entry)
                         <li>
                             <div class="col-sm-11">
-                                Rua Marco de Canaveses 19 Porto
+                            {{ $entry->address . " " . $entry->city . " " . $entry->country}}
                             </div>
 
                             <div class="col-sm-1">
@@ -83,30 +84,9 @@
                                 </div>
                             </div>
                         </li>
+                        @endforeach
 
-                        <li>
-                            <div class="col-sm-11">
-                                Avenida 5 de Outubro 52 Lamego
-                            </div>
-
-                            <div class="col-sm-1">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="col-sm-11">
-                                Rua de Moçambique 138 Coimbra
-                            </div>
-
-                            <div class="col-sm-1">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                </div>
-                            </div>
-                        </li>
+                       
                     </ul>
                 </div>
 
