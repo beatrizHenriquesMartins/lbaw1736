@@ -51,8 +51,8 @@ class CartController extends Controller
           $type = 4;
       }
 
-      if (!$this->authorize('list', Cart::class))
-        return redirect('/homepage');
+      /*if (!$this->authorize('list', Cart::class))
+        return redirect('/homepage');*/
 
       $client = Client::find(Auth::user()->id);
       $cost = 0;
