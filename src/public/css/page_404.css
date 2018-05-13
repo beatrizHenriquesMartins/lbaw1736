@@ -3,9 +3,18 @@ div#content_page_404.container.d-sm-flex{
     padding: 0em;
 }
 
-img#photo_img_404.img-responsive{
-    max-width: 100%;
-    height: auto;
-    float: initial;
-    opacity: 0.75;
+img#image_error_404{
+    height: 85%;
+    width: auto;
+}
+
+div#div_content_404.card-columns.col-sm-2{
+    margin-top: 3.5em;
+    margin-left: 8em;
+    align-content: center;
+}
+
+div#message_404{
+    align-self: center;
+    padding-left: 4em;
 }
