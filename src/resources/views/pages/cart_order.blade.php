@@ -95,13 +95,21 @@
                     </button>
                 </div>
 
-                <div class="col-sm-10">
-                </div>
+                <div class="btns">
+                    <div class="col-sm-1">
+                        <button type="button" class="btn btn-danger">
+                            Cancel
+                        </button>
+                    </div>
 
-                <div class="col-sm-1">
-                    <a class="btn btn-success pull-right" href="{{route('cart_payment')}}" role="button">
-                        Payment
-                    </a>
+                    <div class="col-sm-10">
+                    </div>
+
+                    <div class="col-sm-1">
+                        <a class="btn btn-success pull-right" href="#" role="button">
+                            Payment
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

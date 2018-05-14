@@ -40,6 +40,8 @@ function addEventListeners() {
   let minus = document.querySelectorAll('.spinner .btn:last-of-type');
   let input = document.querySelectorAll('.spinner input');
 
+ 
+
   if(plus) {
     let i = 0;
     for(i = 0; i < plus.length; i++) {
@@ -104,6 +106,12 @@ function addEventListeners() {
     }
   }
 
+}
+
+
+let orderPayment = document.querySelector('.order-section .order-information .btns .btn-success');
+if(orderPayment){
+  orderPayment.addEventListener("click", processOrder);
 }
 
 function encodeForAjax(data) {
@@ -462,6 +470,29 @@ function changeCartTotal(newTotal){
     newprice.setAttribute('class', 'value');
     total.append(newprice);
   }
+}
+
+function processOrder(){
+  let selectAddressOrder = document.querySelectorAll('.addresses .form-check input');
+  var countSelectedAddr = 0;
+  var selAddr = -1;
+
+  for(var i =0; i < selectAddressOrder.length; i++){
+    if(selectAddressOrder[i].checked == true){
+      selAddr = i;
+      countSelectedAddr ++;
+    }
+  }
+  console.log(selAddr);
+  if(selAddr > -1 && countSelectedAddr == 1){
+    console.log("Hi everybody");
+    sendAjaxRequest('post', 'api/cart_payment/'+i, null, processOrderHandler); 
+  }
+
+}
+
+function processOrderHandler(){
+  
 }
 
 addEventListeners();

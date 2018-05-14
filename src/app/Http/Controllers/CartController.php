@@ -147,6 +147,7 @@ class CartController extends Controller
 
     public function update(Request $request, $product_id, $quantity) {
 
+      
       if (!Auth::check()) return redirect('/login');
 
       $product = DB::table('carts')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->first();
