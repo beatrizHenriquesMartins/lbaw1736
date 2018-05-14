@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="col-sm-1">
-                        <a class="btn btn-success pull-right" href="{{route('cart_payment')}}" role="button">
+                        <a class="btn btn-success pull-right" href="#" role="button">
                             Payment
                         </a>
                     </div>

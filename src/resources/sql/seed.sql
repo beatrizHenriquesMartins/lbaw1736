@@ -143,6 +143,7 @@ CREATE TABLE addresses (
 CREATE TABLE clientaddresses (
   id_client INTEGER NOT NULL REFERENCES clients,
   id_address INTEGER NOT NULL REFERENCES addresses,
+  selected BOOLEAN DEFAULT FALSE NOT NULL,
   PRIMARY KEY(id_client, id_address)
 );
 

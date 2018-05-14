@@ -20,7 +20,8 @@ use App\Product;
 
 class CartPaymentController extends Controller
 {
-    public function show(){
+    public function show(Request $request, $address_id ){
+    
 
         if (!Auth::check())
             return redirect('/login');
@@ -65,16 +66,14 @@ class CartPaymentController extends Controller
     $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
 
     if(count($client->cart) != 0)
-        return view('pages.cart_payment', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages, 'addresses' => $addresses]);
+        return redirect('pages.cart_payment', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages, 'address' => $addresses[$address_id]]);
     else
         return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages]);
   }
   else {
     $messages = null;
-    if(count($client->cart) != 0)
-        return view('pages.cart_payment', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => null, 'addresses' =>null]);
-    else
-        return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => null]);
+    return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => null]);
+       
   }
     //ou...
     //return view('pages.profile', compact('user','type');
