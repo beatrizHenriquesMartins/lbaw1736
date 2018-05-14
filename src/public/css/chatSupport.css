@@ -31,9 +31,9 @@ div#searchChatByPeople.card-columns.col-sm-3{
     border-left-style: none;
     border-width: thin;
     padding-top: 1em;
-    padding-right: 0.5em;
+    padding-right: 1.5em;
     padding-bottom: 1em;
-    padding-left: 0em;
+    padding-left: 1.5em;
 }
 
 input#searchUserChat{
