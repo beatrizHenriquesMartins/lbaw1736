@@ -2,18 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-use App\Purchase;
 use App\Client;
-use App\Product;
 use App\BrandManager;
 use App\SupportChat;
 use App\Admin;
-use App\Review;
-use App\Message;
 
 class SupportMessagesController extends Controller{
     public function showMessage(){
@@ -49,13 +43,12 @@ class SupportMessagesController extends Controller{
         if($type != 3){
             return redirect('/404');
         }
-        if($type == 1) {
-          $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-          return view('pages.chatSupport', ['type' => $type, 'messages' => $messages]);
-        }
-        else {
-          return view('pages.chatSupport', ['type' => $type, 'messages' => null]);
-        }
 
+        $peoples = Client::join('messages', 'messages.id_client', '=', 'clients.id_client')
+            ->join('chatsupports', 'chatsupports.id_chatsupport', '=', 'messages.id_chatsupport')
+            ->join('users', 'users.id', '=', 'clients.id_client')
+            ->where('chatsupports.id_chatsupport', Auth::user()->id)->get();
+
+        return view('pages.chatSupport', ['type' => $type, 'peoples' => $peoples]);
     }
 }

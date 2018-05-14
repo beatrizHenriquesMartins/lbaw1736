@@ -6,11 +6,13 @@
                 Homepage
             </a>
         </li>
+
         <li class="breadcrumb-item">
             <a href="{{route('brand', ['brandname' => $product->brand->brandname])}}">
                 {{$product->brand->brandname}}
             </a>
         </li>
+
         <li class="breadcrumb-item">
             <a href="{{route('category', ['categoryname' => $product->category->categoryname])}}">
                 {{$product->category->categoryname}}

@@ -2,80 +2,80 @@
 
 
 @section('content')
- <!-- breadcrumbs -->
- <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="/homepage">
-                        Homepage
-                    </a>
-                </li>
+    <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/homepage">
+                    Homepage
+                </a>
+            </li>
 
-                <li class="breadcrumb-item">
-                    <a href="/cart">
-                        Cart
-                    </a>
-                </li>
+            <li class="breadcrumb-item">
+                <a href="/cart">
+                    Cart
+                </a>
+            </li>
 
-                <li class="breadcrumb-item" aria-current="page">
-                    Cart Order
-                </li>
-            </ol>
-        </nav>
+            <li class="breadcrumb-item" aria-current="page">
+                Cart Order
+            </li>
+        </ol>
+    </nav>
 
-        <div class="order-section">
-            <div class="order-topbar row">
-                <div class="col-sm-2 payment">
-                    <h3>
-                        Order
-                    </h3>
-                </div>
-
-                <div class="col-sm-8">
-                </div>
+    <div class="order-section">
+        <div class="order-topbar row">
+            <div class="col-sm-2 payment">
+                <h3>
+                    Order
+                </h3>
             </div>
 
-            <div class="order-information row">
-                <div class="customer-name">
-                    <h3>
-                        Name
-                    </h3>
+            <div class="col-sm-8">
+            </div>
+        </div>
 
-                    <h5 class="name">
+        <div class="order-information row">
+            <div class="customer-name">
+                <h3>
+                    Name
+                </h3>
+
+                <h5 class="name">
                     {{ Auth::user()->firstname ." ". Auth::user()->lastname }}
-                    </h5>
-                </div>
+                </h5>
+            </div>
 
-                <div class="customer-email">
-                    <h3>
-                        Email
-                    </h3>
+            <div class="customer-email">
+                <h3>
+                    Email
+                </h3>
 
-                    <h5 class="email">
+                <h5 class="email">
                     {{ Auth::user()->email }}
-                    </h5>
-                </div>
+                </h5>
+            </div>
 
-                <div class="customer-contact">
-                    <h3>
-                        NIF
-                    </h3>
+            <div class="customer-contact">
+                <h3>
+                    NIF
+                </h3>
 
-                    <h5 class="nif">
+                <h5 class="nif">
                     {{ Auth::user()->nif }}
-                    </h5>
-                </div>
+                </h5>
+            </div>
 
-                <div class = "row addresses">
-                    <p>
-                        Select one Address:
-                    </p>
+            <div class = "row addresses">
+                <p>
+                    Select one Address:
+                </p>
 
-                    <ul>
-                        @foreach ($addresses as $entry)
+                <ul>
+                    @foreach ($addresses as $entry)
                         <li>
                             <div class="col-sm-11">
-                            {{ $entry->address . " " . $entry->city . " " . $entry->country}}
+                                {{ $entry->address . " " . $entry->city . " " . $entry->country}}
                             </div>
 
                             <div class="col-sm-1">
@@ -84,10 +84,15 @@
                                 </div>
                             </div>
                         </li>
-                        @endforeach
+                    @endforeach
+                </ul>
+            </div>
 
-                       
-                    </ul>
+            <div class="btns">
+                <div class="col-sm-1">
+                    <button type="button" class="btn btn-danger">
+                        Cancel
+                    </button>
                 </div>
 
                 <div class="btns">
@@ -108,6 +113,5 @@
                 </div>
             </div>
         </div>
-
-
+    </div>
 @endsection

@@ -1,32 +1,32 @@
 <div class="product">
     <div class="product-image">
         <a href="/products/{{$product->id}}">
-          <img src="{{$product->imageurl}}" alt="Product Image">
+            <img src="{{$product->imageurl}}" alt="Product Image">
         </a>
     </div>
 
     <div class="product-name">
-      <h3>
-          <a href="/products/{{ $product->id }}">
-              {{ $product->name }}
-          </a>
-      </h3>
+        <h3>
+            <a href="/products/{{ $product->id }}">
+                {{ $product->name }}
+            </a>
+        </h3>
 
-      <a href="/brands/{{ $product->brandname }}">
-          <h4>
-              {{$product->brandname}}
-          </h4>
-      </a>
+        <a href="/brands/{{ $product->brandname }}">
+            <h4>
+                {{$product->brandname}}
+            </h4>
+        </a>
 
-      <a href="/brands/{{ $product->categoryname }}">
+        <a href="/brands/{{ $product->categoryname }}">
+            <h5>
+                {{$product->categoryname}}
+            </h5>
+        </a>
+
         <h5>
-            {{$product->categoryname}}
+            {{ $product->price }} €
         </h5>
-      </a>
-      <h5>
-          {{ $product->price }} €
-      </h5>
-
     </div>
 
     <div class="product-class">
@@ -54,7 +54,8 @@
                                     </div>
 
                                     <!-- Rating -->
-                                    <input class="rating ratable" data-max="5" data-min="1" id="some_id" name="rating" type="number" />
+                                    <input class="rating ratable" data-max="5" data-min="1" id="some_id" name="rating"
+                                           type="number" />
                                 </div>
 
                                 <div class="modal-footer">
@@ -67,11 +68,10 @@
                                     </button>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-  </div>
+</div>

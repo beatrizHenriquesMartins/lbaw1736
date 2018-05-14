@@ -33,7 +33,8 @@
             </li>
         </ol>
     </nav>
+
     <form method="POST" action="{{ route('editproduct', ['id' => $product->id]) }}" enctype="multipart/form-data">
-      @include('partials.editproductform', ['product' => $product, 'brands' => $brands])
+        @include('partials.editproductform', ['product' => $product, 'brands' => $brands])
     </form>
 @endsection

@@ -1,0 +1,65 @@
+div.container{
+    margin-left: 0em;
+    margin-right: 0em;
+    padding-left: 0em;
+    padding-right: 0em;
+}
+
+div.card-columns.col-sm-12{
+    padding-bottom: 0em;
+    padding-left: 0em;
+    padding-right: 0em;
+}
+
+div#listOfPeople.card-columns.col-sm-3{
+    flex-direction: column;
+    border-right: lightgray;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-width: thin;
+    padding-left: 0em;
+    padding-right: 0em;
+}
+
+div#searchChatByPeople.card-columns.col-sm-3{
+    border-bottom: lightgray;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-width: thin;
+    padding-top: 1em;
+    padding-right: 0.5em;
+    padding-bottom: 1em;
+    padding-left: 0em;
+}
+
+input#searchUserChat{
+    border: none;
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input#searchUserChat[type=text]:focus {
+    width: 100%;
+}
+
+div#people.card-columns.col-sm-1{
+    white-space: pre;
+    padding-top: 1em;
+    padding-right: 0em;
+    padding-bottom: 0em;
+    padding-left: 0em;
+}
+
+div#message{
+    padding-left: 2em;
+}
+
+img#photo_user{
+    height: 5em;
+    width: auto;
+}
