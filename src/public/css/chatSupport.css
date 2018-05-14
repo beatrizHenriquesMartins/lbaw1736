@@ -13,7 +13,7 @@ div.card-columns.col-sm-12{
 
 div#listOfPeople.card-columns.col-sm-3{
     flex-direction: column;
-    border-right: black;
+    border-right: lightgray;
     border-top-style: none;
     border-right-style: solid;
     border-bottom-style: none;
@@ -24,7 +24,7 @@ div#listOfPeople.card-columns.col-sm-3{
 }
 
 div#searchChatByPeople.card-columns.col-sm-3{
-    border-bottom: black;
+    border-bottom: lightgray;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: solid;

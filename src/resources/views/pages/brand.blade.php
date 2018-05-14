@@ -1,13 +1,13 @@
 @extends('layouts.main', ['type' => $type])
 
 @section('content')
-<nav id="breadcrumbs" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="{{route('homepage')}}">
-                Homepage
-            </a>
-        </li>
+    <nav id="breadcrumbs" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{{route('homepage')}}">
+                    Homepage
+                </a>
+            </li>
 
             <li class="breadcrumb-item" aria-current="page">
                 {{$brandname}}

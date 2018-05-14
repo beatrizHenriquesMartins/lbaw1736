@@ -2,6 +2,7 @@
 
 @section('content')
     @include('partials.product', ['product' => $product, 'reviewmed' => $reviewmed, 'usertype' => $type])
+
     <div class="reviews-section">
         @if(count($reviews) == 0)
             <h3>

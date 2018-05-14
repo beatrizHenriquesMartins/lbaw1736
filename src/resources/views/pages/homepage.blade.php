@@ -55,40 +55,48 @@
 
     <div id="brand-container" class="container">
         <div id="inner-brand-container" class="container">
-          <div class="card-columns">
-              <?php for($j = 0; $j < 4; $j++) {
-                if($j == 0 || $j == 3) {?>
-                  <div class="col-sm-4 col-xs-12 brand-box flex-item ">
-                    @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
-                  </div>
-                <?php } if($j == 1) {?>
+            <div class="card-columns">
+                <?php for($j = 0; $j < 4; $j++) {
+                    if($j == 0 || $j == 3) {?>
+
                     <div class="col-sm-4 col-xs-12 brand-box flex-item ">
-                      @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
-                <?php } if($j == 2) {?>
-                      @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
+                        @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
                     </div>
-                <?php }
-              } ?>
-          </div>
+
+                    <?php } if($j == 1) {?>
+
+                    <div class="col-sm-4 col-xs-12 brand-box flex-item ">
+                        @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
+
+                        <?php } if($j == 2) {?>
+                        @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
+                    </div>
+
+                    <?php }
+                } ?>
+            </div>
         </div>
+
         <div id="inner-brand-container" class="container">
-          <div class="card-columns">
-              <?php for($j = 4; $j < 9; $j++) {
-                if($j == 6) {?>
-                  <div class="col-sm-4 col-xs-12 brand-box flex-item ">
-                    @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
-                  </div>
-                <?php } if($j == 4 || $j == 7) {?>
+            <div class="card-columns">
+                <?php for($j = 4; $j < 9; $j++) {
+                    if($j == 6) {?>
+
                     <div class="col-sm-4 col-xs-12 brand-box flex-item ">
-                      @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
-                <?php } if($j == 5 || $j == 8) {?>
-                      @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
+                        @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
                     </div>
-                <?php }
-              } ?>
-          </div>
+
+                    <?php } if($j == 4 || $j == 7) {?>
+
+                    <div class="col-sm-4 col-xs-12 brand-box flex-item ">
+                        @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
+
+                        <?php } if($j == 5 || $j == 8) {?>
+                        @include('partials.brandhomepage', ['elem' => $j, 'brand' => $brands[$j]])
+                    </div>
+                    <?php }
+                } ?>
+            </div>
         </div>
-
     </div>
-
 @endsection
