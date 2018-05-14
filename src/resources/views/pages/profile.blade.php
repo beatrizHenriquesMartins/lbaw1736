@@ -1,12 +1,12 @@
 @extends('layouts.main', ['type' => $type])
 @section('content')
-    @if($type == 3)
-    <div class="edit">
-        <a href="{{ route('showEditProfile', ['id' => $user->id]) }}">
-            <i class="fa fa-edit">
-            </i>
-        </a>
-    </div>
+    @if($type == 4)
+        <div class="edit">
+            <a href="{{ route('showEditProfile', ['id' => $user->id]) }}">
+                <i class="fa fa-edit">
+                </i>
+            </a>
+        </div>
     @endif
 
      <!-- breadcrumbs -->
@@ -17,15 +17,17 @@
                         Homepage
                     </a>
                 </li>
+
                 @if(!isset($page))
-                  <li class="breadcrumb-item" aria-current="page">
-                      Profile
-                  </li>
+                    <li class="breadcrumb-item" aria-current="page">
+                        Profile
+                    </li>
                 @endif
+
                 @if(isset($page))
-                  <li class="breadcrumb-item" aria-current="page">
-                      User Profile
-                  </li>
+                    <li class="breadcrumb-item" aria-current="page">
+                        User Profile
+                    </li>
                 @endif
             </ol>
         </nav>
@@ -36,46 +38,49 @@
                     <div class="list-group">
 
                         @if($type == 1)
-                          <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
-                              Profile
-                          </a>
+                            <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
+                                Profile
+                            </a>
 
-                          <a href="{{route('purchases')}}" class="list-group-item list-group-item-action">
-                              List of Purchases
-                          </a>
+                            <a href="{{route('purchases')}}" class="list-group-item list-group-item-action">
+                                List of Purchases
+                            </a>
 
-                          <a href="{{route('wishlist')}}" class="list-group-item list-group-item-action">
-                              List of Favourites
-                          </a>
+                            <a href="{{route('wishlist')}}" class="list-group-item list-group-item-action">
+                                List of Favourites
+                            </a>
 
-                          <a href="{{route('cart')}}" class="list-group-item list-group-item-action">
-                              Cart
-                          </a>
+                            <a href="{{route('cart')}}" class="list-group-item list-group-item-action">
+                                Cart
+                            </a>
                         @endif
+
                         @if($type != 4 && $type != 1)
-                          <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
-                              Profile
-                          </a>
+                            <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
+                                Profile
+                            </a>
                         @endif
+
                         @if($type == 4)
-                          <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
-                              Profile
-                          </a>
+                            <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
+                                Profile
+                            </a>
 
-                          <a href="/clients" class="list-group-item list-group-item-action">
-                              List of Clients
-                          </a>
+                            <a href="/clients" class="list-group-item list-group-item-action">
+                                List of Clients
+                            </a>
 
-                          <a href="/bms" class="list-group-item list-group-item-action">
-                              List of Brand Managers
-                          </a>
+                            <a href="/bms" class="list-group-item list-group-item-action">
+                                List of Brand Managers
+                            </a>
 
-                          <a href="/supports" class="list-group-item list-group-item-action">
-                              List of SupportChat
-                          </a>
-                          <a href="/bans" class="list-group-item list-group-item-action">
-                              List of Banned Users
-                          </a>
+                            <a href="/supports" class="list-group-item list-group-item-action">
+                                List of SupportChat
+                            </a>
+
+                            <a href="/bans" class="list-group-item list-group-item-action">
+                                List of Banned Users
+                            </a>
                         @endif
                     </div>
                 </div>
@@ -99,10 +104,11 @@
                                         <div class = "col-sm-10">
                                             <p class = "username-input">
                                                 @if(!isset($page))
-                                                  {{ Auth::user()->username }}
+                                                    {{ Auth::user()->username }}
                                                 @endif
+
                                                 @if(isset($page))
-                                                  {{ $user->username }}
+                                                    {{ $user->username }}
                                                 @endif
                                             </p>
                                         </div>
@@ -127,6 +133,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class = "row">
                                 <div class = "col-sm-9">
                                     <div class = "row">
@@ -139,13 +146,14 @@
                                         <div class = "col-sm-10">
                                             <p>
                                                 @if(isset(Auth::user()->birthday))
-                                                  {{ Auth::user()->birthday}}
+                                                    {{ Auth::user()->birthday}}
                                                 @endif
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class = "row">
                                 <div class = "col-sm-9">
                                     <div class = "row">
@@ -158,7 +166,7 @@
                                         <div class = "col-sm-10">
                                             <p>
                                                 @if(isset(Auth::user()->age))
-                                                  {{ Auth::user()->age}}
+                                                    {{ Auth::user()->age}}
                                                 @endif
                                             </p>
                                         </div>
@@ -183,36 +191,33 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class = "col-sm-1 col-xs-2">
-
-
                             <a href="{{route('showEditProfile')}}" role="button">
-                                <button type="button" class="btn btn-default btn-sm glyphicon glyphicon-edit" role="button">
+                                <button type="button" class="btn btn-default btn-sm glyphicon glyphicon-edit"
+                                        role="button">
                                     Edit
                                 </button>
                             </a>
-
                         </div>
                     </div>
 
-                     <div class = "row addresses">
+                    @if(isset($addresses))
+                        <div class = "row addresses">
                             <p>
                                 Addresses:
                             </p>
 
-
                             @foreach ($addresses as $entry)
-                            <li class="row address">
-                              <div class="col-xs-9">
-                                {{ $entry->address . " " . $entry->city . " " . $entry->country}}
-                              </div>
-                            </li>
+                                <li class="row address">
+                                    <div class="col-xs-9">
+                                        {{ $entry->address . " " . $entry->city . " " . $entry->country}}
+                                    </div>
+                                </li>
                             @endforeach
-
                         </div>
+                    @endif
                 </div>
             </div>
         </div>
