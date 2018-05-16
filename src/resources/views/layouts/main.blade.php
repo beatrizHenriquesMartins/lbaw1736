@@ -236,7 +236,7 @@
 
                                 @if($type == 3)
                                     <li>
-                                        <a href="{{ url('/messages') }}" class="fa fa-plus">
+                                        <a href="{{ url('/messages') }}" class="fa fa-comment">
                                         </a>
                                     </li>
                                 @endif
