@@ -14,16 +14,16 @@
 
         <!-- CSS -->
         <!-- Bootstrap -->
-        <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 
         <!-- Website Font style-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
         <!-- footer style -->
-        <link rel="stylesheet" href="./css/footer.css" type="text/css">
+        <link rel="stylesheet" href="/css/footer.css" type="text/css">
 
         <!-- sign in style -->
-        <link rel="stylesheet" href="./css/signin.css" type="text/css">
+        <link rel="stylesheet" href="/css/signin.css" type="text/css">
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -31,9 +31,9 @@
         <!-- CSS -->
 
         <!-- icon no separador -->
-        <link rel="icon" type="image/png"  href="./images/icon.png" />
+        <link rel="icon" type="image/png"  href="/images/icon.png" />
 
-        <script type="text/javascript" src="./js/bootstrap.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.js"></script>
     </head>
 
     <body>

@@ -13,7 +13,7 @@
             </div>
 
             <div class="main-login main-center">
-                <form class="form-horizontal" method="post" action="{{ route('login') }}">
+                <form role="form" method="POST" action="/auth/reset">
                     {{ csrf_field() }}
 
                     <div id="form_username" class="form-group">
@@ -64,14 +64,30 @@
                         @endif
                     </div>
 
+                    <div id="form_confirmPassword" class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">
+                            Confirm Password
+                        </label>
+
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-lock fa-lg" aria-hidden="true">
+                                    </i>
+                                </span>
+
+                                <input type="password" class="form-control" name="password_confirmation" id="confirm"
+                                       required autofocus>
+                            </div>
+                        </div>
+                    </div>
+
                     <div id="btn_logIn" class="form-group ">
                         <button type="submit" class="btn btn-success btn-lg btn-block login-button">
-                            Log in
+                            Reset Password
                         </button>
                     </div>
-                    <div>
-                       <a class="reset_pass" href="/auth/reset">Lost your password?</a>
-                   </div>
+
                 </form>
             </div>
         </div>

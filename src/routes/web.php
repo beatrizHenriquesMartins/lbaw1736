@@ -97,3 +97,7 @@ Route::put('api/add/address', 'ProfileController@addAddress');
 //messages
 Route::get('messages','SupportMessagesController@showMessage')->name('messages');
 Route::post('api/message','ClientController@newMessage');
+
+
+Route::get('auth/reset', 'Auth\ForgotPasswordController@getResetAuthenticatedView');
+Route::post('auth/reset', 'Auth\ForgotPasswordController@resetNotAuthenticated');
