@@ -53,4 +53,10 @@ class ClientController extends Controller
       $message->save();
       return $message->with('client')->where('id', $message->id)->first();
     }
+
+    public function getMessages(Request $request) {
+      $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+      return $messages;
+
+    }
 }
