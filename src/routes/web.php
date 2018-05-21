@@ -95,7 +95,7 @@ Route::put('api/add/address', 'ProfileController@addAddress');
 
 
 //messages
-Route::get('messages','SupportMessagesController@showMessage')->name('messages');
+Route::get('messages/{id}','SupportMessagesController@showMessage')->name('messages');
 Route::post('api/message','ClientController@newMessage');
 Route::get('api/getmessages','ClientController@getMessages');
 

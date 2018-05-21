@@ -8,9 +8,10 @@ use App\Client;
 use App\BrandManager;
 use App\SupportChat;
 use App\Admin;
+use App\Message;
 
 class SupportMessagesController extends Controller{
-    public function showMessage(){
+    public function showMessage($id){
         if (!Auth::check()) {
             return redirect('/login');
         }
@@ -47,8 +48,20 @@ class SupportMessagesController extends Controller{
         $peoples = Client::join('messages', 'messages.id_client', '=', 'clients.id_client')
             ->join('chatsupports', 'chatsupports.id_chatsupport', '=', 'messages.id_chatsupport')
             ->join('users', 'users.id', '=', 'clients.id_client')
-            ->where('chatsupports.id_chatsupport', Auth::user()->id)->get();
+            ->where('chatsupports.id_chatsupport', Auth::user()->id)->groupBy('clients.id_client',
+                'messages.id_message', 'chatsupports.id_chatsupport', 'users.id')->get();
 
-        return view('pages.chatSupport', ['type' => $type, 'peoples' => $peoples]);
+        if($id == -1) {
+            $first_msg = Message::where('id_chatsupport', Auth::user()->id)->first();
+            $id = $first_msg->id_client;
+        }
+
+        $messages_chat = Message::where('id_chatsupport', Auth::user()->id)
+            ->where('id_client', $id)
+            ->with('client')->with('chatsupport')->get();
+
+
+        return view('pages.chatSupport', ['type' => $type, 'peoples' => $peoples,
+            'messages_chat' => $messages_chat]);
     }
 }
