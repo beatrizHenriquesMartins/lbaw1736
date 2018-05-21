@@ -15,7 +15,7 @@
             <div class="main-login main-center">
                 <form role="form" method="POST" action="/auth/reset">
                     {{ csrf_field() }}
-
+                    <input type="hidden" name="token" value="{{Request::segment(3)}}">
                     <div id="form_username" class="form-group">
                         <label for="username" class="cols-sm-2 control-label">
                             Email

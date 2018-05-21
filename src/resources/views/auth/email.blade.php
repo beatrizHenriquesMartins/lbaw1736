@@ -13,7 +13,7 @@
             </div>
 
             <div class="main-login main-center">
-                <form class="form-horizontal" method="post" action="{{ route('login') }}">
+                <form role="form" method="POST" action="/auth/email">
                     {{ csrf_field() }}
 
                     <div id="form_username" class="form-group">
@@ -40,38 +40,12 @@
                         @endif
                     </div>
 
-                    <div class="form-group">
-                        <label for="password" class="cols-sm-2 control-label">
-                            Password
-                        </label>
-
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="fa fa-lock fa-lg" aria-hidden="true">
-                                    </i>
-                                </span>
-
-                                <input type="password" class="form-control" name="password" id="password"
-                                       required autofocus/>
-                            </div>
-                        </div>
-
-                        @if ($errors->has('password'))
-                            <span id="credencial_error" class="error">
-                                {{ $errors->first('password') }}
-                            </span>
-                        @endif
-                    </div>
-
                     <div id="btn_logIn" class="form-group ">
                         <button type="submit" class="btn btn-success btn-lg btn-block login-button">
-                            Log in
+                            Reset Password
                         </button>
                     </div>
-                    <div>
-                       <a class="reset_pass" href="/auth/email">Lost your password?</a>
-                   </div>
+
                 </form>
             </div>
         </div>

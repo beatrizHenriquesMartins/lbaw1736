@@ -99,5 +99,7 @@ Route::get('messages','SupportMessagesController@showMessage')->name('messages')
 Route::post('api/message','ClientController@newMessage');
 
 
-Route::get('auth/reset', 'Auth\ForgotPasswordController@getResetAuthenticatedView');
+Route::get('auth/reset/{token}', 'Auth\ForgotPasswordController@getResetAuthenticatedView');
 Route::post('auth/reset', 'Auth\ForgotPasswordController@resetNotAuthenticated');
+Route::get('auth/email', 'Auth\ForgotPasswordController@getEmail');
+Route::post('auth/email', 'Auth\ForgotPasswordController@sendEmail');

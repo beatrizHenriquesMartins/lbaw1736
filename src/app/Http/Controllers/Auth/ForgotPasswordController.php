@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Mail;
 
+use App\ResetPassword;
 use App\User;
 
 class ForgotPasswordController extends Controller
@@ -32,27 +34,6 @@ class ForgotPasswordController extends Controller
     }
 
     /**
-     * Reset password for logged in users.
-     *
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function resetAuthenticated(Request $request)
-    {
-        $this->validate($request, ['password' => 'required|confirmed|min:6']);
-
-        $credentials = $request->only('password', 'password_confirmation');
-
-        $credentials['email'] = auth()->user()->email;
-
-        $user = auth()->user();
-        $user->update(['password' => bcrypt($credentials['password'])]);
-
-        return $user->save() ? $this->getResetSuccessResponse(Password::PASSWORD_RESET)
-                             : 'Error';
-    }
-
-    /**
      * Reset password for not logged in users.
      *
      * @param Request $request
@@ -68,26 +49,39 @@ class ForgotPasswordController extends Controller
         $user = User::where('email', $request->input('email'))->first();
 
         if($user) {
-          $user->update(['password' => bcrypt($credentials['password'])]);
-          return view('auth.login');
+          if($user->remember_token == $request->input('token')) {
+            $user->update(['password' => bcrypt($credentials['password'])]);
+            return view('auth.login');
+          }
+          else {
+            return view('auth.reset')->withErrors(['email' => 'INVALID TOKEN']);
+          }
         }
         else {
           return view('auth.reset')->withErrors(['email' => 'We dont have this email in your DB!']);
         }
     }
 
-    /**
-     * Used by the ResetsPasswords trait.
-     *
-     * @param $user
-     * @param $password
-     */
-    protected function resetPassword($user, $password)
-    {
-        $user->password = bcrypt($password);
+    public function getEmail(Request $request) {
 
-        $user->save();
+      return view('auth.email');
 
-        auth()->guard($this->getGuard())->login($user);
+    }
+
+
+    public function sendEmail(Request $request) {
+
+      $user = User::where('email', $request->input('email'))->first();
+
+      if($user) {
+
+        Mail::to($user->email)->send(new ResetPassword($user->remember_token, $user));
+
+        return redirect('/homepage');
+      }
+      else {
+        return view('auth.email')->withErrors(['email' => 'We dont have this email in your DB!']);
+      }
+
     }
 }
