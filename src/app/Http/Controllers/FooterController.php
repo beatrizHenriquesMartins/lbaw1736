@@ -46,7 +46,14 @@ class FooterController extends Controller
           $type = 4;
       }
 
-      return view('pages.404', ['type' => $type, 'messages' => null]);
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.404', ['type' => $type, 'messages' => $messages, 'title' => '404']);
+      }
+      else {
+        $messages = null;
+        return view('pages.404', ['type' => $type, 'messages' => null, 'title' => '404']);
+      }
     }
 
     public function showaboutus(){
@@ -75,7 +82,14 @@ class FooterController extends Controller
           $type = 4;
       }
 
-      return view('pages.aboutus', ['type' => $type, 'messages' => null]);
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.aboutus', ['type' => $type, 'messages' => $messages, 'title' => 'About Us']);
+      }
+      else {
+        $messages = null;
+        return view('pages.aboutus', ['type' => $type, 'messages' => null, 'title' => 'About Us']);
+      }
     }
 
     public function showfaq()
@@ -105,7 +119,14 @@ class FooterController extends Controller
           $type = 4;
       }
 
-      return view('pages.faq', ['type' => $type, 'messages' => null]);
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.faq', ['type' => $type, 'messages' => $messages, 'title' => 'FAQ']);
+      }
+      else {
+        $messages = null;
+        return view('pages.faq', ['type' => $type, 'messages' => null, 'title' => 'FAQ']);
+      }
     }
 
     public function showcontactus()
@@ -135,7 +156,14 @@ class FooterController extends Controller
           $type = 4;
       }
 
-      return view('pages.contactus', ['tyep' => $type, 'messages' => null]);
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.contactus', ['type' => $type, 'messages' => $messages, 'title' => 'Contact Us']);
+      }
+      else {
+        $messages = null;
+        return view('pages.contactus', ['type' => $type, 'messages' => null, 'title' => 'Contact Us']);
+      }
     }
 
     public function showterms()
@@ -166,11 +194,11 @@ class FooterController extends Controller
       }
       if($type == 1) {
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-        return view('pages.terms', ['type' => $type, 'messages' => $messages]);
+        return view('pages.terms', ['type' => $type, 'messages' => $messages, 'title' => 'Terms']);
       }
       else {
         $messages = null;
-        return view('pages.terms', ['type' => $type, 'messages' => null]);
+        return view('pages.terms', ['type' => $type, 'messages' => null, 'title' => 'Terms']);
       }
 
     }

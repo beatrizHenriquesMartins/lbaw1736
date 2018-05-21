@@ -2,14 +2,14 @@
 
 <div class="brand-banner-box notstrech">
     <a href="/brands/{{$brand->brandname}}">
-        <img src="{{$brand->brandimgurl}}" alt="Banner {{$elem}}" class="img-responsive img-center">
+        <img src="{{$brand->brandimgurl}}" alt="Brand {{$brand->brandname}}" class="img-responsive img-center">
     </a>
 </div>
 
 <?php } else {?>
 <div class="brand-banner-box stretch">
     <a href="/brands/{{$brand->brandname}}">
-        <img src="{{$brand->brandimgurl}}" alt="Banner {{$elem}}" class="img-responsive img-center">
+        <img src="{{$brand->brandimgurl}}" alt="Brand {{$brand->brandname}}" class="img-responsive img-center">
     </a>
 </div>
 <?php } ?>

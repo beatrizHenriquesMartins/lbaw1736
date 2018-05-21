@@ -47,11 +47,11 @@ class ProfileController extends Controller
 				->join('countries', 'countries.id_country', '=', 'cities.id_country')->get();
 
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-				return view('pages.profile', ['type' => $type, 'messages' => $messages, 'addresses' => $addresses]);
+				return view('pages.profile', ['type' => $type, 'messages' => $messages, 'addresses' => $addresses, 'title' => 'Profile']);
       }
       else {
         $messages = null;
-				return view('pages.profile', ['type' => $type, 'messages' => null, 'addresses' =>null]);
+				return view('pages.profile', ['type' => $type, 'messages' => null, 'addresses' =>null, 'title' => 'Profile']);
       }
 		//ou...
 		//return view('pages.profile', compact('user','type');

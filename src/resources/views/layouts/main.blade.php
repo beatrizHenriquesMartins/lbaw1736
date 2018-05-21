@@ -8,20 +8,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>
-            Amazonas
+            Amazonas - @yield('title')
         </title>
 
          <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- CSS -->
         <!-- Bootstrap Core CSS -->
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
         <!-- Website Font style-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" type="text/css">
 
         <!-- TopBar CSS -->
-        <link href="/css/topbar.css" rel="stylesheet">
+        <link href="/css/topbar.css" rel="stylesheet" type="text/css">
 
         <!-- Homepage CSS -->
         <link href="/css/homepage.css" rel="stylesheet" type="text/css" >
@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="/css/login.css" type="text/css">
 
         <!-- Company Links -->
-        <link href="/css/company_links.css" rel="stylesheet">
+        <link href="/css/company_links.css" rel="stylesheet" type="text/css">
 
         <!-- footer style -->
         <link rel="stylesheet" href="/css/footer.css" type="text/css">
@@ -85,18 +85,12 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- icons -->
-        <link href="/css/page_404.css" rel="stylesheet">
+        <link href="/css/page_404.css" rel="stylesheet" type="text/css">
         <!-- CSS -->
 
-        <link rel="icon" type="image/png"  href="/images/icon.png" />
+        <link rel="icon" type="image/png"  href="/images/icon.png">
 
-        <script language="JavaScript" type="text/javascript" src="/js/bootstrap-rating-input.min.js" defer></script>
-        <script language="JavaScript" type="text/javascript" src="/js/app.js" defer></script>
 
-        <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
-        <script language="JavaScript" type="text/javascript" src="/js/bootstrap.min.js"></script>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     </head>
 
     <body>
@@ -377,3 +371,10 @@
     </main>
     </body>
 </html>
+<script language="JavaScript" type="text/javascript" src="/js/bootstrap-rating-input.min.js" defer></script>
+<script language="JavaScript" type="text/javascript" src="/js/app.js" defer></script>
+
+<script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>

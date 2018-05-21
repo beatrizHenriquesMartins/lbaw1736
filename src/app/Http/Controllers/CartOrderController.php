@@ -45,11 +45,11 @@ class CartOrderController extends Controller
 				->join('countries', 'countries.id_country', '=', 'cities.id_country')->get();
 
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-				return view('pages.cart_order', ['type' => $type, 'messages' => $messages, 'addresses' => $addresses]);
+				return view('pages.cart_order', ['type' => $type, 'messages' => $messages, 'addresses' => $addresses, 'title' => 'Order']);
       }
       else {
         $messages = null;
-				return view('pages.cart_order', ['type' => $type, 'messages' => null, 'addresses' =>null]);
+				return view('pages.cart_order', ['type' => $type, 'messages' => null, 'addresses' =>null, 'title' => 'Order']);
       }
 		//ou...
 		//return view('pages.profile', compact('user','type');

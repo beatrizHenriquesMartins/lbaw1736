@@ -17,7 +17,7 @@
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 
         <!-- Website Font style-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" type="text/css">
 
         <!-- footer style -->
         <link rel="stylesheet" href="/css/footer.css" type="text/css">
@@ -33,7 +33,6 @@
         <!-- icon no separador -->
         <link rel="icon" type="image/png"  href="/images/icon.png" />
 
-        <script type="text/javascript" src="/js/bootstrap.js"></script>
     </head>
 
     <body>
@@ -50,3 +49,4 @@
     </main>
     </body>
 </html>
+<script type="text/javascript" src="/js/bootstrap.js"></script>

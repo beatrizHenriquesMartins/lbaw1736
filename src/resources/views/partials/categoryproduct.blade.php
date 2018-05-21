@@ -1,6 +1,6 @@
 <div class="product-section" data-id="{{$product->id}}">
     <a href="/products/{{ $product->id }}">
-        <img class="product-img" src="{{ asset($product->imageurl) }}" alt="Card image cap">
+        <img class="product-img" src="{{ asset($product->imageurl) }}" alt="Product Image">
     </a>
 
     <div class="product-body">

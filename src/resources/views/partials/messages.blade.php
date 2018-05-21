@@ -1,7 +1,7 @@
 @if($message->sender == "chatSupport")
     <div class="row msg_container base_receive">
         <div class="col-md-2 col-xs-2 avatar">
-            <img src="{{$message->chatsupport->imageurl}}" class=" img-responsive ">
+            <img src="{{$message->chatsupport->imageurl}}" class=" img-responsive" alt="chatSupport Photo">
         </div>
 
         <div class="col-xs-10 col-md-10">
@@ -33,7 +33,7 @@
         </div>
 
         <div class="col-md-2 col-xs-2 avatar">
-            <img src="{{$message->client->imageurl}}" class=" img-responsive ">
+            <img src="{{$message->client->imageurl}}" class=" img-responsive" alt="Client Photo">
         </div>
     </div>
 @endif

@@ -1,4 +1,7 @@
 @extends('layouts.main', ['type' => $type])
+
+@section('title', $title)
+
 @section('content')
     @if($type == 4)
         <div class="edit">
@@ -88,7 +91,7 @@
                 <div class = "user_area col-sm-8 col-sm-offset-1">
                     <div class = "row">
                         <div class = "photo col-sm-2">
-                            <img border="0" alt="Photo" src="{{Auth::user()->imageurl}}" width="100" height="100">
+                            <img border="0" alt="Profile Photo" src="{{Auth::user()->imageurl}}" width="100" height="100">
                         </div>
 
                         <div class = "information col-sm-8 col-xs-9">

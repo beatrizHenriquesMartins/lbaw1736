@@ -55,7 +55,7 @@ class AdminController extends Controller
                ->from('bans');})->paginate(15);
 
 
-      return view('pages.administration', ['users' => $clients, 'type' => $type, 'page' => 1, 'messages' => null]);
+      return view('pages.administration', ['users' => $clients, 'type' => $type, 'page' => 1, 'messages' => null, 'title' => 'Administration']);
     }
 
     public function listBms(Request $request)
@@ -97,7 +97,7 @@ class AdminController extends Controller
                  $query->select('id_user')
                        ->from('bans');})->paginate(15);
 
-     return view('pages.administration', ['users' => $bms, 'type' => $type, 'page' => 2, 'messages' => null]);
+     return view('pages.administration', ['users' => $bms, 'type' => $type, 'page' => 2, 'messages' => null, 'title' => 'Administration']);
    }
 
    public function listSupports(Request $request)
@@ -138,7 +138,7 @@ class AdminController extends Controller
              ->from('bans');})->paginate(15);
 
 
-    return view('pages.administration', ['users' => $supports, 'type' => $type, 'page' => 3, 'messages' => null]);
+    return view('pages.administration', ['users' => $supports, 'type' => $type, 'page' => 3, 'messages' => null, 'title' => 'Administration']);
   }
 
   public function listBans(Request $request)
@@ -177,7 +177,7 @@ class AdminController extends Controller
    $bans = User::join('bans', 'bans.id_user', '=', 'id')->paginate(15);
 
 
-   return view('pages.administration', ['users' => $bans, 'type' => $type, 'page' => 4, 'messages' => null]);
+   return view('pages.administration', ['users' => $bans, 'type' => $type, 'page' => 4, 'messages' => null, 'title' => 'Administration']);
  }
 
   public function ban(Request $request)
@@ -280,7 +280,7 @@ class AdminController extends Controller
 
     $user = User::find($id);
 
-    return view('pages.profile', ['type' => $type, 'user' => $user, 'page' => 2, 'messages' => null]);
+    return view('pages.profile', ['type' => $type, 'user' => $user, 'page' => 2, 'messages' => null, 'title' => 'Administration']);
   }
 
 }

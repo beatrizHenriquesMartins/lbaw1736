@@ -73,10 +73,10 @@ class WishlistController extends Controller
       }
       if($type == 1) {
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-        return view('pages.wishlist', ['products' => $products, 'type' => $type, 'messages' => $messages]);
+        return view('pages.wishlist', ['products' => $products, 'type' => $type, 'messages' => $messages, 'title' => 'Wishlist']);
       }
       else {
-        return view('pages.wishlist', ['products' => $products, 'type' => $type, 'messages' => null]);
+        return view('pages.wishlist', ['products' => $products, 'type' => $type, 'messages' => null, 'title' => 'Wishlist']);
       }
 
     }

@@ -1,5 +1,7 @@
 @extends('layouts.main', ['type' => $type])
 
+@section('title', $title)
+
 @section('content')
     <nav id="breadcrumbs" aria-label="breadcrumb">
         <ol class="breadcrumb">

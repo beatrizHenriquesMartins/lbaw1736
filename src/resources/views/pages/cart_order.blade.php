@@ -1,5 +1,6 @@
 @extends('layouts.main', ['type' => $type])
 
+@section('title', $title)
 
 @section('content')
     <!-- breadcrumbs -->
