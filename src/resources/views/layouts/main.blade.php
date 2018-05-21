@@ -1,10 +1,9 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>
@@ -73,10 +72,6 @@
 
         <link href="/css/chatClient.css" rel="stylesheet" type="text/css" >
 
-        <script type="text/javascript">
-            // Fix for Firefox autofocus CSS bug
-            // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
-        </script>
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
@@ -184,7 +179,7 @@
                 </div>
 
                 <!-- Navigation -->
-                <nav class="navbar navbar-inverse navbar-static-top custom-navbar" role="navigation">
+                <nav class="navbar navbar-inverse navbar-static-top custom-navbar">
                     <div class="navBar-container">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
                             <span class="sr-only">
@@ -275,9 +270,9 @@
                 </nav>
             </div>
 
-            <section id="content">
+            <div id="content">
                 @yield('content')
-            </section>
+            </div>
 
             @if($type == 1)
                 <div class="container" id="container-chat">
@@ -371,10 +366,10 @@
     </main>
     </body>
 </html>
-<script language="JavaScript" type="text/javascript" src="/js/bootstrap-rating-input.min.js" defer></script>
-<script language="JavaScript" type="text/javascript" src="/js/app.js" defer></script>
+<script src="/js/bootstrap-rating-input.min.js" defer></script>
+<script src="/js/app.js" defer></script>
 
-<script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
-<script language="JavaScript" type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>

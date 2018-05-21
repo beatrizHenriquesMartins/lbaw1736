@@ -23,7 +23,7 @@ html {
     flex-direction:  column;
 }
 
-#inner-brand-container {
+.inner-brand-container {
     display: flex;
     justify-content: center;
     flex-direction:  row;
@@ -140,7 +140,7 @@ span {
         margin-top: 0;
     }
 
-    #brand-container #inner-brand-container .card-columns {
+    #brand-container .inner-brand-container .card-columns {
         flex-direction: column;
     }
 }

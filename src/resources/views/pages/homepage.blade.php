@@ -61,7 +61,7 @@
     </div>
 
     <div id="brand-container" class="container">
-        <div id="inner-brand-container" class="container">
+        <div class="inner-brand-container container">
             <div class="card-columns">
                 <?php for($j = 0; $j < 4; $j++) {
                     if($j == 0 || $j == 3) {?>
@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <div id="inner-brand-container" class="container">
+        <div class="inner-brand-container container">
             <div class="card-columns">
                 <?php for($j = 4; $j < 9; $j++) {
                     if($j == 6) {?>
