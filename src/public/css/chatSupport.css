@@ -81,7 +81,10 @@ div#people.card-columns.col-sm-3{
     padding-right: 0em;
     padding-bottom: 0em;
     padding-left: 1em;
-    width: max-content;
+    border-bottom-width: thin;
+    border-bottom-style: solid;
+    border-bottom-color: #ccc;
+    width: 100%;
 }
 
 img#photo_user{
@@ -92,3 +95,37 @@ img#photo_user{
 div#nameClient{
     padding-left: 0.5em;
 }
+
+/* mensagens */
+div#message.card-columns.col-sm-9{
+    flex-direction: column;
+    padding-right: 0em;
+    padding-left: 0em;
+    width: 100%;
+}
+
+div#writeMessage.card-columns.col-sm-9{
+    border-top-width: thin;
+    border-top-style: solid;
+    border-top-color: #ccc;
+    padding-top: 1em;
+    /*
+    position: relative;
+
+    height: 10em;
+    left: 5em;
+    */
+    /* apenas para teste 1 */
+    border-bottom-width: thin;
+    border-bottom-style: solid;
+    border-bottom-color: #ccc;
+    /* apenas para teste 1 */
+}
+
+input#messageInProcessInput{
+    /*
+    height: 3em;
+    width: 40em;
+    */
+}
+
