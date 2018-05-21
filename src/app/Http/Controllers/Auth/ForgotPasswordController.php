@@ -80,7 +80,7 @@ class ForgotPasswordController extends Controller
         return redirect('/homepage');
       }
       else {
-        return view('auth.email')->withErrors(['email' => 'We dont have this email in your DB!']);
+        return view('auth.email')->withErrors(['email' => 'We dont have this email in our DB!']);
       }
 
     }

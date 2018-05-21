@@ -213,9 +213,14 @@ class ProductController extends Controller
 
       $brands = Brand::all();
 
-      $messages = null;
-      return view('pages.editproduct', ['product' => $product, 'type' => $type, 'brands' => $brands, 'messages' => null, , 'title' => $product->name]);
-
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.editproduct', ['product' => $product, 'type' => $type, 'brands' => $brands, 'messages' => $messages, 'title' => $product->name]);
+      }
+      else {
+        $messages = null;
+        return view('pages.editproduct', ['product' => $product, 'type' => $type, 'brands' => $brands, 'messages' => null, 'title' => $product->name]);
+      }
     }
 
     public function delete($id)
@@ -465,7 +470,7 @@ class ProductController extends Controller
 
 
       $brands = Brand::all();
-      return view('pages.addproduct', ['type' => $type, 'brands' => $brands, 'messages' => null, , 'title' => 'Add Product']);
+      return view('pages.addproduct', ['type' => $type, 'brands' => $brands, 'messages' => null, 'title' => 'Add Product']);
     }
 
     public function search()
