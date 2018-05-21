@@ -212,6 +212,10 @@ class AdminController extends Controller
     $ban->bandate = date('Y-m-d H:i:s');
     $ban->save();
 
+    $client = User::find($request->input('id'));
+    $client->active = false;
+    $client->save();
+
     return $ban;
   }
 
@@ -242,6 +246,11 @@ class AdminController extends Controller
       return redirect('/404');
 
     $ban->delete();
+
+    $client = User::find($request->input('id'));
+    $client->active = true;
+    $client->save();
+
     return $ban;
   }
 
