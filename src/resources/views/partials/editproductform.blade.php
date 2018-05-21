@@ -94,8 +94,7 @@
                 </h2>
 
                 <textarea rows="7" cols="70" class="form-control" name="bigdescription" id="bigdescription"
-                          autofocus>{{$product->bigdescription}}
-                </textarea>
+                          autofocus>{{$product->bigdescription}}</textarea>
 
                 @if ($errors->has('bigdescription'))
                     <span class="error">
@@ -110,8 +109,7 @@
                 </h2>
 
                 <textarea rows="3" cols="70" class="form-control" name="shortdescription" id="shortdescription"
-                          autofocus>{{$product->shortdescription}}
-                </textarea>
+                          autofocus>{{$product->shortdescription}}</textarea>
 
                 @if ($errors->has('shortdescription'))
                     <span class="error">

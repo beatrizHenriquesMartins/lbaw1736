@@ -49,8 +49,7 @@
                                             Review:
                                         </label>
 
-                                        <textarea class="form-control" id="message-text" name="reviewtext">
-                                        </textarea>
+                                        <textarea class="form-control" id="message-text" name="reviewtext"></textarea>
                                     </div>
 
                                     <!-- Rating -->
