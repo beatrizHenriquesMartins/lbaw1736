@@ -41,15 +41,16 @@
                     </div>
                 </div>
                 <div class = "category-products wishlist-products col-sm-8 col-sm-offset-1">
-                    <?php for($j = 0; $j < count($brands); $j++) {?>
+                    <?php for($j = 0; $j < count($brands); $j++) {
+                         $brandname = str_replace(' ', '_', $brands[$j]->brandname);?>
                         <?php if($j==0) {?>
                             <div class="inner-brand-container brand-profile">
                                 <div class="card-columns">
                         <?php } ?>
                         <div class="col-sm-4 col-xs-12 brand-box flex-item ">
                             <div class="brand-banner-box stretch">
-                                <a href="/brands/{{$brands[$j]->brandname}}">
-                                    <img src="{{$brands[$j]->brandimgurl}}" alt="Brand {{$brands[$j]->brandname}}" class="img-responsive img-center">
+                                <a href="/brands/{{$brandname}}">
+                                    <img src="{{$brands[$j]->brandimgurl}}" alt="Brand {{$brandname}}" class="img-responsive img-center">
                                 </a>
                             </div>
                         </div>

@@ -6,9 +6,9 @@
                 Homepage
             </a>
         </li>
-
+        <?php $brandname = str_replace(' ', '_', $product->brand->brandname);?>
         <li class="breadcrumb-item">
-            <a href="{{route('brand', ['brandname' => $product->brand->brandname])}}">
+            <a href="{{route('brand', ['brandname' => $brandname])}}">
                 {{$product->brand->brandname}}
             </a>
         </li>
@@ -51,8 +51,8 @@
             <h2>
                 {{$product->name}}
             </h2>
-
-            <a href="/brands/{{ $product->brand->brandname }}">
+            <?php $brandname = str_replace(' ', '_', $product->brand->brandname);?>
+            <a href="/brands/{{ $brandname }}">
                 <h4 class="product-name">
                     {{$product->brand->brandname}}
                 </h4>

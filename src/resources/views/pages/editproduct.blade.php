@@ -19,7 +19,8 @@
             </li>
 
             <li class="breadcrumb-item">
-                <a href="{{route('brand', ['brandname' => $product->brand->brandname])}}">
+              <?php $brandname = str_replace(' ', '_', $product->brand->brandname); ?>
+                <a href="{{route('brand', ['brandname' => $brandname])}}">
                     {{$product->brand->brandname}}
                 </a>
             </li>

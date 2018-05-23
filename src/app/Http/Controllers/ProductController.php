@@ -280,6 +280,7 @@ class ProductController extends Controller
 
     public function showBrand($brandname)
     {
+      $brandname = str_replace('_', ' ', $brandname);
 
       $brand = Brand::where('brandname', '=', $brandname)->first();
 
@@ -569,5 +570,107 @@ class ProductController extends Controller
       ->where('id_brandmanager', Auth::user()->id)
       ->join('brands', 'brands.id_brand', 'brandbrandmanagers.id_brand')->get();
       return view('pages.brands', ['brands' => $brands, 'title' => 'Brands', 'type' => $type]);
+    }
+
+    public function showAddBrand() {
+
+      if(!Auth::check()) {
+        return view('login');
+      }
+
+      $type = 0;
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      if($type == 1 && $type == 2)
+        return view('404');
+
+      return view('pages.addbrand', ['title' => 'Add Brand', 'type' => $type]);
+    }
+
+    public function addBrand(Request $request) {
+
+      if(!Auth::check()) {
+        return view('login');
+      }
+
+      $type = 0;
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      if($type == 1 && $type == 2)
+        return view('404');
+
+
+        $rules = array(
+            'cellphone' => 'required|string|min:9|max:17',
+            'brandname' => 'required|string|max:255|unique:brands',
+            'imageurl' => 'required',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+          return redirect()->route('addbrand')->withErrors($validator);
+        }
+
+        $brandname = $request->input('brandname');
+        $cellphone = $request->input('cellphone');
+
+        $brand = new Brand();
+
+        $brand->brandname = $brandname;
+        $brand->contact = $cellphone;
+
+        $brandname = str_replace(' ', '_', $brandname);
+        $brandname = strtolower($brandname);
+        $imageName = $request->imageurl->getClientOriginalName();
+        $request->imageurl->move(public_path('images/brands'.'/'.$brandname), $imageName);
+        $brand->brandimgurl = "/images/brands".'/'.$brandname.'/'.$imageName;
+
+
+        $brand->save();
+        DB::table('brandbrandmanagers')->insert(['id_brand' => $brand->id_brand, 'id_brandmanager' => Auth::user()->id]);
+
+        return redirect()->route('brand', ['brandname' => $brand->brandname]);
+
     }
 }
