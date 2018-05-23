@@ -85,14 +85,17 @@ class WishlistController extends Controller
 
       if (!Auth::check()) return redirect('/login');
 
-      if (!$this->authorize('list', Wishlist::class))
-        return redirect('/homepage');
-
+      if (!$this->authorize('list', Wishlist::class)) {
+        $product = ['message' => 'Not Authorized to add to wishlist'];
+        return json_encode($product);
+      }
 
       $client = Client::find(Auth::user()->id);
 
-      if($client == null || $client->wishlist == null)
-        return redirect('/404');
+      if($client == null || $client->wishlist == null) {
+        $product = ['message' => 'Not Authorized to add to wishlist'];
+        return json_encode($product);
+      }
 
       $product = Product::find($product_id);
       $wishlist = DB::table('wishlists')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->first();

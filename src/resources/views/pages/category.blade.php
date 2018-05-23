@@ -16,7 +16,6 @@
             </li>
         </ol>
     </nav>
-
     <div class="container category-section">
         <div class="category-topbar row">
             <div class="col-sm-10 category">

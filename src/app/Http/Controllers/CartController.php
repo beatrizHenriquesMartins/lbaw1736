@@ -86,13 +86,17 @@ class CartController extends Controller
       if (!Auth::check()) return redirect('/login');
 
 
-      if (!$this->authorize('create', Cart::class))
-        return redirect('/homepage');
+      if (!$this->authorize('create', Cart::class)) {
+        $product = ['message' => 'Not Authorized to add to cart'];
+        return json_encode($product);
+      }
 
       $client = Client::find(Auth::user()->id);
       $cost = 0;
-      if($client == null || $client->cart == null)
-        return redirect('/404');
+      if($client == null || $client->cart == null) {
+        $product = ['message' => 'Not Authorized to add to cart'];
+        return json_encode($product);
+      }
 
       $product = Product::find($product_id);
       $cart = DB::table('carts')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->get();

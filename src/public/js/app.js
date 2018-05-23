@@ -422,12 +422,19 @@ function sendAddWishlistRequest() {
 }
 
 function AddWishlistHandler() {
-  if (this.status != 200) window.location = '/';
+  console.log(this.responseText);
+//  if (this.status != 200) window.location = '/';
   let cart = JSON.parse(this.responseText);
-
   let element = document.createElement("div");
-  element.setAttribute("class", "alert alert-success");
-  element.innerHTML = ` <strong>Success!</strong> ` + cart.name +` added to Wishlist.`;
+
+  if(cart.message == "Not Authorized to add to wishlist") {
+    element.setAttribute("class", "alert alert-danger");
+    element.innerHTML = ` <strong>Error!</strong> Couldn't add to Wishlist.`;
+  }
+  else {
+    element.setAttribute("class", "alert alert-success");
+    element.innerHTML = ` <strong>Success!</strong> ` + cart.name +` added to Wishlist.`;
+  }
   let section = document.querySelector("#content");
 
   let breadcrumbs = section.querySelector("#breadcrumbs");
@@ -448,8 +455,15 @@ function AddCartHandler() {
 
 
   let element = document.createElement("div");
-  element.setAttribute("class", "alert alert-success");
-  element.innerHTML = ` <strong>Success!</strong> ` + cart.name +` added to Cart.`;
+
+  if(cart.message == "Not Authorized to add to cart") {
+    element.setAttribute("class", "alert alert-danger");
+    element.innerHTML = ` <strong>Error!</strong> Couldn't add to Cart.`;
+  }
+  else {
+    element.setAttribute("class", "alert alert-success");
+    element.innerHTML = ` <strong>Success!</strong> ` + cart.name +` added to Cart.`;
+  }
   let section = document.querySelector("#content");
 
   let breadcrumbs = section.querySelector("#breadcrumbs");
