@@ -477,7 +477,6 @@ class ProductController extends Controller
     {
       $input = Input::get('input');
       $products = Product::whereOr('shortdescription', 'LIKE', '%'.$input.'%')->whereOr('bigdescription', 'LIKE', '%'.$input.'%')->whereOr('name', 'LIKE', '%'.$input.'%')->paginate(12);
-      echo $products;
       if(!Auth::check()) {
         return view('login');
       }
@@ -532,5 +531,43 @@ class ProductController extends Controller
         $messages = null;
         return view('pages.category', ['categoryname' => 'Search Result', 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => null, 'title' => 'Search']);
       }
+    }
+
+    public function BMbrands() {
+
+      if(!Auth::check()) {
+        return view('login');
+      }
+
+      $type = 0;
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      if($type == 1 && $type == 2)
+        return view('404');
+
+      $brands = DB::table('brandbrandmanagers')
+      ->where('id_brandmanager', Auth::user()->id)
+      ->join('brands', 'brands.id_brand', 'brandbrandmanagers.id_brand')->get();
+      return view('pages.brands', ['brands' => $brands, 'title' => 'Brands', 'type' => $type]);
     }
 }

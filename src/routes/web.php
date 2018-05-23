@@ -67,6 +67,7 @@ Route::get('category/{categoryName}', 'ProductController@showCategory')->name('c
 
 // category
 Route::get('brands/{brandName}', 'ProductController@showBrand')->name('brand');
+Route::get('BMbrands', 'ProductController@BMbrands')->name('brands');
 
 // Authentication
 

@@ -58,9 +58,19 @@
                             </a>
                         @endif
 
-                        @if($type != 4 && $type != 1)
+                        @if($type == 3)
                             <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
                                 Profile
+                            </a>
+                        @endif
+
+                        @if($type == 2)
+                            <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">
+                                Profile
+                            </a>
+
+                            <a href="{{ route('brands') }}" class="list-group-item list-group-item-action">
+                                Brands
                             </a>
                         @endif
 
