@@ -570,6 +570,32 @@ function getChatMsgHandler() {
   }
 }
 
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+
+  var id_token = googleUser.getAuthResponse().id_token;
+  sendAjaxRequest('post', 'googleauth/', {id:id_token, name:profile.getName(), email:profile.getEmail(), photo:profile.getImageUrl()}, googleRegisterHandler);
+}
+
+function googleRegisterHandler() {
+  if(this.status != 200) window.location='/';
+
+  gapi.load('auth2',function(){
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function(){
+            console.log('User signed out .');
+            document.getElementById("logo").click();
+        });
+      });
+}
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+          console.log('User signed out.');
+    });
+}
+
 
 $(document).on('click', '.panel-heading span.icon_minim', function (e) {
     var $this = $(this);

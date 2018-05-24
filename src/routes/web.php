@@ -107,3 +107,4 @@ Route::get('auth/reset/{token}', 'Auth\ForgotPasswordController@getResetAuthenti
 Route::post('auth/reset', 'Auth\ForgotPasswordController@resetNotAuthenticated');
 Route::get('auth/email', 'Auth\ForgotPasswordController@getEmail');
 Route::post('auth/email', 'Auth\ForgotPasswordController@sendEmail');
+Route::post('googleauth', 'Auth\RegisterController@googleRegister');

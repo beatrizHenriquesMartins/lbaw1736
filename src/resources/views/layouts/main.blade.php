@@ -4,6 +4,8 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
+        <meta name="google-signin-client_id" content="876344229012-l89i8ark42rpp6m4rkcd4kr7em43pvhm.apps.googleusercontent.com">
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>
@@ -142,7 +144,7 @@
                                         </div>
 
                                         <li>
-                                            <a class="dropdown-item" href="{{ url('/logout') }}">
+                                            <a class="dropdown-item" href="{{ url('/logout') }}" onclick="signOut()">
                                                 Sign Out
                                             </a>
                                         </li>
@@ -373,3 +375,4 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>

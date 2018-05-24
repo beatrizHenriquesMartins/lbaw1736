@@ -7,7 +7,7 @@
                 <div class="text-center mb-4">
                     <!-- tamanho logo 1375 x 312 -->
                     <a href="{{ url('/homepage') }}">
-                        <img class="mb-4" src="/images/logo_1.png" alt="Amazonas Logo" width="323.75" height="78">
+                        <img class="mb-4" id="logo" src="/images/logo_1.png" alt="Amazonas Logo" width="323.75" height="78">
                     </a>
                 </div>
             </div>
@@ -69,6 +69,8 @@
                             Log in
                         </button>
                     </div>
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
                     <div>
                        <a class="reset_pass" href="/auth/email">Lost your password?</a>
                    </div>
