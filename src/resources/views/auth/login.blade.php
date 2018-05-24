@@ -69,8 +69,9 @@
                             Log in
                         </button>
                     </div>
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
+                    <div class="form-group">
+                      <div class="google btn-lg g-signin2" data-onsuccess="onSignIn"></div>
+                    </div>
                     <div>
                        <a class="reset_pass" href="/auth/email">Lost your password?</a>
                    </div>

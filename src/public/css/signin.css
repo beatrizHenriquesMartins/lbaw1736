@@ -73,6 +73,17 @@ span#credencial_error.error{
     color: red;
 }
 
+.google {
+  width: 100%;
+  border-radius: 6px;
+  padding: 0!important;
+}
+
+.google > * {
+  width: 100%!important;
+  font-size: 10rem!important;
+}
+
 @media (max-width: 500px) {
     img.mb-4 {
         width: 100%;
