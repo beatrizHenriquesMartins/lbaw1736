@@ -83,8 +83,7 @@
                 </h2>
 
                 <textarea rows="7" cols="70" class="form-control" name="bigdescription" id="bigdescription"
-                          autofocus>@if(old('bigdescription')){{old('bigdescription')}}@endif
-                </textarea>
+                          autofocus>@if(old('bigdescription')){{old('bigdescription')}}@endif</textarea>
 
                 @if ($errors->has('bigdescription'))
                     <span class="error">
@@ -99,8 +98,7 @@
                 </h2>
 
                 <textarea rows="3" cols="70" class="form-control" name="shortdescription" id="shortdescription"
-                          autofocus>@if(old('shortdescription')){{old('shortdescription')}}@endif
-                </textarea>
+                          autofocus>@if(old('shortdescription')){{old('shortdescription')}}@endif</textarea>
 
                 @if ($errors->has('shortdescription'))
                     <span class="error">

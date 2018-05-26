@@ -1,5 +1,6 @@
 @extends('layouts.main', ['type' => $type])
 
+@section('title', $title)
 
 @section('content')
     <!-- breadcrumbs -->
@@ -62,7 +63,7 @@
                 </h3>
 
                 <h5 class="nif">
-                    {{ Auth::user()->nif }}
+                    <input type = "text" name = "nif">
                 </h5>
             </div>
 
@@ -109,7 +110,9 @@
         </div>
     </div>
 
-    <form style = "display: hidden" action ="{{route('cart_payment1')}}" method = "POST" id="form">
-        <!--<input type = "hidden" id="selectedAddr" name = "selectedAddr" value=""/>-->
+    <form style = "display: hidden" action ="{{route('cart_payment1')}}" method = "post" id="form">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">       
+        <input type = "hidden" id="selectedAddr" name = "selectedAddr" value=""/>
+        <input type = "hidden" id="nifForm" name = "nif" value=""/>
     </form>
 @endsection

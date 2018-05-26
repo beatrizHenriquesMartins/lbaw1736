@@ -1,5 +1,7 @@
 @extends('layouts.main', ['type' => $type])
 
+@section('title', $title)
+
 @section('content')
     <div id="content_topics_faq">
         <div id="page_faq">
@@ -103,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Pergunta 5 -->
                 <div id="card">
                     <div class="card-header" id="headingFive">

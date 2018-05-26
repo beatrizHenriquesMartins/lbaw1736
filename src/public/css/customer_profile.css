@@ -23,6 +23,10 @@ body, html {
 	padding-right: 0em;
 }
 
+.brand-profile:first-of-type {
+	padding-top: 0!important;
+}
+
 /* User Information */
 .information>div>div:first-child {
     padding-right: 0em;

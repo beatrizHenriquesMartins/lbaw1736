@@ -1,5 +1,7 @@
 @extends('layouts.main', ['type' => $type])
 
+@section('title', $title)
+
 @section('content')
     @include('partials.product', ['product' => $product, 'reviewmed' => $reviewmed, 'usertype' => $type])
 

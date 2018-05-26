@@ -72,11 +72,11 @@ class CartController extends Controller
       }
       if($type == 1) {
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-        return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages]);
+        return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages, 'title' => 'Cart']);
       }
       else {
         $messages = null;
-        return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => null]);
+        return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => null, 'title' => 'Cart']);
       }
 
 
@@ -87,13 +87,17 @@ class CartController extends Controller
       if (!Auth::check()) return redirect('/login');
 
 
-      if (!$this->authorize('create', Cart::class))
-        return redirect('/homepage');
+      if (!$this->authorize('create', Cart::class)) {
+        $product = ['message' => 'Not Authorized to add to cart'];
+        return json_encode($product);
+      }
 
       $client = Client::find(Auth::user()->id);
       $cost = 0;
-      if($client == null || $client->cart == null)
-        return redirect('/404');
+      if($client == null || $client->cart == null) {
+        $product = ['message' => 'Not Authorized to add to cart'];
+        return json_encode($product);
+      }
 
       $product = Product::find($product_id);
       $cart = DB::table('carts')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->get();
@@ -147,7 +151,7 @@ class CartController extends Controller
 
 
     public function update(Request $request, $product_id, $quantity) {
-      
+
       if (!Auth::check()) return redirect('/login');
 
       $product = DB::table('carts')->where([['id_product', '=', $product_id], ['id_client', '=', Auth::user()->id]])->first();

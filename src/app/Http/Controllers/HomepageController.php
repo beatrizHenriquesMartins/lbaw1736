@@ -54,11 +54,11 @@ class HomepageController extends Controller
 
       if($type == 1) {
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-        return view('pages.homepage', ['products' => $products, 'brands' => $brands, 'type' => $type, 'messages' => $messages]);
+        return view('pages.homepage', ['products' => $products, 'brands' => $brands, 'type' => $type, 'messages' => $messages, 'title' => 'Homepage']);
       }
       else {
         $messages = null;
-        return view('pages.homepage', ['products' => $products, 'brands' => $brands, 'type' => $type, 'messages' => $messages]);
+        return view('pages.homepage', ['products' => $products, 'brands' => $brands, 'type' => $type, 'messages' => $messages, 'title' => 'Homepage']);
       }
     }
 }

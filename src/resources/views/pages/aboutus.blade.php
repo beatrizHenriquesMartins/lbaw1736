@@ -1,5 +1,7 @@
 @extends('layouts.main', ['type' => $type])
 
+@section('title', $title)
+
 @section('content')
     <div id="page_about_us">
         <div id="title">
@@ -60,7 +62,7 @@
                         <!-- Francisco Tuna Andrade -->
                         <div id="memberTeam" class="card-columns col-sm-2">
                             <div id="photo">
-                                <img id="photo_img" src="./images/team_photos/photo_francisco_1.jpg" alt="beatriz"
+                                <img id="photo_img" src="./images/team_photos/photo_francisco_1.jpg" alt="francisco"
                                      height="250" width="250" >
                             </div>
 
@@ -86,7 +88,7 @@
                         <!-- Luís Miguel Santos Monteiro Saraiva -->
                         <div id="memberTeam" class="card-columns col-sm-2">
                             <div id="photo">
-                                <img id="photo_img" src="./images/team_photos/photo_luis_1.jpg" alt="beatriz"
+                                <img id="photo_img" src="./images/team_photos/photo_luis_1.jpg" alt="luis"
                                      height="250" width="250">
                             </div>
 
@@ -112,7 +114,7 @@
                         <!-- Ricardo Filipe Amaro Saleiro Abreu -->
                         <div id="memberTeam" class="card-columns col-sm-2">
                             <div id="photo">
-                                <img id="photo_img" src="./images/team_photos/photo_ricardo.jpg" alt="beatriz"
+                                <img id="photo_img" src="./images/team_photos/photo_ricardo.jpg" alt="ricardo"
                                      height="250" width="250">
                             </div>
 

@@ -1,5 +1,7 @@
 @extends('layouts.main', ['type' => $type])
 
+@section('title', $title)
+
 <!-- content of page -->
 @section('content')
     <div class="container">

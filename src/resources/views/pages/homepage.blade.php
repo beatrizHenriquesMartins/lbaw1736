@@ -1,5 +1,6 @@
 @extends('layouts.main', ['type' => $type, 'messages' => $messages])
 
+@section('title', $title)
 
 @section('content')
     <!-- Carousel -->
@@ -20,15 +21,21 @@
         <div class="carousel-inner">
 
             <div class="item active">
-                <img src="{{$products[0]->imageurl}}" alt="Logo">
+                <a href="/products/{{$products[0]->id}}">
+                    <img src="{{$products[0]->imageurl}}" alt="Carousel Product Image">
+                </a>
             </div>
 
             <div class="item">
-                <img src="{{$products[1]->imageurl}}" alt="Logo">
+                <a href="/products/{{$products[1]->id}}">
+                    <img src="{{$products[1]->imageurl}}" alt="Carousel Product Image">
+                </a>
             </div>
 
             <div class="item">
-                <img src="{{$products[2]->imageurl}}" alt="Logo">
+                <a href="/products/{{$products[2]->id}}">
+                    <img src="{{$products[2]->imageurl}}" alt="Carousel Product Image">
+                </a>
             </div>
         </div>
 
@@ -53,8 +60,8 @@
         </a>
     </div>
 
-    <div id="brand-container" class="container">
-        <div id="inner-brand-container" class="container">
+    <div id="brand-container">
+        <div class="inner-brand-container">
             <div class="card-columns">
                 <?php for($j = 0; $j < 4; $j++) {
                     if($j == 0 || $j == 3) {?>
@@ -77,7 +84,7 @@
             </div>
         </div>
 
-        <div id="inner-brand-container" class="container">
+        <div class="inner-brand-container">
             <div class="card-columns">
                 <?php for($j = 4; $j < 9; $j++) {
                     if($j == 6) {?>

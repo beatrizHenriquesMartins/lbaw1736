@@ -40,7 +40,7 @@ function addEventListeners() {
   let minus = document.querySelectorAll('.spinner .btn:last-of-type');
   let input = document.querySelectorAll('.spinner input');
 
- 
+
 
   if(plus) {
     let i = 0;
@@ -422,12 +422,19 @@ function sendAddWishlistRequest() {
 }
 
 function AddWishlistHandler() {
-  if (this.status != 200) window.location = '/';
+  console.log(this.responseText);
+//  if (this.status != 200) window.location = '/';
   let cart = JSON.parse(this.responseText);
-
   let element = document.createElement("div");
-  element.setAttribute("class", "alert alert-success");
-  element.innerHTML = ` <strong>Success!</strong> ` + cart.name +` added to Wishlist.`;
+
+  if(cart.message == "Not Authorized to add to wishlist") {
+    element.setAttribute("class", "alert alert-danger");
+    element.innerHTML = ` <strong>Error!</strong> Couldn't add to Wishlist.`;
+  }
+  else {
+    element.setAttribute("class", "alert alert-success");
+    element.innerHTML = ` <strong>Success!</strong> ` + cart.name +` added to Wishlist.`;
+  }
   let section = document.querySelector("#content");
 
   let breadcrumbs = section.querySelector("#breadcrumbs");
@@ -448,8 +455,15 @@ function AddCartHandler() {
 
 
   let element = document.createElement("div");
-  element.setAttribute("class", "alert alert-success");
-  element.innerHTML = ` <strong>Success!</strong> ` + cart.name +` added to Cart.`;
+
+  if(cart.message == "Not Authorized to add to cart") {
+    element.setAttribute("class", "alert alert-danger");
+    element.innerHTML = ` <strong>Error!</strong> Couldn't add to Cart.`;
+  }
+  else {
+    element.setAttribute("class", "alert alert-success");
+    element.innerHTML = ` <strong>Success!</strong> ` + cart.name +` added to Cart.`;
+  }
   let section = document.querySelector("#content");
 
   let breadcrumbs = section.querySelector("#breadcrumbs");
@@ -472,7 +486,11 @@ function changeCartTotal(newTotal){
   }
 }
 
+
 function processOrder(){
+  let nifInput = document.querySelector('.nif input');
+  let nifValue = nifInput.value;
+  console.log(nifValue);
   let selectAddressOrder = document.querySelectorAll('.addresses .form-check input');
   var countSelectedAddr = 0;
   var selAddr = -1;
@@ -488,8 +506,11 @@ function processOrder(){
     console.log("Hi everybody");
     sendAjaxRequest('post', 'api/cart_payment/'+i, null, processOrderHandler); 
   }*/
-  $("#selectedAddr").val(i);
-  $("#form").submit();
+  if(selAddr > -1 && nifValue != ""){
+    $("#selectedAddr").val(selAddr);
+    $('#nifForm').val(nifValue);
+    $("#form").submit();
+  }
   
 
 }
@@ -499,6 +520,90 @@ function processOrderHandler(){
 }
 
 addEventListeners();
+
+setInterval(refreshChat, 10 * 1000);
+
+function refreshChat() {
+  let msg_body = document.querySelector("#container-chat #chat_window_1 .panel .panel-body");
+  if(msg_body)
+    getChatMsgRequest();
+}
+
+function getChatMsgRequest() {
+  sendAjaxRequest('get', '/api/getmessages', null, getChatMsgHandler);
+}
+
+function pad2(number) {
+
+     return (number < 10 ? '0' : '') + number
+
+}
+
+function getChatMsgHandler() {
+  if (this.status != 200) window.location = '/';
+  let chat_msgs = JSON.parse(this.responseText);
+
+  let msg_body = document.querySelector("#container-chat #chat_window_1 .panel .panel-body");
+  msg_body.innerHTML = '';
+
+  let i = 0;
+  for(i = 0; i < chat_msgs.length; i++) {
+    let new_msg = document.createElement("div");
+    let date = new Date(chat_msgs[i].datesent);
+    if(chat_msgs[i].sender == "chatSupport") {
+      new_msg.setAttribute("class", "row msg_container base_receive");
+      new_msg.innerHTML =  '<div class="col-md-2 col-xs-2 avatar"><img src="'
+                          + chat_msgs[i].chatsupport.imageurl
+                          + '" class=" img-responsive "></div><div class="col-xs-10 col-md-10"><div class="messages msg_receive"><p>'
+                          + chat_msgs[i].message +
+                          '</p><time datetime="2009-11-13">'
+                          + chat_msgs[i].chatsupport.username +
+                          ' • '
+                          + date
+                          '</time></div></div>';
+    }
+    if(chat_msgs[i].sender == "Client") {
+      new_msg.setAttribute("class", "row msg_container base_sent");
+      new_msg.innerHTML =  '<div class="col-xs-10 col-md-10"><div class="messages msg_sent"><p>'
+                           + chat_msgs[i].message
+                           + '</p><time datetime="2009-11-13">'
+                           + chat_msgs[i].client.username
+                           + '  • '
+                           + date.getFullYear() + '-' + pad2((date.getMonth() + 1)) + '-' + pad2(date.getDate())
+                           + '</time></div></div><div class="col-md-2 col-xs-2 avatar"><img src="'
+                           + chat_msgs[i].client.imageurl
+                           + '" class=" img-responsive "></div>';
+    }
+    console.log(new_msg);
+    msg_body.append(new_msg);
+  }
+}
+
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+
+  var id_token = googleUser.getAuthResponse().id_token;
+  sendAjaxRequest('post', 'googleauth/', {id:id_token, name:profile.getName(), email:profile.getEmail(), photo:profile.getImageUrl()}, googleRegisterHandler);
+}
+
+function googleRegisterHandler() {
+  if(this.status != 200) window.location='/';
+
+  gapi.load('auth2',function(){
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function(){
+            console.log('User signed out .');
+            document.getElementById("logo").click();
+        });
+      });
+}
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+          console.log('User signed out.');
+    });
+}
 
 
 $(document).on('click', '.panel-heading span.icon_minim', function (e) {

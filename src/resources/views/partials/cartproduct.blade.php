@@ -11,8 +11,8 @@
                 {{$cart->name}}
             </h3>
         </a>
-
-        <a href="/brands/{{ $cart->brand->brandname }}">
+        <?php $brandname = str_replace(' ', '_', $cart->brand->brandname); ?>
+        <a href="/brands/{{ $brandname }}">
             <h4>
                 {{$cart->brand->brandname}}
             </h4>

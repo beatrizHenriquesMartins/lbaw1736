@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 use App\ResetPassword;
 use App\User;
@@ -41,10 +43,19 @@ class ForgotPasswordController extends Controller
      */
     public function resetNotAuthenticated(Request $request)
     {
-        $this->validate($request, ['password' => 'required|confirmed|min:6']);
+
+        $rules = array(
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:6|confirmed',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+          return redirect()->route('auth.reset', ['token' => $request->input('token')])->withErrors($validator);
+        }
 
         $credentials = $request->only('password', 'password_confirmation');
-
 
         $user = User::where('email', $request->input('email'))->first();
 
@@ -54,15 +65,15 @@ class ForgotPasswordController extends Controller
             return view('auth.login');
           }
           else {
-            return view('auth.reset')->withErrors(['email' => 'INVALID TOKEN']);
+            return view('auth.reset', ['token' => $request->input('token')])->withErrors(['email' => 'INVALID TOKEN']);
           }
         }
         else {
-          return view('auth.reset')->withErrors(['email' => 'We dont have this email in your DB!']);
+          return view('auth.reset', ['token' => $request->input('token')])->withErrors(['email' => 'We dont have this email in your DB!']);
         }
     }
 
-    public function getEmail(Request $request) {
+    public function getEmail() {
 
       return view('auth.email');
 
@@ -80,7 +91,7 @@ class ForgotPasswordController extends Controller
         return redirect('/homepage');
       }
       else {
-        return view('auth.email')->withErrors(['email' => 'We dont have this email in your DB!']);
+        return view('auth.email')->withErrors(['email' => 'We dont have this email in our DB!']);
       }
 
     }

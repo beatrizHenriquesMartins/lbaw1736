@@ -78,11 +78,11 @@ class ProductController extends Controller
 
       if($type == 1) {
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-        return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type, 'messages' => $messages]);
+        return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type, 'messages' => $messages, 'title' => $product->name]);
       }
       else {
         $messages = null;
-        return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type, 'messages' => null]);
+        return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type, 'messages' => null, 'title' => $product->name]);
       }
     }
 
@@ -140,11 +140,11 @@ class ProductController extends Controller
       }
       if($type == 1) {
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-        return view('pages.category', ['categoryname' => $categoryname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => $messages]);
+        return view('pages.category', ['categoryname' => $categoryname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => $messages, 'title' => $categoryname]);
       }
       else {
         $messages = null;
-        return view('pages.category', ['categoryname' => $categoryname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => null]);
+        return view('pages.category', ['categoryname' => $categoryname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => null, 'title' => $categoryname]);
       }
     }
 
@@ -213,9 +213,14 @@ class ProductController extends Controller
 
       $brands = Brand::all();
 
-      $messages = null;
-      return view('pages.editproduct', ['product' => $product, 'type' => $type, 'brands' => $brands, 'messages' => null]);
-
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        return view('pages.editproduct', ['product' => $product, 'type' => $type, 'brands' => $brands, 'messages' => $messages, 'title' => $product->name]);
+      }
+      else {
+        $messages = null;
+        return view('pages.editproduct', ['product' => $product, 'type' => $type, 'brands' => $brands, 'messages' => null, 'title' => $product->name]);
+      }
     }
 
     public function delete($id)
@@ -275,6 +280,7 @@ class ProductController extends Controller
 
     public function showBrand($brandname)
     {
+      $brandname = str_replace('_', ' ', $brandname);
 
       $brand = Brand::where('brandname', '=', $brandname)->first();
 
@@ -331,11 +337,11 @@ class ProductController extends Controller
       }
       if($type == 1) {
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-        return view('pages.brand', ['brandname' => $brandname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => $messages]);
+        return view('pages.brand', ['brandname' => $brandname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => $messages, 'title' => $brandname]);
       }
       else {
         $messages = null;
-        return view('pages.brand', ['brandname' => $brandname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => null]);
+        return view('pages.brand', ['brandname' => $brandname, 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => null, 'title' => $brandname]);
       }
     }
 
@@ -465,14 +471,13 @@ class ProductController extends Controller
 
 
       $brands = Brand::all();
-      return view('pages.addproduct', ['type' => $type, 'brands' => $brands, 'messages' => null]);
+      return view('pages.addproduct', ['type' => $type, 'brands' => $brands, 'messages' => null, 'title' => 'Add Product']);
     }
 
     public function search()
     {
       $input = Input::get('input');
       $products = Product::whereOr('shortdescription', 'LIKE', '%'.$input.'%')->whereOr('bigdescription', 'LIKE', '%'.$input.'%')->whereOr('name', 'LIKE', '%'.$input.'%')->paginate(12);
-      echo $products;
       if(!Auth::check()) {
         return view('login');
       }
@@ -521,11 +526,151 @@ class ProductController extends Controller
 
       if($type == 1) {
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-        return view('pages.category', ['categoryname' => 'Search Result', 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => $messages]);
+        return view('pages.category', ['categoryname' => 'Search Result', 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => $messages, 'title' => 'Search']);
       }
       else {
         $messages = null;
-        return view('pages.category', ['categoryname' => 'Search Result', 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => null]);
+        return view('pages.category', ['categoryname' => 'Search Result', 'products' => $products, 'reviewsmed' => $reviewsmed, 'type' => $type, 'messages' => null, 'title' => 'Search']);
       }
+    }
+
+    public function BMbrands() {
+
+      if(!Auth::check()) {
+        return view('login');
+      }
+
+      $type = 0;
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      if($type == 1 && $type == 2)
+        return view('404');
+
+      $brands = DB::table('brandbrandmanagers')
+      ->where('id_brandmanager', Auth::user()->id)
+      ->join('brands', 'brands.id_brand', 'brandbrandmanagers.id_brand')->get();
+      return view('pages.brands', ['brands' => $brands, 'title' => 'Brands', 'type' => $type]);
+    }
+
+    public function showAddBrand() {
+
+      if(!Auth::check()) {
+        return view('login');
+      }
+
+      $type = 0;
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      if($type == 1 && $type == 2)
+        return view('404');
+
+      return view('pages.addbrand', ['title' => 'Add Brand', 'type' => $type]);
+    }
+
+    public function addBrand(Request $request) {
+
+      if(!Auth::check()) {
+        return view('login');
+      }
+
+      $type = 0;
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      if($type == 1 && $type == 2)
+        return view('404');
+
+
+        $rules = array(
+            'cellphone' => 'required|string|min:9|max:17',
+            'brandname' => 'required|string|max:255|unique:brands',
+            'imageurl' => 'required',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+          return redirect()->route('addbrand')->withErrors($validator);
+        }
+
+        $brandname = $request->input('brandname');
+        $cellphone = $request->input('cellphone');
+
+        $brand = new Brand();
+
+        $brand->brandname = $brandname;
+        $brand->contact = $cellphone;
+
+        $brandname = str_replace(' ', '_', $brandname);
+        $brandname = strtolower($brandname);
+        $imageName = $request->imageurl->getClientOriginalName();
+        $request->imageurl->move(public_path('images/brands'.'/'.$brandname), $imageName);
+        $brand->brandimgurl = "/images/brands".'/'.$brandname.'/'.$imageName;
+
+
+        $brand->save();
+        DB::table('brandbrandmanagers')->insert(['id_brand' => $brand->id_brand, 'id_brandmanager' => Auth::user()->id]);
+
+        return redirect()->route('brand', ['brandname' => $brand->brandname]);
+
     }
 }

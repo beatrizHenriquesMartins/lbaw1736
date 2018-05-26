@@ -1,5 +1,7 @@
 @extends('layouts.main', ['type' => $type])
 
+@section('title', $title)
+
 @section('content')
     <!-- breadcrumbs -->
     <nav id="breadcrumbs" aria-label="breadcrumb">
@@ -73,7 +75,7 @@
                         {{ csrf_field() }}
 
                         <div class = "photo col-sm-2">
-                            <img border="0" alt="Photo" src="{{Auth::user()->imageurl}}" width="100" height="100">
+                            <img border="0" alt="Profile Photo" src="{{Auth::user()->imageurl}}" width="100" height="100">
 
                             <input id="imageUpload" type="file" name="imageurl" placeholder="Photo" capture>
 

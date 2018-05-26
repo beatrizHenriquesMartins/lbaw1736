@@ -20,13 +20,14 @@ use App\Product;
 
 class CartPaymentController extends Controller
 {
-    public function show(/*Request $request, $address_id */){
+    public function show(Request $request ){
     
-        return redirect('/404');  
+        //return redirect('/404');  
         if (!Auth::check())
             return redirect('/login');
 
-
+$address_id = $request->input('selectedAddr');
+$nif = $request->input('nif');
   $type = 0;
   $userBM = BrandManager::find(Auth::user()->id);
   $userSP = SupportChat::find(Auth::user()->id);
@@ -44,8 +45,8 @@ class CartPaymentController extends Controller
   $client = Client::find(Auth::user()->id);
   $cost = 0;
   if($client == null || $client->cart == null)
-        return redirect('/404');     
-  
+        return redirect('/404');
+
   if(count($client->cart) != 0) {
         foreach ($client->cart as $list) {
           $product = (Product::find($list->pivot->id_product));
@@ -54,7 +55,7 @@ class CartPaymentController extends Controller
           settype($price, "integer");
           $cost = $cost + $price * $quantity;
         }
-  }    
+  }
   if($type == 1) {
 
             $addresses = DB::table('clientaddresses')
@@ -66,17 +67,17 @@ class CartPaymentController extends Controller
     $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
 
     if(count($client->cart) != 0)
-        return view('pages.cart_payment', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages, 'address' => $addresses[$address_id]]);
+        return view('pages.cart_payment', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages, 'address' => $addresses[$address_id], 'nif' => $nif,'title' => 'Payment']);
     else
-        return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages]);
+        return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages, 'title' => 'Cart']);
   }
   else {
     $messages = null;
-    return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => null]);
-       
+    return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => null, 'title' => 'Cart']);
+
   }
     //ou...
     //return view('pages.profile', compact('user','type');
 }
 
-}    
+}

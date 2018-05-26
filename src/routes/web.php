@@ -68,6 +68,9 @@ Route::get('category/{categoryName}', 'ProductController@showCategory')->name('c
 
 // category
 Route::get('brands/{brandName}', 'ProductController@showBrand')->name('brand');
+Route::get('BMbrands', 'ProductController@BMbrands')->name('brands');
+Route::get('addbrand', 'ProductController@showAddBrand')->name('addbrand');
+Route::post('addbrand', 'ProductController@addBrand');
 
 // Authentication
 
@@ -96,11 +99,13 @@ Route::put('api/add/address', 'ProfileController@addAddress');
 
 
 //messages
-Route::get('messages','SupportMessagesController@showMessage')->name('messages');
+Route::get('messages/{id}','SupportMessagesController@showMessage')->name('messages');
 Route::post('api/message','ClientController@newMessage');
+Route::get('api/getmessages','ClientController@getMessages');
 
 
-Route::get('auth/reset/{token}', 'Auth\ForgotPasswordController@getResetAuthenticatedView');
+Route::get('auth/reset/{token}', 'Auth\ForgotPasswordController@getResetAuthenticatedView')->name('auth.reset');
 Route::post('auth/reset', 'Auth\ForgotPasswordController@resetNotAuthenticated');
 Route::get('auth/email', 'Auth\ForgotPasswordController@getEmail');
 Route::post('auth/email', 'Auth\ForgotPasswordController@sendEmail');
+Route::post('googleauth', 'Auth\RegisterController@googleRegister');

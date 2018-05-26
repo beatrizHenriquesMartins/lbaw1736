@@ -1,7 +1,7 @@
 <div class="review" data-id="{{$review->id_purchase}}">
     <div class="col-sm-1">
         <div class="review-image">
-            <img src="{{$review->imageurl}}" alt="Costumer Image">
+            <img src="{{$review->imageurl}}" alt="Customer Photo">
         </div>
     </div>
 

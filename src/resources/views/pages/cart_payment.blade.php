@@ -1,5 +1,6 @@
 @extends('layouts.main', ['type' => $type])
 
+@section('title', $title)
 
 @section('content')
     <!-- breadcrumbs -->
@@ -67,7 +68,7 @@
                         </h3>
 
                         <h5 class="address">
-                            Rua Marco de Canaveses 19 Porto
+                            {{ $address->address . " " . $address->city . " " . $address->country}}
                         </h5>
                     </div>
                 </div>
@@ -89,7 +90,7 @@
                         </h3>
 
                         <h5 class="nif">
-                            {{ Auth::user()->nif }}
+                            {{$nif}}
                         </h5>
                     </div>
 

@@ -1,27 +1,28 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+        <meta name="google-signin-client_id" content="876344229012-l89i8ark42rpp6m4rkcd4kr7em43pvhm.apps.googleusercontent.com">
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>
-            Amazonas
+            Amazonas - @yield('title')
         </title>
 
          <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- CSS -->
         <!-- Bootstrap Core CSS -->
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
         <!-- Website Font style-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" type="text/css">
 
         <!-- TopBar CSS -->
-        <link href="/css/topbar.css" rel="stylesheet">
+        <link href="/css/topbar.css" rel="stylesheet" type="text/css">
 
         <!-- Homepage CSS -->
         <link href="/css/homepage.css" rel="stylesheet" type="text/css" >
@@ -30,7 +31,7 @@
         <link rel="stylesheet" href="/css/login.css" type="text/css">
 
         <!-- Company Links -->
-        <link href="/css/company_links.css" rel="stylesheet">
+        <link href="/css/company_links.css" rel="stylesheet" type="text/css">
 
         <!-- footer style -->
         <link rel="stylesheet" href="/css/footer.css" type="text/css">
@@ -49,7 +50,7 @@
 
         <!-- Cart Links -->
         <link href="/css/cart.css" rel="stylesheet" type="text/css" >
-        <link href="/css/cart_order.css" rel="stylesheet" type="text/css" >
+        <!--<link href="/css/cart_order.css" rel="stylesheet" type="text/css" >-->
         <link href="/css/cart_payment.css" rel="stylesheet" type="text/css" >
 
         <!-- breadcrumb path css -->
@@ -73,10 +74,6 @@
 
         <link href="/css/chatClient.css" rel="stylesheet" type="text/css" >
 
-        <script type="text/javascript">
-            // Fix for Firefox autofocus CSS bug
-            // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
-        </script>
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">
@@ -85,18 +82,12 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- icons -->
-        <link href="/css/page_404.css" rel="stylesheet">
+        <link href="/css/page_404.css" rel="stylesheet" type="text/css">
         <!-- CSS -->
 
-        <link rel="icon" type="image/png"  href="/images/icon.png" />
+        <link rel="icon" type="image/png"  href="/images/icon.png">
 
-        <script language="JavaScript" type="text/javascript" src="/js/bootstrap-rating-input.min.js" defer></script>
-        <script language="JavaScript" type="text/javascript" src="/js/app.js" defer></script>
 
-        <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
-        <script language="JavaScript" type="text/javascript" src="/js/bootstrap.min.js"></script>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     </head>
 
     <body>
@@ -153,7 +144,7 @@
                                         </div>
 
                                         <li>
-                                            <a class="dropdown-item" href="{{ url('/logout') }}">
+                                            <a class="dropdown-item" href="{{ url('/logout') }}" onclick="signOut()">
                                                 Sign Out
                                             </a>
                                         </li>
@@ -190,7 +181,7 @@
                 </div>
 
                 <!-- Navigation -->
-                <nav class="navbar navbar-inverse navbar-static-top custom-navbar" role="navigation">
+                <nav class="navbar navbar-inverse navbar-static-top custom-navbar">
                     <div class="navBar-container">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
                             <span class="sr-only">
@@ -236,7 +227,7 @@
 
                                 @if($type == 3)
                                     <li>
-                                        <a href="{{ url('/messages') }}" class="fa fa-comment">
+                                        <a href="{{ url('/messages/-1') }}" class="fa fa-comment">
                                         </a>
                                     </li>
                                 @endif
@@ -281,9 +272,9 @@
                 </nav>
             </div>
 
-            <section id="content">
+            <div id="content">
                 @yield('content')
-            </section>
+            </div>
 
             @if($type == 1)
                 <div class="container" id="container-chat">
@@ -377,3 +368,11 @@
     </main>
     </body>
 </html>
+<script src="/js/bootstrap-rating-input.min.js" defer></script>
+<script src="/js/app.js" defer></script>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>

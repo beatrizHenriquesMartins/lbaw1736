@@ -11,8 +11,8 @@
                 {{ $product->name }}
             </a>
         </h3>
-
-        <a href="/brands/{{ $product->brandname }}">
+        <?php $brandname = str_replace(' ', '_', $product->brandname);?>
+        <a href="/brands/{{ $brandname }}">
             <h4>
                 {{$product->brandname}}
             </h4>
@@ -49,8 +49,7 @@
                                             Review:
                                         </label>
 
-                                        <textarea class="form-control" id="message-text" name="reviewtext">
-                                        </textarea>
+                                        <textarea class="form-control" id="message-text" name="reviewtext"></textarea>
                                     </div>
 
                                     <!-- Rating -->

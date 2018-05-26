@@ -10,10 +10,5 @@
     </div>
 
     <div id="hours" class="card-columns col-sm-1">
-        <!--
-        <abbr class="_lht7 timstamp" title="Hoje" data-utime="1526510852.556">
-            12:21
-        </abbr>
-        -->
     </div>
 </div>

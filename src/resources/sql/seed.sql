@@ -258,7 +258,7 @@ INSERT INTO users VALUES (DEFAULT, 'Margarida', 'Santos', 'margaridasantos', 'ma
 INSERT INTO users VALUES (DEFAULT, 'Teresa', 'Brito', 'teresabrito', 'teresa@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
 INSERT INTO users VALUES (DEFAULT, 'Tiago', 'Carvalho', 'tiagocarvalho', 'tiago@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
 INSERT INTO users VALUES (DEFAULT, 'Maria', 'Coelho', 'mariacoelho', 'maria@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
-INSERT INTO users VALUES (DEFAULT, 'Ana', 'Ferreira', 'anaferreira', 'ana@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
+INSERT INTO users VALUES (DEFAULT, 'Ana', 'Ferreira', 'anaferreira', 'ana@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, false, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
 
 
 INSERT INTO chatSupports VALUES (5);

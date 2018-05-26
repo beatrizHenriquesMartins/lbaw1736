@@ -71,3 +71,18 @@ div#memberInformation {
         margin-left: initials;
     }
 }
+
+/*Terms*/
+div.container.terms {
+  margin: auto;
+}
+
+div.container.terms h2 {
+  margin-bottom: 1em;
+  margin-top: 2em;
+}
+
+div.container.terms h4 {
+  margin-bottom: 1em;
+  margin-top: 2em;
+}
