@@ -45,8 +45,9 @@ Route::post('api/cart/{id}/quantity/{quantity}', 'CartController@update');
 //cart_order
 Route::get('cart_order', 'CartOrderController@show')->name('cart_order');
 //cart payment
-Route::get('cart_payment', 'CartPaymentController@show')->name('cart_payment');
-Route::post('api/cart_payment/{id}', 'CartPaymentControlle@show');
+Route::post('cart_payment', 'CartPaymentController@show')->name('cart_payment1');
+Route::get('cart_payment', 'CartPaymentController@show')->name('cart_payment2');
+Route::post('api/cart_payment/{id}', 'CartPaymentController@show');
 
 
 // product

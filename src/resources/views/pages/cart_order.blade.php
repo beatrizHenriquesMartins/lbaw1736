@@ -89,12 +89,6 @@
             </div>
 
             <div class="btns">
-                <div class="col-sm-1">
-                    <button type="button" class="btn btn-danger">
-                        Cancel
-                    </button>
-                </div>
-
                 <div class="btns">
                     <div class="col-sm-1">
                         <button type="button" class="btn btn-danger">
@@ -114,4 +108,8 @@
             </div>
         </div>
     </div>
+
+    <form style = "display: hidden" action ="{{route('cart_payment1')}}" method = "POST" id="form">
+        <!--<input type = "hidden" id="selectedAddr" name = "selectedAddr" value=""/>-->
+    </form>
 @endsection

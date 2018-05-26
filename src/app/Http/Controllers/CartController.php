@@ -24,6 +24,7 @@ class CartController extends Controller
      */
     public function list()
     {
+
       if (!Auth::check()) return redirect('/login');
 
 
@@ -146,7 +147,6 @@ class CartController extends Controller
 
 
     public function update(Request $request, $product_id, $quantity) {
-
       
       if (!Auth::check()) return redirect('/login');
 

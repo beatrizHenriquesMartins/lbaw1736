@@ -20,9 +20,9 @@ use App\Product;
 
 class CartPaymentController extends Controller
 {
-    public function show(Request $request, $address_id ){
+    public function show(/*Request $request, $address_id */){
     
-
+        return redirect('/404');  
         if (!Auth::check())
             return redirect('/login');
 
@@ -66,7 +66,7 @@ class CartPaymentController extends Controller
     $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
 
     if(count($client->cart) != 0)
-        return redirect('pages.cart_payment', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages, 'address' => $addresses[$address_id]]);
+        return view('pages.cart_payment', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages, 'address' => $addresses[$address_id]]);
     else
         return view('pages.cart', ['carts' => $client->cart, 'cost' => $cost, 'type' => $type, 'messages' => $messages]);
   }

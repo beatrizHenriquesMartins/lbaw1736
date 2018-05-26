@@ -484,15 +484,18 @@ function processOrder(){
     }
   }
   console.log(selAddr);
-  if(selAddr > -1 && countSelectedAddr == 1){
+  /*if(selAddr > -1 && countSelectedAddr == 1){
     console.log("Hi everybody");
     sendAjaxRequest('post', 'api/cart_payment/'+i, null, processOrderHandler); 
-  }
+  }*/
+  $("#selectedAddr").val(i);
+  $("#form").submit();
+  
 
 }
 
 function processOrderHandler(){
-  
+  window.location = '/';
 }
 
 addEventListeners();
