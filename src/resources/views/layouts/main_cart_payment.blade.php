@@ -24,9 +24,6 @@
         <!-- TopBar CSS -->
         <link href="/css/topbar.css" rel="stylesheet" type="text/css">
 
-        <!-- Homepage CSS -->
-        <link href="/css/homepage.css" rel="stylesheet" type="text/css" >
-
         <!-- login style -->
         <link rel="stylesheet" href="/css/login.css" type="text/css">
 
@@ -36,43 +33,18 @@
         <!-- footer style -->
         <link rel="stylesheet" href="/css/footer.css" type="text/css">
 
-        <!-- lists CSS -->
-        <link href="/css/lists.css" rel="stylesheet" type="text/css" >
 
         <!-- Category CSS -->
         <link href="/css/category.css" rel="stylesheet" type="text/css" >
 
-        <!-- Category CSS -->
-        <link href="/css/customer_profile.css" rel="stylesheet" type="text/css" >
-
-        <!-- Category CSS -->
-        <link href="/css/customer_edit_profile.css" rel="stylesheet" type="text/css" >
-
+        
         <!-- Cart Links -->
         <link href="/css/cart.css" rel="stylesheet" type="text/css" >
-        <link href="/css/cart_order.css" rel="stylesheet" type="text/css" >
+        <!--<link href="/css/cart_order.css" rel="stylesheet" type="text/css" >-->
         <link href="/css/cart_payment.css" rel="stylesheet" type="text/css" >
 
         <!-- breadcrumb path css -->
         <link href="/css/breadcrumb_path.css" rel="stylesheet" type="text/css" >
-
-        <!-- product CSS -->
-        <link href="/css/product.css" rel="stylesheet" type="text/css" >
-
-        <!-- about us CSS -->
-        <link href="/css/aboutus.css" rel="stylesheet" type="text/css" >
-
-        <!-- Admin CSS -->
-        <link href="/css/admin.css" rel="stylesheet" type="text/css" >
-
-        <!-- faq CSS -->
-        <link href="/css/faq.css" rel="stylesheet" type="text/css" >
-
-        <!-- chatSupport CSS -->
-        <link href="/css/chatSupport.css" rel="stylesheet" type="text/css" >
-
-
-        <link href="/css/chatClient.css" rel="stylesheet" type="text/css" >
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">

@@ -1,4 +1,4 @@
-@extends('layouts.main', ['type' => $type])
+@extends('layouts.main_cart_payment', ['type' => $type])
 
 @section('title', $title)
 
@@ -151,7 +151,7 @@
                     </div>
                 @endforeach
 
-                <div class="final">
+                <div class="final final-payment">
                     <div class="delete-cart">
                     </div>
 
@@ -160,14 +160,23 @@
 
                     <div class="total-order">
                         <div class="pull-right">
-                            <div class="total">
+                            <div class="row-fluid total">
+                                <div class = "col-sm-6">
                                 <h3>
                                     Total
                                 </h3>
-
+                                </div>
+                                <div class = "col-sm-6">
                                 <h3>
-                                    {{$cost}}
+                                    {{$cost}} €
                                 </h3>
+                                </div>
+                                <!--<h3>
+                                    Total
+                                </h3>
+                                <h3>
+                                    {{$cost}} €
+                                </h3>-->
                             </div>
                         </div>
                     </div>

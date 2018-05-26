@@ -130,6 +130,10 @@
     width: 65%;
 }
 
+.final-payment .total-order .total{
+	border-top: 1px solid black;
+}
+
 @media (max-width:500px) {
     .order-section .order-topbar {
         margin: 0;
