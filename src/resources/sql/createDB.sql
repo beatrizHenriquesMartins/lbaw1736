@@ -18,6 +18,7 @@ DROP TABLE IF EXISTS message CASCADE;
 DROP TABLE IF EXISTS client CASCADE;
 DROP TABLE IF EXISTS chatSupport CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS confirmationpayment CASCADE;
 
 
 
@@ -165,4 +166,8 @@ CREATE TABLE brandBrandManager (
   idBrand INTEGER NOT NULL REFERENCES brand,
   idBrandManager INTEGER NOT NULL REFERENCES brandManager,
   PRIMARY KEY(idBrand, idBrandManager)
+);
+
+CREATE TABLE confirmationpayment(
+   id_client INTEGER PRIMARY KEY REFERENCES clients
 );

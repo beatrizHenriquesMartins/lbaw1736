@@ -173,6 +173,10 @@ CREATE TABLE brandBrandManager (
   PRIMARY KEY(idBrand, idBrandManager)
 );
 
+CREATE TABLE confirmationpayment(
+   id_client INTEGER PRIMARY KEY REFERENCES clients
+);
+
  -- Indexes
  
 CREATE INDEX idx_message ON message USING hash (id_client); /*cardinalidade media-bom candidato para cluster*/
