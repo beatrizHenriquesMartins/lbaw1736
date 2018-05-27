@@ -143,7 +143,6 @@ CREATE TABLE addresses (
 CREATE TABLE clientaddresses (
   id_client INTEGER NOT NULL REFERENCES clients,
   id_address INTEGER NOT NULL REFERENCES addresses,
-  selected BOOLEAN DEFAULT FALSE NOT NULL,
   PRIMARY KEY(id_client, id_address)
 );
 
@@ -183,6 +182,10 @@ CREATE TABLE brandBrandManagers (
   id_Brand INTEGER NOT NULL REFERENCES brands,
   id_BrandManager INTEGER NOT NULL REFERENCES brandManagers,
   PRIMARY KEY(id_Brand, id_BrandManager)
+);
+
+CREATE TABLE confirmationpayment(
+   id_client INTEGER PRIMARY KEY REFERENCES clients
 );
 
  -- Indexes

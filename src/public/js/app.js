@@ -114,6 +114,14 @@ if(orderPayment){
   orderPayment.addEventListener("click", processOrder);
 }
 
+let paymentButtons = document.querySelectorAll('.payment>div>button.btn-success');
+if(paymentButtons){
+  let i = 0;
+  for(i=0; i < paymentButtons.length; i++){
+    paymentButtons[i].addEventListener("click", cartPayment);
+  }
+}
+
 function encodeForAjax(data) {
   if (data == null) return null;
   return Object.keys(data).map(function(k){
@@ -490,6 +498,8 @@ function changeCartTotal(newTotal){
 function processOrder(){
   let nifInput = document.querySelector('.nif input');
   let nifValue = nifInput.value;
+  
+
   console.log(nifValue);
   let selectAddressOrder = document.querySelectorAll('.addresses .form-check input');
   var countSelectedAddr = 0;
@@ -502,21 +512,46 @@ function processOrder(){
     }
   }
   console.log(selAddr);
-  /*if(selAddr > -1 && countSelectedAddr == 1){
-    console.log("Hi everybody");
-    sendAjaxRequest('post', 'api/cart_payment/'+i, null, processOrderHandler); 
-  }*/
-  if(selAddr > -1 && nifValue != ""){
+  if(selAddr > -1 && countSelectedAddr == 1){
     $("#selectedAddr").val(selAddr);
     $('#nifForm').val(nifValue);
     $("#form").submit();
   }
-  
 
+  else{
+    alert("You must select one and only one address");
+  }
 }
 
-function processOrderHandler(){
-  window.location = '/';
+function cartPayment(){
+  sendAjaxRequest('get', 'api/payment', null, cartPaymentResponse);
+}
+
+function cartPaymentResponse(){
+  if (this.status != 200) window.location = '/';
+
+  console.log(this.responseText);
+  let response = JSON.parse(this.responseText);
+  
+  let element = document.createElement("div");
+
+  if(response != 0) {
+    element.setAttribute("class", "alert alert-danger");
+    element.innerHTML = ` <strong>Error!</strong> You have already made a payment that has yet to be confirmed.`;
+  }
+  else {
+    element.setAttribute("class", "alert alert-success");
+    element.innerHTML = ` <strong>Success!</strong> Ỳour payment has been made with success. Now an admin must confirm it, so it can be sent to your address`;
+  }
+  let section = document.querySelector("#content");
+
+  let breadcrumbs = section.querySelector("#breadcrumbs");
+
+  section.insertBefore(element, breadcrumbs.nextSibling);
+
+  setTimeout(function(){ element.remove(); }, 2000);
+  
+
 }
 
 addEventListeners();

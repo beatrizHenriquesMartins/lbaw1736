@@ -45,9 +45,8 @@ Route::post('api/cart/{id}/quantity/{quantity}', 'CartController@update');
 //cart_order
 Route::get('cart_order', 'CartOrderController@show')->name('cart_order');
 //cart payment
-Route::post('cart_payment', 'CartPaymentController@show')->name('cart_payment1');
-Route::get('cart_payment', 'CartPaymentController@show')->name('cart_payment2');
-Route::post('api/cart_payment/{id}', 'CartPaymentController@show');
+Route::post('cart_payment', 'CartPaymentController@show')->name('cart_payment');
+Route::get('api/payment', 'CartPaymentController@processPayment');
 
 
 // product
@@ -89,6 +88,7 @@ Route::post('api/users/ban', 'AdminController@ban');
 
 Route::post('api/users/unban', 'AdminController@unban');
 Route::get('users/{id}', 'AdminController@showUser');
+Route::get('confirm_payment', 'AdminController@confirmPaymentShow');
 
 // profile
 Route::get('profile', 'ProfileController@show')->name('profile');
@@ -102,6 +102,8 @@ Route::put('api/add/address', 'ProfileController@addAddress');
 Route::get('messages/{id}','SupportMessagesController@showMessage')->name('messages');
 Route::post('api/message','ClientController@newMessage');
 Route::get('api/getmessages','ClientController@getMessages');
+
+
 
 
 Route::get('auth/reset/{token}', 'Auth\ForgotPasswordController@getResetAuthenticatedView')->name('auth.reset');

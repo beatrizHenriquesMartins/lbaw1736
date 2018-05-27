@@ -80,4 +80,22 @@ $nif = $request->input('nif');
     //return view('pages.profile', compact('user','type');
 }
 
+public function processPayment(Request $request){
+    if (!Auth::check())
+        return redirect('/login');
+    
+    $clientID = Auth::user()->id;
+    $clientsID = DB::table('confirmationpayment')->pluck('id_client');
+    $ret;
+    if($clientsID &&  $clientsID->contains($clientID)){
+        $ret = 1;
+        
+    }
+    else{
+        DB::table('confirmationpayment')->insert(['id_client' => Auth::user()->id]);
+        $ret = 0;
+    }
+
+    return json_encode($ret);
+}
 }

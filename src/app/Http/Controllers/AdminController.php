@@ -283,4 +283,55 @@ class AdminController extends Controller
     return view('pages.profile', ['type' => $type, 'user' => $user, 'page' => 2, 'messages' => null, 'title' => 'Administration']);
   }
 
+  public function confirmPaymentShow(){
+    if (!Auth::check()) return redirect('/login');
+
+
+      $type = 0;
+
+
+      if(Auth::check()) {
+
+        $userBM = BrandManager::find(Auth::user()->id);
+        $userSP = SupportChat::find(Auth::user()->id);
+        $userADM = Admin::find(Auth::user()->id);
+        $userCL = Client::find(Auth::user()->id);
+
+
+        if($userCL != null)
+          $type = 1;
+
+        if($userBM != null)
+          $type = 2;
+
+        if($userSP != null)
+          $type = 3;
+
+        if($userADM != null)
+          $type = 4;
+      }
+
+      if($type == 4){
+        $clientsID = DB::table('confirmationpayment')->pluck('id_client');
+        $payments = [];
+        foreach($clientsID as $clientID){
+          $client = Client::find($clientID);
+        $cost = 0;
+        if(count($client->cart) != 0) {
+          foreach ($client->cart as $list) {
+            $product = (Product::find($list->pivot->id_product));
+            $quantity = $list->pivot->quantity;
+            $price = ltrim(Product::find($list->pivot->id_product)->price);
+            settype($price, "integer");
+            $cost = $cost + $price * $quantity;
+          }
+        }
+          $payments[$clientID] = $cost; 
+        }
+        
+        return view('pages.confirmation_payment', ['payments' => $payments,'type' => $type, 'title' => 'Confirmation Payment']);
+      }
+
+  }
+
 }

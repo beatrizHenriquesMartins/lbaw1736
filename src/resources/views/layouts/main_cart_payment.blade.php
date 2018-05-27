@@ -46,6 +46,10 @@
         <!-- breadcrumb path css -->
         <link href="/css/breadcrumb_path.css" rel="stylesheet" type="text/css" >
 
+         <!-- chatSupport CSS -->
+
+        <link href="/css/chatClient.css" rel="stylesheet" type="text/css" >
+
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Karma" rel="stylesheet">

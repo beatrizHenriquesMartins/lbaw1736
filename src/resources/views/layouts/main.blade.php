@@ -241,6 +241,10 @@
                                         <a href="{{ url('/clients') }}" class="fa fa-users">
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="{{ url('/confirm_payment') }}" class="fa fa-credit-card">
+                                        </a>
+                                    </li>
                                 @endif
                             @endif
 
