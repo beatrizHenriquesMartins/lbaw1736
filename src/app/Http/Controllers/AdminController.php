@@ -12,6 +12,7 @@ use App\SupportChat;
 use App\Admin;
 use App\User;
 use App\Ban;
+use App\Product;
 
 class AdminController extends Controller
 {
@@ -326,7 +327,9 @@ class AdminController extends Controller
             $cost = $cost + $price * $quantity;
           }
         }
-          $payments[$clientID] = $cost; 
+          $user = User::find($clientID);
+          $username = $user->getAttribute('username');
+          $payments[$username] = $cost; 
         }
         
         return view('pages.confirmation_payment', ['payments' => $payments,'type' => $type, 'title' => 'Confirmation Payment']);

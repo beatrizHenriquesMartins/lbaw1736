@@ -21,6 +21,24 @@
     </nav>
     @if($payments && count($payments) != 0)
         @foreach($payments as $username => $cost)
+            <div class="user-payment row-fluid">
+                <div class = "col-sm-5">
+                    {{$username}}
+                </div>
+                <div class = "col-sm-3">
+                    {{$cost}}
+                </div>
+                <div class = "col-sm-2">
+                <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-ok"></span> Ok 
+        </button>
+                </div>
+                <div class = "col-sm-2">
+                <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-remove"></span> Remove 
+        </button>
+                </div>
+            </div>
         @endforeach
     @endif
 
