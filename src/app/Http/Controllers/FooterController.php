@@ -209,7 +209,7 @@ class FooterController extends Controller
   {
     Mail::to("luissaraiva96@gmail.com")->send(new ContactUs($request->input('name'), $request->input('email'), $request->input('phone'), $request->input('message'), $request->input('subject')));
 
-    return redirect('contactus');
+    return redirect('contactus')->withErrors(['message' => 'Mail Sended!']);
   }
 
 }
