@@ -33,6 +33,7 @@ Route::get('aboutus', 'FooterController@showaboutus')->name('aboutus');
 Route::get('contactus', 'FooterController@showcontactus')->name('contactus');
 Route::get('faq', 'FooterController@showfaq')->name('faq');
 Route::get('terms', 'FooterController@showterms')->name('terms');
+Route::post('contactusmail', 'FooterController@contactus')->name('contactusmail');
 
 
 // cart

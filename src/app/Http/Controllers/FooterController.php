@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 use App\Client;
 use App\BrandManager;
 use App\SupportChat;
 use App\Admin;
 use App\Message;
+use App\ContactUs;
 
 class FooterController extends Controller
 {
@@ -202,5 +204,12 @@ class FooterController extends Controller
       }
 
     }
+
+  public function contactus(Request $request)
+  {
+    Mail::to("luissaraiva96@gmail.com")->send(new ContactUs($request->input('name'), $request->input('email'), $request->input('phone'), $request->input('message'), $request->input('subject')));
+
+    return redirect('contactus');
+  }
 
 }

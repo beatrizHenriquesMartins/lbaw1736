@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-    <div id="content_topics_faq">
+    <div id="content_topics_faq" class="container faq">
         <div id="page_faq">
             <h3>
                 FAQ

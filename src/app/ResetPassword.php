@@ -34,7 +34,7 @@ class ResetPassword extends Mailable
     public function build()
     {
       return $this->from('amazonas@gmail.com')
-                  ->view('emails.sendEmail')
+                  ->view('emails.sendForgetPassword')
                   ->with(
                     [
                           'user' => $this->user,

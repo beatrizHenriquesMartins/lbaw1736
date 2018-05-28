@@ -86,3 +86,11 @@ div.container.terms h4 {
   margin-bottom: 1em;
   margin-top: 2em;
 }
+
+div.container.contactus {
+  margin: auto;
+}
+
+div.container.faq {
+  margin: auto;
+}
