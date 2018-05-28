@@ -83,7 +83,10 @@ class WishlistController extends Controller
 
     public function create(Request $request, $product_id) {
 
-      if (!Auth::check()) return redirect('/login');
+      if (!Auth::check()) {
+        $product = ['message' => 'Not Authorized to add to wishlist'];
+        return json_encode($product);
+      }
 
       if (!$this->authorize('list', Wishlist::class)) {
         $product = ['message' => 'Not Authorized to add to wishlist'];

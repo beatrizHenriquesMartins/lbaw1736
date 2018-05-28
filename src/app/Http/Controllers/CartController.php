@@ -84,7 +84,10 @@ class CartController extends Controller
 
     public function create(Request $request, $product_id) {
 
-      if (!Auth::check()) return redirect('/login');
+      if (!Auth::check()) {
+        $product = ['message' => 'Not Authorized to add to cart'];
+        return json_encode($product);
+      }
 
 
       if (!$this->authorize('create', Cart::class)) {
