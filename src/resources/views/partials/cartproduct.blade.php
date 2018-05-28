@@ -54,6 +54,22 @@
             </div>
         </div>
 
+        @if(Auth::check())
+          <div class="btns">
+              <div class="stock" style="text-align:center;">
+                  @if($cart->quantityinstock > 5)
+                    <h5 style="color:green; font-size:16px;">In Stock</h5>
+                  @endif
+                  @if($cart->quantityinstock == 0)
+                    <h5 style="color:red; font-size:16px;">Not Available</h5>
+                  @endif
+                  @if($cart->quantityinstock > 0 && $cart->quantityinstock <= 5)
+                    <h5 style="color:red; font-size:16px;">Low Availability</h5>
+                  @endif
+              </div>
+          </div>
+        @endif
+
         <div class="btns">
             <div class="cart-btn">
                 <a role="button" class="btn btn-danger pull-right">

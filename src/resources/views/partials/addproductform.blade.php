@@ -115,6 +115,15 @@
                 <input type="checkbox" name="tocarousel" id="tocarousel">
                 </input>
             </div>
+
+            <div class="quantityinstock">
+                <h2>
+                    Quantity in Stock
+                </h2>
+
+                <input type="number" name="quantityinstock" id="quantityinstock">
+                </input>
+            </div>
         </div>
     </div>
 
