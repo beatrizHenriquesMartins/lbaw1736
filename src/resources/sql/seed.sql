@@ -151,7 +151,7 @@ CREATE TABLE purchases (
   id_purchase SERIAL PRIMARY KEY,
   id_client INTEGER REFERENCES clients NOT NULL,
   id_address INTEGER REFERENCES addresses NOT NULL,
-  purchaseDate TIMESTAMP DEFAULT now() NOT NULL,
+  purchase_date TIMESTAMP DEFAULT now() NOT NULL,
   purchase_state BOOLEAN NOT NULL,
   cost DECIMAL NOT NULL CHECK (cost > CAST ( 0 AS DECIMAL )),
   paymentType TEXT DEFAULT 'Unknown' NOT NULL,
