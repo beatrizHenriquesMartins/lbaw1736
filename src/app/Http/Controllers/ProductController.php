@@ -261,9 +261,9 @@ class ProductController extends Controller
 
       $canchange = 0;
       $product = Product::find($id);
-      $brandname = $product->brand->brandName;
+      $brandname = $product->brand->brandname;
       foreach ($userBM->brands as $brand) {
-        if($product->id_brand == $brand->id)
+        if($product->id_brand == $brand->id_brand)
           $canchange = 1;
       }
 
@@ -272,7 +272,7 @@ class ProductController extends Controller
 
       if($product != null) {
         DB::table('products')->where([['id', '=', $id]])->update(['active' => 0]);
-        return redirect('/brand', ['brandName' => $brandname]);
+        return redirect()->route('brand', ['brandname' => $brandname]);
       }
 
       return redirect('/homepage');
@@ -482,7 +482,7 @@ class ProductController extends Controller
     public function search()
     {
       $input = Input::get('input');
-      
+
       $products = Product::join('brands', 'products.id_brand', 'brands.id_brand')
       ->join('categories', 'products.id_category', 'categories.id_category')
       ->where('shortdescription', 'LIKE', '%'.$input.'%')
