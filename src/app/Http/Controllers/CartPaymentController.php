@@ -52,7 +52,7 @@ $nif = $request->input('nif');
           $product = (Product::find($list->pivot->id_product));
           $quantity = $list->pivot->quantity;
           $price = ltrim(Product::find($list->pivot->id_product)->price);
-          settype($price, "integer");
+          settype($price, "float");
           $cost = $cost + $price * $quantity;
         }
   }
@@ -95,7 +95,7 @@ public function processPayment(Request $request, $address_id, $nif){
           $product = (Product::find($list->pivot->id_product));
           $quantity = $list->pivot->quantity;
           $price = ltrim(Product::find($list->pivot->id_product)->price);
-          settype($price, "integer");
+          settype($price, "float");
           $cost = $cost + $price * $quantity;
           $quantityInStock = ltrim(Product::find($list->pivot->id_product)->quantityinstock);
           if($quantityInStock < $quantity){
@@ -111,7 +111,7 @@ public function processPayment(Request $request, $address_id, $nif){
           $product = (Product::find($list->pivot->id_product));
           $quantity = $list->pivot->quantity;
           $price = ltrim(Product::find($list->pivot->id_product)->price);
-          settype($price, "integer");
+          settype($price, "float");
           $cost = $price * $quantity;
           DB::table('purchaseproducts')->insert(['id_purchase'=>$purchaseID, 'id_product'=>$list->pivot->id_product, 'quantity'=> $quantity, 'cost' => $cost]);
           $quantityInStock = $product->quantityinstock;

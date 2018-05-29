@@ -66,7 +66,7 @@ class CartController extends Controller
           $product = (Product::find($list->pivot->id_product));
           $quantity = $list->pivot->quantity;
           $price = ltrim(Product::find($list->pivot->id_product)->price);
-          settype($price, "integer");
+          settype($price, "float");
           $cost = $cost + $price * $quantity;
         }
       }
