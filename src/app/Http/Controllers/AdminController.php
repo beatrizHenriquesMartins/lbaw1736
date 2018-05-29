@@ -13,7 +13,7 @@ use App\Admin;
 use App\User;
 use App\Ban;
 use App\Product;
-use App\Confirmationpayment;
+
 
 class AdminController extends Controller
 {
@@ -314,7 +314,7 @@ class AdminController extends Controller
       }
 
       if($type == 4){
-        //$clientsID = DB::table('confirmationpayments')->pluck('id_client');
+        
         $purchases = DB::table('purchases')->where('purchase_state','=', false)->get();
         $userNames = [];
         $fullNames = [];
@@ -329,15 +329,7 @@ class AdminController extends Controller
           $dates[$purchase->id_purchase]=substr($purchase->purchase_date, 0, 10);
           $costs[$purchase->id_purchase] = $purchase->cost;
         }
-        /*foreach($clientsID as $clientID){
-        
-          $user = User::find($clientID);
-          $username = $user->getAttribute('username');
-          $clientNames[$clientID] = $username; 
-
-          $cost = ConfirmationPayment::find($clientID)->getAttribute('cost');
-          $clientCosts[$clientID] = $cost;
-        }*/
+       
         
         return view('pages.confirmation_payment', ['usernames' => $userNames, 'fullnames'=>$fullNames,'dates'=>$dates, 'costs'=> $costs, 'type' => $type, 'title' => 'Confirmation Payment']);
       }
