@@ -19,23 +19,8 @@
             </li>
         </ol>
     </nav>
-    @if($names && count($names) != 0)
-        @foreach($names as $id => $username)
-            <div class="user-payment row-fluid" id_purchase = {{ $id }} >
-                <div class = "col-sm-5">
-                    {{$username}}
-                </div>
-                <div class = "col-sm-3">
-                    {{$costs[$id]}}
-                </div>
-                <div class = "col-sm-2">
-                <button id = "button-confirmpayment" type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-ok"></span> Ok 
-        </button>
-                </div>                
-            </div>
-        @endforeach
-    @endif
+    
+    @if($usernames && count($usernames) != 0)
     <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
@@ -56,59 +41,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                @foreach($usernames as $id => $username)
+                    <tr class="user-payment row-fluid" id_purchase = {{ $id }}>
 						
-                        <td>Thomas Hardy</td>
-                        <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
-                        <td>(171) 555-2222</td>
+                        <td>{{ $username }}</td>
+                        <td>{{$fullnames[$id]}}</td>
+						<td>{{$dates[$id]}}</td>
+                        <td>{{$costs[$id]}}</td>
                         <td>
                             <a href="#" id = "button-confirmpayment" class="confirm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Confirm">&#xe5ca;</i></a>
                         </td>
-                    </tr>
-                    <tr>
-						
-                        <td>Thomas Hardy</td>
-                        <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
-                        <td>(171) 555-2222</td>
-                        <td>
-                            <a href="#" id = "button-confirmpayment" class="confirm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Confirm">&#xe5ca;</i></a>
-                        </td>
-                    </tr>
-					<tr>
-						
-                        <td>Thomas Hardy</td>
-                        <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
-                        <td>(171) 555-2222</td>
-                        <td>
-                            <a href="#" id = "button-confirmpayment" class="confirm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Confirm">&#xe5ca;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-						
-                        <td>Thomas Hardy</td>
-                        <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
-                        <td>(171) 555-2222</td>
-                        <td>
-                            <a href="#" id = "button-confirmpayment" class="confirm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Confirm">&#xe5ca;</i></a>
-                        </td>
-                    </tr>				
-					<tr>
-						
-                        <td>Thomas Hardy</td>
-                        <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
-                        <td>(171) 555-2222</td>
-                        <td>
-                            <a href="#" id = "button-confirmpayment" class="confirm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Confirm">&#xe5ca;</i></a>
-                        </td>
-                    </tr>
+                    </tr>                   
+                @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+    @endif
 
 @endsection

@@ -316,14 +316,18 @@ class AdminController extends Controller
       if($type == 4){
         //$clientsID = DB::table('confirmationpayments')->pluck('id_client');
         $purchases = DB::table('purchases')->where('purchase_state','=', false)->get();
-        $clientNames = [];
-        $clientCosts = [];
+        $userNames = [];
+        $fullNames = [];
+        $dates = [];
+        $costs = [];
         foreach($purchases as $purchase){
           $clientID = $purchase->id_client;
           $user = User::find($clientID);
           $username = $user->getAttribute('username');
-          $clientNames[$purchase->id_purchase] = $username;
-          $clientCosts[$purchase->id_purchase] = $purchase->cost;
+          $userNames[$purchase->id_purchase] = $username;
+          $fullNames[$purchase->id_purchase] = $user->getAttribute('firstname')." ".$user->getAttribute('lastname');
+          $dates[$purchase->id_purchase]=substr($purchase->purchase_date, 0, 10);
+          $costs[$purchase->id_purchase] = $purchase->cost;
         }
         /*foreach($clientsID as $clientID){
         
@@ -335,7 +339,7 @@ class AdminController extends Controller
           $clientCosts[$clientID] = $cost;
         }*/
         
-        return view('pages.confirmation_payment', ['names' => $clientNames, 'costs'=> $clientCosts, 'type' => $type, 'title' => 'Confirmation Payment']);
+        return view('pages.confirmation_payment', ['usernames' => $userNames, 'fullnames'=>$fullNames,'dates'=>$dates, 'costs'=> $costs, 'type' => $type, 'title' => 'Confirmation Payment']);
       }
 
   }
