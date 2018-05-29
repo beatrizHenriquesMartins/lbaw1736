@@ -482,10 +482,17 @@ class ProductController extends Controller
     public function search()
     {
       $input = Input::get('input');
-      $products = Product::whereOr('shortdescription', 'LIKE', '%'.$input.'%')->whereOr('bigdescription', 'LIKE', '%'.$input.'%')->whereOr('name', 'LIKE', '%'.$input.'%')->paginate(12);
-      if(!Auth::check()) {
-        return view('login');
-      }
+      
+      $products = Product::join('brands', 'products.id_brand', 'brands.id_brand')
+      ->join('categories', 'products.id_category', 'categories.id_category')
+      ->where('shortdescription', 'LIKE', '%'.$input.'%')
+      ->orWhere('bigdescription', 'LIKE', '%'.$input.'%')
+      ->orWhere('name', 'LIKE', '%'.$input.'%')
+      ->orWhere('brandname', 'LIKE', '%'.$input.'%')
+      ->orWhere('categoryname', 'LIKE', '%'.$input.'%')
+      ->paginate(12);
+
+
 
       $type = 0;
 
