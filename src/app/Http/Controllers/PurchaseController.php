@@ -59,11 +59,15 @@ class PurchaseController extends Controller
 
       $purchases = DB::table('purchases')->where('id_client', '=', Auth::user()->id)->get();
       $purchaseproducts = array();
-
+      $productsID = [];
       foreach ($purchases as $purchase) {
         $products = DB::table('purchaseproducts')->where('id_purchase', $purchase->id_purchase)->join('products','products.id','=','id_product')->join('categories', 'categories.id_category', '=', 'products.id_category')->join('brands', 'brands.id_brand', '=', 'products.id_brand')->get();
+        
         foreach ($products as $product) {
-          array_push($purchaseproducts, $product);
+          if(! in_array($product->id, $productsID)){
+            array_push($purchaseproducts, $product);
+            array_push($productsID, $product->id);
+          }    
         }
       }
       if($type == 1) {
