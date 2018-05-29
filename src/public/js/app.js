@@ -575,10 +575,18 @@ function cartPaymentResponse(){
 
 function confirmPayment(){
   let id = this.closest('.user-payment').getAttribute('id_purchase');
-  sendAjaxRequest('post', 'api/confirmPayment/'+id, null, confirmPaymentResponse);
+  this.closest('.user-payment').remove();
+  id = parseInt(id);
+  console.log(id);
+  sendAjaxRequest('post', 'api/confirm_payment/'+id, null, confirmPaymentResponse);
 }
 
 function confirmPaymentResponse(){
+  //if (this.status != 200) window.location = '/';
+  let response = JSON.parse(this.responseText);
+  console.log(response);
+
+
 
 }
 

@@ -90,7 +90,7 @@ Route::post('api/users/ban', 'AdminController@ban');
 Route::post('api/users/unban', 'AdminController@unban');
 Route::get('users/{id}', 'AdminController@showUser');
 Route::get('confirm_payment', 'AdminController@confirmPaymentShow');
-Route::get('api/validate_payment/{id}', 'AdminController@validatePayment');
+Route::post('api/confirm_payment/{id}', 'AdminController@validatePayment');
 
 // profile
 Route::get('profile', 'ProfileController@show')->name('profile');

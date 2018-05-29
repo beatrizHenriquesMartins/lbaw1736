@@ -341,7 +341,12 @@ class AdminController extends Controller
   }
 
   public function validatePayment(Request $request, $id){
-     // DB::('purchases')
+     $newPurchaseState = true;
+     DB::table('purchases')->where('id_purchase', $id)->update(['purchase_state' => $newPurchaseState]);
+     return json_encode($id);
+     
+     $ret = 0;
+     return json_encode($ret);
   }
 
 }
