@@ -37,7 +37,7 @@
         <!-- Category CSS -->
         <link href="/css/category.css" rel="stylesheet" type="text/css" >
 
-        
+
         <!-- Cart Links -->
         <link href="/css/cart.css" rel="stylesheet" type="text/css" >
         <!--<link href="/css/cart_order.css" rel="stylesheet" type="text/css" >-->
@@ -76,7 +76,7 @@
                     <div class="row top">
                         <div class="col-sm-2 flex-item">
                             <a href="{{ url('/homepage') }}">
-                                <img class="mb-4"  src="/images/logo_1.png" alt="logo" >
+                                <img class="mb-4"  src="/images/logo_1.png" alt="Amazonas" >
                             </a>
                         </div>
 

@@ -100,7 +100,7 @@
                     <div class="row top">
                         <div class="col-sm-2 flex-item">
                             <a href="{{ url('/homepage') }}">
-                                <img class="mb-4"  src="/images/logo_1.png" alt="logo" >
+                                <img class="mb-4"  src="/images/logo_1.png" alt="Amazonas" >
                             </a>
                         </div>
 
