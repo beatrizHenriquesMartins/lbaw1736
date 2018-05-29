@@ -78,7 +78,7 @@
 <div class="product-section" data-id="{{$product->id}}">
     <div class="col-sm-4">
         <div class="product-image">
-            <img src="{{ asset($product->imageurl) }}" alt="Product Image">
+            <img src="{{ asset($product->imageurl) }}" alt="{{$product->name}}">
         </div>
     </div>
 

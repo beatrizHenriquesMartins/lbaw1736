@@ -1,6 +1,6 @@
 <div class="product-section" data-id="{{$product->id}}">
     <a href="/products/{{ $product->id }}">
-        <img class="product-img" src="{{ asset($product->imageurl) }}" alt="Product Image">
+        <img class="product-img" src="{{ asset($product->imageurl) }}" alt="{{$product->name}}">
     </a>
 
     <div class="product-body">
@@ -39,7 +39,7 @@
         <p class="product-description">
             {{$product->shortdescription}}
         </p>
-        
+
         @if(Auth::check())
           <div class="btns">
               <div class="stock" style="text-align:center;">
