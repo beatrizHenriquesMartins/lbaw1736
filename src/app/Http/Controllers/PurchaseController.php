@@ -58,19 +58,20 @@ class PurchaseController extends Controller
         return redirect('/404');
 
       $purchases = DB::table('purchases')->where('id_client', '=', Auth::user()->id)->get();
-
-      $purchaseproducts = [];
+      $purchaseproducts = array();
 
       foreach ($purchases as $purchase) {
         $products = DB::table('purchaseproducts')->where('id_purchase', $purchase->id_purchase)->join('products','products.id','=','id_product')->join('categories', 'categories.id_category', '=', 'products.id_category')->join('brands', 'brands.id_brand', '=', 'products.id_brand')->get();
-        array_push($purchaseproducts, $products);
+        foreach ($products as $product) {
+          array_push($purchaseproducts, $product);
+        }
       }
       if($type == 1) {
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-        return view('pages.purchases', ['products' => $products, 'type' => $type, 'messages' => $messages, 'title' => 'Purchases']);
+        return view('pages.purchases', ['products' => $purchaseproducts, 'type' => $type, 'messages' => $messages, 'title' => 'Purchases']);
       }
       else {
-        return view('pages.purchases', ['products' => $products, 'type' => $type, 'messages' => null, 'title' => 'Purchases']);
+        return view('pages.purchases', ['products' => $purchaseproducts, 'type' => $type, 'messages' => null, 'title' => 'Purchases']);
       }
 
     }
