@@ -13,12 +13,6 @@ div#chatSheet.row{
 
 div#listOfPeople.card-columns.col-sm-3{
     flex-direction: column;
-    border-right: lightgray;
-    border-top-style: none;
-    border-right-style: solid;
-    border-bottom-style: none;
-    border-left-style: none;
-    border-width: thin;
     padding-left: 0em;
     padding-right: 0em;
     width: 25%;
@@ -87,6 +81,7 @@ div#people.card-columns.col-sm-3{
     border-bottom-style: solid;
     border-bottom-color: #ccc;
     width: 100%;
+    line-height: 10em;
 }
 
 img#photo_user{
@@ -104,6 +99,12 @@ div#message.card-columns.col-sm-9{
     padding-right: 0em;
     padding-left: 0em;
     width: 75%;
+    border-left: lightgray;
+    border-left-style: solid;
+    border-top-style: none;
+    border-bottom-style: none;
+    border-right-style: none;
+    border-width: thin;
 }
 
 div#writeMessage{
@@ -111,6 +112,7 @@ div#writeMessage{
     border-top-style: solid;
     border-top-color: #ccc;
     padding: 0em;
+
 }
 
 #modalDialog_writeMessage{
