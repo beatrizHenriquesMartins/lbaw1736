@@ -66,17 +66,14 @@ class SupportMessagesController extends Controller{
 
     public function newMessage(Request $request) {
 
-      $oldmessage = Message::where('id_client', Auth::user()->id)->first();
-
-
-      $message = new Message();
-      $message->id_chatsupport = Auth::user()->id;
-      $message->message = $request->message;
-      $message->datesent = date('Y-m-d H:i:s');
-      $message->sender = "ChatSupport";
-      $message->id_client = $request->id_client;
-      $message->save();
-      return $message->with('chatsupport')->where('id', $message->id)->first();
+      $msg = Message::create([
+        'id_chatsupport' => Auth::user()->id,
+        'message' => $request->message,
+        'datesent' => date('Y-m-d H:i:s'),
+        'sender' => 'chatSupport',
+        'id_client' => $request->id_client,
+      ]);
+      return Message::find($msg->id)->with('chatsupport')->first();
     }
 
     public function getMessages(Request $request) {
