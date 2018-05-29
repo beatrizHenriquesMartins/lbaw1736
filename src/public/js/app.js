@@ -545,7 +545,14 @@ function processOrder(){
 }
 
 function cartPayment(){
-  sendAjaxRequest('get', 'api/payment', null, cartPaymentResponse);
+  let addressId = document.querySelector('.address-cartpayment').id;
+  let nif = document.querySelector('.nif').innerHTML;
+  nif = (nif.trim) ? nif.trim() : nif.replace(/^\s+/,'');
+  if(!nif || nif == null || nif == "")
+    nif = "Undefined";
+  console.log(nif);
+  console.log(addressId);
+  sendAjaxRequest('post', 'api/payment/'+addressId+'/nif/'+nif, null, cartPaymentResponse);
 }
 
 function cartPaymentResponse(){
@@ -553,12 +560,13 @@ function cartPaymentResponse(){
 
   console.log(this.responseText);
   let response = JSON.parse(this.responseText);
+  console.log(response);
   
   let element = document.createElement("div");
 
   if(response != 0) {
     element.setAttribute("class", "alert alert-danger");
-    element.innerHTML = ` <strong>Error!</strong> You have already made a payment that has yet to be confirmed.`;
+    element.innerHTML = ` <strong>Error!</strong> There is not enough quantity In Stock for you to make your purchase. You should try later this week`;
   }
   else {
     element.setAttribute("class", "alert alert-success");

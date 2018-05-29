@@ -98,7 +98,7 @@ CREATE TABLE categories (
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   name TEXT UNIQUE NOT NULL,
-  quantityInStock INTEGER NOT NULL DEFAULT 0,
+  quantityinstock INTEGER NOT NULL DEFAULT 0,
   dateCreated TIMESTAMP DEFAULT now() NOT NULL,
   price DECIMAL NOT NULL,
   imageURL TEXT NOT NULL UNIQUE,
@@ -152,14 +152,14 @@ CREATE TABLE purchases (
   id_client INTEGER REFERENCES clients NOT NULL,
   id_address INTEGER REFERENCES addresses NOT NULL,
   purchaseDate TIMESTAMP DEFAULT now() NOT NULL,
-  purchaseState BOOLEAN NOT NULL,
+  purchase_state BOOLEAN NOT NULL,
   cost DECIMAL NOT NULL CHECK (cost > CAST ( 0 AS DECIMAL )),
-  paymentType TEXT NOT NULL,
+  paymentType TEXT DEFAULT 'Unknown' NOT NULL,
   cardNumber TEXT DEFAULT 'Unknown' NOT NULL,
   cardName TEXT DEFAULT 'Unknown' NOT NULL,
-  cardExpirationDate TIMESTAMP NOT NULL,
-  nif INTEGER NOT NULL,
-  CHECK (cardExpirationDate > purchaseDate)
+  cardExpirationDate TIMESTAMP DEFAULT '2999-12-31' NOT NULL,
+  nif INTEGER DEFAULT 0
+  --,CHECK (cardExpirationDate > purchaseDate)
 );
 
 CREATE TABLE purchaseproducts (
@@ -224,7 +224,7 @@ CREATE TRIGGER ban_admin
 
 
 
-CREATE FUNCTION purchase_cost() RETURNS TRIGGER AS
+/*CREATE FUNCTION purchase_cost() RETURNS TRIGGER AS
 $BODY$
 BEGIN
 	UPDATE purchaseProducts
@@ -241,7 +241,7 @@ LANGUAGE plpgsql;
 CREATE TRIGGER purchase_cost
 	AFTER INSERT ON purchaseProducts
 	FOR EACH ROW
-		EXECUTE PROCEDURE purchase_cost();
+		EXECUTE PROCEDURE purchase_cost();*/
 
 
 INSERT INTO users VALUES (DEFAULT, 'Luis', 'Saraiva', 'admin_luissaraiva', 'a_luissaraiva@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');
