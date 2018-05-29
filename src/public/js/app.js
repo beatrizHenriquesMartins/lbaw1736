@@ -106,10 +106,7 @@ function addEventListeners() {
     }
   }
 
-}
-
-
-let orderPayment = document.querySelector('.order-section .order-information .btns .btn-success');
+  let orderPayment = document.querySelector('.order-section .order-information .btns .btn-success');
 if(orderPayment){
   orderPayment.addEventListener("click", processOrder);
 }
@@ -121,6 +118,30 @@ if(paymentButtons){
     paymentButtons[i].addEventListener("click", cartPayment);
   }
 }
+
+let confirmPaymentButtons = document.querySelectorAll('#button-confirmpayment');
+if(confirmPaymentButtons){
+  let i = 0;
+  for(i=0; i < confirmPaymentButtons.length; i++){
+    confirmPaymentButtons[i].addEventListener("click", confirmPayment);
+  }
+}
+
+let cancelPaymentButtons = document.querySelectorAll('#button-cancelpayment');
+if(cancelPaymentButtons){
+  let i = 0;
+  for(i=0; i < cancelPaymentButtons.length; i++){
+    cancelPaymentButtons[i].addEventListener("click", cancelPayment);
+  }
+}
+
+
+
+
+
+}
+
+
 
 function encodeForAjax(data) {
   if (data == null) return null;
@@ -551,6 +572,19 @@ function cartPaymentResponse(){
 
   setTimeout(function(){ element.remove(); }, 2000);
   
+
+}
+
+function confirmPayment(){
+  let id = this.closest('.user-payment').id;
+  sendAjaxRequest('get', 'api/confirmPayment/'+id, null, confirmPaymentResponse);
+}
+
+function confirmPaymentResponse(){
+
+}
+
+function cancelPayment(){
 
 }
 

@@ -13,6 +13,7 @@ use App\Admin;
 use App\User;
 use App\Ban;
 use App\Product;
+use App\Confirmationpayment;
 
 class AdminController extends Controller
 {
@@ -313,28 +314,26 @@ class AdminController extends Controller
       }
 
       if($type == 4){
-        $clientsID = DB::table('confirmationpayment')->pluck('id_client');
-        $payments = [];
+        $clientsID = DB::table('confirmationpayments')->pluck('id_client');
+        $clientNames = [];
+        $clientCosts = [];
         foreach($clientsID as $clientID){
-          $client = Client::find($clientID);
-        $cost = 0;
-        if(count($client->cart) != 0) {
-          foreach ($client->cart as $list) {
-            $product = (Product::find($list->pivot->id_product));
-            $quantity = $list->pivot->quantity;
-            $price = ltrim(Product::find($list->pivot->id_product)->price);
-            settype($price, "integer");
-            $cost = $cost + $price * $quantity;
-          }
-        }
+        
           $user = User::find($clientID);
           $username = $user->getAttribute('username');
-          $payments[$username] = $cost; 
+          $clientNames[$clientID] = $username; 
+
+          $cost = ConfirmationPayment::find($clientID)->getAttribute('cost');
+          $clientCosts[$clientID] = $cost;
         }
         
-        return view('pages.confirmation_payment', ['payments' => $payments,'type' => $type, 'title' => 'Confirmation Payment']);
+        return view('pages.confirmation_payment', ['names' => $clientNames, 'costs'=> $clientCosts, 'type' => $type, 'title' => 'Confirmation Payment']);
       }
 
+  }
+
+  public function validatePayment(Request $request, $id){
+      
   }
 
 }

@@ -11,6 +11,8 @@ class Purchase extends Model
 
   public $primaryKey = 'id_purchase';
 
+  protected $guarded = [];
+
   public function reviews() {
     return $this->hasMany('App\Review', 'id_purchase');
   }

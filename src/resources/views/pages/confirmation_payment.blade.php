@@ -19,22 +19,22 @@
             </li>
         </ol>
     </nav>
-    @if($payments && count($payments) != 0)
-        @foreach($payments as $username => $cost)
-            <div class="user-payment row-fluid">
+    @if($names && count($names) != 0)
+        @foreach($names as $id => $username)
+            <div class="user-payment row-fluid" id = {{ $id }} >
                 <div class = "col-sm-5">
                     {{$username}}
                 </div>
                 <div class = "col-sm-3">
-                    {{$cost}}
+                    {{$costs[$id]}}
                 </div>
                 <div class = "col-sm-2">
-                <button type="button" class="btn btn-default btn-sm">
+                <button id = "button-confirmpayment" type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-ok"></span> Ok 
         </button>
                 </div>
                 <div class = "col-sm-2">
-                <button type="button" class="btn btn-default btn-sm">
+                <button id="button-cancelpayment" type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-remove"></span> Remove 
         </button>
                 </div>

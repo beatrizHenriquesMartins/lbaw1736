@@ -85,14 +85,25 @@ public function processPayment(Request $request){
         return redirect('/login');
     
     $clientID = Auth::user()->id;
-    $clientsID = DB::table('confirmationpayment')->pluck('id_client');
+    $clientsID = DB::table('confirmationpayments')->pluck('id_client');
     $ret;
     if($clientsID &&  $clientsID->contains($clientID)){
         $ret = 1;
         
     }
     else{
-        DB::table('confirmationpayment')->insert(['id_client' => Auth::user()->id]);
+        $client = Client::find(Auth::user()->id);
+        $cost = 0;
+        if(count($client->cart) != 0) {
+          foreach ($client->cart as $list) {
+            $product = (Product::find($list->pivot->id_product));
+            $quantity = $list->pivot->quantity;
+            $price = ltrim(Product::find($list->pivot->id_product)->price);
+            settype($price, "integer");
+            $cost = $cost + $price * $quantity;
+          }
+        }
+        DB::table('confirmationpayments')->insert(['id_client' => Auth::user()->id, 'cost' => $cost]);
         $ret = 0;
     }
 

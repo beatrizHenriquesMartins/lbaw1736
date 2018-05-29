@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS messages CASCADE;
 DROP TABLE IF EXISTS clients CASCADE;
 DROP TABLE IF EXISTS chatSupports CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS confirmationpayment CASCADE;
+DROP TABLE IF EXISTS confirmationpayments CASCADE;
 
 
 DROP FUNCTION IF EXISTS ban_admin() CASCADE;
@@ -152,11 +152,11 @@ CREATE TABLE purchases (
   id_client INTEGER REFERENCES clients NOT NULL,
   id_address INTEGER REFERENCES addresses NOT NULL,
   purchaseDate TIMESTAMP DEFAULT now() NOT NULL,
-  purchaseState TEXT NOT NULL,
+  purchaseState BOOLEAN NOT NULL,
   cost DECIMAL NOT NULL CHECK (cost > CAST ( 0 AS DECIMAL )),
   paymentType TEXT NOT NULL,
-  cardNumber TEXT NOT NULL,
-  cardName TEXT NOT NULL,
+  cardNumber TEXT DEFAULT 'Unknown' NOT NULL,
+  cardName TEXT DEFAULT 'Unknown' NOT NULL,
   cardExpirationDate TIMESTAMP NOT NULL,
   nif INTEGER NOT NULL,
   CHECK (cardExpirationDate > purchaseDate)
@@ -185,8 +185,9 @@ CREATE TABLE brandBrandManagers (
   PRIMARY KEY(id_Brand, id_BrandManager)
 );
 
-CREATE TABLE confirmationpayment(
-   id_client INTEGER PRIMARY KEY REFERENCES clients
+CREATE TABLE confirmationpayments(
+   id_client INTEGER PRIMARY KEY REFERENCES clients,
+   cost DECIMAL NOT NULL
 );
 
  -- Indexes
@@ -458,16 +459,16 @@ INSERT INTO clientaddresses VALUES (19, 9);
 INSERT INTO clientaddresses VALUES (20, 10);
 
 
-INSERT INTO purchases VALUES (DEFAULT, 11, 1, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
-INSERT INTO purchases VALUES (DEFAULT, 11, 2, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
-INSERT INTO purchases VALUES (DEFAULT, 12, 3, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 212393204);
-INSERT INTO purchases VALUES (DEFAULT, 12, 4, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
-INSERT INTO purchases VALUES (DEFAULT, 12, 5, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
-INSERT INTO purchases VALUES (DEFAULT, 15, 6, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
-INSERT INTO purchases VALUES (DEFAULT, 17, 7, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
-INSERT INTO purchases VALUES (DEFAULT, 17, 8, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
-INSERT INTO purchases VALUES (DEFAULT, 19, 9, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
-INSERT INTO purchases VALUES (DEFAULT, 19, 10, DEFAULT, 'verificacao', 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchases VALUES (DEFAULT, 11, 1, DEFAULT, TRUE, 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchases VALUES (DEFAULT, 11, 2, DEFAULT, TRUE, 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchases VALUES (DEFAULT, 12, 3, DEFAULT, TRUE, 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 212393204);
+INSERT INTO purchases VALUES (DEFAULT, 12, 4, DEFAULT, TRUE, 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchases VALUES (DEFAULT, 12, 5, DEFAULT, TRUE, 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchases VALUES (DEFAULT, 15, 6, DEFAULT, TRUE, 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchases VALUES (DEFAULT, 17, 7, DEFAULT, TRUE, 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchases VALUES (DEFAULT, 17, 8, DEFAULT, TRUE, 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchases VALUES (DEFAULT, 19, 9, DEFAULT, TRUE, 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
+INSERT INTO purchases VALUES (DEFAULT, 19, 10, DEFAULT, TRUE, 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
 
 
 INSERT INTO purchaseproducts VALUES (1, 5, 1, 300);
