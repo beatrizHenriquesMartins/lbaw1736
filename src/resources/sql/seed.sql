@@ -175,7 +175,11 @@ CREATE TABLE reviews (
   id_purchase INTEGER NOT NULL REFERENCES purchases,
   reviewDate date DEFAULT now() NOT NULL,
   textReview TEXT NOT NULL,
+<<<<<<< HEAD
   rating INTEGER DEFAULT 0 NOT NULL CHECK (((rating >= 0) AND (rating <= 5))),
+=======
+  rating INTEGER NOT NULL CHECK (((rating >= 0) AND (rating <= 5))) DEFAULT 0,
+>>>>>>> acfb0c9e05d3ce78a78beb353ed069e58b7078a6
   PRIMARY KEY(id_product, id_purchase)
 );
 

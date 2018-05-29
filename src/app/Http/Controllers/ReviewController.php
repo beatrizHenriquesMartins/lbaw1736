@@ -38,6 +38,7 @@ class ReviewController extends Controller
       if($purchaseproducts == null)
         return redirect()->back();
 
+
       $rating = $request->input('rating');
       $textreview = $request->input('reviewtext');
       if($rating == null && $textreview == null)
@@ -46,6 +47,7 @@ class ReviewController extends Controller
         $rating = 0;
       else if($textreview == null)
         $textreview = "";
+
 
       if($review != null) {
         $rating = 
