@@ -282,27 +282,13 @@ function sendMessageSupportRequest() {
   let parent = this.closest('#formGroup_writeMessage');
   let message = parent.querySelector('#message-text').value;
   let id_client = parent.getAttribute('data-id');
-  console.log(message);
   if(message != "")
     sendAjaxRequest('post', '/api/messagesupport', {message:message, id_client:id_client}, sendMessageSupportHandler);
 
 }
 
 function sendMessageSupportHandler() {
-  if (this.status != 200) window.location = '/';
-  let message = JSON.parse(this.responseText);
-  let body = document.querySelector('#exchangeMessages');
-  let date = new Date(message.datesent);
-  let element = document.createElement('div');
-  dateString = date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
-  element.setAttribute('class', 'row msg_container base_sent');
-  element.innerHTML = '<div class="col-xs-10 col-md-10"><div class="messages msg_sent"><p>'
-                      + message.message + '</p><time datetime="2009-11-13">' + message.chatsupport.username +
-                      ' • ' + dateString +
-                      '</time></div></div><div class="col-md-2 col-xs-2 avatar"><img src="' +
-                      message.chatsupport.imageurl + '" class=" img-responsive "></div>';
-  body.append(element);
-  console.log(element);
+
 
 console.log(this.responseText);}
 

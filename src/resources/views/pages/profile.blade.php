@@ -3,14 +3,6 @@
 @section('title', $title)
 
 @section('content')
-    @if($type == 4)
-        <div class="edit">
-            <a href="{{ route('showEditProfile', ['id' => $user->id]) }}">
-                <i class="fa fa-edit">
-                </i>
-            </a>
-        </div>
-    @endif
 
      <!-- breadcrumbs -->
         <nav id="breadcrumbs" aria-label="breadcrumb">
@@ -134,6 +126,24 @@
                                     <div class = "row">
                                         <div class = "col-sm-2">
                                             <p>
+                                                Email:
+                                            </p>
+                                        </div>
+
+                                        <div class = "col-sm-10">
+                                            <p>
+                                                {{ Auth::user()->email }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class = "row">
+                                <div class = "col-sm-9">
+                                    <div class = "row">
+                                        <div class = "col-sm-2">
+                                            <p>
                                                Name:
                                             </p>
                                         </div>
@@ -187,32 +197,17 @@
                                 </div>
                             </div>
 
-                            <div class = "row">
-                                <div class = "col-sm-9">
-                                    <div class = "row">
-                                        <div class = "col-sm-2">
-                                            <p>
-                                                Email:
-                                            </p>
-                                        </div>
-
-                                        <div class = "col-sm-10">
-                                            <p>
-                                                {{ Auth::user()->email }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                         <div class = "col-sm-1 col-xs-2">
-                            <a href="{{route('showEditProfile')}}" role="button">
-                                <button type="button" class="btn btn-default btn-sm glyphicon glyphicon-edit"
-                                        role="button">
-                                    Edit
-                                </button>
-                            </a>
+                            @if(!isset($page))
+                              <a href="{{route('showEditProfile')}}" role="button">
+                                  <button type="button" class="btn btn-default btn-sm glyphicon glyphicon-edit"
+                                          role="button">
+                                      Edit
+                                  </button>
+                              </a>
+                            @endif
                         </div>
                     </div>
 

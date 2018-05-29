@@ -64,7 +64,7 @@ CREATE TABLE messages (
   id SERIAL PRIMARY KEY,
   message TEXT NOT NULL,
   dateSent TIMESTAMP DEFAULT now() NOT NULL,
-  sender TEXT NOT NULL CHECK((sender = ANY (ARRAY['Client'::text, 'ChatSupport'::text]))),
+  sender TEXT NOT NULL CHECK((sender = ANY (ARRAY['Client'::text, 'chatSupport'::text]))),
   id_chatSupport INTEGER NOT NULL REFERENCES chatSupports,
   id_client INTEGER NOT NULL REFERENCES clients
 );
@@ -283,20 +283,20 @@ INSERT INTO clients VALUES (19, 923456536);
 INSERT INTO clients VALUES (20, 924254676);
 
 INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'Client', 5, 11);
-INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'ChatSupport', 5, 11);
+INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'chatSupport', 5, 11);
 INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'Client', 5, 11);
-INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'ChatSupport', 6, 12);
+INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'chatSupport', 6, 12);
 INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'Client', 6, 12);
-INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'ChatSupport', 6, 12);
+INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'chatSupport', 6, 12);
 INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'Client', 6, 12);
-INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'ChatSupport', 7, 15);
+INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'chatSupport', 7, 15);
 INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'Client', 7, 15);
-INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'ChatSupport', 5, 18);
+INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'chatSupport', 5, 18);
 INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'Client', 5, 18);
-INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'ChatSupport', 5, 18);
+INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'chatSupport', 5, 18);
 INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'Client', 5, 18);
 INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'Client', 6, 20);
-INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'ChatSupport', 6, 20);
+INSERT INTO messages VALUES (DEFAULT, 'teste msg', DEFAULT, 'chatSupport', 6, 20);
 
 
 INSERT INTO brands VALUES (DEFAULT, 'Alameda Turquesa', 223143243, '/images/brands/alameda_turquesa/alameda_turquesa.png');

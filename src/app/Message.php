@@ -11,6 +11,10 @@ class Message extends Model
 
   protected $primaryKey = 'id';
 
+  protected $fillable = [
+      'id_chatsupport', 'id_client', 'sender', 'datesent', 'message'
+  ];
+
   public function client()
   {
       return $this->belongsTo('App\User','id_client');//c_id - customer id
