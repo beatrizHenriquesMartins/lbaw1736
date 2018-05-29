@@ -147,4 +147,12 @@ div#exchangeMessages{
     padding-left: 1em;
     height: 19em;
     overflow: scroll;
+    margin-right: 1.5em;
+}
+
+img#chatSupportPhoto.img-responsive{
+    width: 50%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
 }

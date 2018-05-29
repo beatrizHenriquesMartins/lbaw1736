@@ -1,8 +1,9 @@
 <!-- apenas imprime mensagens -->
+
 @if($message->sender == "Client")
     <div class="row msg_container base_receive">
-        <div class="col-md-2 col-xs-2 avatar">
-            <img src="{{$message->client->imageurl}}" class=" img-responsive" alt="chatSupport Photo">
+        <div id="div_chatSupportPhoto" class="col-md-2 col-xs-2 avatar">
+            <img id="chatSupportPhoto" src="{{$message->client->imageurl}}" class=" img-responsive" alt="chatSupport Photo">
         </div>
 
         <div class="col-xs-10 col-md-10">
