@@ -67,7 +67,7 @@
                             Address
                         </h3>
 
-                        <h5 class="address-cartpayment" id= {{ $address->id_address }}>
+                        <h5 class="address-cartpayment" id_address= {{ $address->id_address }}>
                             {{ $address->address . " " . $address->city . " " . $address->country}}
                         </h5>
                     </div>

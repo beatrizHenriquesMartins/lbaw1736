@@ -127,16 +127,6 @@ if(confirmPaymentButtons){
   }
 }
 
-let cancelPaymentButtons = document.querySelectorAll('#button-cancelpayment');
-if(cancelPaymentButtons){
-  let i = 0;
-  for(i=0; i < cancelPaymentButtons.length; i++){
-    cancelPaymentButtons[i].addEventListener("click", cancelPayment);
-  }
-}
-
-
-
 
 
 }
@@ -545,7 +535,7 @@ function processOrder(){
 }
 
 function cartPayment(){
-  let addressId = document.querySelector('.address-cartpayment').id;
+  let addressId = document.querySelector('.address-cartpayment').getAttribute('id_address');
   let nif = document.querySelector('.nif').innerHTML;
   nif = (nif.trim) ? nif.trim() : nif.replace(/^\s+/,'');
   if(!nif || nif == null || nif == "")
@@ -584,17 +574,15 @@ function cartPaymentResponse(){
 }
 
 function confirmPayment(){
-  let id = this.closest('.user-payment').id;
-  sendAjaxRequest('get', 'api/confirmPayment/'+id, null, confirmPaymentResponse);
+  let id = this.closest('.user-payment').getAttribute('id_purchase');
+  sendAjaxRequest('post', 'api/confirmPayment/'+id, null, confirmPaymentResponse);
 }
 
 function confirmPaymentResponse(){
 
 }
 
-function cancelPayment(){
 
-}
 
 addEventListeners();
 
