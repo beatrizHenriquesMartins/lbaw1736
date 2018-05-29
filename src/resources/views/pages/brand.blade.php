@@ -4,17 +4,45 @@
 
 @section('content')
     <nav id="breadcrumbs" aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{route('homepage')}}">
-                    Homepage
-                </a>
-            </li>
+      <div class="col-sm-11">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                  <a href="{{route('homepage')}}">
+                      Homepage
+                  </a>
+              </li>
 
-            <li class="breadcrumb-item" aria-current="page">
-                {{$brandname}}
-            </li>
-        </ol>
+              <li class="breadcrumb-item" aria-current="page">
+                  {{$brandname}}
+              </li>
+          </ol>
+        </div>
+        <div class="col-sm-1 help">
+            <div class="cart-btn">
+                <i class="fa fa-question-circle" data-toggle="modal"
+                        data-target="#exampleModal">
+                </i>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="container help">
+                                <p>This page contains the products of an brand:</p>
+                                <a class="btn btn-success" role="submit" >
+                                    Add Cart
+                                </a>
+                                <p>Here you can add the product to your cart but you need to be logged in to perform this action</p>
+                                <a role="submit" class="btn btn-info" >
+                                    Add Favourites
+                                </a>
+                                <p>Here you can add the product to your wishlist but you need to be logged in to perform this action</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <div class="container category-section">

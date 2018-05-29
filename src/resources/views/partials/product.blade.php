@@ -1,28 +1,64 @@
 <!-- breadcrumbs -->
 <nav id="breadcrumbs" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="/homepage">
-                Homepage
-            </a>
-        </li>
-        <?php $brandname = str_replace(' ', '_', $product->brand->brandname);?>
-        <li class="breadcrumb-item">
-            <a href="{{route('brand', ['brandname' => $brandname])}}">
-                {{$product->brand->brandname}}
-            </a>
-        </li>
+    <div class="row">
+      <div class="col-sm-11">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/homepage">
+                    Homepage
+                </a>
+            </li>
+            <?php $brandname = str_replace(' ', '_', $product->brand->brandname);?>
+            <li class="breadcrumb-item">
+                <a href="{{route('brand', ['brandname' => $brandname])}}">
+                    {{$product->brand->brandname}}
+                </a>
+            </li>
 
-        <li class="breadcrumb-item">
-            <a href="{{route('category', ['categoryname' => $product->category->categoryname])}}">
-                {{$product->category->categoryname}}
-            </a>
-        </li>
+            <li class="breadcrumb-item">
+                <a href="{{route('category', ['categoryname' => $product->category->categoryname])}}">
+                    {{$product->category->categoryname}}
+                </a>
+            </li>
 
-        <li class="breadcrumb-item active" aria-current="page">
-            {{$product->name}}
-        </li>
-    </ol>
+            <li class="breadcrumb-item active" aria-current="page">
+                {{$product->name}}
+            </li>
+        </ol>
+      </div>
+      <div class="col-sm-1 help">
+          <div class="cart-btn">
+              <i class="fa fa-question-circle" data-toggle="modal"
+                      data-target="#exampleModal">
+              </i>
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                   aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="container help">
+                              <p>This page contains the information of an product:</p>
+                              <a class="btn btn-success" role="submit" >
+                                  Add Cart
+                              </a>
+                              <p>Here you can add the product to your cart but you need to be logged in to perform this action</p>
+                              <a role="submit" class="btn btn-info" >
+                                  Add Favourites
+                              </a>
+                              <p>Here you can add the product to your wishlist but you need to be logged in to perform this action</p>
+                              <div class="reviews-section">
+                                  <h3>
+                                      Be The First One to Comment!!!
+                                  </h3>
+                              </div>
+                              <p>Below the product you'll find the product reviews as shown in the exemple above</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
 </nav>
 
 @if($usertype == 2 || $usertype == 4)
