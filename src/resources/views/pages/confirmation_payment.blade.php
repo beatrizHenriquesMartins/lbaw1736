@@ -36,5 +36,79 @@
             </div>
         @endforeach
     @endif
+    <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+						<h2>Confirm <b>Payments</b></h2>
+					</div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+						
+                        <th>Username</th>
+                        <th>Full Name</th>
+						<th>Date</th>
+                        <th>Cost(€)</th>
+                        <th>Confirm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+						
+                        <td>Thomas Hardy</td>
+                        <td>thomashardy@mail.com</td>
+						<td>89 Chiaroscuro Rd, Portland, USA</td>
+                        <td>(171) 555-2222</td>
+                        <td>
+                            <a href="#" id = "button-confirmpayment" class="confirm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Confirm">&#xe5ca;</i></a>
+                        </td>
+                    </tr>
+                    <tr>
+						
+                        <td>Thomas Hardy</td>
+                        <td>thomashardy@mail.com</td>
+						<td>89 Chiaroscuro Rd, Portland, USA</td>
+                        <td>(171) 555-2222</td>
+                        <td>
+                            <a href="#" id = "button-confirmpayment" class="confirm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Confirm">&#xe5ca;</i></a>
+                        </td>
+                    </tr>
+					<tr>
+						
+                        <td>Thomas Hardy</td>
+                        <td>thomashardy@mail.com</td>
+						<td>89 Chiaroscuro Rd, Portland, USA</td>
+                        <td>(171) 555-2222</td>
+                        <td>
+                            <a href="#" id = "button-confirmpayment" class="confirm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Confirm">&#xe5ca;</i></a>
+                        </td>
+                    </tr>
+                    <tr>
+						
+                        <td>Thomas Hardy</td>
+                        <td>thomashardy@mail.com</td>
+						<td>89 Chiaroscuro Rd, Portland, USA</td>
+                        <td>(171) 555-2222</td>
+                        <td>
+                            <a href="#" id = "button-confirmpayment" class="confirm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Confirm">&#xe5ca;</i></a>
+                        </td>
+                    </tr>				
+					<tr>
+						
+                        <td>Thomas Hardy</td>
+                        <td>thomashardy@mail.com</td>
+						<td>89 Chiaroscuro Rd, Portland, USA</td>
+                        <td>(171) 555-2222</td>
+                        <td>
+                            <a href="#" id = "button-confirmpayment" class="confirm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Confirm">&#xe5ca;</i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 @endsection
