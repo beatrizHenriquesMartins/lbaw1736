@@ -73,12 +73,13 @@ class SupportMessagesController extends Controller{
         'sender' => 'chatSupport',
         'id_client' => $request->id_client,
       ]);
-      return Message::find($msg->id)->with('chatsupport')->first();
+      return Message::where('id', $msg->id)->with('chatsupport')->first();
     }
 
     public function getMessages(Request $request) {
       $messages = Message::where('id_chatsupport', Auth::user()->id)
       ->where('id_client', $request->id_client)->with('client')->with('chatsupport')->get();
+
       return $messages;
 
     }

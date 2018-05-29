@@ -289,8 +289,26 @@ function sendMessageSupportRequest() {
 
 function sendMessageSupportHandler() {
 
+  if (this.status != 200) window.location = '/';
+  let message = JSON.parse(this.responseText);
 
-console.log(this.responseText);}
+  let body = document.querySelector('#exchangeMessages');
+  let date = new Date(message.datesent);
+  let element = document.createElement('div');
+  dateString = date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+  element.setAttribute('class', 'row');
+  element.setAttribute('class', 'msg_container');
+  element.setAttribute('class', 'base_sent');
+  element.innerHTML = '<div class="col-xs-10 col-md-10"><div class="messages msg_sent"><p>'
+                      + message.message + '</p><time datetime="2009-11-13">' + message.chatsupport.username +
+                      ' • ' + dateString +
+                      '</time></div></div><div id="div_chatSupportPhoto" class="col-md-2 col-xs-2 avatar"><img id="chatSupportPhoto" src="' +
+                      message.chatsupport.imageurl + '" class=" img-responsive "></div>';
+  body.append(element);
+
+  document.querySelector('#formGroup_writeMessage #message-text').value = "";
+
+}
 
 
 function sendMessageRequest() {
