@@ -216,7 +216,7 @@ END
 $BODY$
 LANGUAGE plpgsql;
 
---Trigger that actualizes the of a product in a purchase according to its actual value
+
 CREATE TRIGGER ban_admin
 	BEFORE INSERT OR UPDATE ON bans
 	FOR EACH ROW
@@ -237,7 +237,7 @@ $BODY$
 LANGUAGE plpgsql;
 
 
-
+--Trigger that actualizes the of a product in a purchase according to its actual value
 CREATE TRIGGER purchase_cost
 	AFTER INSERT ON purchaseProducts
 	FOR EACH ROW
