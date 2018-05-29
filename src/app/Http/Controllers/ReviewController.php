@@ -38,12 +38,21 @@ class ReviewController extends Controller
       if($purchaseproducts == null)
         return redirect()->back();
 
-      if($review != null) {
+      $rating = $request->input('rating');
+      $textreview = $request->input('reviewtext');
+      if($rating == null && $textreview == null)
+        return redirect()->back();
+      else if($rating == null)
+        $rating = 0;
+      else if($textreview == null)
+        $textreview = "";
 
+      if($review != null) {
+        $rating = 
         $review = DB::table('reviews')->where([['id_product', '=', $product_id], ['id_purchase', '=', $purchase_id]])
-        ->update(['rating' => $request->input('rating')]);
+        ->update(['rating' => $rating]);
         $review = DB::table('reviews')->where([['id_product', '=', $product_id], ['id_purchase', '=', $purchase_id]])
-        ->update(['textreview' => $request->input('reviewtext')]);
+        ->update(['textreview' => $textreview]);
         $review = DB::table('reviews')->where([['id_product', '=', $product_id], ['id_purchase', '=', $purchase_id]])
         ->update(['reviewdate' => date('Y-m-d H:i:s')]);
 
@@ -53,9 +62,11 @@ class ReviewController extends Controller
         $review = new Review();
         $review->id_purchase = $purchase_id;
         $review->id_product = $product_id;
-        $review->rating =  $request->input('rating');
-        $review->textreview = $request->input('reviewtext');
+        $review->rating =  $rating;        
+        $review->textreview = $textreview;
         $review->reviewdate = date('Y-m-d H:i:s');
+        
+         
         $review->save();
         return redirect()->back();
       }
