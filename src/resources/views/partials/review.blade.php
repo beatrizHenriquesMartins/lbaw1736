@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    @if($review->id_client == Auth::user()->id || $type == 4 || $type == 2)
+    @if(Auth::check() && $review->id_client == Auth::user()->id || $type == 4 || $type == 2)
         <div class="col-sm-1 removeComment">
             <a id="removeComment">
                 <i class="fa fa-trash pull-right">

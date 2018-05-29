@@ -2,8 +2,6 @@
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
-    -webkit-justify-content: between; /* Safari */
-    justify-content: between;
     width: auto;
     height: auto;
     margin-left: 4.2em;
@@ -38,7 +36,6 @@
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
-    justify-content: between;
     box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
     background-color: white;
     border-radius: 5px;
@@ -91,7 +88,6 @@
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
-    justify-content: between;
 }
 
 .category-section .category-products .section {

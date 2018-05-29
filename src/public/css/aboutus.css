@@ -23,10 +23,6 @@ div#name_member_team{
     font-size: medium;
 }
 
-div#memberTeam.card-columns.col-sm-2{
-    justify-content: left;
-}
-
 img#photo_img{
     height: 45%;
     width: auto;
@@ -68,7 +64,7 @@ div#memberInformation {
     }
 
     div#memberInformation {
-        margin-left: initials;
+        margin-left: auto;
     }
 }
 

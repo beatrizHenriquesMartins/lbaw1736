@@ -22,7 +22,7 @@ div#message_404{
 @media (max-width: 500px) {
     div#div_content_404.card-columns.col-sm-2{
         flex-direction: column;
-        alignment: center;
+        align-content: center;
     }
 
     div#message_404{

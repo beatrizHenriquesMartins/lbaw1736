@@ -6,6 +6,15 @@ html{
     font-family: 'Karma', serif;
 }
 
+div.container.help {
+  margin: 2em 1em 2em 1em;
+  width: auto;
+}
+
+div.col-sm-1.help .cart-btn i{
+    font-size: 18px;
+}
+
 .edit {
   display: flex;
   justify-content: flex-end;
@@ -21,8 +30,6 @@ html{
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
-    -webkit-justify-content: between; /* Safari */
-    justify-content: between;
     width: auto;
     height: auto;
     margin: 1.8em 4.2em 2em 4.2em;

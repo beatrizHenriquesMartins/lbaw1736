@@ -356,6 +356,7 @@ class ProductController extends Controller
           'shortdescription' => 'required',
           'bigdescription' => 'required',
           'imageurl' => 'mimes:jpeg,png,jpg,gif,svg',
+          'quantityinstock' => 'required',
       );
 
       $validator = Validator::make(Input::all(), $rules);
@@ -369,6 +370,8 @@ class ProductController extends Controller
         $product->id_category = $request->input('categoryname');
         $product->shortdescription = $request->input('shortdescription');
         $product->bigdescription = $request->input('bigdescription');
+        $product->quantityinstock = $request->input('quantityinstock');
+
         if($request->input('tocarousel') == 0)
           $product->tocarousel = 1;
 
@@ -398,6 +401,7 @@ class ProductController extends Controller
           'shortdescription' => 'required',
           'bigdescription' => 'required',
           'imageurl' => 'required',
+          'quantityinstock' => 'required',
       );
 
       $validator = Validator::make(Input::all(), $rules);
@@ -413,6 +417,7 @@ class ProductController extends Controller
         $product->shortdescription = $request->input('shortdescription');
         $product->bigdescription = $request->input('bigdescription');
         $product->price = $request->input('price');
+        $product->quantityinstock = $request->input('quantityinstock');
         $product->active = 1;
         if($request->input('tocarousel') == 0)
           $product->tocarousel = 1;
@@ -477,10 +482,17 @@ class ProductController extends Controller
     public function search()
     {
       $input = Input::get('input');
-      $products = Product::whereOr('shortdescription', 'LIKE', '%'.$input.'%')->whereOr('bigdescription', 'LIKE', '%'.$input.'%')->whereOr('name', 'LIKE', '%'.$input.'%')->paginate(12);
-      if(!Auth::check()) {
-        return view('login');
-      }
+      
+      $products = Product::join('brands', 'products.id_brand', 'brands.id_brand')
+      ->join('categories', 'products.id_category', 'categories.id_category')
+      ->where('shortdescription', 'LIKE', '%'.$input.'%')
+      ->orWhere('bigdescription', 'LIKE', '%'.$input.'%')
+      ->orWhere('name', 'LIKE', '%'.$input.'%')
+      ->orWhere('brandname', 'LIKE', '%'.$input.'%')
+      ->orWhere('categoryname', 'LIKE', '%'.$input.'%')
+      ->paginate(12);
+
+
 
       $type = 0;
 

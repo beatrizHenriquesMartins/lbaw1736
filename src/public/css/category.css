@@ -23,8 +23,6 @@ html {
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
-    -webkit-justify-content: between; /* Safari */
-    justify-content: between;
     width: auto;
     height: auto;
     margin-left: 4.2em;
@@ -62,8 +60,6 @@ html {
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
-    -webkit-justify-content: between; /* Safari */
-    justify-content: between;
     align-items: center;
     padding: 0;
 }
@@ -144,7 +140,6 @@ html {
 
 .category-section .category-products .product-row .product-section.empty:hover {
     background-color:  inherit;
-    border-color: none;
 }
 
 .category-section .category-products .product-row .product-section:hover {
@@ -371,7 +366,7 @@ h3.product_name{
     }
 
     .category-section .category-topbar .dropdown {
-        margin-left: 0 0 0 1.8em;
+        margin: 0 0 0 1.8em;
         flex: 1;
     }
 
