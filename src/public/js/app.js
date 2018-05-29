@@ -111,41 +111,35 @@ function addEventListeners() {
     addMessageSupport.addEventListener("click", sendMessageSupportRequest);
   }
 
-}
 
-
-let orderPayment = document.querySelector('.order-section .order-information .btns .btn-success');
-if(orderPayment){
-  orderPayment.addEventListener("click", processOrder);
-}
-
-let paymentButtons = document.querySelectorAll('.payment>div>button.btn-success');
-if(paymentButtons){
-  let i = 0;
-  for(i=0; i < paymentButtons.length; i++){
-    paymentButtons[i].addEventListener("click", cartPayment);
+  let orderPayment = document.querySelector('.order-section .order-information .btns .btn-success');
+  if(orderPayment){
+    orderPayment.addEventListener("click", processOrder);
   }
-}
 
-let confirmPaymentButtons = document.querySelectorAll('#button-confirmpayment');
-if(confirmPaymentButtons){
-  let i = 0;
-  for(i=0; i < confirmPaymentButtons.length; i++){
-    confirmPaymentButtons[i].addEventListener("click", confirmPayment);
+  let paymentButtons = document.querySelectorAll('.payment>div>button.btn-success');
+  if(paymentButtons){
+    let i = 0;
+    for(i=0; i < paymentButtons.length; i++){
+      paymentButtons[i].addEventListener("click", cartPayment);
+    }
   }
-}
 
-let cancelPaymentButtons = document.querySelectorAll('#button-cancelpayment');
-if(cancelPaymentButtons){
-  let i = 0;
-  for(i=0; i < cancelPaymentButtons.length; i++){
-    cancelPaymentButtons[i].addEventListener("click", cancelPayment);
+  let confirmPaymentButtons = document.querySelectorAll('#button-confirmpayment');
+  if(confirmPaymentButtons){
+    let i = 0;
+    for(i=0; i < confirmPaymentButtons.length; i++){
+      confirmPaymentButtons[i].addEventListener("click", confirmPayment);
+    }
   }
-}
 
-
-
-
+  let cancelPaymentButtons = document.querySelectorAll('#button-cancelpayment');
+  if(cancelPaymentButtons){
+    let i = 0;
+    for(i=0; i < cancelPaymentButtons.length; i++){
+      cancelPaymentButtons[i].addEventListener("click", cancelPayment);
+    }
+  }
 
 }
 
@@ -283,6 +277,35 @@ function sendRemoveAddressHandler() {
   setTimeout(function(){ msg.remove(); }, 2000);
 
 }
+
+function sendMessageSupportRequest() {
+  let parent = this.closest('#formGroup_writeMessage');
+  let message = parent.querySelector('#message-text').value;
+  let id_client = parent.getAttribute('data-id');
+  console.log(message);
+  if(message != "")
+    sendAjaxRequest('post', '/api/messagesupport', {message:message, id_client:id_client}, sendMessageSupportHandler);
+
+}
+
+function sendMessageSupportHandler() {
+/*  if (this.status != 200) window.location = '/';
+  let message = JSON.parse(this.responseText);
+  let body = document.querySelector('.chat-window .panel .panel-body');
+  let date = new Date(message.datesent);
+  let element = document.createElement('div');
+  dateString = date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+  element.setAttribute('class', 'row');
+  element.setAttribute('class', 'msg_container');
+  element.setAttribute('class', 'base_sent');
+  element.innerHTML = '<div class="col-xs-10 col-md-10"><div class="messages msg_sent"><p>'
+                      + message.message + '</p><time datetime="2009-11-13">' + message.chatsupport.username +
+                      ' • ' + dateString +
+                      '</time></div></div><div class="col-md-2 col-xs-2 avatar"><img src="' +
+                      message.chatsupport.imageurl + '" class=" img-responsive "></div>';
+  body.append(element);
+*/
+console.log(this.responseText);}
 
 
 function sendMessageRequest() {
@@ -527,7 +550,7 @@ function changeCartTotal(newTotal){
 function processOrder(){
   let nifInput = document.querySelector('.nif input');
   let nifValue = nifInput.value;
-  
+
 
   console.log(nifValue);
   let selectAddressOrder = document.querySelectorAll('.addresses .form-check input');
@@ -569,7 +592,7 @@ function cartPaymentResponse(){
   console.log(this.responseText);
   let response = JSON.parse(this.responseText);
   console.log(response);
-  
+
   let element = document.createElement("div");
 
   if(response != 0) {
@@ -587,7 +610,7 @@ function cartPaymentResponse(){
   section.insertBefore(element, breadcrumbs.nextSibling);
 
   setTimeout(function(){ element.remove(); }, 2000);
-  
+
 
 }
 

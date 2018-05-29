@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 use App\Client;
 use App\BrandManager;
@@ -49,15 +50,39 @@ class SupportMessagesController extends Controller{
         $peoples = Message::where('id_chatsupport', Auth::user()->id)
             ->with('client')->with('chatsupport')->get()->groupBy('id_client');
 
-        $messages = [];
+
         $finalpeoples = [];
         foreach ($peoples as $people) {
           array_push($finalpeoples, $people[0]->client);
-          array_push($messages, $people[0]);
         }
 
+        if($id==-1)
+          $id = $finalpeoples[0]->id;
 
+        $messages = Message::where('id_chatsupport', Auth::user()->id)->where('id_client', $id)->with('client')->with('chatsupport')->get();
         return view('pages.chatSupport', ['type' => $type, 'peoples' => $finalpeoples,
-            'messages_chat' => $messages, 'title' => 'Messages']);
+            'messages_chat' => $messages, 'title' => 'Messages', 'id_client' => $id]);
+    }
+
+    public function newMessage(Request $request) {
+
+      $oldmessage = Message::where('id_client', Auth::user()->id)->first();
+
+
+      $message = new Message();
+      $message->id_chatsupport = Auth::user()->id;
+      $message->message = $request->message;
+      $message->datesent = date('Y-m-d H:i:s');
+      $message->sender = "ChatSupport";
+      $message->id_client = $request->id_client;
+      $message->save();
+      return $message->with('chatsupport')->where('id', $message->id)->first();
+    }
+
+    public function getMessages(Request $request) {
+      $messages = Message::where('id_chatsupport', Auth::user()->id)
+      ->where('id_client', $request->id_client)->with('client')->with('chatsupport')->get();
+      return $messages;
+
     }
 }

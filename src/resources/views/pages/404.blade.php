@@ -1,6 +1,6 @@
 @extends('layouts.main', ['type' => $type])
 
-@section('title', $title)
+@section('title', '404')
 
 @section('content')
     <div id="content_page_404" class="container d-sm-flex">
