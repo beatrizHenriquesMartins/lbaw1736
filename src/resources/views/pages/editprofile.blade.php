@@ -109,13 +109,31 @@
                                 <div class = "col-sm-10 col-xs-10">
                                     <div class = "row">
                                         <div class = "col-sm-2 col-xs-2 ">
+                                            <p class = "Email">
+                                                Email:
+                                            </p>
+                                        </div>
+
+                                        <div class = "col-sm-10 col-xs-10">
+                                            <p class = "email-input">
+                                                {{ Auth::user()->email }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class = "row">
+                                <div class = "col-sm-10 col-xs-10">
+                                    <div class = "row">
+                                        <div class = "col-sm-2 col-xs-2 ">
                                             <p class = "FirstName">
                                                 Firts Name:
                                             </p>
                                         </div>
 
                                         <div class = "col-sm-10 col-xs-10">
-                                            <input class="form-control" type="text" name="firstname" @if(old('firstname'))value="{{old('firstname')}}"@endif>
+                                            <input class="form-control" type="text" name="firstname" value="{{Auth::user()->firstname}}">
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +155,7 @@
                                         </div>
 
                                         <div class = "col-sm-10 col-xs-10">
-                                            <input class="form-control" type="text" name="lastname" @if(old('lastname'))value="{{old('lastname')}}"@endif>
+                                            <input class="form-control" type="text" name="lastname"value="{{Auth::user()->lastname}}">
                                         </div>
                                     </div>
                                 </div>
@@ -159,7 +177,7 @@
                                         </div>
 
                                         <div class = "col-sm-10 col-xs-10">
-                                            <input class="form-control" type="date" name="birthday" @if(old('birthday'))value="{{old('birthday')}}"@endif>
+                                            <input class="form-control" type="date" name="birthday" @if(isset(Auth::user()->birthday))value="{{Auth::user()->birthday}}"@endif>
                                         </div>
                                     </div>
                                 </div>
@@ -209,23 +227,6 @@
                                 </div>
                             </div>
 
-                            <div class = "row">
-                                <div class = "col-sm-10 col-xs-10">
-                                    <div class = "row">
-                                        <div class = "col-sm-2 col-xs-2 ">
-                                            <p class = "Email">
-                                                Email:
-                                            </p>
-                                        </div>
-
-                                        <div class = "col-sm-10 col-xs-10">
-                                            <p class = "email-input">
-                                                {{ Auth::user()->email }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                         <div class = "confirm_buttons row form-group">
