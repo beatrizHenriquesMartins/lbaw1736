@@ -7,7 +7,7 @@
 }
 
 #container-chat {
-  width: 100%;
+    width: 100%;
 }
 
 .chat-window{
@@ -16,17 +16,16 @@
     float:right;
     margin-left:0!important;
     z-index: 15;
-
 }
 
 .absolute {
-  position: fixed;
-  bottom: 9.7em;
+    position: fixed;
+    bottom: 9.7em;
 }
 
 .fixed {
-  position: fixed;
-  bottom: 0;
+    position: fixed;
+    bottom: 0;
 }
 
 .chat-window > div > .panel{
@@ -38,19 +37,19 @@
 }
 
 .msg_container_base{
-  background: #e5e5e5;
-  margin: 0;
-  padding: 0 10px 10px;
-  max-height:300px;
-  overflow-x:hidden;
+    background: #e5e5e5;
+    margin: 0;
+    padding: 0 10px 10px;
+    max-height:300px;
+    overflow-x:hidden;
 }
 
 .top-bar {
-  background: #666;
-  color: white;
-  padding: 10px;
-  position: relative;
-  overflow: hidden;
+    background: #666;
+    color: white;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
 }
 
 .msg_receive{
@@ -64,11 +63,11 @@
 }
 
 .messages {
-  background: white;
-  padding: 10px;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  max-width:100%;
+    background: white;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    max-width:100%;
 }
 
 .messages > p {
@@ -110,8 +109,8 @@ img {
 }
 
 .base_sent {
-  justify-content: flex-end;
-  align-items: flex-end;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .base_sent > .avatar:after {
@@ -157,12 +156,12 @@ img {
 
 @media (max-width:500px) {
     .chat-window {
-      margin-left: 0!important;
-      padding-left: 0!important;
-      width: 100% !important;
+        margin-left: 0!important;
+        padding-left: 0!important;
+        width: 100% !important;
     }
 
     .chat-window >* {
-      padding-left: 0;
+        padding-left: 0;
     }
 }

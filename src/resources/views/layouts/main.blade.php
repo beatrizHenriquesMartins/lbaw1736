@@ -326,6 +326,7 @@
             @endif
         </div>
 
+        @if($title != "Messages")
         <!--Company Links-->
         <div>
             <div class ="company_links container-fluid">
@@ -368,6 +369,7 @@
                     </p>
                 </footer>
             </div>
+            @endif
         </div>
     </main>
     </body>

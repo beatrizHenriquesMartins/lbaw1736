@@ -106,7 +106,15 @@ function addEventListeners() {
     }
   }
 
-  let orderPayment = document.querySelector('.order-section .order-information .btns .btn-success');
+  let addMessageSupport = document.querySelector("#buttonSend_writeMessage");
+  if(addMessageSupport) {
+    addMessageSupport.addEventListener("click", sendMessageSupportRequest);
+  }
+
+}
+
+
+let orderPayment = document.querySelector('.order-section .order-information .btns .btn-success');
 if(orderPayment){
   orderPayment.addEventListener("click", processOrder);
 }
