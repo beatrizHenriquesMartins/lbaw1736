@@ -67,10 +67,10 @@ class PurchaseController extends Controller
       }
       if($type == 1) {
         $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
-        return view('pages.purchases', ['products' => $products, 'type' => $type, 'messages' => $messages, 'title' => 'Wishlist']);
+        return view('pages.purchases', ['products' => $products, 'type' => $type, 'messages' => $messages, 'title' => 'Purchases']);
       }
       else {
-        return view('pages.purchases', ['products' => $products, 'type' => $type, 'messages' => null, 'title' => 'Wishlist']);
+        return view('pages.purchases', ['products' => $products, 'type' => $type, 'messages' => null, 'title' => 'Purchases']);
       }
 
     }
