@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="product-name">
-                    <a href="">
+                    <a href="/users/{{$user->id}}">
                         <h3>
                             {{$user->username}}
                         </h3>

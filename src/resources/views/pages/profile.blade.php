@@ -200,12 +200,14 @@
                         </div>
 
                         <div class = "col-sm-1 col-xs-2">
-                            <a href="{{route('showEditProfile')}}" role="button">
-                                <button type="button" class="btn btn-default btn-sm glyphicon glyphicon-edit"
-                                        role="button">
-                                    Edit
-                                </button>
-                            </a>
+                            @if(!isset($page))
+                              <a href="{{route('showEditProfile')}}" role="button">
+                                  <button type="button" class="btn btn-default btn-sm glyphicon glyphicon-edit"
+                                          role="button">
+                                      Edit
+                                  </button>
+                              </a>
+                            @endif
                         </div>
                     </div>
 
