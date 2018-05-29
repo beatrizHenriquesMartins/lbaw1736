@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 use App\Client;
 use App\BrandManager;
@@ -11,6 +12,7 @@ use App\Admin;
 use App\Message;
 
 class SupportMessagesController extends Controller{
+
     public function showMessage($id){
         if (!Auth::check()) {
             return redirect('/login');
@@ -45,23 +47,42 @@ class SupportMessagesController extends Controller{
             return redirect('/404');
         }
 
-        $peoples = Client::join('messages', 'messages.id_client', '=', 'clients.id_client')
-            ->join('chatsupports', 'chatsupports.id_chatsupport', '=', 'messages.id_chatsupport')
-            ->join('users', 'users.id', '=', 'clients.id_client')
-            ->where('chatsupports.id_chatsupport', Auth::user()->id)->groupBy('clients.id_client',
-                'messages.id_message', 'chatsupports.id_chatsupport', 'users.id')->get();
+        $peoples = Message::where('id_chatsupport', Auth::user()->id)
+            ->with('client')->with('chatsupport')->get()->groupBy('id_client');
 
-        if($id == -1) {
-            $first_msg = Message::where('id_chatsupport', Auth::user()->id)->first();
-            $id = $first_msg->id_client;
+
+        $finalpeoples = [];
+        foreach ($peoples as $people) {
+          array_push($finalpeoples, $people[0]->client);
         }
 
-        $messages_chat = Message::where('id_chatsupport', Auth::user()->id)
-            ->where('id_client', $id)
-            ->with('client')->with('chatsupport')->get();
+        if($id==-1)
+          $id = $finalpeoples[0]->id;
+
+        $messages = Message::where('id_chatsupport', Auth::user()->id)->where('id_client', $id)->with('client')->with('chatsupport')->get();
+        return view('pages.chatSupport', ['type' => $type, 'peoples' => $finalpeoples,
+            'messages_chat' => $messages, 'title' => 'Messages', 'id_client' => $id]);
+    }
+
+    public function newMessage(Request $request) {
+
+      $oldmessage = Message::where('id_client', Auth::user()->id)->first();
 
 
-        return view('pages.chatSupport', ['type' => $type, 'peoples' => $peoples,
-            'messages_chat' => $messages_chat]);
+      $message = new Message();
+      $message->id_chatsupport = Auth::user()->id;
+      $message->message = $request->message;
+      $message->datesent = date('Y-m-d H:i:s');
+      $message->sender = "ChatSupport";
+      $message->id_client = $request->id_client;
+      $message->save();
+      return $message->with('chatsupport')->where('id', $message->id)->first();
+    }
+
+    public function getMessages(Request $request) {
+      $messages = Message::where('id_chatsupport', Auth::user()->id)
+      ->where('id_client', $request->id_client)->with('client')->with('chatsupport')->get();
+      return $messages;
+
     }
 }

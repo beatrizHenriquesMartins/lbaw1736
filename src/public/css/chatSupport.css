@@ -5,7 +5,7 @@ div.container{
     padding-right: 0em;
 }
 
-div.card-columns.col-sm-12{
+div#chatSheet.row{
     padding-bottom: 0em;
     padding-left: 0em;
     padding-right: 0em;
@@ -21,6 +21,8 @@ div#listOfPeople.card-columns.col-sm-3{
     border-width: thin;
     padding-left: 0em;
     padding-right: 0em;
+    width: 25%;
+    overflow: scroll;
 }
 
 div#optionsChat.card-columns.col-sm-3{
@@ -59,7 +61,7 @@ div#searchChatByPeople.card-columns.col-sm-3{
     padding-top: 1em;
     padding-right: 1em;
     padding-bottom: 1em;
-    padding-left: 1em;
+    padding-left: 2em;
     width: 100%;
 }
 
@@ -101,31 +103,56 @@ div#message.card-columns.col-sm-9{
     flex-direction: column;
     padding-right: 0em;
     padding-left: 0em;
-    width: 100%;
+    width: 75%;
 }
 
-div#writeMessage.card-columns.col-sm-9{
+div#writeMessage{
     border-top-width: thin;
     border-top-style: solid;
     border-top-color: #ccc;
-    padding-top: 1em;
-    /*
-    position: relative;
-
-    height: 10em;
-    left: 5em;
-    */
-    /* apenas para teste 1 */
-    border-bottom-width: thin;
-    border-bottom-style: solid;
-    border-bottom-color: #ccc;
-    /* apenas para teste 1 */
+    padding: 0em;
 }
 
-input#messageInProcessInput{
-    /*
-    height: 3em;
-    width: 40em;
-    */
+#modalDialog_writeMessage{
+    width: 100%;
 }
 
+div#modalDialog_writeMessage.modal-dialog{
+    margin: 0em;
+}
+
+div#modalBody_writeMessage{
+    padding: 0.5em;
+    margin-right: 1em;
+}
+
+div#formGroup_writeMessage{
+    display: flex;
+}
+
+#message-text{
+    width: 90%;
+}
+
+#buttonSend_writeMessage{
+    width: 10%;
+}
+
+a#buttonSend_writeMessage.btn.btn-success{
+    margin-left: 0.75em;
+}
+
+div#exchangeMessages{
+    padding-right: 1em;
+    padding-left: 1em;
+    height: 27em;
+    overflow: scroll;
+    margin-right: 1.5em;
+}
+
+img#chatSupportPhoto.img-responsive{
+    width: 50%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+}

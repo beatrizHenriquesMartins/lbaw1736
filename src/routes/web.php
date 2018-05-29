@@ -104,6 +104,7 @@ Route::put('api/add/address', 'ProfileController@addAddress');
 Route::get('messages/{id}','SupportMessagesController@showMessage')->name('messages');
 Route::post('api/message','ClientController@newMessage');
 Route::get('api/getmessages','ClientController@getMessages');
+Route::post('api/messagesupport','SupportMessagesController@newMessage');
 
 
 

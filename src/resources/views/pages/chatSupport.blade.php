@@ -4,8 +4,8 @@
 
 <!-- content of page -->
 @section('content')
-    <div class="container">
-        <div class="card-columns col-sm-12">
+    <div class="">
+        <div id="chatSheet" class="row">
             <div id="listOfPeople" class="card-columns col-sm-3">
                 <div id="optionsChat" class="card-columns col-sm-3">
                     <div id="definition" class="card-columns col-sm-1">
@@ -30,13 +30,26 @@
                 </div>
 
                 @each('partials.people', $peoples, 'people')
-
             </div>
 
             <div id="message" class="card-columns col-sm-9">
-                <h5>
-                    message
-                </h5>
+                <div id="exchangeMessages">
+                    @each('partials.messages_chat', $messages_chat, 'message')
+                </div>
+
+                <div id="writeMessage">
+                    <div id="modalDialog_writeMessage" class="modal-dialog" role="document">
+                        <div id="modalBody_writeMessage" class="modal-body">
+                            <div id="formGroup_writeMessage" data-id="{{$id_client}}">
+                                <textarea id="message-text" class="form-control" cols="30" rows="1"></textarea>
+
+                                <a id="buttonSend_writeMessage" type="button" class="btn btn-success">
+                                    Send
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
