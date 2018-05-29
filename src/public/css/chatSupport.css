@@ -61,7 +61,7 @@ div#searchChatByPeople.card-columns.col-sm-3{
     padding-top: 1em;
     padding-right: 1em;
     padding-bottom: 1em;
-    padding-left: 1em;
+    padding-left: 2em;
     width: 100%;
 }
 
@@ -138,14 +138,14 @@ div#formGroup_writeMessage{
     width: 10%;
 }
 
-button#buttonSend_writeMessage.btn.btn-success{
-    margin-left: 0.5em;
+a#buttonSend_writeMessage.btn.btn-success{
+    margin-left: 0.75em;
 }
 
 div#exchangeMessages{
     padding-right: 1em;
     padding-left: 1em;
-    height: 19em;
+    height: 27em;
     overflow: scroll;
     margin-right: 1.5em;
 }
