@@ -185,10 +185,7 @@ CREATE TABLE brandBrandManagers (
   PRIMARY KEY(id_Brand, id_BrandManager)
 );
 
-CREATE TABLE confirmationpayments(
-   id_client INTEGER PRIMARY KEY REFERENCES clients,
-   cost DECIMAL NOT NULL
-);
+
 
  -- Indexes
 
@@ -224,24 +221,7 @@ CREATE TRIGGER ban_admin
 
 
 
-/*CREATE FUNCTION purchase_cost() RETURNS TRIGGER AS
-$BODY$
-BEGIN
-	UPDATE purchaseProducts
-	SET cost = (SELECT (SELECT price FROM products WHERE id=NEW.id_product) * NEW.quantity) WHERE purchaseProducts.id_product = NEW.id_product AND purchaseProducts.id_purchase = NEW.id_purchase;
-	UPDATE purchases
-	SET cost = (SELECT SUM(cost2) FROM (SELECT purchaseProducts.cost AS cost2 FROM purchaseProducts WHERE ( purchaseProducts.id_purchase = NEW.id_purchase) ) AS derived_table) WHERE purchases.id_purchase = NEW.id_purchase;
-	RETURN NEW;
-END
-$BODY$
-LANGUAGE plpgsql;
 
-
---Trigger that actualizes the of a product in a purchase according to its actual value
-CREATE TRIGGER purchase_cost
-	AFTER INSERT ON purchaseProducts
-	FOR EACH ROW
-		EXECUTE PROCEDURE purchase_cost();*/
 
 
 INSERT INTO users VALUES (DEFAULT, 'Luis', 'Saraiva', 'admin_luissaraiva', 'a_luissaraiva@gmail.com', '$2y$10$uvSo3QqoE.Y2YFACSQEtoepb8bEBfFltqM/TTiwL7jEQ1GnZLmkza', '/images/user_image.png', DEFAULT, DEFAULT, true, 'Fln3z44jqF0j5ozkNvsEnSPMrPTRA1eYNiDt8FjZnYcxAWuh0OR8iELp81mQ');

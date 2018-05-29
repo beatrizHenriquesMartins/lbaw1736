@@ -81,11 +81,10 @@ $nif = $request->input('nif');
 }
 
 public function processPayment(Request $request, $address_id, $nif){
-    /*if (!Auth::check())
-        return redirect('/login');*/
+    
     
     $clientID = Auth::user()->id;
-    $clientsID = DB::table('confirmationpayments')->pluck('id_client');
+    
 
     $ret = 0;
     $client = Client::find(Auth::user()->id);
