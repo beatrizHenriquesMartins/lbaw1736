@@ -34,8 +34,8 @@
             </div>
         </div>
 
-        <div class="col-md-2 col-xs-2 avatar">
-            <img src="{{$message->chatsupport->imageurl}}" class=" img-responsive" alt="Client Photo">
+        <div id="div_ClientPhoto" class="col-md-2 col-xs-2 avatar">
+            <img id="clientPhotoMessage" src="{{$message->chatsupport->imageurl}}" class=" img-responsive" alt="Client Photo">
         </div>
     </div>
 @endif

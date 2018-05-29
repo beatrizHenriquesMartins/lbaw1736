@@ -561,7 +561,7 @@ function processOrder(){
 }
 
 function cartPayment(){
-  let addressId = document.querySelector('.address-cartpayment').id;
+  let addressId = document.querySelector('.address-cartpayment').getAttribute('id_address');
   let nif = document.querySelector('.nif').innerHTML;
   nif = (nif.trim) ? nif.trim() : nif.replace(/^\s+/,'');
   if(!nif || nif == null || nif == "")
@@ -600,17 +600,23 @@ function cartPaymentResponse(){
 }
 
 function confirmPayment(){
-  let id = this.closest('.user-payment').id;
-  sendAjaxRequest('get', 'api/confirmPayment/'+id, null, confirmPaymentResponse);
+  let id = this.closest('.user-payment').getAttribute('id_purchase');
+  this.closest('.user-payment').remove();
+  id = parseInt(id);
+  console.log(id);
+  sendAjaxRequest('post', 'api/confirm_payment/'+id, null, confirmPaymentResponse);
 }
 
 function confirmPaymentResponse(){
+  //if (this.status != 200) window.location = '/';
+  let response = JSON.parse(this.responseText);
+  console.log(response);
+
+
 
 }
 
-function cancelPayment(){
 
-}
 
 addEventListeners();
 

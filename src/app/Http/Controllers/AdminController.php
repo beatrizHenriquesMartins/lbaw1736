@@ -314,10 +314,18 @@ class AdminController extends Controller
       }
 
       if($type == 4){
-        $clientsID = DB::table('confirmationpayments')->pluck('id_client');
+        //$clientsID = DB::table('confirmationpayments')->pluck('id_client');
+        $purchases = DB::table('purchases')->where('purchase_state','=', false)->get();
         $clientNames = [];
         $clientCosts = [];
-        foreach($clientsID as $clientID){
+        foreach($purchases as $purchase){
+          $clientID = $purchase->id_client;
+          $user = User::find($clientID);
+          $username = $user->getAttribute('username');
+          $clientNames[$purchase->id_purchase] = $username;
+          $clientCosts[$purchase->id_purchase] = $purchase->cost;
+        }
+        /*foreach($clientsID as $clientID){
         
           $user = User::find($clientID);
           $username = $user->getAttribute('username');
@@ -325,7 +333,7 @@ class AdminController extends Controller
 
           $cost = ConfirmationPayment::find($clientID)->getAttribute('cost');
           $clientCosts[$clientID] = $cost;
-        }
+        }*/
         
         return view('pages.confirmation_payment', ['names' => $clientNames, 'costs'=> $clientCosts, 'type' => $type, 'title' => 'Confirmation Payment']);
       }
@@ -333,7 +341,12 @@ class AdminController extends Controller
   }
 
   public function validatePayment(Request $request, $id){
-      
+     $newPurchaseState = true;
+     DB::table('purchases')->where('id_purchase', $id)->update(['purchase_state' => $newPurchaseState]);
+     return json_encode($id);
+     
+     $ret = 0;
+     return json_encode($ret);
   }
 
 }

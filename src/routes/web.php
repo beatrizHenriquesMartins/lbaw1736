@@ -59,7 +59,7 @@ Route::post('addproduct', 'ProductController@create')->name('addProduct');
 Route::post('products/{id}/editproduct', 'ProductController@edit')->name('editproduct');
 Route::get('search', 'ProductController@search')->name('search');
 
-//Reivew
+//Review
 Route::post('addreview/{id_product}/{id_purchase}', 'ReviewController@create')->name('addreview');
 Route::delete('api/remove/comment', 'ReviewController@delete');
 
@@ -90,7 +90,7 @@ Route::post('api/users/ban', 'AdminController@ban');
 Route::post('api/users/unban', 'AdminController@unban');
 Route::get('users/{id}', 'AdminController@showUser');
 Route::get('confirm_payment', 'AdminController@confirmPaymentShow');
-Route::get('validate_payment/{id}', 'AdminController@validatePayment');
+Route::post('api/confirm_payment/{id}', 'AdminController@validatePayment');
 
 // profile
 Route::get('profile', 'ProfileController@show')->name('profile');

@@ -21,7 +21,7 @@
     </nav>
     @if($names && count($names) != 0)
         @foreach($names as $id => $username)
-            <div class="user-payment row-fluid" id = {{ $id }} >
+            <div class="user-payment row-fluid" id_purchase = {{ $id }} >
                 <div class = "col-sm-5">
                     {{$username}}
                 </div>
@@ -32,12 +32,7 @@
                 <button id = "button-confirmpayment" type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-ok"></span> Ok 
         </button>
-                </div>
-                <div class = "col-sm-2">
-                <button id="button-cancelpayment" type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-remove"></span> Remove 
-        </button>
-                </div>
+                </div>                
             </div>
         @endforeach
     @endif
