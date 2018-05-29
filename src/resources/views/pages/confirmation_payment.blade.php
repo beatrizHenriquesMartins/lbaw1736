@@ -21,11 +21,14 @@
     </nav>
     
     @if($usernames && count($usernames) != 0)
-    <div class="table-wrapper">
+    <div class="row-fluid">
+    <div class = "col-sm-1">
+    </div>
+    <div class="table-wrapper col-sm-10">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2>Confirm <b>Payments</b></h2>
+						<h2>Unconfirmed <b>Purchases:</b></h2>
 					</div>
                 </div>
             </div>
@@ -37,7 +40,7 @@
                         <th>Full Name</th>
 						<th>Date</th>
                         <th>Cost(€)</th>
-                        <th>Confirm</th>
+                        <th>Confirm Payment</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,15 +50,18 @@
                         <td>{{ $username }}</td>
                         <td>{{$fullnames[$id]}}</td>
 						<td>{{$dates[$id]}}</td>
-                        <td>{{$costs[$id]}}</td>
+                        <td>&nbsp;{{$costs[$id]}}</td>
                         <td>
-                            <a href="#" id = "button-confirmpayment" class="confirm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Confirm">&#xe5ca;</i></a>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="#" id = "button-confirmpayment" class="confirm" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Confirm">&#xe5ca;</i></a>
                         </td>
                     </tr>                   
                 @endforeach
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class = "col-sm-1">
+    </div>
     </div>
     @endif
 
