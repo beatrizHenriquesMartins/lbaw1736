@@ -14,9 +14,7 @@
             </div>
 
             <div class="date">
-                <h5>
-                    {{$review->reviewdate}}
-                </h5>
+                <h5>{{$review->reviewdate}}</h5>
             </div>
 
             <div class="rating">

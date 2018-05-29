@@ -43,7 +43,7 @@
                             <div id="formGroup_writeMessage" data-id="{{$id_client}}">
                                 <textarea id="message-text" class="form-control" cols="30" rows="1"></textarea>
 
-                                <a id="buttonSend_writeMessage" type="button" class="btn btn-success">
+                                <a id="buttonSend_writeMessage"  class="btn btn-success">
                                     Send
                                 </a>
                             </div>

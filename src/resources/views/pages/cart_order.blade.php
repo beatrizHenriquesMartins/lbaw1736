@@ -92,7 +92,7 @@
             <div class="btns">
                 <div class="btns">
                     <div class="col-sm-1">
-                        <button type="button" class="btn btn-danger">
+                        <button  class="btn btn-danger">
                             Cancel
                         </button>
                     </div>

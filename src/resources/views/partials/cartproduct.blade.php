@@ -33,7 +33,7 @@
                 <input type="text" class="form-control" value="{{$cart->pivot->quantity}}">
 
                 <div class="input-group-btn-vertical">
-                    <button class="btn btn-default plus" type="button">
+                    <button class="btn btn-default plus" >
                         <span class="number">
                             0
                         </span>
@@ -42,7 +42,7 @@
                         </i>
                     </button>
 
-                    <button class="btn btn-default minus" type="button">
+                    <button class="btn btn-default minus" >
                         <span class="number">
                             0
                         </span>

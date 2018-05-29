@@ -32,7 +32,7 @@
     <div class="product-class">
         <div class="btns">
             <div class="cart-btn">
-                <button type="button" class="btn btn-info pull-right purchase-btn" data-toggle="modal"
+                <button  class="btn btn-info pull-right purchase-btn" data-toggle="modal"
                         data-target="#exampleModal{{$product->id}}">
                     Review
                 </button>
@@ -58,7 +58,7 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                    <button  class="btn btn-secondary" data-dismiss="modal">
                                         Close
                                     </button>
 

@@ -58,13 +58,13 @@
 
         <div class="btns">
             <div class="cart-btn">
-                <a class="btn btn-success" type="button" >
+                <a class="btn btn-success">
                   Add Cart
                 </a>
             </div>
 
             <div class="fav-btn">
-                <a type="button" class="btn btn-info" >
+                <a class="btn btn-info" >
                     Add Favourites
                 </a>
             </div>

@@ -24,7 +24,7 @@
                 </i>
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="container help">
@@ -54,7 +54,7 @@
             </div>
 
             <div class="col-sm-2 dropdown">
-                <button class="btn btn-secondary dropdown-toggle pull-right" type="button" data-toggle="dropdown">
+                <button class="btn btn-secondary dropdown-toggle pull-right"  data-toggle="dropdown">
                     Order by
 
                     <span class="caret">

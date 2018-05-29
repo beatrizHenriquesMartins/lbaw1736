@@ -202,7 +202,7 @@
                         <div class = "col-sm-1 col-xs-2">
                             @if(!isset($page))
                               <a href="{{route('showEditProfile')}}" role="button">
-                                  <button type="button" class="btn btn-default btn-sm glyphicon glyphicon-edit"
+                                  <button  class="btn btn-default btn-sm glyphicon glyphicon-edit"
                                           role="button">
                                       Edit
                                   </button>

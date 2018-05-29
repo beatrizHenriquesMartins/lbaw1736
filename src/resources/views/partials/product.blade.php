@@ -94,13 +94,9 @@
                 </h4>
             </a>
 
-            <h5>
-                {{$product->category->categoryName}}
-            </h5>
+            <h5>{{$product->category->categoryName}}</h5>
 
-            <h5>
-                {{$product->price}} €
-            </h5>
+            <h5>{{$product->price}} €</h5>
 
             <div class="description">
                 {{$product->bigdescription}}

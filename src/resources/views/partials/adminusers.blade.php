@@ -30,7 +30,7 @@
                 <div class="product-class">
                     <div class="btns">
                         <div class="cart-btn">
-                            <button type="button" @if($page != 4) class="btn btn-danger pull-right fa fa-ban" @endif @if($page == 4) class="btn btn-info pull-right fa fa-undo" @endif>
+                            <button  @if($page != 4) class="btn btn-danger pull-right fa fa-ban" @endif @if($page == 4) class="btn btn-info pull-right fa fa-undo" @endif>
                             </button>
                         </div>
                     </div>

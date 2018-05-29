@@ -123,7 +123,7 @@
                                 </span>
 
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle align-text-top" type="button"
+                                    <button class="btn btn-secondary dropdown-toggle align-text-top"
                                             id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
 
@@ -133,21 +133,23 @@
                                         </i>
                                     </button>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                        <li>
-                                            <a class="dropdown-item" href="{{ url('/profile') }}">
-                                                Profile
-                                            </a>
-                                        </li>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <ul>
+                                            <li>
+                                                <a class="dropdown-item" href="{{ url('/profile') }}">
+                                                    Profile
+                                                </a>
+                                            </li>
 
-                                        <div class="dropdown-divider">
-                                        </div>
+                                            <li class="dropdown-divider">
+                                            </li>
 
-                                        <li>
-                                            <a class="dropdown-item" href="{{ url('/logout') }}" onclick="signOut()">
-                                                Sign Out
-                                            </a>
-                                        </li>
+                                            <li>
+                                                <a class="dropdown-item" href="{{ url('/logout') }}" onclick="signOut()">
+                                                    Sign Out
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
 
@@ -183,7 +185,7 @@
                 <!-- Navigation -->
                 <nav class="navbar navbar-inverse navbar-static-top custom-navbar">
                     <div class="navBar-container">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <button  class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
                             <span class="sr-only">
                                 Toggle navigation
                             </span>

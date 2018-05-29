@@ -99,7 +99,7 @@
                                 </span>
 
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle align-text-top" type="button"
+                                    <button class="btn btn-secondary dropdown-toggle align-text-top"
                                             id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
 
@@ -109,7 +109,7 @@
                                         </i>
                                     </button>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                    <div class="dropdown-menu dropdown-menu-right">
                                         <li>
                                             <a class="dropdown-item" href="{{ url('/profile') }}">
                                                 Profile
@@ -159,7 +159,7 @@
                 <!-- Navigation -->
                 <nav class="navbar navbar-inverse navbar-static-top custom-navbar">
                     <div class="navBar-container">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <button  class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
                             <span class="sr-only">
                                 Toggle navigation
                             </span>

@@ -4,6 +4,11 @@ html {
     font-family: 'Karma', serif;
 }
 
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
 div#page_about_us{
     margin-left: 5em;
     margin-top: 2.5em;

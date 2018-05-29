@@ -4,7 +4,7 @@
     </div>
 
     <div class="col-xs-3">
-        <button type="button" class="btn btn-default btn-sm">
+        <button  class="btn btn-default btn-sm">
             <span class="fa fa-remove">
             </span>
         </button>

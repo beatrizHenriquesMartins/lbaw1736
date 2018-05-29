@@ -185,13 +185,13 @@
 
             <div class="payment">
                 <div class="MasterCart-btn">
-                    <button type="button" class="btn btn-success">
+                    <button  class="btn btn-success">
                         Pay MasterCart
                     </button>
                 </div>
 
                 <div class="PayPal-btn">
-                    <button type="button" class="btn btn-success">
+                    <button  class="btn btn-success">
                         PayPal
                     </button>
                 </div>
