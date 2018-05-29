@@ -33,16 +33,16 @@
               </i>
 
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                   aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   aria-hidden="true">
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
                           <div class="container help">
                               <p>This page contains the information of an product:</p>
-                              <a class="btn btn-success" role="submit" >
+                              <a class="btn btn-success" role="button" >
                                   Add Cart
                               </a>
                               <p>Here you can add the product to your cart but you need to be logged in to perform this action</p>
-                              <a role="submit" class="btn btn-info" >
+                              <a role="button" class="btn btn-info" >
                                   Add Favourites
                               </a>
                               <p>Here you can add the product to your wishlist but you need to be logged in to perform this action</p>
@@ -143,13 +143,13 @@
 
             <div class="btns">
                 <div class="cart-btn">
-                    <a class="btn btn-success" role="submit" >
+                    <a class="btn btn-success" role="button" >
                         Add Cart
                     </a>
                 </div>
 
                 <div class="fav-btn">
-                    <a role="submit" class="btn btn-info" >
+                    <a role="button" class="btn btn-info" >
                         Add Favourites
                     </a>
                 </div>

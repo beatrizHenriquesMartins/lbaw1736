@@ -134,7 +134,6 @@
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
-    justify-content: between;
 }
 
 .main .final .delete-cart {
@@ -163,7 +162,6 @@
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
-    justify-content: between;
 }
 
 .main .final .total-order .pull-right {
@@ -192,12 +190,3 @@
         padding-top: 2.2em;
     }
 }
-
-/*
-@media screen and (-webkit-min-device-pixel-ratio:0)
-  and (min-resolution:.001dpcm) {
-
-    .category-section .category-products .product {
-        height: 15em;
-    }
-}*/

@@ -12,8 +12,6 @@ a:hover {
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
-    -webkit-justify-content: between; /* Safari */
-    justify-content: between;
 }
 
 .topbar {

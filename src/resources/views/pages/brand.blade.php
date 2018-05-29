@@ -29,11 +29,11 @@
                         <div class="modal-content">
                             <div class="container help">
                                 <p>This page contains the products of an brand:</p>
-                                <a class="btn btn-success" role="submit" >
+                                <a class="btn btn-success" role="button" >
                                     Add Cart
                                 </a>
                                 <p>Here you can add the product to your cart but you need to be logged in to perform this action</p>
-                                <a role="submit" class="btn btn-info" >
+                                <a role="button" class="btn btn-info" >
                                     Add Favourites
                                 </a>
                                 <p>Here you can add the product to your wishlist but you need to be logged in to perform this action</p>

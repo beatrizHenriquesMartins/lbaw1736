@@ -30,8 +30,6 @@ div.col-sm-1.help .cart-btn i{
     display: flex;
     -webkit-flex-direction: row;  /* Safari */
     flex-direction:  row;
-    -webkit-justify-content: between; /* Safari */
-    justify-content: between;
     width: auto;
     height: auto;
     margin: 1.8em 4.2em 2em 4.2em;
