@@ -33,12 +33,12 @@
         <div class="btns">
             <div class="cart-btn">
                 <button type="button" class="btn btn-info pull-right purchase-btn" data-toggle="modal"
-                        data-target="#exampleModal">
+                        data-target="#exampleModal{{$product->id}}">
                     Review
                 </button>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel{{$product->id}}" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <form class="review-body" method="post" action="{{ route('addreview', ['id_product' => $product->id, 'id_purchase' => $product->id_purchase]) }}">
