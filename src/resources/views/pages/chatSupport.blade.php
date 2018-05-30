@@ -25,10 +25,6 @@
                     </div>
                 </div>
 
-                <div id="searchChatByPeople" class="card-columns col-sm-3">
-                    <input id="searchUserChat" type="text" name="search" placeholder="Search..">
-                </div>
-
                 @each('partials.people', $peoples, 'people')
             </div>
 
