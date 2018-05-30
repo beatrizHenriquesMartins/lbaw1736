@@ -36,7 +36,7 @@ class ReviewController extends Controller
       $review = DB::table('reviews')->where([['id_product', '=', $product_id], ['id_purchase', '=', $purchase_id]])->first();
 
       if($purchaseproducts == null)
-        return redirect()->back();
+        return redirect()->back()->withErrors(['message' => 'Couldnt add your review']);
 
 
       $rating = $request->input('rating');
