@@ -23,6 +23,13 @@
             </li>
         </ol>
     </nav>
+    @if ($errors->has('message'))
+      <div class="container mail" style="margin: auto;">
+        <span id="credencial_error" class="error alert alert-success col-sm-12">
+            {{ $errors->first('message') }}
+        </span>
+      </div>
+    @endif
 
     <div class="container-fluid main">
         <div class="row-fluid category-section wishlist-section">

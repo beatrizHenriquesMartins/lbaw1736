@@ -50,7 +50,7 @@ class ReviewController extends Controller
 
 
       if($review != null) {
-        $rating = 
+        $rating =
         $review = DB::table('reviews')->where([['id_product', '=', $product_id], ['id_purchase', '=', $purchase_id]])
         ->update(['rating' => $rating]);
         $review = DB::table('reviews')->where([['id_product', '=', $product_id], ['id_purchase', '=', $purchase_id]])
@@ -58,19 +58,19 @@ class ReviewController extends Controller
         $review = DB::table('reviews')->where([['id_product', '=', $product_id], ['id_purchase', '=', $purchase_id]])
         ->update(['reviewdate' => date('Y-m-d H:i:s')]);
 
-        return redirect()->back();
+        return redirect()->back()->withErrors(['message' => 'Your review was added']);
       }
       else {
         $review = new Review();
         $review->id_purchase = $purchase_id;
         $review->id_product = $product_id;
-        $review->rating =  $rating;        
+        $review->rating =  $rating;
         $review->textreview = $textreview;
         $review->reviewdate = date('Y-m-d H:i:s');
-        
-         
+
+
         $review->save();
-        return redirect()->back();
+        return redirect()->back()->withErrors(['message' => 'Your review was updated']);
       }
 
     }
