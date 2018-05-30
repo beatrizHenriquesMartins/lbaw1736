@@ -132,7 +132,7 @@
                     Quantity in Stock
                 </h2>
 
-                <input type="number" name="quantityinstock" id="quantityinstock">
+                <input type="number" name="quantityinstock" id="quantityinstock" value="{{$product->quantityinstock}}">
                 </input>
             </div>
         </div>

@@ -94,8 +94,9 @@
                 </h4>
             </a>
 
-            <h5>{{$product->category->categoryName}}</h5>
-
+            <a href="/category/{{ $product->category->categoryname }}">
+              <h5>{{$product->category->categoryname}}</h5>
+            </a>
             <h5>{{$product->price}} €</h5>
 
             <div class="description">
