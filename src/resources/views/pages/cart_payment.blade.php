@@ -168,15 +168,9 @@
                                 </div>
                                 <div class = "col-sm-6">
                                 <h3>
-                                    {{$cost}} €
+                                &nbsp;{{$cost}} €
                                 </h3>
-                                </div>
-                                <!--<h3>
-                                    Total
-                                </h3>
-                                <h3>
-                                    {{$cost}} €
-                                </h3>-->
+                                </div>                              
                             </div>
                         </div>
                     </div>
