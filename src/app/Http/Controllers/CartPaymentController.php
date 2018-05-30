@@ -21,8 +21,8 @@ use App\Product;
 class CartPaymentController extends Controller
 {
     public function show(Request $request ){
-    
-        //return redirect('/404');  
+
+        //return redirect('/404');
         if (!Auth::check())
             return redirect('/login');
 
@@ -81,10 +81,10 @@ $nif = $request->input('nif');
 }
 
 public function processPayment(Request $request, $address_id, $nif){
-    
-    
+
+
     $clientID = Auth::user()->id;
-    
+
 
     $ret = 0;
     $client = Client::find(Auth::user()->id);
@@ -102,23 +102,25 @@ public function processPayment(Request $request, $address_id, $nif){
               return json_encode($ret);
           }
         }
-       $purchaseState = false;    
+       $purchaseState = false;
        if($nif == "Undefined")
         $nif = 0;
-       $purchaseID = DB::table('purchases')->insertGetId(['id_client'=> $clientID,'id_address' => $address_id, 'purchase_state'=>false, 'cost'=> $cost, 'nif'=>$nif], 'id_purchase');
-        foreach($client->cart as $list){
-          $product = (Product::find($list->pivot->id_product));
-          $quantity = $list->pivot->quantity;
-          $price = ltrim(Product::find($list->pivot->id_product)->price);
-          settype($price, "float");
-          $cost = $price * $quantity;
-          DB::table('purchaseproducts')->insert(['id_purchase'=>$purchaseID, 'id_product'=>$list->pivot->id_product, 'quantity'=> $quantity, 'cost' => $cost]);
-          $quantityInStock = $product->quantityinstock;
-          $newQuantity = $quantityInStock - $quantity;
-          Product::where('id', $list->pivot->id_product)->update(['quantityinstock' => $newQuantity]);
-        }
+         DB::beginTransaction();
+         $purchaseID = DB::table('purchases')->insertGetId(['id_client'=> $clientID,'id_address' => $address_id, 'purchase_state'=>false, 'cost'=> $cost, 'nif'=>$nif], 'id_purchase');
+          foreach($client->cart as $list){
+            $product = (Product::find($list->pivot->id_product));
+            $quantity = $list->pivot->quantity;
+            $price = ltrim(Product::find($list->pivot->id_product)->price);
+            settype($price, "float");
+            $cost = $price * $quantity;
+            DB::table('purchaseproducts')->insert(['id_purchase'=>$purchaseID, 'id_product'=>$list->pivot->id_product, 'quantity'=> $quantity, 'cost' => $cost]);
+            $quantityInStock = $product->quantityinstock;
+            $newQuantity = $quantityInStock - $quantity;
+            Product::where('id', $list->pivot->id_product)->update(['quantityinstock' => $newQuantity]);
+          }
+         DB::commit();
     }
-  
+
 
 
     return json_encode($ret);

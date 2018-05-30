@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use Google_Client;
 use GuzzleHttp;
@@ -73,6 +74,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      DB::beginTransaction();
         $user = User::create([
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
@@ -87,7 +89,7 @@ class RegisterController extends Controller
           'id_client' => $user['id'],
           'cellphone' => $data['cellphone'],
         ]);
-
+        DB::commit();
         return $user;
     }
 
@@ -113,7 +115,7 @@ class RegisterController extends Controller
         } else {
             return null;
         }
-
+        DB::beginTransaction();
         $user = User::create([
             'firstname' => $names[0],
             'username' => $username,
@@ -130,6 +132,7 @@ class RegisterController extends Controller
             'cellphone' => '111111111',
         ]);
         $client->save();
+        DB::commit();
         Auth::login($user);
       }
       else{

@@ -314,7 +314,7 @@ class AdminController extends Controller
       }
 
       if($type == 4){
-        
+
         $purchases = DB::table('purchases')->where('purchase_state','=', false)->get();
         $userNames = [];
         $fullNames = [];
@@ -329,8 +329,8 @@ class AdminController extends Controller
           $dates[$purchase->id_purchase]=substr($purchase->purchase_date, 0, 10);
           $costs[$purchase->id_purchase] = $purchase->cost;
         }
-       
-        
+
+
         return view('pages.confirmation_payment', ['usernames' => $userNames, 'fullnames'=>$fullNames,'dates'=>$dates, 'costs'=> $costs, 'type' => $type, 'title' => 'Confirmation Payment']);
       }
 
@@ -338,9 +338,10 @@ class AdminController extends Controller
 
   public function validatePayment(Request $request, $id){
      $newPurchaseState = true;
-     DB::table('purchases')->where('id_purchase', $id)->update(['purchase_state' => $newPurchaseState]);
-     return json_encode($id);
-     
+     DB::beginTransaction();
+      DB::table('purchases')->where('id_purchase', $id)->update(['purchase_state' => $newPurchaseState]);
+      return json_encode($id);
+     DB::commit();
      $ret = 0;
      return json_encode($ret);
   }
