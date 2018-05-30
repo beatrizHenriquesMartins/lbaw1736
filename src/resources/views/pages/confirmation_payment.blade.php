@@ -20,7 +20,7 @@
         </ol>
     </nav>
     
-    @if($usernames && count($usernames) != 0)
+    
     <div class="row-fluid">
     <div class = "col-sm-1">
     </div>
@@ -63,6 +63,6 @@
     <div class = "col-sm-1">
     </div>
     </div>
-    @endif
+   
 
 @endsection

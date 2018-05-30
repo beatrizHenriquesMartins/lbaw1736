@@ -185,8 +185,8 @@ class ProductController extends Controller
 
       $userBM = BrandManager::find(Auth::user()->id);
 
-      if($userBM == null)
-        return redirect('/404');
+      if($userBM == null)  
+      return redirect('/404');
 
       $canchange = 0;
 
