@@ -52,6 +52,7 @@ Route::post('api/payment/{address_id}/nif/{nif}', 'CartPaymentController@process
 
 // product
 Route::get('products/{id}', 'ProductController@show')->name('product');
+Route::get('products_error/{id}', 'ProductController@showError')->name('product_error');
 Route::get('products/{id}/edit', 'ProductController@showedit')->name('editProduct');
 Route::get('products/{id}/remove', 'ProductController@delete')->name('removeProduct');
 Route::get('newproduct', 'ProductController@showadd')->name('newProduct');

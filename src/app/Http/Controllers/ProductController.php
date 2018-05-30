@@ -86,6 +86,65 @@ class ProductController extends Controller
       }
     }
 
+    public function showError($id)
+    {
+      $product = Product::find($id);
+
+
+      if($product == null || $product->active == 0)
+        return redirect('/404');
+
+
+        $type = 0;
+
+
+        if(Auth::check()) {
+
+          $userBM = BrandManager::find(Auth::user()->id);
+          $userSP = SupportChat::find(Auth::user()->id);
+          $userADM = Admin::find(Auth::user()->id);
+          $userCL = Client::find(Auth::user()->id);
+
+
+          if($userCL != null)
+            $type = 1;
+
+          if($userBM != null)
+            $type = 2;
+
+          if($userSP != null)
+            $type = 3;
+
+          if($userADM != null)
+            $type = 4;
+        }
+
+      $reviews = DB::table('reviews')->where('id_product', $id)->join('purchases','purchases.id_purchase','=','reviews.id_purchase')->join('users', 'users.id', '=', 'id_client')->get();
+
+      $total = 0;
+      $number = 0;
+      foreach ($reviews as $review) {
+        $total  = $total + $review->rating;
+        $number++;
+      }
+      if($total == 0)
+        $reviewmed = 0;
+
+      else
+        $reviewmed = round($total / $number);
+
+      if($type == 1) {
+        $messages = Message::where('id_client', Auth::user()->id)->with('client')->with('chatsupport')->get();
+        echo "<script type='text/javascript'>alert('You can only edit the brands assigned to you');</script>";
+        return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type, 'messages' => $messages, 'title' => $product->name]);
+      }
+      else {
+        $messages = null;
+        echo "<script type='text/javascript'>alert('You can only edit the brands assigned to you');</script>";
+        return view('pages.product', ['product' => $product, 'reviews' => $reviews, 'reviewmed' =>$reviewmed, 'type' => $type, 'messages' => null, 'title' => $product->name]);
+      }
+    }
+
     public function showCategory($categoryname)
     {
 
@@ -185,8 +244,9 @@ class ProductController extends Controller
 
       $userBM = BrandManager::find(Auth::user()->id);
 
-      if($userBM == null)  
-      return redirect('/404');
+      if($userBM == null){
+        return redirect()->route('product_error', ['id'=>$id]);
+      }
 
       $canchange = 0;
 
@@ -194,8 +254,9 @@ class ProductController extends Controller
         if($product->id_brand == $brand->id_brand)
           $canchange = 1;
       }
-      if($canchange == 0)
-        return redirect('/404');
+      if($canchange == 0){
+        return redirect()->route('product_error', ['id'=>$id]);
+      }
 
       $reviews = DB::table('reviews')->where('id_product', $id)->join('purchases','purchases.id_purchase','=','reviews.id_purchase')->join('users', 'users.id', '=', 'id_client')->get();
 
@@ -256,8 +317,9 @@ class ProductController extends Controller
 
       $userBM = BrandManager::find(Auth::user()->id);
 
-      if($userBM == null)
-        return redirect('/404');
+      if($userBM == null){
+        return redirect()->route('product_error', ['id'=>$id]);
+      }
 
       $canchange = 0;
       $product = Product::find($id);
@@ -267,8 +329,9 @@ class ProductController extends Controller
           $canchange = 1;
       }
 
-      if($canchange == 0)
-        return redirect('/404');
+      if($canchange == 0){
+        return redirect()->route('product_error', ['id'=>$id]);
+      }
 
       if($product != null) {
         DB::table('products')->where([['id', '=', $id]])->update(['active' => 0]);
