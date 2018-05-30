@@ -67,7 +67,6 @@ function addEventListeners() {
   if(bans) {
     let i = 0;
     for(i = 0; i < bans.length; i++) {
-      console.log("HERE!!!!");
       bans[i].addEventListener("click", sendBanRequest);
     }
   }
@@ -171,7 +170,6 @@ function sendRemoveCommentRequest() {
 }
 
 function sendRemoveCommentHandler() {
-  console.log(this.responseText);
   if (this.status != 200) window.location = '/';
   let comment = JSON.parse(this.responseText);
 
@@ -198,16 +196,12 @@ function sendAddAddressRequest() {
   let zipcode = addAddress.querySelector(".zipcode").value;
   let country = addAddress.querySelector(".country").value;
   let city = addAddress.querySelector(".city").value;
-  console.log(address);
-  console.log(zipcode);
-  console.log(country);
-  console.log(city);
+
   sendAjaxRequest('put', '/api/add/address', {address:address,zipcode:zipcode,country:country,city:city}, sendAddAddressHandler);
 
 }
 
 function sendAddAddressHandler() {
-  console.log(this.responseText);
   if (this.status != 200) window.location = '/';
   let address = JSON.parse(this.responseText);
 
@@ -257,7 +251,6 @@ function sendRemoveAddressRequest() {
 }
 
 function sendRemoveAddressHandler() {
-  console.log(this.responseText);
   if (this.status != 200) window.location = '/';
   let address = JSON.parse(this.responseText);
 
@@ -485,7 +478,6 @@ function sendAddWishlistRequest() {
 }
 
 function AddWishlistHandler() {
-  console.log(this.responseText);
 //  if (this.status != 200) window.location = '/';
   let cart = JSON.parse(this.responseText);
   let element = document.createElement("div");
@@ -555,7 +547,6 @@ function processOrder(){
   let nifValue = nifInput.value;
 
 
-  console.log(nifValue);
   let selectAddressOrder = document.querySelectorAll('.addresses .form-check input');
   var countSelectedAddr = 0;
   var selAddr = -1;
@@ -566,7 +557,6 @@ function processOrder(){
       countSelectedAddr ++;
     }
   }
-  console.log(selAddr);
   if(selAddr > -1 && countSelectedAddr == 1){
     $("#selectedAddr").val(selAddr);
     $('#nifForm').val(nifValue);
@@ -584,17 +574,13 @@ function cartPayment(){
   nif = (nif.trim) ? nif.trim() : nif.replace(/^\s+/,'');
   if(!nif || nif == null || nif == "")
     nif = "Undefined";
-  console.log(nif);
-  console.log(addressId);
   sendAjaxRequest('post', 'api/payment/'+addressId+'/nif/'+nif, null, cartPaymentResponse);
 }
 
 function cartPaymentResponse(){
   if (this.status != 200) window.location = '/';
 
-  console.log(this.responseText);
   let response = JSON.parse(this.responseText);
-  console.log(response);
 
   let element = document.createElement("div");
 
@@ -621,14 +607,12 @@ function confirmPayment(){
   let id = this.closest('.user-payment').getAttribute('id_purchase');
   this.closest('.user-payment').remove();
   id = parseInt(id);
-  console.log(id);
   sendAjaxRequest('post', 'api/confirm_payment/'+id, null, confirmPaymentResponse);
 }
 
 function confirmPaymentResponse(){
   //if (this.status != 200) window.location = '/';
   let response = JSON.parse(this.responseText);
-  console.log(response);
 
 
 
@@ -691,7 +675,6 @@ function getChatMsgHandler() {
                            + chat_msgs[i].client.imageurl
                            + '" class=" img-responsive "></div>';
     }
-    console.log(new_msg);
     msg_body.append(new_msg);
   }
 }
@@ -709,7 +692,6 @@ function googleRegisterHandler() {
   gapi.load('auth2',function(){
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function(){
-            console.log('User signed out .');
             document.getElementById("logo").click();
         });
       });
@@ -718,7 +700,6 @@ function googleRegisterHandler() {
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
-          console.log('User signed out.');
     });
 }
 
