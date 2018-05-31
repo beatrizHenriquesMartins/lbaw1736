@@ -520,6 +520,9 @@ INSERT INTO addresses VALUES (DEFAULT, 'Rua Manuel Simões Maia 123', '2314-432'
 INSERT INTO addresses VALUES (DEFAULT, 'Rua dos Poveiros 77', '2151-542', 8);
 INSERT INTO addresses VALUES (DEFAULT, 'Rua Damião de Góis 211', '1312-321', 9);
 INSERT INTO addresses VALUES (DEFAULT, 'Rua Serpa Pinto 15', '1532-253', 10);
+INSERT INTO addresses VALUES (DEFAULT, 'Avenida da Boavista 15', '1200-897', 1);
+INSERT INTO addresses VALUES (DEFAULT, 'Parque Norte R. de Montecastro 2540', '4700-087', 9);
+INSERT INTO addresses VALUES (DEFAULT, 'Rua da Constituição 460', '3400-74', 1);
 
 
 INSERT INTO clientaddresses VALUES (11, 1);
@@ -532,6 +535,9 @@ INSERT INTO clientaddresses VALUES (17, 7);
 INSERT INTO clientaddresses VALUES (18, 8);
 INSERT INTO clientaddresses VALUES (19, 9);
 INSERT INTO clientaddresses VALUES (20, 10);
+INSERT INTO clientaddresses VALUES (19, 11);
+INSERT INTO clientaddresses VALUES (19, 12);
+INSERT INTO clientaddresses VALUES (19, 13);
 
 
 INSERT INTO purchases VALUES (DEFAULT, 11, 1, DEFAULT, TRUE, 300, 'cartao credito', '5400 4102 4021 7362', 'Pedro Gonçalves', '2018-07-23', 235123482);
