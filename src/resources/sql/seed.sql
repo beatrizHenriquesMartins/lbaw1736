@@ -428,6 +428,16 @@ Não espere que este seja mais um livro sobre o Excel. Aqui, terá a possibilida
 
 Com mais de 40 exercícios resolvidos, o Microsoft® Excel® - Funcionalidades e Resolução de Problemas constitui uma ferramenta de estudo autónomo, que potencia ao máximo a utilização de um software de recursos quase ilimitados. ', 'Partindo da nova versão incluída no Microsoft® Office 2007, esta obra destina-se a utilizadores que tendo alguma experiência pretendem expandir os seus conhecimentos.', 35, 5, 1, 0);
 
+INSERT INTO products VALUES (DEFAULT, 'Doone Soft Ankle', 20, now(), 29.99, '/images/brands/sport_zone/doone_soft_ankle.jpeg', 'Feito a pensar no treino regular de força e tonificação dos músculos inferiores em ambiente doméstico e ginásio, este produto promete resultados visíveis ao fim de um mês. Utilizado nos ginásios das seleções nacionais de futebol e de handball, o seu valor foi já comprovado ao mais alto nível. ', 'Ideal para treino regular de força e tonificação dos músculos inferiores em ambiente doméstico e ginásio. ', 38, 7, 1, 0);
+
+INSERT INTO products VALUES (DEFAULT, 'BH Aquo Program', 20, now(), 469.99, '/images/brands/sport_zone/bh_aquo_program.jpg', 'Feito a pensar no treino regular de força e tonificação dos músculos inferiores em ambiente doméstico e ginásio, este produto promete resultados visíveis ao fim de um mês. Utilizado pela equipa olímpica de remo, o seu valor foi já comprovado ao mais alto nível. ', 'Ideal para o treino de resistência dos músculos superiores e peito em ambiente doméstico e ginásio. ', 38, 7, 1, 0);
+
+INSERT INTO products VALUES (DEFAULT, 'Spitz Tour', 20, now(), 89.99, '/images/brands/sport_zone/spitz_tour.jpg', 'Bicicleta 18 velocidades com punhos rotativos para passeios curtos em utilizações ocasionais. Quadro em aço oferece durabilidade e conforto. Os travões V-brake e a suspensão dianteira aumentam a segurança e o conforto de utilização. ', 'Bicicleta 18 velocidades com punhos rotativos para passeios curtos em utilizações ocasionais. ', 38, 7, 1, 0);
+
+INSERT INTO products VALUES (DEFAULT, 'Luvas Cycle', 20, now(), 3.99, '/images/brands/sport_zone/luvas_cycle.jpg', 'Luva em cores neutras, com parte superior em licra o que a torna mais leve e ajustável e com acolchoamento para garantir um maior conforto.', 'Luva leve, ajustável e com acolchoamento para garantir o máximo conforto.', 38, 7, 1, 0);
+
+
+
 
 
 INSERT INTO wishlists VALUES (1, 11);
