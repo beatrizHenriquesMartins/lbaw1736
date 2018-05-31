@@ -301,6 +301,7 @@ INSERT INTO brands VALUES (DEFAULT, 'Cavalinho', 223143243, '/images/brands/cava
 INSERT INTO brands VALUES (DEFAULT, 'Chicos', 223143243, '/images/brands/chicos/chicos.png');
 INSERT INTO brands VALUES (DEFAULT, 'Claus Porto', 223143243, '/images/brands/claus_porto/claus_porto.png');
 INSERT INTO brands VALUES (DEFAULT, 'Coloradd', 223143243, '/images/brands/coloradd/coloradd.png');
+INSERT INTO brands VALUES(DEFAULT, 'Compal', 223143243, '/images/brands/compal/compal.jpg');
 INSERT INTO brands VALUES (DEFAULT, 'Deamor', 223143243, '/images/brands/deamor/deamor.png');
 INSERT INTO brands VALUES (DEFAULT, 'Decenio', 223143243, '/images/brands/decenio/decenio.png');
 INSERT INTO brands VALUES (DEFAULT, 'Design Flops', 223143243, '/images/brands/design_flops/design_flops.png');
@@ -312,6 +313,7 @@ INSERT INTO brands VALUES (DEFAULT, 'Eureka Shoes', 223143243, '/images/brands/e
 INSERT INTO brands VALUES (DEFAULT, 'Fasm', 223143243, '/images/brands/fasm/fasm.png');
 INSERT INTO brands VALUES (DEFAULT, 'Fio Rosa', 223143243, '/images/brands/fio_rosa/fio_rosa.png');
 INSERT INTO brands VALUES (DEFAULT, 'Science4You', 223143243, '/images/brands/science4you/science4you.png');
+INSERT INTO brands VALUES (DEFAULT, 'Spausa', 223143243, '/images/brands/spausa/spausa.png');
 
 INSERT INTO brandManagers VALUES (1);
 INSERT INTO brandManagers VALUES (2);
@@ -343,6 +345,43 @@ INSERT INTO products VALUES (DEFAULT, 'Frozen', 10, now(), 30.00, '/images/brand
 INSERT INTO products VALUES (DEFAULT, 'Cardosas', 10, now(), 300.00, '/images/brands/alma_de_luce/1.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 3, 6, 1, 1);
 INSERT INTO products VALUES (DEFAULT, 'Aparador Multi-Gavetas', 10, now(), 300.00, '/images/brands/alma_de_luce/2.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 3, 6, 1, 1);
 INSERT INTO products VALUES (DEFAULT, 'Cesta Picnic', 10, now(), 10.10, '/images/brands/anita_picnic/slideshow_9.jpg', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.', 6, 6, 1, 1);
+INSERT INTO products VALUES (DEFAULT, 'Sabonete Frangipani', 10, now(), 18.50, '/images/brands/deamor/sabonete_frangipani.jpg', 'DeAmor é um sabonete cremoso, foi especialmente formulado para a pele delicada do teu rosto, quando entra em contacto com a água, liberta uma espuma suave, hidratante e delicada.
+
+Combinando as fragrâncias mais requintadas com os melhores óleos e manteigas vegetais, o sabonete “Frangipani” oferece uma limpeza profunda, deixando a pele preparada para receber os benefícios de beleza diários.
+
+Temos a certeza que o segredo para uma pele saudável e bonita é a limpeza.
+
+Cunhado e embalado manualmente.
+
+É único e especial como tu.
+
+Uso Diário.', 'Combinando as fragrâncias mais requintadas com os melhores óleos e manteigas vegetais, o sabonete “Frangipani” oferece uma limpeza profunda, deixando a pele preparada para receber os benefícios de beleza diários.', 24, 2, 1, 0);
+
+INSERT INTO products VALUES (DEFAULT, 'Sabonete Violeta', 10, now(), 18.50, '/images/brands/deamor/sabonete_violeta.jpg', 'DeAmor é um sabonete cremoso, foi especialmente formulado para a pele delicada do teu rosto, quando entra em contacto com a água, liberta uma espuma suave, hidratante e delicada.
+
+Combinando as fragrâncias mais requintadas com os melhores óleos e manteigas vegetais, o sabonete “Violeta” oferece uma limpeza profunda, deixando a pele preparada para receber os benefícios de beleza diários.
+
+Temos a certeza que o segredo para uma pele saudável e bonita é a limpeza.
+
+Cunhado e embalado manualmente.
+
+É único e especial como tu.
+
+Uso Diário.', 'Combinando as fragrâncias mais requintadas com os melhores óleos e manteigas vegetais, o sabonete “Violeta” oferece uma limpeza profunda, deixando a pele preparada para receber os benefícios de beleza diários.', 24, 2, 1, 0);
+
+INSERT INTO products VALUES (DEFAULT, 'Sabonete Gardénia', 10, now(), 18.50, '/images/brands/deamor/sabonete_gardenia.jpg', 'DeAmor é um sabonete cremoso, foi especialmente formulado para a pele delicada do teu rosto, quando entra em contacto com a água, liberta uma espuma suave, hidratante e delicada.
+
+Combinando as fragrâncias mais requintadas com os melhores óleos e manteigas vegetais, o sabonete “Gardénia” oferece uma limpeza profunda, deixando a pele preparada para receber os benefícios de beleza diários.
+
+Temos a certeza que o segredo para uma pele saudável e bonita é a limpeza.
+
+Cunhado e embalado manualmente.
+
+É único e especial como tu.
+
+Uso Diário.', 'Combinando as fragrâncias mais requintadas com os melhores óleos e manteigas vegetais, o sabonete “Gardénia” oferece uma limpeza profunda, deixando a pele preparada para receber os benefícios de beleza diários.', 24, 2, 1, 0);
+
+INSERT INTO products VALUES (DEFAULT, 'Creme Dia Ouro', 10, now(), 39.40, '/images/brands/spausa/creme_dia_ouro.jpg', 'Corrige as rugas até 29%, em 30 dias e a perda de firmeza, num só gesto. Nutre, ilumina e melhora a elasticidade cutânea. Melhoria na textura da pele em cerca de 113%, mais lisa e aveludada*. Aumento da comunicação intercelular entre as células epidérmicas em 91%*. Restaura os níveis e estimula a produção de Colagénio tipo I, III e IV**.', 'Creme de rosto com SPF 15, que promove a regeneração celular e uma textura acetinada e luminosa, reduzindo as rugas e os sinais de envelhecimento.', 24, 2, 1, 0);
 
 
 INSERT INTO wishlists VALUES (1, 11);
